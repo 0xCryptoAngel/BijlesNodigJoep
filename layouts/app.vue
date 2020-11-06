@@ -1,12 +1,14 @@
 <template>
-  <nuxt />
+  <appNavBar />
 </template>
 
 <script>
+import appNavBar from '~/components/appNavBar'
+
 export default {
-  components: {},
+  components: { appNavBar },
   head: {
-    title: 'Nuxt.js with TailwindUI',
+    title: 'BijlesNodig',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

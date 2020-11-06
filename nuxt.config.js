@@ -13,8 +13,15 @@ export default {
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+    configPath: 'tailwind.config.js',
+    exposeConfig: true,
+    config: {},
+  },
+
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['~/plugins/clickaway'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -23,7 +30,16 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
+
+    ['@nuxtjs/google-fonts'],
   ],
+  googleFonts: {
+    families: {
+      Inter: true,
+    },
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
@@ -31,6 +47,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // https://i18n.nuxtjs.org/setup
+    'nuxt-i18n',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -38,4 +56,10 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+  // Basic Usage i18n (https://i18n.nuxtjs.org/basic-usage)
+  i18n: {
+    locales: ['nl', 'en'],
+    defaultLocale: 'nl',
+  },
+  // https://github.com/nuxt-community/google-fonts-module
 }
