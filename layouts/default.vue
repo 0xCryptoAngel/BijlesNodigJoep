@@ -1,19 +1,21 @@
 <template>
-  <nuxt />
+  <homeNavBar />
 </template>
 
 <script>
+import homeNavBar from '~/components/homeNavBar'
+
 export default {
-  components: {},
+  components: { homeNavBar },
   head: {
-    title: 'Nuxt.js with TailwindUI',
+    title: 'BijlesNodig',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: 'Nuxt.js with TailwindUI example',
+        content: 'Local Dev Env',
       },
     ],
   },

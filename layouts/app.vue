@@ -15,7 +15,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'Nuxt.js with TailwindUI example',
+        content: 'Local Dev Env',
       },
     ],
   },

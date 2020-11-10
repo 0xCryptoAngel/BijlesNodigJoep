@@ -1,21 +1,28 @@
 <template>
-  <div>
-    <div>
-      <main>
-        <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <!-- Replace with your content -->
-          <div class="px-4 py-6 sm:px-0">
-            <div
-              class="border-4 border-gray-200 border-dashed rounded-lg h-96"
-            ></div>
-          </div>
-          <!-- /End replace -->
-        </div>
-      </main>
-    </div>
-  </div>
+  <div><LoginForm :loginsubmit="loginUser" /></div>
 </template>
 
 <script>
-export default { layout: 'app' }
+import LoginForm from '~/components/LoginForm'
+
+export default {
+  name: 'Login',
+  components: {
+    LoginForm,
+  },
+  methods: {
+    async loginUser(user) {
+      try {
+        await this.$auth.loginWith('local', {
+          data: {
+            user,
+          },
+        })
+        this.$router.push('/profile')
+      } catch (e) {
+        this.error = e.response.data.message
+      }
+    },
+  },
+}
 </script>

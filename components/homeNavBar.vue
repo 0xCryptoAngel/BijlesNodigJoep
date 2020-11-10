@@ -199,9 +199,7 @@
       </div>
       <header class="relative py-10">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold leading-9 text-white">
-            Zoekresultaten
-          </h1>
+          <h1 class="text-3xl font-bold leading-9 text-white">Inloggen</h1>
         </div>
       </header>
     </div>

@@ -10,5 +10,6 @@ import GridResults from '~/components/GridResults'
 export default {
   components: { GridResults },
   layout: 'app',
+  middleware: 'auth',
 }
 </script>

@@ -45,14 +45,46 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://auth.nuxtjs.org/guide/setup.html
+    '@nuxtjs/auth',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://i18n.nuxtjs.org/setup
     'nuxt-i18n',
   ],
-
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+  },
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:3000',
+  },
+  auth: {
+    localStorage: false,
+    cookie: {
+      options: {
+        expires: 7,
+      },
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: 'http://notawanker.com/login',
+            method: 'post',
+            propertyName: 'token',
+          },
+          logout: false,
+          user: {
+            url: 'http://notawanker.com/users/current',
+            method: 'get',
+            propertyName: '',
+          },
+        },
+      },
+    },
+    plugins: [{ src: '~/plugins/auth.js', mode: 'client' }],
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
@@ -60,6 +92,9 @@ export default {
   i18n: {
     locales: ['nl', 'en'],
     defaultLocale: 'nl',
+  },
+  router: {
+    middleware: ['loggedIn'],
   },
   // https://github.com/nuxt-community/google-fonts-module
 }
