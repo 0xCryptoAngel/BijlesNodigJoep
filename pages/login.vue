@@ -23,6 +23,7 @@ export default {
             'Authorization',
             'Bearer ' + resp.data.access_token
           )
+          this.$axios.setHeader('Accept', 'application/json, text/plain')
           this.$auth.ctx.app.$axios.setHeader(
             'Authorization',
             'Bearer ' + resp.data.access_token
@@ -31,7 +32,7 @@ export default {
             .get('http://notawanker.com/users/current')
             .then((resp) => {
               this.$auth.setUser(resp.data)
-              this.$router.push('/test')
+              this.$router.push('/zoeken')
             })
         })
     },

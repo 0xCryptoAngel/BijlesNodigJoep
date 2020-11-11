@@ -45,6 +45,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://nuxtjs.org/faq/http-proxy
+    '@nuxtjs/proxy',
     // https://auth.nuxtjs.org/guide/setup.html
     '@nuxtjs/auth',
     // https://go.nuxtjs.dev/pwa
@@ -52,13 +54,11 @@ export default {
     // https://i18n.nuxtjs.org/setup
     'nuxt-i18n',
   ],
-  env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
-  },
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     baseURL: 'http://localhost:3000',
   },
+
   auth: {
     localStorage: false,
     cookie: {
@@ -72,18 +72,21 @@ export default {
           login: {
             url: 'http://notawanker.com/login',
             method: 'post',
-            propertyName: 'token',
+            propertyName: false,
           },
           logout: false,
           user: {
             url: 'http://notawanker.com/users/current',
             method: 'get',
-            propertyName: '',
+            propertyName: false,
           },
         },
       },
     },
-    plugins: [{ src: '~/plugins/auth.js', mode: 'client' }],
+    plugins: [
+      '~/plugins/axios.js',
+      { src: '~/plugins/auth.js', mode: 'client' },
+    ],
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
@@ -93,8 +96,6 @@ export default {
     locales: ['nl', 'en'],
     defaultLocale: 'nl',
   },
-  router: {
-    middleware: ['loggedIn'],
-  },
+
   // https://github.com/nuxt-community/google-fonts-module
 }
