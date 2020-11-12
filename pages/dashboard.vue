@@ -6,7 +6,7 @@
           <!-- Replace with your content -->
           <div class="px-4 py-6 sm:px-0">
             <div class="border-4 border-gray-200 border-dashed rounded-lg h-96">
-              <p>Favorieten</p>
+              <p>DashboardHomeApp</p>
             </div>
           </div>
           <!-- /End replace -->
@@ -17,5 +17,5 @@
 </template>
 
 <script>
-export default { middleware: 'auth', layout: 'app' }
+export default { name: 'App', middleware: 'auth', layout: 'app' }
 </script>

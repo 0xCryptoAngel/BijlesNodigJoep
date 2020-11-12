@@ -10,6 +10,12 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
 
+  loading: {
+    color: '#075985',
+    height: '2px',
+    throttle: 0,
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 
@@ -74,18 +80,29 @@ export default {
             method: 'post',
             propertyName: false,
           },
-          logout: false,
+          logout: { url: 'http://notawanker.com/logout', method: 'delete' },
           user: {
             url: 'http://notawanker.com/users/current',
             method: 'get',
-            propertyName: 'user.token',
+            propertyName: false,
+            headers: { Accept: 'application/json, text/plain' },
           },
         },
       },
     },
+    tokenRequired: true,
+    tokenType: 'Bearer',
     plugins: [{ src: '~/plugins/auth.js', mode: 'client' }],
+    redirect: {
+      login: '/login',
+      logout: '/',
+      home: '/dashboard',
+    },
   },
 
+  router: {
+    middleware: ['auth'],
+  },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
   // Basic Usage i18n (https://i18n.nuxtjs.org/basic-usage)

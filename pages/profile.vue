@@ -1,5 +1,5 @@
 <template>
-  <main class="relative -mt-32">
+  <main class="relative -mt-16">
     <div class="max-w-screen-xl px-4 pb-6 mx-auto sm:px-6 lg:pb-16 lg:px-8">
       <div class="overflow-hidden bg-white rounded-lg shadow">
         <div
@@ -502,9 +502,10 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  middleware: 'auth',
+  layout: 'app',
   computed: {
     ...mapGetters(['loggedInUser']),
   },
-  middleware: 'auth',
 }
 </script>

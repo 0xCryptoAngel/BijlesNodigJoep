@@ -29,21 +29,21 @@
       >
         <div class="py-1 bg-white rounded-md shadow-xs">
           <a
-            href="#"
+            href="/profile"
             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            >Your Profile</a
+            >Jouw Profiel</a
           >
 
           <a
             href="#"
             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            >Settings</a
+            >Instellingen</a
           >
 
           <a
-            href="#"
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            >Sign out</a
+            class="block px-4 py-2 text-sm text-gray-700 cursor-pointer hover:bg-gray-100"
+            @click="logout"
+            >Uitloggen</a
           >
         </div>
       </div>
@@ -58,6 +58,11 @@ export default {
       isMobileMenuOpen: false,
       isUserMenuOpen: false,
     }
+  },
+  methods: {
+    async logout() {
+      await this.$auth.logout()
+    },
   },
 }
 </script>

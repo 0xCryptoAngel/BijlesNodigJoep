@@ -1,231 +1,152 @@
 <template>
-  <div>
-    <div class="relative pb-32 overflow-hidden bg-light-blue-700">
-      <nav
-        class="relative z-10 border-b border-teal-500 border-opacity-25 lg:bg-transparent lg:border-none"
+  <div class="relative overflow-hidden bg-light-blue-700">
+    <div class="max-w-screen-xl mx-auto">
+      <div
+        class="relative z-10 pb-8 bg-light-blue-700 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
       >
-        <div class="px-2 mx-auto max-w-7xl sm:px-4 lg:px-8">
-          <div
-            class="relative flex items-center justify-between h-16 lg:border-b lg:border-light-blue-800"
+        <svg
+          class="absolute inset-y-0 right-0 hidden w-48 h-full text-white transform translate-x-1/2 lg:block"
+          fill="currentColor"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <polygon points="50,0 100,0 50,100 0,100" />
+        </svg>
+
+        <div class="relative px-4 pt-6 sm:px-6 lg:px-8">
+          <nav
+            class="relative flex items-center justify-between sm:h-10 lg:justify-start"
           >
-            <div class="flex items-center px-2 lg:px-0">
-              <div class="flex-shrink-0">
-                <img
-                  class="block w-auto h-8"
-                  src="https://tailwindui.com/img/logos/v1/workflow-mark-teal-400.svg"
-                  alt="Workflow"
-                />
-              </div>
-              <div class="hidden lg:block lg:ml-6 lg:space-x-4">
-                <div class="flex">
-                  <a
-                    href="/"
-                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-black bg-opacity-25 rounded-md focus:outline-none focus:bg-light-blue-800"
-                    aria-current="page"
-                    >Dashboard</a
+            <div
+              class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0"
+            >
+              <div class="flex items-center justify-between w-full md:w-auto">
+                <a href="#" aria-label="Home">
+                  <img
+                    class="w-auto h-8 sm:h-10"
+                    src="https://tailwindui.com/img/logos/v1/workflow-mark-on-white.svg"
+                    alt="Logo"
+                  />
+                </a>
+                <div class="flex items-center -mr-2 md:hidden">
+                  <button
+                    id="main-menu"
+                    type="button"
+                    class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500"
+                    aria-label="Main menu"
+                    aria-haspopup="true"
+                    @click="isMobileMenuOpen = !isMobileMenuOpen"
                   >
-
-                  <a
-                    href="/zoeken"
-                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-800 focus:outline-none focus:bg-light-blue-800"
-                    >Zoeken</a
-                  >
-
-                  <a
-                    href="/berichten"
-                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-800 focus:outline-none focus:bg-light-blue-800"
-                    >Berichten</a
-                  >
-
-                  <a
-                    href="/favorieten"
-                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-800 focus:outline-none focus:bg-light-blue-800"
-                    >Favorieten</a
-                  >
-                  <a
-                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md cursor-pointer hover:bg-light-blue-800 focus:outline-none focus:bg-light-blue-800"
-                    @click="logout"
-                    >Logout</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="flex justify-center flex-1 px-2 lg:ml-6 lg:justify-end">
-              <div class="w-full max-w-lg lg:max-w-xs">
-                <label for="search" class="sr-only">Zoeken</label>
-                <div
-                  class="relative text-light-blue-100 focus-within:text-gray-400"
-                >
-                  <div
-                    class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-                  >
-                    <!-- Heroicon name: search -->
                     <svg
-                      class="flex-shrink-0 w-5 h-5"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
+                      class="w-6 h-6"
+                      stroke="currentColor"
+                      fill="none"
+                      viewBox="0 0 24 24"
                     >
                       <path
-                        fill-rule="evenodd"
-                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                        clip-rule="evenodd"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"
                       />
                     </svg>
-                  </div>
-                  <input
-                    id="search"
-                    class="block w-full py-2 pl-10 pr-3 leading-5 transition duration-150 ease-in-out bg-opacity-50 border border-transparent rounded-md bg-light-blue-700 placeholder-light-blue-100 focus:outline-none focus:bg-white focus:placeholder-gray-500 focus:text-gray-900 sm:text-sm"
-                    placeholder="Zoeken op postcode"
-                    type="search"
-                  />
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="flex lg:hidden">
-              <!-- Mobile menu button -->
-              <button
-                class="inline-flex items-center justify-center p-2 transition duration-150 ease-in-out rounded-md text-light-blue-200 hover:text-white hover:bg-light-blue-800 focus:outline-none focus:bg-light-blue-800 focus:text-white"
-                aria-expanded="false"
-                @click="isMobileMenuOpen = !isMobileMenuOpen"
+            <div class="hidden md:block md:ml-10 md:pr-4">
+              <a
+                href="#"
+                class="font-medium text-white transition duration-150 ease-in-out hover:text-gray-800"
+                >Over Ons</a
               >
-                <span class="sr-only">Open main menu</span>
-                <!-- Icon when menu is closed. -->
-                <!--
-                Heroicon name: menu
-
-                Menu open: "hidden", Menu closed: "block"
-              -->
-                <svg
-                  class="flex-shrink-0 block w-6 h-6"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-                <!-- Icon when menu is open. -->
-                <!--
-                Heroicon name: x
-
-                Menu open: "block", Menu closed: "hidden"
-              -->
-                <svg
-                  class="flex-shrink-0 hidden w-6 h-6"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
+              <a
+                href="#"
+                class="ml-8 font-medium text-white transition duration-150 ease-in-out hover:text-gray-800"
+                >Hoe werkt het?</a
+              >
+              <a
+                href="#"
+                class="ml-8 font-medium text-white transition duration-150 ease-in-out hover:text-gray-800"
+                >Prijzen</a
+              >
+              <a
+                href="/login"
+                class="px-8 py-3 ml-8 font-medium transition duration-150 ease-in-out bg-indigo-100 border border-transparent rounded-md text-light-blue-700 focus:outline-none focus:shadow-outline-indigo hover:text-light-blue-600 focus:border-indigo-300 md:py-3 md:text-lg md:px-6"
+                >Log in</a
+              >
             </div>
-            <div class="hidden lg:block lg:ml-4">
-              <div class="flex items-center">
-                <button
-                  class="flex-shrink-0 p-1 transition duration-150 ease-in-out border-2 border-transparent rounded-full text-light-blue-200 hover:bg-light-blue-800 hover:text-white focus:outline-none focus:text-white focus:bg-light-blue-800"
-                >
-                  <span class="sr-only">View notifications</span>
-                  <!-- Heroicon name: bell -->
-                  <svg
-                    class="w-6 h-6"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                    />
-                  </svg>
-                </button>
-                <!-- Profile dropdown -->
-                <ProfileDropdown />
-              </div>
-            </div>
-          </div>
+          </nav>
         </div>
+
         <!--
         Mobile menu
       -->
-        <SlideMobileMenu
+
+        <siteSlideMobileMenu
           :show="isMobileMenuOpen"
           @close="isMobileMenuOpen = false"
         />
-      </nav>
-      <!-- On: "bottom-0", Off: "inset-y-0" -->
-      <div
-        class="absolute inset-x-0 flex justify-center w-full overflow-hidden transform -translate-x-1/2 left-1/2 lg:inset-y-0"
-        aria-hidden="true"
-      >
-        <div class="flex-grow bg-opacity-75 bg-light-blue-900"></div>
-        <svg
-          class="flex-shrink-0"
-          width="1750"
-          height="308"
-          viewBox="0 0 1750 308"
-          xmlns="http://www.w3.org/2000/svg"
+        <main
+          class="max-w-screen-xl px-4 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
         >
-          <path
-            opacity=".75"
-            d="M1465.84 308L16.816 0H1750v308h-284.16z"
-            fill="#075985"
-          />
-          <path
-            opacity=".75"
-            d="M1733.19 0L284.161 308H0V0h1733.19z"
-            fill="#0c4a6e"
-          />
-        </svg>
-        <div class="flex-grow bg-opacity-75 bg-light-blue-800"></div>
+          <div class="sm:text-center lg:text-left">
+            <h2
+              class="text-4xl font-extrabold leading-10 tracking-tight text-white sm:text-5xl sm:leading-none md:text-6xl"
+            >
+              Van Gechiedenis tot Wiskunde, van Duits tot Spaans
+              <br class="xl:hidden" />
+              <span class="text-yellow-400">BijlesNodig</span>
+            </h2>
+            <p
+              class="mt-3 text-base font-light text-white sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
+            >
+              Bij BijlesNodig vind je de juiste personen voor vakken waar jij
+              hulp bij nodig hebt. Vind iemand bij jou in de buurt, leg contact
+              en maak een afspraak.
+            </p>
+            <div
+              class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start"
+            >
+              <div class="rounded-md shadow">
+                <a
+                  href="#"
+                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-light-blue-900 hover:bg-light-blue-500 focus:outline-none focus:border-light-blue-700 focus:shadow-outline-indigo md:py-4 md:text-lg md:px-10"
+                >
+                  Hoe het werkt
+                </a>
+              </div>
+              <div class="mt-3 sm:mt-0 sm:ml-3">
+                <a
+                  href="#"
+                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 transition duration-150 ease-in-out bg-indigo-100 border border-transparent rounded-md text-light-blue-700 hover:text-light-blue-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-300 md:py-4 md:text-lg md:px-10"
+                >
+                  Meld je aan
+                </a>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
-      <header class="relative py-10">
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold leading-9 text-white"></h1>
-        </div>
-      </header>
     </div>
-
-    <main class="relative -mt-32">
-      <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <!-- Replace with your content -->
-        <div class="px-4 py-6 sm:px-0">
-          <nuxt />
-        </div>
-        <!-- /End replace -->
-      </div>
-    </main>
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+      <img
+        class="object-cover w-full h-56 sm:h-72 md:h-96 lg:w-full lg:h-full"
+        src="https://images.unsplash.com/photo-1562564055-71e051d33c19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        alt=""
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import ProfileDropdown from '~/components/ProfileDropdown'
-import SlideMobileMenu from '~/components/SlideMobileMenu'
+import siteSlideMobileMenu from '~/components/siteSlideMobileMenu'
 
 export default {
-  components: { ProfileDropdown, SlideMobileMenu },
+  components: { siteSlideMobileMenu },
   data() {
     return {
       isMobileMenuOpen: false,
-      isUserMenuOpen: false,
     }
   },
   methods: {

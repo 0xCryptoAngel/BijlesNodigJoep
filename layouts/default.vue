@@ -1,12 +1,12 @@
 <template>
-  <homeNavBar />
+  <nuxt />
 </template>
 
 <script>
-import homeNavBar from '~/components/homeNavBar'
+// import homeNavBar from '~/components/homeNavBar'
 
 export default {
-  components: { homeNavBar },
+  components: {},
   head: {
     title: 'BijlesNodig',
     meta: [

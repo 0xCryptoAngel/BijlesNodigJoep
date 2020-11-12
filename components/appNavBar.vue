@@ -18,34 +18,37 @@
               </div>
               <div class="hidden lg:block lg:ml-6 lg:space-x-4">
                 <div class="flex">
-                  <a
-                    href="/"
-                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-black bg-opacity-25 rounded-md focus:outline-none focus:bg-light-blue-800"
+                  <NuxtLink
+                    to="/dashboard"
+                    exact-active-class="bg-black bg-opacity-25"
+                    exact
+                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-800 focus:outline-none focus:bg-light-blue-800"
                     aria-current="page"
-                    >Dashboard</a
+                    >Dashboard</NuxtLink
                   >
 
-                  <a
-                    href="/zoeken"
+                  <NuxtLink
+                    to="/zoeken"
+                    exact-active-class="bg-black bg-opacity-25"
+                    exact
                     class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-800 focus:outline-none focus:bg-light-blue-800"
-                    >Zoeken</a
+                    >Zoeken</NuxtLink
                   >
 
-                  <a
-                    href="/berichten"
+                  <NuxtLink
+                    to="/berichten"
+                    exact-active-class="bg-black bg-opacity-25"
+                    exact
                     class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-800 focus:outline-none focus:bg-light-blue-800"
-                    >Berichten</a
+                    >Berichten</NuxtLink
                   >
 
-                  <a
-                    href="/favorieten"
+                  <NuxtLink
+                    to="/favorieten"
+                    exact-active-class="bg-black bg-opacity-25"
+                    exact
                     class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-800 focus:outline-none focus:bg-light-blue-800"
-                    >Favorieten</a
-                  >
-                  <a
-                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md cursor-pointer hover:bg-light-blue-800 focus:outline-none focus:bg-light-blue-800"
-                    @click="logout"
-                    >Logout</a
+                    >Favorieten</NuxtLink
                   >
                 </div>
               </div>
@@ -158,7 +161,7 @@
                   </svg>
                 </button>
                 <!-- Profile dropdown -->
-                <ProfileDropdown />
+                <AppProfileDropdown />
               </div>
             </div>
           </div>
@@ -199,41 +202,31 @@
       </div>
       <header class="relative py-10">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold leading-9 text-white">
-            Zoekresultaten
-          </h1>
+          <h1 class="text-3xl font-bold leading-9 text-white"></h1>
         </div>
       </header>
     </div>
 
     <main class="relative -mt-32">
       <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <!-- Replace with your content -->
         <div class="px-4 py-6 sm:px-0">
           <nuxt />
         </div>
-        <!-- /End replace -->
       </div>
     </main>
   </div>
 </template>
 
 <script>
-import ProfileDropdown from '~/components/ProfileDropdown'
 import SlideMobileMenu from '~/components/SlideMobileMenu'
 
 export default {
-  components: { ProfileDropdown, SlideMobileMenu },
+  components: { SlideMobileMenu },
   data() {
     return {
       isMobileMenuOpen: false,
       isUserMenuOpen: false,
     }
-  },
-  methods: {
-    async logout() {
-      await this.$auth.logout()
-    },
   },
 }
 </script>

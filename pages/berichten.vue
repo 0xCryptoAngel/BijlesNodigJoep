@@ -17,5 +17,5 @@
 </template>
 
 <script>
-export default { layout: 'app' }
+export default { middleware: 'auth', layout: 'app' }
 </script>
