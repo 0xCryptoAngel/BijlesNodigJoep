@@ -17,22 +17,22 @@ export default {
           user,
         })
         .then((resp) => {
-          this.$auth.setToken('local', 'Bearer ' + resp.data.access_token)
+          this.$auth.setToken('local', 'Bearer ' + resp.data.user.token)
           this.$auth.setRefreshToken('local', resp.data.refresh_token)
           this.$axios.setHeader(
             'Authorization',
-            'Bearer ' + resp.data.access_token
+            'Bearer ' + resp.data.user.token
           )
           this.$axios.setHeader('Accept', 'application/json, text/plain')
           this.$auth.ctx.app.$axios.setHeader(
             'Authorization',
-            'Bearer ' + resp.data.access_token
+            'Bearer ' + resp.data.user.token
           )
           this.$axios
             .get('http://notawanker.com/users/current')
             .then((resp) => {
               this.$auth.setUser(resp.data)
-              this.$router.push('/zoeken')
+              this.$router.push('/profile')
             })
         })
     },

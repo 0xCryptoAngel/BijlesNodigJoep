@@ -11,17 +11,30 @@ export default {
     LoginForm,
   },
   methods: {
-    async loginUser(user) {
-      try {
-        await this.$auth.loginWith('local', {
-          data: {
-            user,
-          },
+    loginUser(user) {
+      this.$axios
+        .post('http://notawanker.com/login', {
+          user,
         })
-        this.$router.push('/profile')
-      } catch (e) {
-        this.error = e.response.data.message
-      }
+        .then((resp) => {
+          this.$auth.setToken('local', 'Bearer ' + resp.data.access_token)
+          this.$auth.setRefreshToken('local', resp.data.refresh_token)
+          this.$axios.setHeader(
+            'Authorization',
+            'Bearer ' + resp.data.access_token
+          )
+          this.$axios.setHeader('Accept', 'application/json, text/plain')
+          this.$auth.ctx.app.$axios.setHeader(
+            'Authorization',
+            'Bearer ' + resp.data.access_token
+          )
+          this.$axios
+            .get('http://notawanker.com/users/current')
+            .then((resp) => {
+              this.$auth.setUser(resp.data)
+              this.$router.push('/zoeken')
+            })
+        })
     },
   },
 }

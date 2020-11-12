@@ -78,15 +78,12 @@ export default {
           user: {
             url: 'http://notawanker.com/users/current',
             method: 'get',
-            propertyName: false,
+            propertyName: 'user.token',
           },
         },
       },
     },
-    plugins: [
-      '~/plugins/axios.js',
-      { src: '~/plugins/auth.js', mode: 'client' },
-    ],
+    plugins: [{ src: '~/plugins/auth.js', mode: 'client' }],
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

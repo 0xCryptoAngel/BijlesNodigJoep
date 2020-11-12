@@ -8,8 +8,8 @@ async function refreshTokenF($auth, $axios, token, refreshToken) {
         token: refreshToken,
       })
 
-      token = 'Bearer ' + response.data.access_token
-      refreshToken = response.data.refresh_token
+      token = 'Bearer ' + response.data.user.token
+      refreshToken = response.data.user.refresh_token
 
       $auth.setToken(strategy, token)
       $auth.setRefreshToken(strategy, refreshToken)
