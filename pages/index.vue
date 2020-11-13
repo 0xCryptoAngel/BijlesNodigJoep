@@ -7,7 +7,7 @@ import homeNavBar from '~/components/homeNavBar'
 export default {
   name: 'Home',
   components: { homeNavBar },
-  layout: 'default',
+  layout: 'homepage',
   auth: 'guest',
 }
 </script>

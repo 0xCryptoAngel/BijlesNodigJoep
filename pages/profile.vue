@@ -80,7 +80,7 @@
                     d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
                   />
                 </svg>
-                <span class="truncate"> Password </span>
+                <span class="truncate"> Wachtwoord </span>
               </a>
 
               <a
@@ -103,7 +103,7 @@
                     d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
                   />
                 </svg>
-                <span class="truncate"> Notifications </span>
+                <span class="truncate"> Notificaties </span>
               </a>
 
               <a
@@ -126,30 +126,7 @@
                     d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
                   />
                 </svg>
-                <span class="truncate"> Billing </span>
-              </a>
-
-              <a
-                href="#"
-                class="flex items-center px-3 py-2 mt-1 text-sm font-medium leading-5 text-gray-900 transition duration-150 ease-in-out border-l-4 border-transparent group hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:bg-gray-50 focus:text-gray-900"
-              >
-                <!-- Heroicon name: view-grid-add -->
-                <svg
-                  class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"
-                  />
-                </svg>
-                <span class="truncate"> Integrations </span>
+                <span class="truncate"> Facturering </span>
               </a>
             </nav>
           </aside>
@@ -163,11 +140,10 @@
             <div class="px-4 py-6 space-y-6 sm:p-6 lg:pb-8">
               <div>
                 <h2 class="text-lg font-medium leading-6 text-gray-900">
-                  Profile
+                  Profiel
                 </h2>
                 <p class="mt-1 text-sm leading-5 text-gray-500">
-                  This information will be displayed publicly so be careful what
-                  you share.
+                  Deze informatie wordt online gedeeld.
                 </p>
               </div>
 
@@ -180,7 +156,7 @@
                       for="username"
                       class="block text-sm font-medium leading-5 text-gray-700"
                     >
-                      Username
+                      Gebruikersnaam
                     </label>
                     <div class="flex rounded-md shadow-sm">
                       <span
@@ -201,7 +177,7 @@
                       for="about"
                       class="block text-sm font-medium leading-5 text-gray-700"
                     >
-                      About
+                      Over jou
                     </label>
                     <div class="rounded-md shadow-sm">
                       <textarea
@@ -211,7 +187,7 @@
                       ></textarea>
                     </div>
                     <p class="mt-2 text-sm text-gray-500">
-                      Brief description for your profile. URLs are hyperlinked.
+                      Een korte beschrijving over jezelf
                     </p>
                   </div>
                 </div>
@@ -223,7 +199,7 @@
                     class="block text-sm font-medium leading-5 text-gray-700"
                     aria-hidden="true"
                   >
-                    Photo
+                    Foto
                   </p>
                   <div class="lg:hidden">
                     <div class="flex items-center">
@@ -233,7 +209,7 @@
                       >
                         <img
                           class="w-full h-full rounded-full"
-                          src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=80h"
+                          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
                           alt=""
                         />
                       </div>
@@ -245,7 +221,7 @@
                             for="user_photo"
                             class="relative text-sm font-medium leading-4 text-gray-700 transition duration-150 ease-in-out pointer-events-none group-hover:text-gray-500"
                           >
-                            <span>Change</span>
+                            <span>Wijzigen</span>
                             <span class="sr-only"> user photo</span>
                           </label>
                           <input
@@ -263,13 +239,13 @@
                   >
                     <img
                       class="relative w-40 h-40 rounded-full"
-                      src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80"
+                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
                       alt=""
                     />
                     <label
                       class="absolute inset-0 flex items-center justify-center w-full h-full text-sm font-medium leading-5 text-white transition duration-150 ease-in-out bg-black bg-opacity-75 opacity-0 hover:opacity-100 focus-within:opacity-100"
                     >
-                      <span>Change</span>
+                      <span>Wijzigen</span>
                       <span class="sr-only"> user photo</span>
                       <input
                         type="file"
@@ -285,7 +261,7 @@
                   <label
                     for="first_name"
                     class="block text-sm font-medium leading-5 text-gray-700"
-                    >First name</label
+                    >Voornaam</label
                   >
                   <input
                     id="first_name"
@@ -297,34 +273,10 @@
                   <label
                     for="last_name"
                     class="block text-sm font-medium leading-5 text-gray-700"
-                    >Last name</label
+                    >Achternaam</label
                   >
                   <input
                     id="last_name"
-                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                  />
-                </div>
-
-                <div class="col-span-12">
-                  <label
-                    for="url"
-                    class="block text-sm font-medium leading-5 text-gray-700"
-                    >URL</label
-                  >
-                  <input
-                    id="url"
-                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                  />
-                </div>
-
-                <div class="col-span-12 sm:col-span-6">
-                  <label
-                    for="company"
-                    class="block text-sm font-medium leading-5 text-gray-700"
-                    >Company</label
-                  >
-                  <input
-                    id="company"
                     class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                   />
                 </div>

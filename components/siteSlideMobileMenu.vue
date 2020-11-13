@@ -58,7 +58,7 @@
           <nav class="flex flex-col h-full">
             <div class="space-y-1">
               <a
-                href="#"
+                href="/"
                 class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out border-l-4 border-light-blue-700 group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <!-- Heroicon name: home -->
@@ -81,7 +81,7 @@
               </a>
 
               <a
-                href="#"
+                href="/over-ons"
                 class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <!-- Heroicon name: briefcase -->
@@ -104,7 +104,7 @@
               </a>
 
               <a
-                href="#"
+                href="/hoe-werkt-het"
                 class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <!-- Heroicon name: document-search -->
@@ -127,7 +127,7 @@
               </a>
 
               <a
-                href="#"
+                href="/prijzen"
                 class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <!-- Heroicon name: chat -->
@@ -173,7 +173,7 @@
               </a>
 
               <a
-                href="#"
+                href="/login"
                 class="flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-600 transition duration-150 ease-in-out group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
               >
                 <!-- Heroicon name: cog -->

@@ -161,7 +161,7 @@
                   </svg>
                 </button>
                 <!-- Profile dropdown -->
-                <AppProfileDropdown />
+                <ProfileDropdown />
               </div>
             </div>
           </div>
@@ -219,9 +219,10 @@
 
 <script>
 import SlideMobileMenu from '~/components/SlideMobileMenu'
+import ProfileDropdown from '~/components/ProfileDropdown'
 
 export default {
-  components: { SlideMobileMenu },
+  components: { SlideMobileMenu, ProfileDropdown },
   data() {
     return {
       isMobileMenuOpen: false,

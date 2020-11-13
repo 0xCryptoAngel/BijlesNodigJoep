@@ -12,17 +12,8 @@
         <h2
           class="mt-6 text-3xl font-extrabold leading-9 text-center text-gray-900"
         >
-          Log in op je account
+          Maak een account aan
         </h2>
-        <p class="mt-2 text-sm leading-5 text-center text-gray-600">
-          Of
-          <a
-            href="/register"
-            class="font-medium transition duration-150 ease-in-out text-light-blue-600 hover:text-light-blue-500 focus:outline-none focus:underline"
-          >
-            maak hier een nieuw account aan
-          </a>
-        </p>
       </div>
       <form class="mt-8" @submit.prevent="handleSubmit">
         <input type="hidden" name="remember" value="true" />
@@ -36,7 +27,7 @@
               type="email"
               required
               class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-              placeholder="Email address"
+              placeholder="E-mailadres"
             />
           </div>
           <div class="-mt-px">
@@ -48,40 +39,63 @@
               type="password"
               required
               class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-              placeholder="Password"
+              placeholder="Wachtwoord"
             />
           </div>
-        </div>
-
-        <div class="flex items-center justify-between mt-6">
-          <div class="flex items-center">
+          <div class="-mt-px">
             <input
-              id="remember_me"
-              type="checkbox"
-              class="w-4 h-4 transition duration-150 ease-in-out text-light-blue-600 form-checkbox"
+              id="fname"
+              v-model="userInfo.firstName"
+              aria-label="fname"
+              name="fname"
+              type="text"
+              required
+              class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+              placeholder="Voornaam"
             />
-            <label
-              for="remember_me"
-              class="block ml-2 text-sm leading-5 text-gray-900"
-            >
-              Onthoudt mij
-            </label>
           </div>
-
-          <div class="text-sm leading-5">
-            <a
-              href="#"
-              class="font-medium transition duration-150 ease-in-out text-light-blue-600 hover:text-light-blue-500 focus:outline-none focus:underline"
-            >
-              Wachtwoord vergeten?
-            </a>
+          <div class="-mt-px">
+            <input
+              id="name"
+              v-model="userInfo.lastName"
+              aria-label="name"
+              name="name"
+              type="text"
+              required
+              class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+              placeholder="Achternaam"
+            />
+          </div>
+          <div class="-mt-px">
+            <input
+              id="city"
+              v-model="userInfo.city"
+              aria-label="city"
+              name="city"
+              type="text"
+              required
+              class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+              placeholder="Stad"
+            />
+          </div>
+          <div class="-mt-px">
+            <input
+              id="zipcode"
+              v-model="userInfo.zip"
+              aria-label="ZipCode"
+              name="ZipCode"
+              type="text"
+              required
+              class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
+              placeholder="Postcode"
+            />
           </div>
         </div>
 
         <div class="mt-6">
           <button
             class="relative flex justify-center w-full px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-light-blue-600 group hover:bg-light-blue-500 focus:outline-none focus:border-light-blue-700 focus:shadow-outline-light-blue active:bg-light-blue-700"
-            @click="loginsubmit(userInfo)"
+            @click="registersubmit(userInfo)"
           >
             <span class="absolute inset-y-0 left-0 flex items-center pl-3">
               <svg
@@ -96,7 +110,7 @@
                 />
               </svg>
             </span>
-            Inloggen
+            Registreren
           </button>
         </div>
       </form>
@@ -106,17 +120,21 @@
 
 <script>
 export default {
-  name: 'LoginForm',
+  name: 'RegisterForm',
   components: {},
   mixins: [],
   // eslint-disable-next-line vue/require-prop-types
-  props: ['loginsubmit'],
+  props: ['registersubmit', 'show'],
   data() {
     return {
       userInfo: {
+        firstName: '',
+        lastName: '',
         email: '',
         password: '',
-        error: null,
+        confirmPassword: '',
+        city: '',
+        zip: '',
       },
       submitted: false,
     }

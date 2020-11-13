@@ -100,9 +100,6 @@ export default {
     },
   },
 
-  router: {
-    middleware: ['auth'],
-  },
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
   // Basic Usage i18n (https://i18n.nuxtjs.org/basic-usage)
