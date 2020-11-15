@@ -126,7 +126,7 @@ export default {
           Accept: 'application/json, text/plain',
           Authorization:
             'Bearer ' +
-            'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzOCIsInNjcCI6InVzZXIiLCJhdWQiOm51bGwsImlhdCI6MTYwNTI4MDcyMCwiZXhwIjoxNjA1MzY3MTIwLCJqdGkiOiI1NTNhZmJiNi03MGQwLTQ4NjItOWRlMC1lMWQ5MDFiMDE1ZDEifQ.OVETb9o5yspwoK3qbBYPsNOaCyXZO5Gj44ZC5n7td7o',
+            'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjA1NDU3MjI3LCJleHAiOjE2MDU1NDM2MjcsImp0aSI6ImFjMzI0ZDMwLTIyZjgtNDk0Mi04NTA2LTViOGRhMDdiZjFiOSJ9._pHfvZhjyNfyqdbVPwPgXaR5_0avgxUwYc9CRemqBH8',
         },
       }
 
