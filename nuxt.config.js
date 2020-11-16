@@ -66,7 +66,7 @@ export default {
   },
 
   auth: {
-    localStorage: false,
+    localStorage: true,
     cookie: {
       options: {
         expires: 7,

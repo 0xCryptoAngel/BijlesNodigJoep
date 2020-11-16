@@ -121,12 +121,12 @@ export default {
   middleware: 'auth',
   methods: {
     searchTutors() {
+      const bearer = localStorage.getItem('undefined_token.local')
+
       const options = {
         headers: {
           Accept: 'application/json, text/plain',
-          Authorization:
-            'Bearer ' +
-            'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjA1NDU3MjI3LCJleHAiOjE2MDU1NDM2MjcsImp0aSI6ImFjMzI0ZDMwLTIyZjgtNDk0Mi04NTA2LTViOGRhMDdiZjFiOSJ9._pHfvZhjyNfyqdbVPwPgXaR5_0avgxUwYc9CRemqBH8',
+          Authorization: bearer,
         },
       }
 
