@@ -1,5 +1,9 @@
 <template>
-  <appNavBar />
+  <div class="antialiased text-gray-900">
+    <div class="min-h-screen bg-gray-200">
+      <appNavBar />
+    </div>
+  </div>
 </template>
 
 <script>
