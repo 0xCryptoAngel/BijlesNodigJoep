@@ -6,6 +6,8 @@
 export default {
   name: 'Prijzen',
   layout: 'webpage',
+  middleware: 'auth',
+  auth: 'guest',
 }
 </script>
 

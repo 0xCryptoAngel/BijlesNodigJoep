@@ -7,3 +7,5 @@ export const getters = {
     return state.auth.user
   },
 }
+
+export const state = () => ({})

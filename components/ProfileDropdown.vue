@@ -26,7 +26,7 @@
     >
       <div
         v-show="isProfileOpen"
-        class="absolute right-0 w-48 mt-2 origin-top-right rounded-md shadow-lg"
+        class="absolute right-0 z-40 w-48 mt-2 origin-top-right rounded-md shadow-lg"
       >
         <div class="py-1 bg-white rounded-md shadow-xs">
           <a

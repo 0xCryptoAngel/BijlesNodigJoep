@@ -8,6 +8,7 @@ export default {
   name: 'Home',
   components: { homeNavBar },
   layout: 'homepage',
+  middleware: 'auth',
   auth: 'guest',
 }
 </script>
