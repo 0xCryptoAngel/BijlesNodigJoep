@@ -98,6 +98,7 @@
 
 <script>
 import axios from 'axios'
+import { mapGetters } from 'vuex'
 import Pagination from '~/components/Pagination'
 
 export default {
@@ -134,7 +135,7 @@ export default {
       reviewCount: '67',
     },
   }),
-  computed: {},
+  computed: { ...mapGetters(['isAuthenticated', 'loggedInUser']) },
   created() {
     this.fetchUsers()
   },

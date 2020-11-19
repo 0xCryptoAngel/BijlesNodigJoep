@@ -17,5 +17,11 @@
 </template>
 
 <script>
-export default { middleware: 'auth', layout: 'app' }
+import { mapGetters } from 'vuex'
+
+export default {
+  middleware: 'auth',
+  layout: 'app',
+  computed: { ...mapGetters(['isAuthenticated', 'loggedInUser']) },
+}
 </script>

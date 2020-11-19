@@ -456,8 +456,6 @@ import { mapGetters } from 'vuex'
 export default {
   middleware: 'auth',
   layout: 'app',
-  computed: {
-    ...mapGetters(['loggedInUser']),
-  },
+  computed: { ...mapGetters(['isAuthenticated', 'loggedInUser']) },
 }
 </script>
