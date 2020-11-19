@@ -3,7 +3,8 @@
     <nav
       class="flex items-center justify-between px-4 border-t border-gray-200 sm:px-0"
     >
-      <div v-if="pagination.current_page > 1" class="flex flex-1 w-0">
+      <!-- v-if="pagination.current_page > 1" -->
+      <div class="flex flex-1 w-0">
         <a
           href="#"
           class="inline-flex items-center pt-4 pr-1 -mt-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-t-2 border-transparent hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400"
@@ -25,17 +26,19 @@
           Vorige
         </a>
       </div>
-      <div v-for="page in pages" :key="page" class="hidden md:flex">
-        <a
-          href="#"
-          class="inline-flex items-center px-4 pt-4 -mt-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-t-2 border-transparent hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400"
-          @click.stop="change(page)"
-        >
-          {{ page }}
-        </a>
+      <!-- v-for="page in pages" :key="page" -->
+      <div class="hidden md:flex">
+        <!-- {{page}} -->
         <a
           href="#"
           class="inline-flex items-center px-4 pt-4 -mt-px text-sm font-medium leading-5 transition duration-150 ease-in-out border-t-2 text-light-blue-600 border-light-blue-500 focus:outline-none focus:text-light-blue-800 focus:border-light-blue-700"
+          @click.stop="change(page)"
+        >
+          1
+        </a>
+        <a
+          href="#"
+          class="inline-flex items-center px-4 pt-4 -mt-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-t-2 border-transparent hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400"
         >
           2
         </a>
@@ -69,10 +72,8 @@
           10
         </a>
       </div>
-      <div
-        v-if="pagination.current_page < pagination.last_page"
-        class="flex justify-end flex-1 w-0"
-      >
+      <!--  v-if="pagination.current_page < pagination.last_page" -->
+      <div class="flex justify-end flex-1 w-0">
         <a
           href="#"
           class="inline-flex items-center pt-4 pl-1 -mt-px text-sm font-medium leading-5 text-gray-500 transition duration-150 ease-in-out border-t-2 border-transparent hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-400"

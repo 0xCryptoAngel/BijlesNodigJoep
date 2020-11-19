@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import webNavBar from '~/components/webNavBar'
+import webNavBar from '~/components/webLayout/webNavBar'
 
 export default {
   components: { webNavBar },

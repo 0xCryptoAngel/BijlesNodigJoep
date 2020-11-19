@@ -9,15 +9,13 @@
 </template>
 
 <script>
-import NotificationMessage from '~/components/NotificationMessage'
-import RegisterForm from '~/components/RegisterForm'
+import RegisterForm from '~/components/loginregistration/RegisterForm'
 
 export default {
   name: 'Login',
   layout: 'webpage',
   components: {
     RegisterForm,
-    NotificationMessage,
   },
   data() {
     return {

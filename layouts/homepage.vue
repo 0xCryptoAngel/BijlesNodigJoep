@@ -3,8 +3,6 @@
 </template>
 
 <script>
-// import homeNavBar from '~/components/homeNavBar'
-
 export default {
   components: {},
   head: {

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import homeNavBar from '~/components/homeNavBar'
+import homeNavBar from '~/components/webLayout/homeNavBar'
 export default {
   name: 'Home',
   components: { homeNavBar },

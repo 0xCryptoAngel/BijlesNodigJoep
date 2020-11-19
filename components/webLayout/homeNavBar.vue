@@ -1,7 +1,18 @@
 <template>
   <div class="relative overflow-hidden bg-light-blue-700">
     <div class="max-w-screen-xl mx-auto">
-      <div class="relative z-10 pb-8 bg-light-blue-700 lg:max-w-2xl lg:w-full">
+      <div
+        class="relative z-10 pb-8 bg-light-blue-700 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
+      >
+        <svg
+          class="absolute inset-y-0 right-0 hidden w-48 h-full text-white transform translate-x-1/2 lg:block"
+          fill="currentColor"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <polygon points="50,0 100,0 50,100 0,100" />
+        </svg>
+
         <div class="relative px-4 pt-6 sm:px-6 lg:px-8">
           <nav
             class="relative flex items-center justify-between sm:h-10 lg:justify-start"
@@ -76,13 +87,60 @@
           :show="isMobileMenuOpen"
           @close="isMobileMenuOpen = false"
         />
+        <main
+          class="max-w-screen-xl px-4 mx-auto mt-10 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
+        >
+          <div class="sm:text-center lg:text-left">
+            <h2
+              class="text-4xl font-extrabold leading-10 tracking-tight text-white sm:text-5xl sm:leading-none md:text-6xl"
+            >
+              Van Geschiedenis tot Wiskunde, van Duits tot Spaans
+              <br class="xl:hidden" />
+              <span class="text-yellow-400">BijlesNodig</span>
+            </h2>
+            <p
+              class="mt-3 text-base font-light text-white sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
+            >
+              Bij BijlesNodig vind je de juiste personen voor vakken waar jij
+              hulp bij nodig hebt. Vind iemand bij jou in de buurt, leg contact
+              en maak een afspraak.
+            </p>
+            <div
+              class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start"
+            >
+              <div class="rounded-md shadow">
+                <a
+                  href="#"
+                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-light-blue-900 hover:bg-light-blue-500 focus:outline-none focus:border-light-blue-700 focus:shadow-outline-indigo md:py-4 md:text-lg md:px-10"
+                >
+                  Hoe het werkt
+                </a>
+              </div>
+              <div class="mt-3 sm:mt-0 sm:ml-3">
+                <a
+                  href="/register"
+                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 transition duration-150 ease-in-out bg-indigo-100 border border-transparent rounded-md text-light-blue-700 hover:text-light-blue-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-300 md:py-4 md:text-lg md:px-10"
+                >
+                  Meld je aan
+                </a>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
+    </div>
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+      <img
+        class="object-cover w-full h-56 sm:h-72 md:h-96 lg:w-full lg:h-full"
+        src="https://images.unsplash.com/photo-1562564055-71e051d33c19?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+        alt=""
+      />
     </div>
   </div>
 </template>
 
 <script>
-import siteSlideMobileMenu from '~/components/siteSlideMobileMenu'
+import siteSlideMobileMenu from '~/components/UI/siteSlideMobileMenu'
 
 export default {
   components: { siteSlideMobileMenu },

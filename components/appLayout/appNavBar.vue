@@ -177,8 +177,8 @@
 </template>
 
 <script>
-import SlideMobileMenu from '~/components/SlideMobileMenu'
-import ProfileDropdown from '~/components/ProfileDropdown'
+import SlideMobileMenu from '~/components/UI/SlideMobileMenu'
+import ProfileDropdown from '~/components/UI/ProfileDropdown'
 
 export default {
   components: { SlideMobileMenu, ProfileDropdown },

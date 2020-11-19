@@ -140,6 +140,9 @@ export default {
   },
   layout: 'app',
   middleware: 'auth',
+  beforeMount() {
+    this.searchTutors()
+  },
   methods: {
     searchTutors() {
       const bearer = localStorage.getItem('undefined_token.local')
