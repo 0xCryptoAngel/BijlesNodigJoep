@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="relative flex items-center justify-between">
-      <form class="flex w-full md:ml-0" @submit.prevent="searchTutors()">
+      <form class="flex w-full md:ml-0" @submit.prevent="fetchTutors">
         <label for="search_field" class="sr-only">Search</label>
         <div class="relative w-full text-gray-400 focus-within:text-gray-600">
           <div
@@ -28,10 +28,10 @@
     <div class="mx-auto mt-2 max-w-7xl sm:px-6 lg:px-8">
       <div class="flex justify-between flex-1 max-w-xl px-4">
         <div class="px-4 py-6 sm:px-0">
-          <ul class="grid grid-cols-1 gap-6">
+          <ul id="tutors" class="grid grid-cols-1 gap-6">
             <li
-              v-for="(attribute, i) of attributes"
-              :key="`${i}-${attribute.i}`"
+              v-for="tutor in tutors"
+              :key="tutor.name"
               class="overflow-hidden bg-white border rounded-lg shadow-md"
             >
               <div class="flex">
@@ -49,7 +49,7 @@
                     {{ student.subject }} &bull; {{ student.age }} jaar
                   </div>
                   <h4 class="text-lg font-semibold leading-5 tracking-wide">
-                    {{ student.name }}
+                    {{ tutor.name }}
                   </h4>
                   <div class="mt-2">
                     {{ student.hourlyRate }}€
@@ -92,17 +92,16 @@
         </div>
       </div>
     </div>
-    <pagination :pagination="pagination" :offset="4" @paginate="fetchUsers" />
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-import { mapGetters } from 'vuex'
-import Pagination from '~/components/Pagination'
+import { mapGetters, mapState } from 'vuex'
 
 export default {
-  components: { pagination: Pagination },
+  name: 'Zoeken',
+  components: {},
+
   data: () => ({
     postcode: '',
     attributes: [],
@@ -135,51 +134,17 @@ export default {
       reviewCount: '67',
     },
   }),
-  computed: { ...mapGetters(['isAuthenticated', 'loggedInUser']) },
-  created() {
-    this.fetchUsers()
+  computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    ...mapState(['tutors']),
+  },
+  methods: {
+    async fetchTutors() {
+      const postcode = this.postcode
+      await this.$store.dispatch('loadAllTutors', postcode)
+    },
   },
   layout: 'app',
   middleware: 'auth',
-  beforeMount() {
-    this.searchTutors()
-  },
-  methods: {
-    searchTutors() {
-      const bearer = localStorage.getItem('undefined_token.local')
-
-      const options = {
-        headers: {
-          Accept: 'application/json, text/plain',
-          Authorization: bearer,
-        },
-      }
-
-      axios
-        .post(
-          'http://notawanker.com/tutors/search',
-          { postcode: this.postcode },
-          options
-        )
-        .then(({ data }) => {
-          this.attributes = data.map((item) => item.attributes)
-        })
-        .catch((error) => console.log(error))
-    },
-    fetchUsers() {
-      // eslint-disable-next-line camelcase
-      const current_page = this.pagination.current_page
-      // eslint-disable-next-line camelcase
-      const pageNum = current_page || 1
-
-      axios
-        .get(`http://notawanker.com/search/tutors?page=${pageNum}`)
-        .then((response) => {
-          this.pagination = response.data.pagination
-          this.users = response.data.users
-        })
-        .catch((error) => console.log(error))
-    },
-  },
 }
 </script>
