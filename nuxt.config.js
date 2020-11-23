@@ -92,7 +92,10 @@ export default {
     },
     tokenRequired: true,
     tokenType: 'Bearer',
-    plugins: [{ src: '~/plugins/auth.js', mode: 'client' }],
+    plugins: [
+      '~/plugins/vee-validate',
+      { src: '~/plugins/auth.js', mode: 'client' },
+    ],
     redirect: {
       login: '/login',
       logout: '/',
@@ -101,7 +104,9 @@ export default {
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {},
+  build: {
+    transpile: ['vee-validate/dist/rules'],
+  },
   // Basic Usage i18n (https://i18n.nuxtjs.org/basic-usage)
   i18n: {
     locales: ['nl', 'en'],
