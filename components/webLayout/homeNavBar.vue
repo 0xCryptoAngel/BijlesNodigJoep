@@ -72,7 +72,7 @@
               >
               <a
                 href="/login"
-                class="px-8 py-3 ml-8 font-medium transition duration-150 ease-in-out bg-indigo-100 border border-transparent rounded-md text-light-blue-700 focus:outline-none focus:shadow-outline-indigo hover:text-light-blue-600 focus:border-indigo-300 md:py-3 md:text-lg md:px-6"
+                class="px-8 py-3 ml-8 font-medium transition duration-150 ease-in-out bg-indigo-100 border border-transparent rounded-md text-light-blue-700 focus:outline-none focus:ring-indigo hover:text-light-blue-600 focus:border-indigo-300 md:py-3 md:text-lg md:px-6"
                 >Log in</a
               >
             </div>
@@ -111,7 +111,7 @@
               <div class="rounded-md shadow">
                 <a
                   href="#"
-                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-light-blue-900 hover:bg-light-blue-500 focus:outline-none focus:border-light-blue-700 focus:shadow-outline-indigo md:py-4 md:text-lg md:px-10"
+                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-light-blue-900 hover:bg-light-blue-500 focus:outline-none focus:border-light-blue-700 focus:ring-indigo md:py-4 md:text-lg md:px-10"
                 >
                   Hoe het werkt
                 </a>
@@ -119,7 +119,7 @@
               <div class="mt-3 sm:mt-0 sm:ml-3">
                 <a
                   href="/register"
-                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 transition duration-150 ease-in-out bg-indigo-100 border border-transparent rounded-md text-light-blue-700 hover:text-light-blue-600 hover:bg-indigo-50 focus:outline-none focus:shadow-outline-indigo focus:border-indigo-300 md:py-4 md:text-lg md:px-10"
+                  class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 transition duration-150 ease-in-out bg-indigo-100 border border-transparent rounded-md text-light-blue-700 hover:text-light-blue-600 hover:bg-indigo-50 focus:outline-none focus:ring-indigo focus:border-indigo-300 md:py-4 md:text-lg md:px-10"
                 >
                   Meld je aan
                 </a>

@@ -3,6 +3,11 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   theme: {
+    variants: {
+      extend: {
+        fontWeight: ['hover', 'focus'],
+      },
+    },
     extend: {
       colors: {
         'light-blue': {
@@ -40,7 +45,12 @@ module.exports = {
     },
     darkSelector: '.dark-mode',
   },
-  plugins: [require('@tailwindcss/ui'), require('tailwindcss-dark-mode')()],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+    require('tailwindcss-dark-mode')(),
+  ],
   purge: {
     enabled: process.env.NODE_ENV === 'production',
     content: [

@@ -215,7 +215,7 @@
                       </div>
                       <div class="ml-5 rounded-md shadow-sm">
                         <div
-                          class="relative flex items-center justify-center px-3 py-2 transition duration-150 ease-in-out border border-gray-300 rounded-md group focus-within:border-blue-300 focus-within:shadow-outline-blue focus-within:text-gray-900"
+                          class="relative flex items-center justify-center px-3 py-2 transition duration-150 ease-in-out border border-gray-300 rounded-md group focus-within:border-blue-300 focus-within:ring-blue focus-within:text-gray-900"
                         >
                           <label
                             for="user_photo"
@@ -265,7 +265,7 @@
                   >
                   <input
                     id="first_name"
-                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                   />
                 </div>
 
@@ -277,7 +277,7 @@
                   >
                   <input
                     id="last_name"
-                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:shadow-outline-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                   />
                 </div>
               </div>
@@ -318,7 +318,7 @@
                       aria-checked="true"
                       aria-labelledby="privacy-option-label-1"
                       aria-describedby="privacy-option-description-1"
-                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:shadow-outline"
+                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring"
                     >
                       <!-- On: "translate-x-5", Off: "translate-x-0" -->
                       <span
@@ -350,7 +350,7 @@
                       aria-checked="false"
                       aria-labelledby="privacy-option-label-2"
                       aria-describedby="privacy-option-description-2"
-                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:shadow-outline"
+                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring"
                     >
                       <!-- On: "translate-x-5", Off: "translate-x-0" -->
                       <span
@@ -382,7 +382,7 @@
                       aria-checked="true"
                       aria-labelledby="privacy-option-label-3"
                       aria-describedby="privacy-option-description-3"
-                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:shadow-outline"
+                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring"
                     >
                       <!-- On: "translate-x-5", Off: "translate-x-0" -->
                       <span
@@ -413,7 +413,7 @@
                       aria-checked="true"
                       aria-labelledby="privacy-option-label-4"
                       aria-describedby="privacy-option-description-4"
-                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:shadow-outline"
+                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring"
                     >
                       <!-- On: "translate-x-5", Off: "translate-x-0" -->
                       <span
@@ -428,7 +428,7 @@
                 <div class="inline-flex rounded-md shadow-sm">
                   <button
                     type="button"
-                    class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-light-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800"
+                    class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-light-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800"
                   >
                     Cancel
                   </button>
@@ -436,7 +436,7 @@
                 <div class="inline-flex rounded-md shadow-sm">
                   <button
                     type="submit"
-                    class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-light-blue-700 hover:bg-light-blue-600 focus:outline-none focus:border-light-blue-800 focus:shadow-outline-blue active:bg-light-blue-800"
+                    class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-light-blue-700 hover:bg-light-blue-600 focus:outline-none focus:border-light-blue-800 focus:ring-blue active:bg-light-blue-800"
                   >
                     Save
                   </button>

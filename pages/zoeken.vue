@@ -18,7 +18,7 @@
           <input
             id="search_field"
             v-model="postcode"
-            class="block w-full h-full py-4 pl-10 pr-3 text-gray-900 placeholder-gray-500 shadow-sm focus:outline-none focus:placeholder-gray-400 sm:text-sm"
+            class="block w-full h-full py-4 pl-10 pr-3 text-gray-900 placeholder-gray-500 border-none shadow-sm focus:outline-none focus:placeholder-gray-400 sm:text-sm"
             placeholder="Vul jouw postcode in"
             type="search"
           />
@@ -26,9 +26,9 @@
       </form>
     </div>
     <div class="mx-auto mt-2 max-w-7xl sm:px-6 lg:px-8">
-      <div class="flex justify-between flex-1 max-w-xl px-4">
+      <div class="flex justify-between flex-1 px-4">
         <div class="px-4 py-6 sm:px-0">
-          <ul id="tutors" class="grid grid-cols-1 gap-6">
+          <ul id="tutors" class="grid grid-cols-2 gap-6">
             <li
               v-for="tutor in tutors"
               :key="tutor.name"

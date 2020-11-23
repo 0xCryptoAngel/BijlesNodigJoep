@@ -34,6 +34,7 @@ export const actions = {
           data.map((item) => item.attributes)
         )
       })
+      // eslint-disable-next-line no-console
       .catch((error) => console.log(error))
   },
 }

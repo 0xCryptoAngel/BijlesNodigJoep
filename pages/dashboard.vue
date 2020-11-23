@@ -254,13 +254,13 @@
                     <div class="flex justify-between flex-1">
                       <a
                         href="#"
-                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
+                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:ring-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
                       >
                         Vorige
                       </a>
                       <a
                         href="#"
-                        class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
+                        class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:ring-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
                       >
                         Volgende
                       </a>
@@ -303,7 +303,7 @@
                           <tbody class="bg-white divide-y divide-cool-gray-200">
                             <tr class="bg-white">
                               <td
-                                class="w-full px-6 py-4 text-sm leading-5 whitespace-no-wrap max-w-0 text-cool-gray-900"
+                                class="w-full px-6 py-4 text-sm leading-5 whitespace-nowrap max-w-0 text-cool-gray-900"
                               >
                                 <div class="flex">
                                   <a
@@ -332,12 +332,12 @@
                                 </div>
                               </td>
                               <td
-                                class="px-6 py-4 text-sm leading-5 text-right whitespace-no-wrap text-cool-gray-500"
+                                class="px-6 py-4 text-sm leading-5 text-right whitespace-nowrap text-cool-gray-500"
                               >
                                 Geschiedenis
                               </td>
                               <td
-                                class="hidden px-6 py-4 text-sm leading-5 whitespace-no-wrap text-cool-gray-500 md:block"
+                                class="hidden px-6 py-4 text-sm leading-5 whitespace-nowrap text-cool-gray-500 md:block"
                               >
                                 <span
                                   class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-100 text-green-800 capitalize"
@@ -346,7 +346,7 @@
                                 </span>
                               </td>
                               <td
-                                class="px-6 py-4 text-sm leading-5 text-right whitespace-no-wrap text-cool-gray-500"
+                                class="px-6 py-4 text-sm leading-5 text-right whitespace-nowrap text-cool-gray-500"
                               >
                                 11-07-2020
                               </td>
@@ -375,13 +375,13 @@
                           >
                             <a
                               href="#"
-                              class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
+                              class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:ring-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
                             >
                               Vorige
                             </a>
                             <a
                               href="#"
-                              class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
+                              class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:ring-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
                             >
                               Volgende
                             </a>
