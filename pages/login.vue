@@ -8,6 +8,8 @@ import LoginForm from '~/components/loginregistration/LoginForm'
 export default {
   name: 'Login',
   layout: 'webpage',
+  middleware: 'auth',
+  auth: 'guest',
   components: {
     LoginForm,
   },

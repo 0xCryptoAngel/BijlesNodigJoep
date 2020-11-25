@@ -476,6 +476,8 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate'
 export default {
   name: 'RegistrationPage',
   layout: 'webpage',
+  middleware: 'auth',
+  auth: 'guest',
   components: { ValidationProvider, ValidationObserver },
   mixins: {},
   data() {
