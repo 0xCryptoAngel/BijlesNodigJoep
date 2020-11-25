@@ -1,20 +1,4 @@
 <template>
-  <!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ]
-  }
-  ```
--->
   <div class="flex min-h-screen bg-white">
     <div
       class="flex flex-col justify-center flex-1 px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24"
@@ -29,11 +13,11 @@
           <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
             Maak een nieuw account aan
           </h2>
-          <p class="mt-2 text-sm text-gray-600 max-w">
+          <p class="max-w-sm mt-2 text-sm text-gray-600">
             Of
             <a
               href="#"
-              class="font-medium text-indigo-600 hover:text-indigo-500"
+              class="font-medium text-light-blue-600 hover:text-light-blue-500"
             >
               start een proefperiode van 14 dagen
             </a>
@@ -44,308 +28,434 @@
           <div class="mt-6">
             <form autocomplete="off" class="space-y-6">
               <section v-if="steps == 1">
-                <div>
-                  <label
-                    for="email"
-                    class="block text-sm font-medium text-gray-700"
+                <ValidationObserver ref="obs1" v-slot="{ invalid }">
+                  <div>
+                    <label
+                      for="email"
+                      class="block text-sm font-medium text-gray-700"
+                    >
+                      E-mailadres
+                    </label>
+                    <div class="mt-1">
+                      <ValidationProvider
+                        v-slot="{ classes, errors }"
+                        name="email"
+                        rules="required|email"
+                        ><div class="relative">
+                          <input
+                            id="email"
+                            v-model="form.email"
+                            type="email"
+                            :class="classes"
+                          />
+                        </div>
+                        <p
+                          v-show="errors"
+                          id="email-error"
+                          class="mt-2 text-sm text-red-600"
+                        >
+                          {{ errors[0] }}
+                        </p>
+                      </ValidationProvider>
+                    </div>
+                  </div>
+                  <ValidationObserver>
+                    <div class="space-y-1">
+                      <label
+                        for="password"
+                        class="block text-sm font-medium text-gray-700"
+                      >
+                        Wachtwoord
+                      </label>
+                      <div class="mt-1">
+                        <ValidationProvider
+                          v-slot="{ classes, errors }"
+                          name="Password"
+                          :rules="{
+                            required: true,
+                            regex: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+                          }"
+                          vid="password"
+                        >
+                          <input
+                            id="password"
+                            ref="password"
+                            v-model="form.password"
+                            type="password"
+                            required
+                            :class="classes"
+                          />
+                          <p
+                            v-show="errors"
+                            id="email-error"
+                            class="mt-2 text-sm text-red-600"
+                          >
+                            {{ errors[0] }}
+                          </p>
+                        </ValidationProvider>
+                      </div>
+                    </div>
+                    <div class="space-y-1">
+                      <label
+                        for="password"
+                        class="block text-sm font-medium text-gray-700"
+                      >
+                        Bevestig wachtwoord
+                      </label>
+                      <div class="mt-1">
+                        <ValidationProvider
+                          v-slot="{ classes, errors }"
+                          name="confirm Password"
+                          rules="required|confirmed:password"
+                        >
+                          <input
+                            id="confirmpassword"
+                            v-model="form.confirmPassword"
+                            type="password"
+                            required
+                            :class="classes"
+                          />
+                          <p
+                            v-show="errors"
+                            id="email-error"
+                            class="mt-2 text-sm text-red-600"
+                          >
+                            {{ errors[0] }}
+                          </p>
+                        </ValidationProvider>
+                      </div>
+                    </div>
+                  </ValidationObserver>
+                  <button
+                    v-if="steps != totalSteps"
+                    :disabled="invalid"
+                    type="submit"
+                    class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                    @click.prevent="nextStep"
                   >
-                    E-mailadres
-                  </label>
-                  <div class="mt-1">
-                    <ValidationProvider
-                      v-slot="{ errors }"
-                      name="email"
-                      rules="required|email"
-                    >
-                      <input
-                        id="email"
-                        v-model="form.email"
-                        type="email"
-                        required
-                        class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      /><span>{{ errors[0] }}</span></ValidationProvider
-                    >
-                  </div>
-                </div>
-                <ValidationObserver>
-                  <div class="space-y-1">
-                    <label
-                      for="password"
-                      class="block text-sm font-medium text-gray-700"
-                    >
-                      Wachtwoord
-                    </label>
-                    <div class="mt-1">
-                      <ValidationProvider
-                        v-slot="{ errors }"
-                        rules="confirmed:confirmation"
-                      >
-                        <input
-                          id="password"
-                          v-model="form.password"
-                          type="password"
-                          required
-                          class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        /><span>{{ errors[0] }}</span>
-                      </ValidationProvider>
-                    </div>
-                  </div>
-                  <div class="space-y-1">
-                    <label
-                      for="password"
-                      class="block text-sm font-medium text-gray-700"
-                    >
-                      Bevestig wachtwoord
-                    </label>
-                    <div class="mt-1">
-                      <ValidationProvider
-                        v-slot="{ errors }"
-                        vid="confirmation"
-                      >
-                        <input
-                          id="confirmpassword"
-                          v-model="form.confirmPassword"
-                          type="password"
-                          required
-                          class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                        />
-                        <span>{{ errors[0] }}</span>
-                      </ValidationProvider>
-                    </div>
-                  </div>
+                    Volgende stap
+                  </button>
                 </ValidationObserver>
               </section>
 
               <section v-if="steps == 2">
-                <h2 class="mb-6 text-3xl font-extrabold text-gray-900">
-                  Persoonlijke informatie
-                </h2>
-                <div>
-                  <label
-                    for="firstName"
-                    class="block text-sm font-medium text-gray-700"
-                  >
-                    Voornaam
-                  </label>
-                  <div class="mt-1">
-                    <input
-                      id="firstName"
-                      v-model="form.firstName"
-                      type="email"
-                      required
-                      autocomplete="off"
-                      class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    />
+                <ValidationObserver ref="obs2" v-slot="{ invalid }">
+                  <h2 class="mb-6 text-3xl font-extrabold text-gray-900">
+                    Persoonlijke informatie
+                  </h2>
+                  <div>
+                    <label
+                      for="firstName"
+                      class="block text-sm font-medium text-gray-700"
+                    >
+                      Voornaam
+                    </label>
+                    <div class="mt-1">
+                      <ValidationProvider
+                        v-slot="{ classes, errors }"
+                        name="First Name"
+                        rules="required|alpha_spaces"
+                      >
+                        <input
+                          id="firstName"
+                          v-model="form.firstName"
+                          type="text"
+                          autocomplete="off"
+                          :class="classes"
+                        />
+                        <p
+                          v-show="errors"
+                          id="email-error"
+                          class="mt-2 text-sm text-red-600"
+                        >
+                          {{ errors[0] }}
+                        </p>
+                      </ValidationProvider>
+                    </div>
                   </div>
-                </div>
 
-                <div class="space-y-1">
-                  <label
-                    for="lastName"
-                    class="block text-sm font-medium text-gray-700"
-                  >
-                    Achternaam
-                  </label>
-                  <div class="mt-1">
-                    <input
-                      id="lastName"
-                      v-model="form.lastName"
-                      type="text"
-                      required
-                      class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    />
+                  <div class="space-y-1">
+                    <label
+                      for="lastName"
+                      class="block text-sm font-medium text-gray-700"
+                    >
+                      Achternaam
+                    </label>
+                    <div class="mt-1">
+                      <ValidationProvider
+                        v-slot="{ classes, errors }"
+                        name="Last Name"
+                        rules="required|alpha_spaces"
+                      >
+                        <input
+                          id="lastName"
+                          v-model="form.lastName"
+                          type="text"
+                          required
+                          :class="classes"
+                        />
+                        <p
+                          v-show="errors"
+                          id="email-error"
+                          class="mt-2 text-sm text-red-600"
+                        >
+                          {{ errors[0] }}
+                        </p>
+                      </ValidationProvider>
+                    </div>
                   </div>
-                </div>
-                <div class="space-y-1">
-                  <label
-                    for="sex"
-                    class="block text-sm font-medium text-gray-700"
-                  >
-                    Geslacht
-                  </label>
-                  <div class="grid grid-cols-3 gap-1 mt-1">
-                    <span>
-                      <input
-                        id="sex"
-                        v-model="form.sex"
-                        type="radio"
-                        value="Vrouw"
-                        required
-                        class="w-4 h-4 text-indigo-600 border-gray-500 focus:ring-indigo-500"
-                      /><label class="ml-2" for="one">Vrouw</label>
-                    </span>
-                    <span>
-                      <input
-                        id="sex"
-                        v-model="form.sex"
-                        type="radio"
-                        value="Man"
-                        required
-                        class="w-4 h-4 text-indigo-600 border-gray-500 focus:ring-indigo-500"
-                      /><label class="ml-2" for="one">Man</label>
-                    </span>
+                  <div class="space-y-1">
+                    <label
+                      for="sex"
+                      class="block text-sm font-medium text-gray-700"
+                    >
+                      Geslacht
+                    </label>
+                    <ValidationProvider name="Sex" rules="required">
+                      <div class="grid grid-cols-3 gap-1 mt-1">
+                        <span>
+                          <input
+                            id="sex"
+                            v-model="form.sex"
+                            type="radio"
+                            value="Vrouw"
+                            class="w-4 h-4 border-gray-500 text-light-blue-600 focus:ring-light-blue-500"
+                          /><label class="ml-2" for="one">Vrouw</label>
+                        </span>
+                        <span>
+                          <input
+                            id="sex"
+                            v-model="form.sex"
+                            selected
+                            type="radio"
+                            value="Man"
+                            class="w-4 h-4 border-gray-500 text-light-blue-600 focus:ring-light-blue-500"
+                          /><label class="ml-2" for="one">Man</label>
+                        </span>
+                      </div>
+                    </ValidationProvider>
                   </div>
-                </div>
-                <div class="space-y-1">
-                  <label
-                    for="zip"
-                    class="block text-sm font-medium text-gray-700"
-                  >
-                    Postcode
-                  </label>
-                  <div class="mt-1">
-                    <input
-                      id="zipcode"
-                      v-model="form.zip"
-                      type="text"
-                      required
-                      class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    />
+                  <div class="space-y-1">
+                    <label
+                      for="zip"
+                      class="block text-sm font-medium text-gray-700"
+                    >
+                      Postcode
+                    </label>
+                    <div class="mt-1">
+                      <ValidationProvider
+                        v-slot="{ classes, errors }"
+                        name="Zipcode"
+                        rules="required|customRegex"
+                      >
+                        <input
+                          id="zipcode"
+                          v-model="form.zip"
+                          type="text"
+                          :class="classes"
+                          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                          maxlength="6"
+                          @input="form.zip = $event.target.value.toUpperCase()"
+                        />
+                        <p
+                          v-show="errors"
+                          id="email-error"
+                          class="mt-2 text-sm text-red-600"
+                        >
+                          {{ errors[0] }}
+                        </p>
+                      </ValidationProvider>
+                    </div>
                   </div>
-                </div>
-                <div class="space-y-1">
-                  <label
-                    for="city"
-                    class="block text-sm font-medium text-gray-700"
-                  >
-                    Woonplaats
-                  </label>
-                  <div class="mt-1">
-                    <input
-                      id="city"
-                      v-model="form.city"
-                      type="text"
-                      required
-                      class="block w-full px-3 py-2 placeholder-gray-400 border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                    />
+                  <div class="space-y-1">
+                    <label
+                      for="city"
+                      class="block text-sm font-medium text-gray-700"
+                    >
+                      Woonplaats
+                    </label>
+                    <div class="mt-1">
+                      <ValidationProvider
+                        v-slot="{ classes, errors }"
+                        name="City"
+                        rules="required|alpha_spaces"
+                      >
+                        <input
+                          id="city"
+                          v-model="form.city"
+                          type="text"
+                          :class="classes"
+                        />
+                        <p
+                          v-show="errors"
+                          id="email-error"
+                          class="mt-2 text-sm text-red-600"
+                        >
+                          {{ errors[0] }}
+                        </p>
+                      </ValidationProvider>
+                    </div>
                   </div>
-                </div>
+
+                  <div class="grid grid-cols-2 gap-3 mt-6">
+                    <button
+                      v-if="steps != 1"
+                      type="submit"
+                      class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                      @click.prevent="previousStep"
+                    >
+                      Vorige stap
+                    </button>
+                    <button
+                      v-if="steps != totalSteps"
+                      :disabled="invalid"
+                      type="submit"
+                      class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                      @click.prevent="nextStep"
+                    >
+                      Volgende stap
+                    </button>
+                  </div>
+                </ValidationObserver>
               </section>
 
               <section v-if="steps == 3">
-                <h2 class="mb-6 text-3xl font-extrabold text-gray-900">
-                  Vul jouw profiel in
-                </h2>
-                <div>
-                  <div class="sm:col-span-6">
-                    <label
-                      for="photo"
-                      class="block text-sm font-medium text-gray-700"
-                    >
-                      Profielfoto
-                    </label>
-                    <div class="flex items-center mt-2">
-                      <span
-                        class="overflow-hidden bg-gray-100 rounded-full w-14 h-14"
+                <ValidationObserver ref="obs3" v-slot="{ invalid }">
+                  <h2 class="mb-6 text-3xl font-extrabold text-gray-900">
+                    Vul jouw profiel in
+                  </h2>
+                  <div>
+                    <div class="sm:col-span-6">
+                      <label
+                        for="photo"
+                        class="block text-sm font-medium text-gray-700"
                       >
-                        <svg
-                          class="w-full h-full text-gray-300"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
-                          />
-                        </svg>
-                      </span>
-                      <button
-                        type="button"
-                        class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                      >
-                        Wijzig
-                      </button>
-                    </div>
-                  </div>
-                  <div class="mt-4 sm:col-span-6">
-                    <label
-                      for="about"
-                      class="block text-sm font-medium text-gray-700"
-                    >
-                      Over jou
-                    </label>
-                    <div class="mt-1">
-                      <textarea
-                        id="about"
-                        rows="3"
-                        class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      ></textarea>
-                    </div>
-                  </div>
-                  <div class="mt-1">
-                    <label
-                      for="price"
-                      class="block text-sm font-medium text-gray-700"
-                      >Tarief</label
-                    >
-                    <div class="relative mt-1 rounded-md shadow-sm">
-                      <div
-                        class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-                      >
-                        <span class="text-gray-500 sm:text-sm"> € </span>
-                      </div>
-                      <input
-                        id="price"
-                        type="text"
-                        class="block w-full pr-12 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 pl-7 sm:text-sm"
-                        placeholder="0.00"
-                        aria-describedby="price-currency"
-                      />
-                      <div
-                        class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"
-                      >
+                        Profielfoto
+                      </label>
+                      <div class="flex items-center mt-2">
                         <span
-                          id="price-currency"
-                          class="text-gray-500 sm:text-sm"
+                          class="overflow-hidden bg-gray-100 rounded-full w-14 h-14"
                         >
-                          EUR
+                          <svg
+                            class="w-full h-full text-gray-300"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+                            />
+                          </svg>
                         </span>
+                        <button
+                          type="button"
+                          class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                        >
+                          Wijzig
+                        </button>
                       </div>
                     </div>
+                    <div class="mt-4 sm:col-span-6">
+                      <label
+                        for="about"
+                        class="block text-sm font-medium text-gray-700"
+                      >
+                        Over jou
+                      </label>
+                      <div class="mt-1">
+                        <ValidationProvider
+                          name="biography"
+                          rules="required|max:350"
+                          mode="aggressive"
+                        >
+                          <textarea
+                            id="about"
+                            v-model="form.biography"
+                            rows="3"
+                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm"
+                          ></textarea>
+                          <p class="mt-1 text-xs font-medium text-gray-500">
+                            Je kunt nog {{ charactersRemaining }} tekens typen.
+                          </p>
+                        </ValidationProvider>
+                      </div>
+                    </div>
+                    <div class="mt-1">
+                      <label
+                        for="price"
+                        class="block text-sm font-medium text-gray-700"
+                        >Tarief</label
+                      >
+                      <div class="relative mt-1 rounded-md shadow-sm">
+                        <div
+                          class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                        >
+                          <span class="text-gray-500 sm:text-sm"> € </span>
+                        </div>
+                        <ValidationProvider rules="required">
+                          <input
+                            id="price"
+                            v-model="form.hourly_rate"
+                            type="number"
+                            class="block w-full pr-12 border-gray-300 rounded-md focus:ring-light-blue-500 focus:border-light-blue-500 pl-7 sm:text-sm"
+                            placeholder="0.00"
+                            aria-describedby="price-currency"
+                            min="0"
+                            oninput="validity.valid||(value='');"
+                          />
+                        </ValidationProvider>
+                        <div
+                          class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none"
+                        >
+                          <span
+                            id="price-currency"
+                            class="text-gray-500 sm:text-sm"
+                          >
+                            EUR
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mt-1">
+                      <label
+                        for="location"
+                        class="block text-sm font-medium text-gray-700"
+                        >Vak</label
+                      >
+                      <ValidationProvider rules="required">
+                        <select
+                          id="location"
+                          v-model="form.subject"
+                          class="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm"
+                        >
+                          <option disabled value="">Selecteer een vak</option>
+                          <option>Wiskunde</option>
+                          <option>Geschiedenis</option>
+                          <option>Natuurkunde</option>
+                        </select>
+                      </ValidationProvider>
+                    </div>
                   </div>
-                  <div class="mt-1">
-                    <label
-                      for="location"
-                      class="block text-sm font-medium text-gray-700"
-                      >Vak</label
+                  <div class="grid grid-cols-2 gap-3 mt-6">
+                    <button
+                      v-if="steps != 1"
+                      type="submit"
+                      class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                      @click.prevent="previousStep"
                     >
-                    <select
-                      id="location"
-                      class="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      Vorige stap
+                    </button>
+                    <button
+                      v-if="steps == 3"
+                      :disabled="invalid"
+                      type="submit"
+                      class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                      @click.prevent="submitReg"
                     >
-                      <option>Wiskunde</option>
-                      <option selected>Geschiedenis</option>
-                      <option>Natuurkunde</option>
-                    </select>
+                      Registreren
+                    </button>
                   </div>
-                </div>
+                </ValidationObserver>
               </section>
-
-              <div class="grid grid-cols-2 gap-3 mt-6">
-                <button
-                  v-if="steps != 1"
-                  type="submit"
-                  class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  @click.prevent="previousStep"
-                >
-                  Vorige stap
-                </button>
-                <button
-                  v-if="steps != totalSteps"
-                  type="submit"
-                  class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  @click.prevent="nextStep"
-                >
-                  Volgende stap
-                </button>
-                <button
-                  v-if="steps == 3"
-                  type="submit"
-                  class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                  @click.prevent="submitReg"
-                >
-                  Registreren
-                </button>
-              </div>
             </form>
           </div>
         </div>
@@ -364,26 +474,36 @@
 <script>
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 export default {
-  name: 'Login',
+  name: 'RegistrationPage',
   layout: 'webpage',
   components: { ValidationProvider, ValidationObserver },
   mixins: {},
   data() {
     return {
+      messages: 'test',
       isNotification: false,
       steps: 1,
       totalSteps: 3,
+      maxCharacter: 350,
       form: {
-        email: null,
-        password: null,
-        confirmPassword: null,
-        firstName: null,
-        lastName: null,
-        sex: null,
-        zip: null,
-        woonplaats: null,
+        email: '2@s.com',
+        password: 'DFMdfm14!',
+        confirmPassword: 'DFMdfm14!',
+        firstName: 'Dennis',
+        lastName: 'Kraaijeveld',
+        sex: 'Man',
+        zip: '4012BA',
+        city: 'Kerk Avezaath',
+        subject: null,
+        hourly_rate: null,
+        biography: '',
       },
     }
+  },
+  computed: {
+    charactersRemaining() {
+      return this.maxCharacter - this.form.biography.length
+    },
   },
   mounted() {},
   methods: {
