@@ -44,7 +44,7 @@
                         ><div class="relative">
                           <input
                             id="email"
-                            v-model="form.email"
+                            v-model.trim="form.email"
                             type="email"
                             :class="classes"
                           />
@@ -80,7 +80,7 @@
                           <input
                             id="password"
                             ref="password"
-                            v-model="form.password"
+                            v-model.trim="form.password"
                             type="password"
                             required
                             :class="classes"
@@ -110,7 +110,7 @@
                         >
                           <input
                             id="confirmpassword"
-                            v-model="form.confirmPassword"
+                            v-model.trim="form.confirmPassword"
                             type="password"
                             required
                             :class="classes"
@@ -250,7 +250,7 @@
                       >
                         <input
                           id="zipcode"
-                          v-model="form.zip"
+                          v-model.trim="form.zip"
                           type="text"
                           :class="classes"
                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
