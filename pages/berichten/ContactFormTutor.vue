@@ -1,5 +1,5 @@
 <template>
-  <form @click.prevent="submitForm">
+  <form>
     <div>
       <label for="email">Your E-Mail</label
       ><input
@@ -24,6 +24,7 @@
     <div>
       <button
         class="inline-block w-auto px-6 py-4 m-0 font-semibold leading-4 text-center text-white border-none rounded-md outline-none cursor-pointer md:w-full bg-light-blue-700"
+        @click.prevent="submitForm"
       >
         Send Message
       </button>
@@ -52,7 +53,15 @@ export default {
         this.message === ''
       ) {
         this.formIsValid = false
+        return
       }
+
+      this.$store.dispatch('contactTutor', {
+        email: this.email,
+        message: this.message,
+        coachId: 39,
+      })
+      this.$router.replace('/tutors')
     },
   },
 }

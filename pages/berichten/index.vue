@@ -3,13 +3,18 @@
     <div>
       <main>
         <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <!-- Replace with your content -->
-          <div class="px-4 py-6 sm:px-0">
-            <div class="border-4 border-gray-200 border-dashed rounded-lg h-96">
-              <p>Berichten</p>
-            </div>
-          </div>
-          <!-- /End replace -->
+          <header>
+            <h2 class="text-2xl font-semibold">Request Received</h2>
+          </header>
+          <ul v-if="hasRequests">
+            <message-item
+              v-for="req in receivedRequest"
+              :key="req.id"
+              :email="req.userEmail"
+              :message="req.message"
+            ></message-item>
+          </ul>
+          <h3 v-else>You haven't received any request yet</h3>
         </div>
       </main>
     </div>
@@ -18,10 +23,20 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import MessageItem from '~/components/berichten/MessageItem'
 
 export default {
   middleware: 'auth',
   layout: 'app',
-  computed: { ...mapGetters(['isAuthenticated', 'loggedInUser']) },
+  components: { MessageItem },
+  computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    receivedRequest() {
+      return this.$store.getters.request
+    },
+    hasRequests() {
+      return this.$store.getters.hasRequest
+    },
+  },
 }
 </script>

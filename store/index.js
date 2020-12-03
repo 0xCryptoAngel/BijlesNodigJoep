@@ -6,10 +6,18 @@ export const getters = {
   loggedInUser(state) {
     return state.auth.user
   },
+  request(state) {
+    const coachId = state.auth.user.user.id
+    return state.requests.filter((req) => req.coachId === coachId)
+  },
+  hasRequest(_, getters) {
+    return getters.request && getters.request.length > 0
+  },
 }
 
 export const state = () => ({
   tutors: '',
+  requests: [],
 })
 
 export const mutations = {
@@ -20,6 +28,9 @@ export const mutations = {
       const update = tutors.update
       state.tutors = { ...state.tutors, ...update }
     }
+  },
+  addRequest(state, payload) {
+    state.requests.push(payload)
   },
 }
 
@@ -38,5 +49,14 @@ export const actions = {
       })
       // eslint-disable-next-line no-console
       .catch((error) => console.log(error))
+  },
+  contactTutor(context, payload) {
+    const newRequest = {
+      id: new Date().toISOString(),
+      coachId: payload.coachId,
+      userEmail: payload.email,
+      message: payload.message,
+    }
+    context.commit('addRequest', newRequest)
   },
 }
