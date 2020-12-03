@@ -1,5 +1,5 @@
 <template>
-  <div class="block lg:hidden">
+  <div class="z-50 block lg:hidden">
     <transition
       key="bgSidebar"
       enter-active-class="transition-opacity duration-300 ease-linear"

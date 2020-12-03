@@ -1,6 +1,6 @@
 <template>
   <div class="antialiased text-gray-900">
-    <div class="min-h-screen bg-gray-100">
+    <div class="bg-white">
       <appNavBar />
       <nuxt />
     </div>

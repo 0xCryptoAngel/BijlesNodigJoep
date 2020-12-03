@@ -8,14 +8,16 @@ export const getters = {
   },
 }
 
-export const state = () => ({})
+export const state = () => ({
+  tutors: '',
+})
 
 export const mutations = {
-  SET_TUTORS(state, val) {
-    if (val == null || val.update === undefined) {
-      state.tutors = val
+  SET_TUTORS(state, tutors) {
+    if (tutors == null || tutors.update === undefined) {
+      state.tutors = tutors
     } else {
-      const update = val.update
+      const update = tutors.update
       state.tutors = { ...state.tutors, ...update }
     }
   },
@@ -31,7 +33,7 @@ export const actions = {
       .then(({ data }) => {
         commit(
           'SET_TUTORS',
-          data.map((item) => item.attributes)
+          data.map((item) => item)
         )
       })
       // eslint-disable-next-line no-console

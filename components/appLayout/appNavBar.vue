@@ -1,11 +1,9 @@
 <template>
   <div class="relative pb-16 bg-light-blue-800">
-    <nav
-      class="relative z-10 border-b border-teal-500 border-opacity-25 lg:bg-transparent lg:border-none"
-    >
+    <nav class="relative z-10">
       <div class="px-2 mx-auto max-w-7xl sm:px-4 lg:px-8">
         <div
-          class="relative flex items-center justify-between h-16 lg:border-b lg:border-light-blue-900"
+          class="relative flex items-center justify-between h-16 border-b border-light-blue-900"
         >
           <div class="flex items-center px-2 lg:px-0">
             <div class="flex-shrink-0">
@@ -27,7 +25,7 @@
                 >
 
                 <NuxtLink
-                  to="/zoeken"
+                  to="/tutors"
                   exact-active-class="bg-black bg-opacity-25"
                   exact
                   class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-700 focus:outline-none focus:bg-light-blue-700"

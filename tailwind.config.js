@@ -9,6 +9,13 @@ module.exports = {
       },
     },
     extend: {
+      minHeight: {
+        80: '80px',
+        140: '140px',
+      },
+      flexShrink: {
+        2: 2,
+      },
       colors: {
         'light-blue': {
           50: '#f0f9ff',
