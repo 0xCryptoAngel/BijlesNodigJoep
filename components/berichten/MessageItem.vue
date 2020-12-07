@@ -2,7 +2,7 @@
   <div class="overflow-hidden bg-white shadow sm:rounded-md">
     <ul class="divide-y divide-gray-200">
       <li>
-        <a :href="emailLink" class="block hover:bg-gray-50">
+        <div class="block cursor-pointer hover:bg-gray-50">
           <div class="flex items-center px-4 py-4 sm:px-6">
             <div class="flex items-center flex-1 min-w-0">
               <div class="flex-shrink-0">
@@ -67,7 +67,7 @@
               </svg>
             </div>
           </div>
-        </a>
+        </div>
       </li>
     </ul>
   </div>
@@ -83,11 +83,7 @@ export default {
     },
   },
   props: ['email', 'message'],
-  computed: {
-    emailLink() {
-      return 'mailto:' + this.email
-    },
-  },
+  computed: {},
 }
 </script>
 
