@@ -333,25 +333,36 @@
                         Profielfoto
                       </label>
                       <div class="flex items-center mt-2">
-                        <span
-                          class="overflow-hidden bg-gray-100 rounded-full w-14 h-14"
-                        >
-                          <svg
-                            class="w-full h-full text-gray-300"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
-                            />
-                          </svg>
-                        </span>
-                        <button
-                          type="button"
-                          class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
-                        >
-                          Wijzig
-                        </button>
+                        <image-upload v-model="form.avatar">
+                          <div slot="activator" class="flex items-center mt-2">
+                            <div
+                              v-if="!form.avatar"
+                              size="150px"
+                              class="overflow-hidden bg-gray-100 rounded-full w-14 h-14"
+                            >
+                              <span>
+                                <svg
+                                  class="w-full h-full text-gray-300"
+                                  fill="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
+                                  /></svg
+                              ></span>
+                            </div>
+                            <div
+                              v-else
+                              size="150px"
+                              class="overflow-hidden bg-gray-100 rounded-full w-14 h-14"
+                            >
+                              <img
+                                :src="form.avatar.imageURL"
+                                alt="Profielfoto BijlesNodig"
+                              />
+                            </div>
+                          </div>
+                        </image-upload>
                       </div>
                     </div>
                     <div class="mt-4 sm:col-span-6">
@@ -473,15 +484,19 @@
 
 <script>
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
+import ImageUpload from '~/components/loginregistration/imageUpload.vue'
+
 export default {
   name: 'RegistrationPage',
   layout: 'webpage',
   middleware: 'auth',
   auth: 'guest',
-  components: { ValidationProvider, ValidationObserver },
+  components: { ValidationProvider, ValidationObserver, ImageUpload },
   mixins: {},
   data() {
     return {
+      saving: false,
+      saved: false,
       messages: 'test',
       isNotification: false,
       steps: 1,
@@ -499,12 +514,21 @@ export default {
         subject: null,
         hourly_rate: null,
         biography: '',
+        avatar: null,
       },
     }
   },
   computed: {
     charactersRemaining() {
       return this.maxCharacter - this.form.biography.length
+    },
+  },
+  watch: {
+    avatar: {
+      handler() {
+        this.saved = false
+      },
+      deep: true,
     },
   },
   mounted() {},
@@ -526,6 +550,14 @@ export default {
     },
     submitReg() {
       alert('SEND REG')
+    },
+    uploadImage() {
+      this.saving = true
+      setTimeout(() => this.savedAvatar(), 1000)
+    },
+    savedAvatar() {
+      this.saving = false
+      this.saved = true
     },
   },
 }
