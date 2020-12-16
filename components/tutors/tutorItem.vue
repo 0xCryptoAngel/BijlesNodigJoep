@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="w-full h-full px-4 pt-3 pb-4">
     <li>
-      <div class="flex">
+      <div class="relative z-10 flex h-full">
         <div class="w-2/3">
           <img
             class="flex-shrink-0 object-cover w-full h-64 mx-auto bg-gray-200"
@@ -55,6 +55,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="mt-8 mb-2">
+        <div class="border-item"></div>
       </div>
     </li>
   </div>
