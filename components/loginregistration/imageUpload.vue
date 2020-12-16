@@ -28,6 +28,7 @@ export default {
   name: 'ImageInput',
   props: {
     // Use "value" to enable using v-model
+    // eslint-disable-next-line vue/require-default-prop
     value: Object,
   },
   data: () => ({

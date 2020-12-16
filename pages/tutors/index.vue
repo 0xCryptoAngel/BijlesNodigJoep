@@ -25,7 +25,7 @@
         </div>
       </form>
     </div>
-    <div class="mx-auto mt-2 max-w-7xl sm:px-6 lg:px-8">
+    <div class="mx-auto mt-2 max-w-8xl sm:px-6 lg:px-8">
       <div class="flex items-center flex-1 px-4 py-6">
         <h1 class="flex-1 text-2xl font-semibold leading-5">
           Alle zoekresultaten in de buurt van postcode

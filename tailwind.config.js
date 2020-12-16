@@ -13,6 +13,9 @@ module.exports = {
         80: '80px',
         140: '140px',
       },
+      maxWidth: {
+        '8xl': '88rem',
+      },
       flexShrink: {
         2: 2,
       },
