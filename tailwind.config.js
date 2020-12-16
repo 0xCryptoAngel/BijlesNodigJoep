@@ -1,5 +1,6 @@
 // tailwind.config.js
 const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 module.exports = {
   theme: {
@@ -32,6 +33,7 @@ module.exports = {
           800: '#075985',
           900: '#0c4a6e',
         },
+        orange: colors.orange,
       },
       fontFamily: {
         sans: ['Inter'],

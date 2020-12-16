@@ -1,8 +1,6 @@
 <template>
   <nav class="flex bg-white border-b border-gray-200" aria-label="Breadcrumb">
-    <ol
-      class="flex w-full max-w-screen-xl px-4 mx-auto space-x-4 sm:px-6 lg:px-8"
-    >
+    <ol class="flex w-full px-4 mx-auto space-x-4 max-w-8xl sm:px-6 lg:px-8">
       <li class="flex">
         <div class="flex items-center">
           <nuxt-link to="/dashboard" class="text-gray-400 hover:text-gray-500">
