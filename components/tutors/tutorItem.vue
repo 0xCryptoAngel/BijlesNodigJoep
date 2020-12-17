@@ -38,16 +38,16 @@
             <div class="mt-4 text-sm font-semibold text-gray-600">
               <span>MA</span>
               <span
-                class="inline-block leading-7 text-center text-gray-100 bg-yellow-400 bg-opacity-50 w-7 h-7 rounded-xl"
+                class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
                 >DI</span
               >
               <span>WO</span>
               <span
-                class="inline-block leading-7 text-center text-gray-100 bg-yellow-400 bg-opacity-50 w-7 h-7 rounded-xl"
+                class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
                 >DO</span
               >
               <span
-                class="inline-block leading-7 text-center text-gray-100 bg-yellow-400 bg-opacity-50 w-7 h-7 rounded-xl"
+                class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
                 >VR</span
               >
               <span>ZA</span>
