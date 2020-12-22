@@ -307,18 +307,36 @@
             <div class="relative w-full h-full overflow-hidden bg-black">
               <div class="top-0 left-0 w-full h-full overflow-hidden bg-black">
                 <div class="top-0 z-0 w-full h-full p-0 m-0 border-0 l-0">
-                  <iframe
-                    class="absolute top-0 left-0 w-full h-full"
-                    frameborder="0"
-                    scrolling="no"
-                    marginheight="0"
-                    marginwidth="0"
-                    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=nl&amp;q=Spuistraat%20210,%201012%20VT%20Amsterdam,%20Netherlands+(Mijn%20bedrijfsnaam)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                  ></iframe
-                  ><a
-                    href="https://www.mapsdirections.info/nl/cirkel-straal-kaart/"
-                    >Straal op kaart Google</a
+                  <GmapMap
+                    ref="mapRef"
+                    :center="center"
+                    :zoom="10"
+                    map-type-id="roadmap"
+                    style="width: 100%; height: 100vh"
+                    :options="{
+                      zoomControl: true,
+                      mapTypeControl: false,
+                      scaleControl: false,
+                      streetViewControl: false,
+                      rotateControl: false,
+                      fullscreenControl: true,
+                      disableDefaultUi: false,
+                      zoomControlOptions: { position: 1 },
+                      streetViewControlOptions: { position: 5 },
+                      scrollwheel: true,
+                    }"
+                    @zoom_changed="updateZoom"
                   >
+                    <GmapMarker
+                      v-for="(m, index) in markers"
+                      :key="index"
+                      :position="m.position"
+                      :clickable="true"
+                      :draggable="false"
+                      :icon="!m.clicked ? markerOptions : markerClicked"
+                      @click="markerInfoWindow(m, index)"
+                    />
+                  </GmapMap>
                 </div>
               </div>
             </div>
@@ -331,6 +349,7 @@
 
 <script>
 import { mapGetters, mapState } from 'vuex'
+// import { gmapApi } from 'gmap-vue'
 import tutorItem from '~/components/tutors/tutorItem.vue'
 import BreadcrumbsApp from '~/components/UI/BreadcrumbsApp.vue'
 
@@ -339,10 +358,78 @@ export default {
   components: { tutorItem, BreadcrumbsApp },
 
   data: () => ({
+    center: { lat: -8.381357822670871, lng: 115.13967209436002 },
+    searchLoading: false,
+    afterLoading: false,
+    circle_markers: [],
+    current_position: { lat: null, lng: null },
+    current_zoom: null,
+    radius: null,
+    markers: [
+      {
+        position: { lat: -8.340539, lng: 115.091948 },
+        price: '$200',
+        name: 'Bali Property for Sale – Chill House Hipster Retreat',
+        image: 'property1.jpg',
+        location: 'Canggu, Pererenan',
+        clicked: false,
+      },
+      {
+        position: { lat: -8.267559, lng: 114.524339 },
+        price: '$1800',
+        name: 'Flawless Uluwatu Villa Zsa Zsa Finally for Sale',
+        image: 'property2.jpg',
+        location: 'Canggu, Tabanan, Tanah Lot',
+        clicked: false,
+      },
+      {
+        position: { lat: -8.506854, lng: 115.262482 },
+        price: '$1300',
+        name: 'High Ranking Boutique Resort for Sale in Sanur',
+        image: 'property3.jpg',
+        location: 'Bukit, Ungasan',
+        clicked: false,
+      },
+      {
+        position: { lat: -8.438413, lng: 115.496922 },
+        price: '$3900',
+        name: 'Modern Bali Villa for Rent in Seminyak',
+        image: 'property4.jpg',
+        location: 'Ubud, Tegallalang',
+        clicked: false,
+      },
+      {
+        position: { lat: -8.811012, lng: 115.173601 },
+        price: '$2200',
+        name: 'Chic Serenity in Beach Lovers Paradise – Sanur.',
+        image: 'property5.jpg',
+        location: 'Canggu, Berawa',
+        clicked: false,
+      },
+      {
+        position: { lat: -8.582952, lng: 115.085652 },
+        price: '$550',
+        name: 'Breathtaking Exotic Sanur Residence',
+        image: 'property6.jpg',
+        location: 'Canggu, Mengwi, Tumbak',
+        clicked: false,
+      },
+    ],
+
+    infoWindowPos: null,
+    infoWinOpen: false,
+    currentMidx: null,
+
+    infoOptions: {
+      content: '',
+      pixelOffset: {
+        width: 0,
+        height: -35,
+      },
+    },
+
     postcode: '',
     attributes: [],
-    offset: 4,
-    pagination: {},
     users: [],
     student: {
       imageUrl:
@@ -381,17 +468,196 @@ export default {
     currentZip() {
       return this.postcode
     },
+    // google: gmapApi,
   },
+  mounted() {
+    this.current_position.lat = this.center.lat
+    this.current_position.lng = this.center.lng
+    this.radius = 30 * 1000 // 30 km
+  },
+  updated() {},
   methods: {
     async fetchTutors() {
       const postcode = this.postcode
       await this.$store.dispatch('loadAllTutors', postcode)
     },
-  },
-  head() {
-    return {
-      title: 'Bijlesgevers',
-    }
+    rad(x) {
+      return (x * Math.PI) / 180
+    },
+    getDistance(p1, p2) {
+      /* Haversine formula */
+      const R = 6378137 // Earth’s mean radius in meter
+      const dLat = this.rad(p2.lat() - p1.lat())
+      const dLong = this.rad(p2.lng() - p1.lng())
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(this.rad(p1.lat())) *
+          Math.cos(this.rad(p2.lat())) *
+          Math.sin(dLong / 2) *
+          Math.sin(dLong / 2)
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+      const d = R * c
+      return d // returns the distance in meter
+    },
+    getDistanceTo() {
+      // eslint-disable-next-line camelcase
+      const current_cursor = new this.google.maps.LatLng(
+        this.current_position.lat,
+        this.current_position.lng
+      )
+      // object map
+
+      const restaurant = new this.google.maps.LatLng(
+        this.current_distance.restaurant.lat,
+        this.current_distance.restaurant.lng
+      )
+      const atm = new this.google.maps.LatLng(
+        this.current_distance.atm.lat,
+        this.current_distance.atm.lng
+      )
+      const cafe = new this.google.maps.LatLng(
+        this.current_distance.cafe.lat,
+        this.current_distance.cafe.lng
+      )
+      const pharmacy = new this.google.maps.LatLng(
+        this.current_distance.pharmacy.lat,
+        this.current_distance.pharmacy.lng
+      )
+      // eslint-disable-next-line camelcase
+      const convenience_store = new this.google.maps.LatLng(
+        this.current_distance.convenience_store.lat,
+        this.current_distance.convenience_store.lng
+      )
+
+      this.distance_from.restaurant = (
+        this.getDistance(current_cursor, restaurant) / 1000
+      ).toFixed(2)
+      this.distance_from.atm = (
+        this.getDistance(current_cursor, atm) / 1000
+      ).toFixed(2)
+      this.distance_from.cafe = (
+        this.getDistance(current_cursor, cafe) / 1000
+      ).toFixed(2)
+      this.distance_from.pharmacy = (
+        this.getDistance(current_cursor, pharmacy) / 1000
+      ).toFixed(2)
+      this.distance_from.convenience_store = (
+        this.getDistance(current_cursor, convenience_store) / 1000
+      ).toFixed(2)
+    },
+    updateZoom(e) {
+      this.current_zoom = e
+    },
+    updateCenter(e) {
+      this.current_position.lat = e.lat()
+      this.current_position.lng = e.lng()
+    },
+    updateData() {
+      this.getDistanceTo()
+
+      this.searchLoading = true
+      setTimeout(() => {
+        this.searchLoading = false
+
+        if (this.current_zoom) {
+          if (this.current_zoom <= 7) {
+            this.circle_markers = []
+            return false
+          }
+          if (this.current_zoom === 8) this.radius = 60 * 1000 // 60 km
+          if (this.current_zoom === 9) this.radius = 50 * 1000 // 50 km
+          if (this.current_zoom === 10) this.radius = 30 * 1000 // 30 km
+          if (this.current_zoom === 11) this.radius = 20 * 1000 // 20 km
+          if (this.current_zoom >= 12) this.radius = 10 * 1000 // 10 km
+          if (this.current_zoom >= 13)
+            this.radius = (30 * 1000) / this.current_zoom
+        }
+
+        // default radius in meters
+        const searchArea = new this.google.maps.Circle({
+          center: new this.google.maps.LatLng(
+            this.current_position.lat,
+            this.current_position.lng
+          ),
+          radius: this.radius,
+        })
+
+        this.circle_markers = []
+
+        this.markers.map((x) => {
+          // eslint-disable-next-line camelcase
+          const marker_position = new this.google.maps.LatLng(
+            x.position.lat,
+            x.position.lng
+          )
+          if (
+            this.google.maps.geometry.spherical.computeDistanceBetween(
+              marker_position,
+              searchArea.getCenter()
+            ) <= searchArea.getRadius()
+          ) {
+            this.circle_markers.push(x)
+          }
+        })
+
+        this.afterLoading = true
+      }, 1000)
+    },
+
+    toggleInfoWindow(marker, idx) {
+      const content = `
+      <h6 class="font-weight-bold" style="padding:15px;padding-bottom:7px;"> 
+        ${marker.price} 
+      </h6>`
+
+      this.infoWindowPos = marker.position
+      this.infoOptions.content = content
+
+      this.infoWinOpen = true
+      this.currentMidx = idx
+    },
+
+    markerInfoWindow(marker, idx) {
+      const content = `
+      <img src="/properties/${marker.image}" class="img-marker">
+      <div class="info">
+        <div class="location text-truncate">
+        <i class="mr-1 fal fa-map-marker-alt"></i> <span class="text-secondary">${marker.location}</span>
+        </div>
+        <div class="mt-2 title text-truncate">
+          ${marker.name}
+        </div>
+        <div class="mt-1 mb-2 price">
+          ${marker.price}
+        </div>
+        <span class="pl-0 mr-1 font-weight-normal bd-right badge">
+          <i class="mr-2 far fa-bed fa-lg"></i><span style="font-size:14px;">2</span>
+        </span>
+        <span class="pl-0 mr-1 font-weight-normal bd-right badge">
+          <i class="mr-2 far fa-bath fa-lg"></i><span style="font-size:14px;">2</span>
+        </span>
+        <span class="pl-0 mr-1 font-weight-normal bd-right badge">
+          <i class="mr-2 far fa-expand-arrows fa-lg"></i><span style="font-size:14px;">2 are</span>
+        </span>
+        <span class="pl-0 mr-1 font-weight-normal bd-right badge">
+          <i class="mr-2 far fa-home fa-lg"></i><span style="font-size:14px;">1300 m²</span>
+        </span>
+      </div>`
+
+      this.infoWindowPos = marker.position
+      this.infoOptions.content = content
+
+      // check if its the same marker that was selected if yes toggle
+      if (this.currentMidx === idx) {
+        this.infoWinOpen = !this.infoWinOpen
+      }
+      // if different marker set infowindow to open and reset current marker index
+      else {
+        marker.clicked = true
+        this.infoWinOpen = true
+        this.currentMidx = idx
+      }
+    },
   },
   layout: 'app',
   middleware: 'auth',

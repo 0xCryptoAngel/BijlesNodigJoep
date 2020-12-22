@@ -95,6 +95,7 @@ export default {
     plugins: [
       '~/plugins/vee-validate',
       { src: '~/plugins/auth.js', mode: 'client' },
+      { src: '~/plugins/google-maps', ssr: true },
     ],
     redirect: {
       login: '/login',
@@ -105,7 +106,7 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    transpile: ['vee-validate/dist/rules'],
+    transpile: ['vee-validate/dist/rules', '/^vue2-google-maps($|/)/'],
   },
   // Basic Usage i18n (https://i18n.nuxtjs.org/basic-usage)
   i18n: {
