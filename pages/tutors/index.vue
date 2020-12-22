@@ -290,6 +290,7 @@
                           :rating="student.rating"
                           :total-reviews="student.reviewCount"
                           class="inline-block w-full whitespace-normal align-top"
+                          @open="isTutorOpen = true"
                         >
                         </tutor-item>
                       </ul>
@@ -301,6 +302,13 @@
           </div>
         </div>
       </div>
+
+      <tutors-slide-over
+        class="z-40"
+        :show="isTutorOpen"
+        @close="isTutorOpen = false"
+      ></tutors-slide-over>
+
       <div class="absolute top-0 left-auto block w-right inset-map">
         <aside class="sticky top-0 w-full h-screen pt-32 -mt-32">
           <div class="relative w-full h-full">
@@ -351,13 +359,15 @@
 import { mapGetters, mapState } from 'vuex'
 // import { gmapApi } from 'gmap-vue'
 import tutorItem from '~/components/tutors/tutorItem.vue'
+import TutorsSlideOver from '~/components/tutors/tutorsSlideOver.vue'
 import BreadcrumbsApp from '~/components/UI/BreadcrumbsApp.vue'
 
 export default {
   name: 'Zoeken',
-  components: { tutorItem, BreadcrumbsApp },
+  components: { tutorItem, BreadcrumbsApp, TutorsSlideOver },
 
   data: () => ({
+    isTutorOpen: false,
     center: { lat: -8.381357822670871, lng: 115.13967209436002 },
     searchLoading: false,
     afterLoading: false,
@@ -477,6 +487,9 @@ export default {
   },
   updated() {},
   methods: {
+    open() {
+      this.isTutorOpen = !this.isTutorOpen
+    },
     async fetchTutors() {
       const postcode = this.postcode
       await this.$store.dispatch('loadAllTutors', postcode)

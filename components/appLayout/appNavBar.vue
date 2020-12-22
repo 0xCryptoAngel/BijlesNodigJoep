@@ -1,7 +1,7 @@
 <template>
-  <div class="sticky top-0 z-50">
+  <div class="sticky top-0 z-30">
     <div class="relative pb-16 bg-light-blue-800">
-      <nav class="relative z-10">
+      <nav class="relative z-20">
         <div class="px-2 mx-auto max-w-8xl sm:px-4 lg:px-8">
           <div
             class="relative flex items-center justify-between h-16 border-b border-light-blue-900"
