@@ -21,6 +21,7 @@
     "@tailwindcss/typography": "^0.3.1",
     "@tailwindcss/ui": "^0.7.2",
     "core-js": "^3.6.5",
+    "dotenv": "^8.2.0",
     "gmap-vue": "^1.5.0",
     "js-cookie": "^2.2.1",
     "moment": "^2.29.1",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^2.0.0",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/google-fonts": "^1.1.3",
