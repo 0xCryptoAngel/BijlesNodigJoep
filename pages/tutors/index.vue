@@ -11,22 +11,53 @@
             <!-- search form -->
             <div class="flex items-center mx-12 my-0">
               <div class="flex flex-grow flex-shrink w-full">
-                <div
-                  class="relative z-10 flex items-center w-full h-16 py-0 pr-0 border-b-0"
-                >
-                  <form
-                    class="flex w-full md:ml-0"
-                    @submit.prevent="fetchTutors"
-                  >
-                    <label for="search_field" class="sr-only">Search</label>
-                    <div
-                      class="relative w-full text-gray-400 focus-within:text-gray-600"
-                    >
+                <div class="w-full">
+                  <form @submit.prevent="fetchTutors">
+                    <div class="flex mt-1 rounded-md shadow-sm">
                       <div
-                        class="absolute inset-y-0 flex items-center pointer-events-none left-2"
+                        class="relative flex items-stretch flex-grow focus-within:z-10"
                       >
+                        <div
+                          class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                        >
+                          <!-- Heroicon name: location-marker -->
+                          <svg
+                            class="w-5 h-5 text-gray-500"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                            ></path>
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                            ></path>
+                          </svg>
+                        </div>
+
+                        <input
+                          id="search_field"
+                          v-model="postcode"
+                          type="search"
+                          name="postcode_search"
+                          class="block w-full pl-10 border-gray-300 rounded-none focus:ring-light-blue-500 focus:border-light-blue-500 rounded-l-md sm:text-sm"
+                          placeholder="Jouw postcode"
+                        />
+                      </div>
+                      <button
+                        class="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium text-gray-700 border border-light-blue-700 rounded-r-md bg-light-blue-700 hover:bg-light-blue-800 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-light-blue-500"
+                      >
+                        <!-- Heroicon name: sort-ascending -->
                         <svg
-                          class="w-5 h-5"
+                          class="w-5 h-5 text-white"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                         >
@@ -36,14 +67,7 @@
                             d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
                           />
                         </svg>
-                      </div>
-                      <input
-                        id="search_field"
-                        v-model="postcode"
-                        class="block w-full h-full py-4 pl-10 pr-3 text-gray-900 placeholder-gray-500 border-none shadow-sm focus:outline-none focus:placeholder-gray-400 sm:text-sm"
-                        placeholder="Vul jouw postcode in"
-                        type="search"
-                      />
+                      </button>
                     </div>
                   </form>
                 </div>
@@ -290,7 +314,6 @@
                           :rating="student.rating"
                           :total-reviews="student.reviewCount"
                           class="inline-block w-full whitespace-normal align-top"
-                          @open="isTutorOpen = true"
                         >
                         </tutor-item>
                       </ul>
@@ -303,12 +326,6 @@
         </div>
       </div>
 
-      <tutors-slide-over
-        class="z-40"
-        :show="isTutorOpen"
-        @close="isTutorOpen = false"
-      ></tutors-slide-over>
-
       <div class="absolute top-0 left-auto block w-right inset-map">
         <aside class="sticky top-0 w-full h-screen pt-32 -mt-32">
           <div class="relative w-full h-full">
@@ -318,7 +335,7 @@
                   <GmapMap
                     ref="mapRef"
                     :center="center"
-                    :zoom="10"
+                    :zoom="11"
                     map-type-id="roadmap"
                     style="width: 100%; height: 100vh"
                     :options="{
@@ -344,6 +361,13 @@
                       :icon="!m.clicked ? markerOptions : markerClicked"
                       @click="markerInfoWindow(m, index)"
                     />
+
+                    <gmap-info-window
+                      :options="infoOptions"
+                      :position="infoWindowPos"
+                      :opened="infoWinOpen"
+                    >
+                    </gmap-info-window>
                   </GmapMap>
                 </div>
               </div>
@@ -359,16 +383,14 @@
 import { mapGetters, mapState } from 'vuex'
 // import { gmapApi } from 'gmap-vue'
 import tutorItem from '~/components/tutors/tutorItem.vue'
-import TutorsSlideOver from '~/components/tutors/tutorsSlideOver.vue'
 import BreadcrumbsApp from '~/components/UI/BreadcrumbsApp.vue'
 
 export default {
   name: 'Zoeken',
-  components: { tutorItem, BreadcrumbsApp, TutorsSlideOver },
+  components: { tutorItem, BreadcrumbsApp },
 
   data: () => ({
-    isTutorOpen: false,
-    center: { lat: -8.381357822670871, lng: 115.13967209436002 },
+    center: { lat: 52.379189, lng: 4.899431 },
     searchLoading: false,
     afterLoading: false,
     circle_markers: [],
@@ -377,7 +399,7 @@ export default {
     radius: null,
     markers: [
       {
-        position: { lat: -8.340539, lng: 115.091948 },
+        position: { lat: 52.379189, lng: 4.899431 },
         price: '$200',
         name: 'Bali Property for Sale – Chill House Hipster Retreat',
         image: 'property1.jpg',
@@ -385,7 +407,7 @@ export default {
         clicked: false,
       },
       {
-        position: { lat: -8.267559, lng: 114.524339 },
+        position: { lat: 52.345999, lng: 4.821177 },
         price: '$1800',
         name: 'Flawless Uluwatu Villa Zsa Zsa Finally for Sale',
         image: 'property2.jpg',
@@ -393,7 +415,7 @@ export default {
         clicked: false,
       },
       {
-        position: { lat: -8.506854, lng: 115.262482 },
+        position: { lat: 52.345999, lng: 4.821177 },
         price: '$1300',
         name: 'High Ranking Boutique Resort for Sale in Sanur',
         image: 'property3.jpg',
@@ -401,7 +423,7 @@ export default {
         clicked: false,
       },
       {
-        position: { lat: -8.438413, lng: 115.496922 },
+        position: { lat: 52.335999, lng: 4.726177 },
         price: '$3900',
         name: 'Modern Bali Villa for Rent in Seminyak',
         image: 'property4.jpg',
@@ -409,7 +431,7 @@ export default {
         clicked: false,
       },
       {
-        position: { lat: -8.811012, lng: 115.173601 },
+        position: { lat: 52.395999, lng: 4.821197 },
         price: '$2200',
         name: 'Chic Serenity in Beach Lovers Paradise – Sanur.',
         image: 'property5.jpg',
@@ -417,7 +439,7 @@ export default {
         clicked: false,
       },
       {
-        position: { lat: -8.582952, lng: 115.085652 },
+        position: { lat: 52.355999, lng: 4.826177 },
         price: '$550',
         name: 'Breathtaking Exotic Sanur Residence',
         image: 'property6.jpg',
@@ -460,7 +482,7 @@ export default {
       age: '19',
       sex: 'Vrouw',
       biography:
-        'Hoi, ik heet Elise en ben net klaar met mijn VWO. Op dit moment ...',
+        'Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular gun in American crime. Like they are actually proud of that shit. ',
       email: 'elise91xx@gmail.com',
       lastSeen: '14-11-2020',
       hourlyRate: '11',
@@ -487,9 +509,6 @@ export default {
   },
   updated() {},
   methods: {
-    open() {
-      this.isTutorOpen = !this.isTutorOpen
-    },
     async fetchTutors() {
       const postcode = this.postcode
       await this.$store.dispatch('loadAllTutors', postcode)
@@ -676,3 +695,97 @@ export default {
   middleware: 'auth',
 }
 </script>
+
+<style>
+.gm-ui-hover-effect {
+  display: none !important;
+}
+.gm-style-iw-d {
+  overflow: hidden !important;
+}
+.gm-style .gm-style-iw-t::after {
+  top: 38px;
+}
+.gm-control-active.gm-fullscreen-control {
+  border-radius: 8px !important;
+}
+
+.gm-style .gm-style-iw-c {
+  padding: 0px;
+  top: 40px;
+  border-radius: 12px;
+}
+.map-search-title {
+  font-weight: 600 !important;
+  color: rgb(34, 34, 34) !important;
+}
+.btn-red-hot {
+  background-color: #ff385c;
+  color: #fff;
+}
+.btn-red-hot:hover {
+  background-color: #ff385c;
+  color: #fff;
+}
+.info {
+  padding: 10px;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+.info .location {
+  font-size: 14px !important;
+  max-width: 230px;
+}
+.info .title {
+  font-weight: 400 !important;
+  color: rgb(34, 34, 34) !important;
+  font-size: 16px !important;
+  padding-bottom: 5px;
+  max-width: 230px;
+}
+.info .price {
+  color: rgb(34, 34, 34) !important;
+  font-weight: 800;
+  font-size: 16px !important;
+}
+.img-marker {
+  object-fit: cover;
+  width: 250px;
+  height: 200px;
+}
+.text-searching {
+  z-index: 10;
+  margin: 0 auto;
+  top: 2rem;
+  font-size: 1rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 20px;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgb(255, 255, 255) !important;
+  border-radius: 8px !important;
+}
+.gmnoprint > div {
+  border-radius: 8px !important;
+}
+.map-sticky {
+  position: sticky;
+  top: 0px;
+}
+.main {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100vh;
+}
+.scroll-none {
+  width: 100vw;
+}
+.main::-webkit-scrollbar {
+  display: none;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+</style>

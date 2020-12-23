@@ -3,14 +3,14 @@
     <div class="w-full h-full px-4 pt-3 pb-4">
       <li>
         <div class="relative z-10 flex h-full">
-          <div class="w-2/3">
+          <div class="w-1/3">
             <img
               class="flex-shrink-0 object-cover w-full h-64 mx-auto bg-gray-200"
               :src="profileImage"
               :alt="imageAlt"
             />
           </div>
-          <div class="p-6">
+          <div class="w-2/3 p-6">
             <div
               class="text-xs font-semibold leading-snug tracking-wide text-gray-500 uppercase"
             >
@@ -21,6 +21,29 @@
                 {{ name }}
               </h4>
             </NuxtLink>
+
+            <div class="mt-2">{{ description | truncate(150) }}</div>
+
+            <!-- <div>
+              <div class="mt-4 text-sm font-semibold text-gray-600">
+                <span>MA</span>
+                <span
+                  class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
+                  >DI</span
+                >
+                <span>WO</span>
+                <span
+                  class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
+                  >DO</span
+                >
+                <span
+                  class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
+                  >VR</span
+                >
+                <span>ZA</span>
+                <span>ZO</span>
+              </div>
+            </div> -->
 
             <div class="flex items-end flex-grow mt-2">
               <div class="mr-4">
@@ -48,32 +71,10 @@
                   </span>
                 </span>
               </div>
-              <div class="ml-auto">
+              <div class="ml-auto text-xl font-semibold">
                 {{ rate }}€
 
-                <span class="text-sm text-gray-600">per uur</span>
-              </div>
-            </div>
-
-            <div class="mt-2">{{ description }}</div>
-            <div>
-              <div class="mt-4 text-sm font-semibold text-gray-600">
-                <span>MA</span>
-                <span
-                  class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
-                  >DI</span
-                >
-                <span>WO</span>
-                <span
-                  class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
-                  >DO</span
-                >
-                <span
-                  class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
-                  >VR</span
-                >
-                <span>ZA</span>
-                <span>ZO</span>
+                <span class="text-xl font-medium text-gray-600">per uur</span>
               </div>
             </div>
           </div>
@@ -92,6 +93,11 @@ export default {
 
   name: 'TutorItem',
   components: {},
+  filters: {
+    truncate(string, value) {
+      return (string || '').substring(0, value) + '…'
+    },
+  },
   props: [
     'id',
     'firstName',
