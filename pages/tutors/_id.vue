@@ -124,7 +124,7 @@
           </section>
 
           <!-- Comments-->
-          <section aria-labelledby="notes-title">
+          <section aria-labelledby="messages-title">
             <div class="bg-white shadow sm:rounded-lg sm:overflow-hidden">
               <div class="divide-y divide-gray-200">
                 <div class="px-4 py-5 sm:px-6">
@@ -132,92 +132,11 @@
                     id="notes-title"
                     class="text-lg font-medium text-gray-900"
                   >
-                    Notes
+                    Berichten
                   </h2>
                 </div>
                 <div class="px-4 py-6 sm:px-6">
                   <ul class="space-y-8">
-                    <li>
-                      <div class="flex space-x-3">
-                        <div class="flex-shrink-0">
-                          <img
-                            class="w-10 h-10 rounded-full"
-                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
-                          />
-                        </div>
-                        <div>
-                          <div class="text-sm">
-                            <a href="#" class="font-medium text-gray-900"
-                              >Leslie Alexander</a
-                            >
-                          </div>
-                          <div class="mt-1 text-sm text-gray-700">
-                            <p>
-                              Ducimus quas delectus ad maxime totam doloribus
-                              reiciendis ex. Tempore dolorem maiores. Similique
-                              voluptatibus tempore non ut.
-                            </p>
-                          </div>
-                          <div class="mt-2 space-x-2 text-sm">
-                            <span class="font-medium text-gray-500"
-                              >4d ago</span
-                            >
-                            <span class="font-medium text-gray-500"
-                              >&middot;</span
-                            >
-                            <button
-                              type="button"
-                              class="font-medium text-gray-900"
-                            >
-                              Reply
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-
-                    <li>
-                      <div class="flex space-x-3">
-                        <div class="flex-shrink-0">
-                          <img
-                            class="w-10 h-10 rounded-full"
-                            src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
-                          />
-                        </div>
-                        <div>
-                          <div class="text-sm">
-                            <a href="#" class="font-medium text-gray-900"
-                              >Michael Foster</a
-                            >
-                          </div>
-                          <div class="mt-1 text-sm text-gray-700">
-                            <p>
-                              Et ut autem. Voluptatem eum dolores sint
-                              necessitatibus quos. Quis eum qui dolorem
-                              accusantium voluptas voluptatem ipsum. Quo facere
-                              iusto quia accusamus veniam id explicabo et aut.
-                            </p>
-                          </div>
-                          <div class="mt-2 space-x-2 text-sm">
-                            <span class="font-medium text-gray-500"
-                              >4d ago</span
-                            >
-                            <span class="font-medium text-gray-500"
-                              >&middot;</span
-                            >
-                            <button
-                              type="button"
-                              class="font-medium text-gray-900"
-                            >
-                              Reply
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-
                     <li>
                       <div class="flex space-x-3">
                         <div class="flex-shrink-0">
@@ -243,7 +162,7 @@
                           </div>
                           <div class="mt-2 space-x-2 text-sm">
                             <span class="font-medium text-gray-500"
-                              >4d ago</span
+                              >4d geleden</span
                             >
                             <span class="font-medium text-gray-500"
                               >&middot;</span
@@ -252,7 +171,7 @@
                               type="button"
                               class="font-medium text-gray-900"
                             >
-                              Reply
+                              Beantwoorden
                             </button>
                           </div>
                         </div>
@@ -279,7 +198,7 @@
                           name="comment"
                           rows="3"
                           class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm"
-                          placeholder="Add a note"
+                          placeholder="Schrijf een bericht"
                         ></textarea>
                       </div>
                       <div class="flex items-center justify-between mt-3">
@@ -307,7 +226,7 @@
                           type="submit"
                           class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
                         >
-                          Comment
+                          Verstuur bericht
                         </button>
                       </div>
                     </form>
@@ -319,252 +238,19 @@
         </div>
 
         <section
-          aria-labelledby="timeline-title"
+          aria-labelledby="calender-title"
           class="lg:col-start-3 lg:col-span-1"
         >
           <div class="px-4 py-5 bg-white shadow sm:rounded-lg sm:px-6">
             <h2 id="timeline-title" class="text-lg font-medium text-gray-900">
-              Timeline
+              Beschikbaar op
             </h2>
 
-            <!-- Activity Feed -->
+            <!-- Calender Feed -->
             <div class="flow-root mt-6">
               <ul class="-mb-8">
-                <li>
-                  <div class="relative pb-8">
-                    <span
-                      class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
-                      aria-hidden="true"
-                    ></span>
-                    <div class="relative flex space-x-3">
-                      <div>
-                        <span
-                          class="flex items-center justify-center w-8 h-8 bg-gray-400 rounded-full ring-8 ring-white"
-                        >
-                          <!-- Heroicon name: user -->
-                          <svg
-                            class="w-5 h-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div
-                        class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4"
-                      >
-                        <div>
-                          <p class="text-sm text-gray-500">
-                            Laatst online gezien op
-                            <span class="font-medium text-gray-900">
-                              <time datetime="2020-09-20">Sep 20</time></span
-                            >
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="relative pb-8">
-                    <span
-                      class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
-                      aria-hidden="true"
-                    ></span>
-                    <div class="relative flex space-x-3">
-                      <div>
-                        <span
-                          class="flex items-center justify-center w-8 h-8 rounded-full bg-light-blue-500 ring-8 ring-white"
-                        >
-                          <!-- Heroicon name: thumb-up -->
-                          <svg
-                            class="w-5 h-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div
-                        class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4"
-                      >
-                        <div>
-                          <p class="text-sm text-gray-500">
-                            Advanced to phone screening by
-                            <a href="#" class="font-medium text-gray-900"
-                              >Bethany Blake</a
-                            >
-                          </p>
-                        </div>
-                        <div
-                          class="text-sm text-right text-gray-500 whitespace-nowrap"
-                        >
-                          <time datetime="2020-09-22">Sep 22</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="relative pb-8">
-                    <span
-                      class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
-                      aria-hidden="true"
-                    ></span>
-                    <div class="relative flex space-x-3">
-                      <div>
-                        <span
-                          class="flex items-center justify-center w-8 h-8 bg-green-500 rounded-full ring-8 ring-white"
-                        >
-                          <!-- Heroicon name: check -->
-                          <svg
-                            class="w-5 h-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div
-                        class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4"
-                      >
-                        <div>
-                          <p class="text-sm text-gray-500">
-                            Completed phone screening with
-                            <a href="#" class="font-medium text-gray-900"
-                              >Martha Gardner</a
-                            >
-                          </p>
-                        </div>
-                        <div
-                          class="text-sm text-right text-gray-500 whitespace-nowrap"
-                        >
-                          <time datetime="2020-09-28">Sep 28</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="relative pb-8">
-                    <span
-                      class="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
-                      aria-hidden="true"
-                    ></span>
-                    <div class="relative flex space-x-3">
-                      <div>
-                        <span
-                          class="flex items-center justify-center w-8 h-8 rounded-full bg-light-blue-500 ring-8 ring-white"
-                        >
-                          <!-- Heroicon name: thumb-up -->
-                          <svg
-                            class="w-5 h-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div
-                        class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4"
-                      >
-                        <div>
-                          <p class="text-sm text-gray-500">
-                            Advanced to interview by
-                            <a href="#" class="font-medium text-gray-900"
-                              >Bethany Blake</a
-                            >
-                          </p>
-                        </div>
-                        <div
-                          class="text-sm text-right text-gray-500 whitespace-nowrap"
-                        >
-                          <time datetime="2020-09-30">Sep 30</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-
-                <li>
-                  <div class="relative pb-8">
-                    <div class="relative flex space-x-3">
-                      <div>
-                        <span
-                          class="flex items-center justify-center w-8 h-8 bg-green-500 rounded-full ring-8 ring-white"
-                        >
-                          <!-- Heroicon name: check -->
-                          <svg
-                            class="w-5 h-5 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div
-                        class="min-w-0 flex-1 pt-1.5 flex justify-between space-x-4"
-                      >
-                        <div>
-                          <p class="text-sm text-gray-500">
-                            Completed interview with
-                            <a href="#" class="font-medium text-gray-900"
-                              >Katherine Snyder</a
-                            >
-                          </p>
-                        </div>
-                        <div
-                          class="text-sm text-right text-gray-500 whitespace-nowrap"
-                        >
-                          <time datetime="2020-10-04">Oct 4</time>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </li>
+                {calenderAvailability}
               </ul>
-            </div>
-            <div class="flex flex-col mt-6 justify-stretch">
-              <button
-                type="button"
-                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
-              >
-                Advance to offer
-              </button>
             </div>
           </div>
         </section>
