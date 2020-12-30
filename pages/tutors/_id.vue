@@ -192,10 +192,11 @@
                   <div class="flex-1 min-w-0">
                     <form action="#">
                       <div>
-                        <label for="comment" class="sr-only">About</label>
+                        <label for="message" class="sr-only">About</label>
                         <textarea
-                          id="comment"
-                          name="comment"
+                          id="message"
+                          v-model.trim="message"
+                          name="message"
                           rows="3"
                           class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm"
                           placeholder="Schrijf een bericht"
@@ -225,6 +226,7 @@
                         <button
                           type="submit"
                           class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                          @click.prevent="submitForm"
                         >
                           Verstuur bericht
                         </button>
@@ -393,6 +395,8 @@ export default {
           'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80',
         imageAlt: 'Profielfoto Bijlesnodig',
       },
+      message: '',
+      formIsValid: true,
     }
   },
   computed: {
@@ -429,6 +433,20 @@ export default {
       this.selectedTutor = this.$store.state.tutors.find(
         (tutor) => tutor.id === this.id
       )
+    },
+    submitForm() {
+      this.formisValid = true
+
+      if (this.message === '') {
+        this.formIsValid = false
+        return
+      }
+
+      this.$store.dispatch('contactTutor', {
+        message: this.message,
+        coachId: 39,
+      })
+      this.$router.push('/berichten')
     },
   },
 }
