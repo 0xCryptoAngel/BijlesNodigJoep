@@ -47,6 +47,7 @@
                             v-model.trim="form.email"
                             type="email"
                             :class="classes"
+                            class="text-gray-800"
                           />
                         </div>
                         <p
@@ -84,6 +85,7 @@
                             type="password"
                             required
                             :class="classes"
+                            class="text-gray-800"
                           />
                           <p
                             v-show="errors"
@@ -114,6 +116,7 @@
                             type="password"
                             required
                             :class="classes"
+                            class="text-gray-800"
                           />
                           <p
                             v-show="errors"
@@ -162,6 +165,7 @@
                           type="text"
                           autocomplete="off"
                           :class="classes"
+                          class="text-gray-800"
                         />
                         <p
                           v-show="errors"
@@ -193,6 +197,7 @@
                           type="text"
                           required
                           :class="classes"
+                          class="text-gray-800"
                         />
                         <p
                           v-show="errors"
@@ -220,7 +225,9 @@
                             type="radio"
                             value="Vrouw"
                             class="w-4 h-4 border-gray-500 text-light-blue-600 focus:ring-light-blue-500"
-                          /><label class="ml-2" for="one">Vrouw</label>
+                          /><label class="ml-2 text-gray-800" for="one"
+                            >Vrouw</label
+                          >
                         </span>
                         <span>
                           <input
@@ -230,7 +237,9 @@
                             type="radio"
                             value="Man"
                             class="w-4 h-4 border-gray-500 text-light-blue-600 focus:ring-light-blue-500"
-                          /><label class="ml-2" for="one">Man</label>
+                          /><label class="ml-2 text-gray-800" for="one"
+                            >Man</label
+                          >
                         </span>
                       </div>
                     </ValidationProvider>
@@ -253,6 +262,7 @@
                           v-model.trim="form.zip"
                           type="text"
                           :class="classes"
+                          class="text-gray-800"
                           oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                           maxlength="6"
                           @input="form.zip = $event.target.value.toUpperCase()"
@@ -285,6 +295,7 @@
                           v-model="form.city"
                           type="text"
                           :class="classes"
+                          class="text-gray-800"
                         />
                         <p
                           v-show="errors"
@@ -382,7 +393,7 @@
                             id="about"
                             v-model="form.biography"
                             rows="3"
-                            class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm"
+                            class="block w-full text-gray-800 border-gray-300 rounded-md shadow-sm focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm"
                           ></textarea>
                           <p class="mt-1 text-xs font-medium text-gray-500">
                             Je kunt nog {{ charactersRemaining }} tekens typen.
@@ -407,7 +418,7 @@
                             id="price"
                             v-model="form.hourly_rate"
                             type="number"
-                            class="block w-full pr-12 border-gray-300 rounded-md focus:ring-light-blue-500 focus:border-light-blue-500 pl-7 sm:text-sm"
+                            class="block w-full pr-12 text-gray-800 border-gray-300 rounded-md focus:ring-light-blue-500 focus:border-light-blue-500 pl-7 sm:text-sm"
                             placeholder="0.00"
                             aria-describedby="price-currency"
                             min="0"
@@ -436,7 +447,7 @@
                         <select
                           id="location"
                           v-model="form.subject"
-                          class="block w-full py-2 pl-3 pr-10 mt-1 text-base border-gray-300 rounded-md focus:outline-none focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm"
+                          class="block w-full py-2 pl-3 pr-10 mt-1 text-base text-gray-800 border-gray-300 rounded-md focus:outline-none focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm"
                         >
                           <option disabled value="">Selecteer een vak</option>
                           <option>Wiskunde</option>
