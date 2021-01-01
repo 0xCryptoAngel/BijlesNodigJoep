@@ -541,7 +541,11 @@ export default {
     },
     selectImage(e) {
       const selectedImage = e.target.files[0] // get image
-      this.createBase64Image(selectedImage)
+      if (selectedImage instanceof Blob) {
+        this.createBase64Image(selectedImage)
+      } else {
+        console.log('Choose a image')
+      }
     },
 
     createBase64Image(fileObject) {
