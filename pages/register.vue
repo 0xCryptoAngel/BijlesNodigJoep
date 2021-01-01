@@ -344,38 +344,32 @@
                         Profielfoto
                       </label>
                       <div class="flex items-center mt-2">
-                        <image-upload v-model="form.avatar">
-                          <div slot="activator" class="flex items-center mt-2">
-                            <div
-                              v-if="!form.avatar"
-                              size="150px"
-                              class="overflow-hidden bg-gray-100 rounded-full w-14 h-14"
+                        <div class="flex items-center">
+                          <div
+                            class="object-cover object-center overflow-hidden bg-gray-100 rounded-full w-14 h-14"
+                          >
+                            <img style="" :src="form.profile_image" alt="" />
+                            <svg
+                              v-if="form.profile_image == null"
+                              class="w-full h-full text-gray-300"
+                              fill="currentColor"
+                              viewBox="0 0 24 24"
                             >
-                              <span>
-                                <svg
-                                  class="w-full h-full text-gray-300"
-                                  fill="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
-                                  /></svg
-                              ></span>
-                            </div>
-                            <div
-                              v-else
-                              size="150px"
-                              class="overflow-hidden bg-gray-100 rounded-full w-14 h-14"
-                            >
-                              <img
-                                :src="form.avatar.imageURL"
-                                alt="Profielfoto BijlesNodig"
+                              <path
+                                d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"
                               />
-                            </div>
+                            </svg>
                           </div>
-                        </image-upload>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            class="custom-input-button"
+                            @change="selectImage"
+                          />
+                        </div>
                       </div>
                     </div>
+
                     <div class="mt-4 sm:col-span-6">
                       <label
                         for="about"
@@ -495,21 +489,16 @@
 
 <script>
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
-import ImageUpload from '~/components/loginregistration/imageUpload.vue'
 
 export default {
   name: 'RegistrationPage',
   layout: 'webpage',
   middleware: 'auth',
   auth: 'guest',
-  components: { ValidationProvider, ValidationObserver, ImageUpload },
+  components: { ValidationProvider, ValidationObserver },
   mixins: {},
   data() {
     return {
-      saving: false,
-      saved: false,
-      messages: 'test',
-      isNotification: false,
       steps: 1,
       totalSteps: 3,
       maxCharacter: 350,
@@ -525,7 +514,7 @@ export default {
         subject: null,
         hourly_rate: null,
         biography: '',
-        avatar: null,
+        profile_image: null,
       },
     }
   },
@@ -534,16 +523,22 @@ export default {
       return this.maxCharacter - this.form.biography.length
     },
   },
-  watch: {
-    avatar: {
-      handler() {
-        this.saved = false
-      },
-      deep: true,
-    },
-  },
+
   mounted() {},
   methods: {
+    selectImage(e) {
+      const selectedImage = e.target.files[0] // get image
+      this.createBase64Image(selectedImage)
+    },
+
+    createBase64Image(fileObject) {
+      const reader = new FileReader()
+
+      reader.onload = (e) => {
+        this.form.profile_image = e.target.result
+      }
+      reader.readAsDataURL(fileObject)
+    },
     registerUser(user) {
       this.$axios
         .post('http://notawanker.com/signup', {
@@ -561,14 +556,6 @@ export default {
     },
     submitReg() {
       alert('SEND REG')
-    },
-    uploadImage() {
-      this.saving = true
-      setTimeout(() => this.savedAvatar(), 1000)
-    },
-    savedAvatar() {
-      this.saving = false
-      this.saved = true
     },
   },
 }
