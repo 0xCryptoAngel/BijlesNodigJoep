@@ -360,12 +360,23 @@
                               />
                             </svg>
                           </div>
-                          <input
-                            type="file"
-                            accept="image/*"
-                            class="custom-input-button"
-                            @change="selectImage"
-                          />
+                          <div>
+                            <input
+                              ref="file"
+                              type="file"
+                              accept="image/*"
+                              class="custom-input-button"
+                              style="display: none"
+                              @change="selectImage"
+                            />
+                            <button
+                              type="button"
+                              class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                              @click="launchFilePicker()"
+                            >
+                              Uploaden
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -526,6 +537,9 @@ export default {
 
   mounted() {},
   methods: {
+    launchFilePicker() {
+      this.$refs.file.click()
+    },
     selectImage(e) {
       const selectedImage = e.target.files[0] // get image
       this.createBase64Image(selectedImage)
@@ -537,7 +551,12 @@ export default {
       reader.onload = (e) => {
         this.form.profile_image = e.target.result
       }
-      reader.readAsDataURL(fileObject)
+      reader.onerror = (err) => {
+        alert(err)
+      }
+      if (fileObject) {
+        reader.readAsDataURL(fileObject)
+      }
     },
     registerUser(user) {
       this.$axios
