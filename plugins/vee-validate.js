@@ -8,6 +8,7 @@ import {
   // eslint-disable-next-line camelcase
   alpha_spaces,
   max,
+  image,
 } from 'vee-validate/dist/rules'
 
 extend('customRegex', {
@@ -69,3 +70,8 @@ extend('regex', {
 })
 
 extend('max', max)
+
+extend('image', {
+  ...image,
+  message: 'Selecteer een .png, .jpeg of .gif bestand',
+})
