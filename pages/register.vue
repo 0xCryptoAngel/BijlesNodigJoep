@@ -365,7 +365,6 @@
                               ref="file"
                               type="file"
                               accept="image/*"
-                              class="custom-input-button"
                               style="display: none"
                               @change="selectImage"
                             />
