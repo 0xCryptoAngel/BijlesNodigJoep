@@ -156,20 +156,14 @@
                       for="username"
                       class="block text-sm font-medium leading-5 text-gray-700"
                     >
-                      Gebruikersnaam
+                      E-mail
                     </label>
-                    <div class="flex rounded-md shadow-sm">
-                      <span
-                        class="inline-flex items-center px-3 text-gray-500 border border-r-0 border-gray-300 bg-gray-50 rounded-l-md sm:text-sm"
-                      >
-                        {{ loggedInUser.user.email }}
-                      </span>
-                      <input
-                        id="username"
-                        class="flex-grow block w-full min-w-0 transition duration-150 ease-in-out rounded-none form-input rounded-r-md sm:text-sm sm:leading-5"
-                        value="lisamarie"
-                      />
-                    </div>
+                    <input
+                      id="email"
+                      :value="loggedInUser.user.email"
+                      disabled="disabled"
+                      class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                    />
                   </div>
 
                   <div class="space-y-1">
@@ -350,69 +344,6 @@
                       aria-checked="false"
                       aria-labelledby="privacy-option-label-2"
                       aria-describedby="privacy-option-description-2"
-                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring"
-                    >
-                      <!-- On: "translate-x-5", Off: "translate-x-0" -->
-                      <span
-                        aria-hidden="true"
-                        class="inline-block w-5 h-5 transition duration-200 ease-in-out transform translate-x-0 bg-white rounded-full shadow"
-                      ></span>
-                    </span>
-                  </li>
-                  <li class="flex items-center justify-between py-4 space-x-4">
-                    <div class="flex flex-col">
-                      <p
-                        id="privacy-option-label-3"
-                        class="text-sm font-medium leading-5 text-gray-900"
-                      >
-                        Allow commenting
-                      </p>
-                      <p
-                        id="privacy-option-description-3"
-                        class="text-sm leading-5 text-gray-500"
-                      >
-                        Integer amet, nunc hendrerit adipiscing nam. Elementum
-                        ame
-                      </p>
-                    </div>
-                    <!-- On: "bg-teal-500", Off: "bg-gray-200" -->
-                    <span
-                      role="checkbox"
-                      tabindex="0"
-                      aria-checked="true"
-                      aria-labelledby="privacy-option-label-3"
-                      aria-describedby="privacy-option-description-3"
-                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring"
-                    >
-                      <!-- On: "translate-x-5", Off: "translate-x-0" -->
-                      <span
-                        aria-hidden="true"
-                        class="inline-block w-5 h-5 transition duration-200 ease-in-out transform translate-x-0 bg-white rounded-full shadow"
-                      ></span>
-                    </span>
-                  </li>
-                  <li class="flex items-center justify-between py-4 space-x-4">
-                    <div class="flex flex-col">
-                      <p
-                        id="privacy-option-label-4"
-                        class="text-sm font-medium leading-5 text-gray-900"
-                      >
-                        Allow mentions
-                      </p>
-                      <p
-                        id="privacy-option-description-4"
-                        class="text-sm leading-5 text-gray-500"
-                      >
-                        Adipiscing est venenatis enim molestie commodo eu gravid
-                      </p>
-                    </div>
-                    <!-- On: "bg-teal-500", Off: "bg-gray-200" -->
-                    <span
-                      role="checkbox"
-                      tabindex="0"
-                      aria-checked="true"
-                      aria-labelledby="privacy-option-label-4"
-                      aria-describedby="privacy-option-description-4"
                       class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring"
                     >
                       <!-- On: "translate-x-5", Off: "translate-x-0" -->
