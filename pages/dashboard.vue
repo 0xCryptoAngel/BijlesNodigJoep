@@ -16,21 +16,21 @@
                       <!-- Profile -->
                       <div class="flex items-center">
                         <img
-                          class="hidden rounded-full h-15 w-15 sm:block"
-                          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
+                          class="hidden w-12 h-12 rounded-full sm:block"
+                          src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg"
                           alt=""
                         />
                         <div>
                           <div class="flex items-center">
                             <img
-                              class="rounded-full h-15 w-15 sm:hidden"
-                              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
+                              class="w-12 h-12 rounded-full sm:hidden"
+                              src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg"
                               alt=""
                             />
                             <h1
                               class="ml-3 text-2xl font-bold leading-7 text-cool-gray-900 sm:leading-9 sm:truncate"
                             >
-                              Goedemorgen, Ezra Zeebregts
+                              Goedemorgen, {{ this.$auth.user.user.name }}
                             </h1>
                           </div>
                           <dl
