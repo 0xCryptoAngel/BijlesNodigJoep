@@ -1,5 +1,5 @@
 <template>
-  <main class="relative -mt-16">
+  <main class="relative mt-16">
     <div class="max-w-screen-xl px-4 pb-6 mx-auto sm:px-6 lg:pb-16 lg:px-8">
       <div class="overflow-hidden bg-white rounded-lg shadow">
         <div
