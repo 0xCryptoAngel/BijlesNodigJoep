@@ -2,14 +2,16 @@
   <div>
     <webNavBar />
     <nuxt />
+    <web-footer />
   </div>
 </template>
 
 <script>
+import WebFooter from '~/components/webLayout/webFooter.vue'
 import webNavBar from '~/components/webLayout/webNavBar'
 
 export default {
-  components: { webNavBar },
+  components: { webNavBar, WebFooter },
   head: {
     title: 'BijlesNodig',
     meta: [
