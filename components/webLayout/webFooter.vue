@@ -1,58 +1,10 @@
 <template>
-  <!--
-  This example requires Tailwind CSS v2.0+ 
-  
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ]
-  }
-  ```
--->
-  <footer class="bg-light-blue-900" aria-labelledby="footerHeading">
+  <footer class="bg-cyan-800" aria-labelledby="footerHeading">
     <h2 id="footerHeading" class="sr-only">Footer</h2>
     <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:py-16 lg:px-8">
       <div class="xl:grid xl:grid-cols-3 xl:gap-8">
         <div class="grid grid-cols-2 gap-8 xl:col-span-2">
           <div class="md:grid md:grid-cols-2 md:gap-8">
-            <div>
-              <h3
-                class="text-sm font-semibold tracking-wider text-gray-300 uppercase"
-              >
-                Solutions
-              </h3>
-              <ul class="mt-4 space-y-4">
-                <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Marketing
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Analytics
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Commerce
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Insights
-                  </a>
-                </li>
-              </ul>
-            </div>
             <div class="mt-12 md:mt-0">
               <h3
                 class="text-sm font-semibold tracking-wider text-gray-300 uppercase"
@@ -62,41 +14,27 @@
               <ul class="mt-4 space-y-4">
                 <li>
                   <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Pricing
+                    Prijzen
                   </a>
                 </li>
 
                 <li>
                   <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Documentation
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Guides
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
-                    API Status
+                    FAQ
                   </a>
                 </li>
               </ul>
             </div>
-          </div>
-          <div class="md:grid md:grid-cols-2 md:gap-8">
             <div>
               <h3
                 class="text-sm font-semibold tracking-wider text-gray-300 uppercase"
               >
-                Company
+                BijlesNodig
               </h3>
               <ul class="mt-4 space-y-4">
                 <li>
                   <a href="#" class="text-base text-gray-300 hover:text-white">
-                    About
+                    Over ons
                   </a>
                 </li>
 
@@ -108,13 +46,13 @@
 
                 <li>
                   <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Jobs
+                    Vacatures
                   </a>
                 </li>
 
                 <li>
                   <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Press
+                    Pers
                   </a>
                 </li>
 
@@ -125,6 +63,8 @@
                 </li>
               </ul>
             </div>
+          </div>
+          <div class="md:grid md:grid-cols-2 md:gap-8">
             <div class="mt-12 md:mt-0">
               <h3
                 class="text-sm font-semibold tracking-wider text-gray-300 uppercase"
@@ -132,11 +72,7 @@
                 Legal
               </h3>
               <ul class="mt-4 space-y-4">
-                <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Claim
-                  </a>
-                </li>
+                <li></li>
 
                 <li>
                   <a href="#" class="text-base text-gray-300 hover:text-white">
@@ -146,7 +82,7 @@
 
                 <li>
                   <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Terms
+                    Algemene voorwaarden
                   </a>
                 </li>
               </ul>
@@ -179,14 +115,14 @@
                 type="submit"
                 class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-light-blue-500"
               >
-                Subscribe
+                Inschrijven
               </button>
             </div>
           </form>
         </div>
       </div>
       <div
-        class="pt-8 mt-8 border-t border-gray-700 md:flex md:items-center md:justify-between"
+        class="pt-8 mt-8 border-t border-gray-200 md:flex md:items-center md:justify-between"
       >
         <div class="flex space-x-6 md:order-2">
           <a href="#" class="text-gray-300 hover:text-gray-300">

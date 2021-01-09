@@ -34,6 +34,7 @@ module.exports = {
           900: '#0c4a6e',
         },
         orange: colors.orange,
+        cyan: colors.cyan,
       },
       fontFamily: {
         sans: ['Inter'],

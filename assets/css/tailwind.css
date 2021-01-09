@@ -4,9 +4,6 @@
 /* purgecss end ignore */
 @import 'tailwindcss/utilities';
 
-.dark-mode body {
-    @apply text-white bg-gray-800;
-}
 
 body {
     @apply font-sans;
@@ -41,4 +38,8 @@ body {
 
 .w-right {
     width: calc(100% - 840px) !important;
+}
+
+.pb-perc {
+    padding-bottom: 56%;
 }
