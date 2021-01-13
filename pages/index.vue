@@ -103,7 +103,7 @@
                 >Registreren</a
               ><a
                 href="/hoe-werkt-het"
-                class="inline-flex items-center justify-center h-10 px-5 ml-6 text-base font-medium text-gray-900 transition-colors bg-black rounded-lg bg-opacity-10 hover:bg-gray-200"
+                class="inline-flex items-center justify-center h-10 px-5 ml-6 text-base font-medium text-gray-900 transition-colors bg-black rounded-lg bg-opacity-10 hover:bg-opacity-20 hover:text-gray-800"
                 >Veelgestelde vragen</a
               >
             </div>
@@ -125,9 +125,9 @@
                   object-position: center center;
                   opacity: 1;
                   transition: opacity 500ms ease 0s;
-                  max-width: 1000px 100vw, 1000px;
+                  max-width: 1151px 100vw;
                 "
-                class="rounded-lg shadow-xl"
+                class="rounded-lg shadow-2xl"
               />
             </div>
           </div>
@@ -136,7 +136,7 @@
       <section class="pb-16 m-4 bg-gray-200 pt-72 rounded-2xl">
         <div class="px-16 mx-auto my-0 max-w-7xl">
           <div
-            class="flex flex-wrap items-center justify-around max-w-6xl px-0 pt-12 pb-10 mx-auto my-0"
+            class="flex flex-wrap items-center justify-around max-w-6xl px-0 pt-20 pb-6 mx-auto my-0"
           >
             <h2 class="px-0 mb-0 text-base text-right text-black">
               Lorem ipsum dolor sit amet consectetur adipisicing elit totam
@@ -328,61 +328,88 @@
         </div>
       </section>
       <section class="mx-4 mb-4 bg-gray-200 rounded-2xl">
-        <div class="relative bg-gray-200 rounded-2xl">
-          <div
-            class="h-56 bg-light-blue-300 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2"
-          >
-            <img
-              class="object-cover w-full h-full rounded-l-2xl"
-              src="https://images.unsplash.com/photo-1562564055-71e051d33c19?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80&blend=efefef&sat=-100&blend-mode=multiply"
-              alt=""
-            />
-          </div>
-          <div
-            class="relative px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:py-16"
-          >
-            <div class="md:ml-auto md:w-1/2 md:pl-10">
-              <h2
-                class="text-base font-semibold tracking-wider text-gray-800 uppercase"
-              >
-                Lorem ipsum dolor
-              </h2>
-              <p
-                class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
-              >
-                Quam a scelerisque amet
-              </p>
-              <p class="mt-3 text-lg text-gray-700">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et,
-                egestas tempus tellus etiam sed. Quam a scelerisque amet
-                ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat
-                quisque ut interdum tincidunt duis.
-              </p>
-              <div class="mt-8">
-                <div class="inline-flex rounded-md shadow">
-                  <a
-                    href="#"
-                    class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-50"
-                  >
-                    Quam a scelerisque amet
-                    <!-- Heroicon name: external-link -->
-                    <svg
-                      class="w-5 h-5 ml-3 -mr-1 text-gray-400"
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
+        <div class="mx-auto my-0">
+          <div class="relative bg-gray-200 rounded-2xl">
+            <div
+              class="h-56 bg-light-blue-300 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2"
+            >
+              <img
+                class="object-cover w-full h-full rounded-l-2xl"
+                src="https://images.unsplash.com/photo-1562564055-71e051d33c19?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80&blend=efefef&sat=-100&blend-mode=multiply"
+                alt=""
+              />
+            </div>
+            <div
+              class="relative px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8 lg:py-16"
+            >
+              <div class="md:ml-auto md:w-1/2 md:pl-10">
+                <h2
+                  class="text-base font-semibold tracking-wider text-gray-800 uppercase"
+                >
+                  Lorem ipsum dolor
+                </h2>
+                <p
+                  class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
+                >
+                  Quam a scelerisque amet
+                </p>
+                <p class="mt-3 text-lg text-gray-700">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et,
+                  egestas tempus tellus etiam sed. Quam a scelerisque amet
+                  ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat
+                  quisque ut interdum tincidunt duis.
+                </p>
+                <div class="mt-8">
+                  <div class="inline-flex rounded-md shadow">
+                    <a
+                      href="#"
+                      class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-50"
                     >
-                      <path
-                        d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
-                      />
-                      <path
-                        d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
-                      />
-                    </svg>
-                  </a>
+                      Quam a scelerisque amet
+                      <!-- Heroicon name: external-link -->
+                      <svg
+                        class="w-5 h-5 ml-3 -mr-1 text-gray-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"
+                        />
+                        <path
+                          d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="py-24 mx-4 mb-4 rounded-2xl bg-gray-50 bg-gradient-to-tl from-orange-100 to-light-blue-200"
+      >
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col items-center justify-center px-6 pt-10 pb-12 text-center sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20"
+          >
+            <div class="lg:self-center">
+              <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                <span class="block">Klaar om te beginnen?</span>
+                <span class="block">Start een gratis proefperiode</span>
+              </h2>
+              <p class="mt-4 text-lg leading-6 text-gray-800">
+                Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
+                Malesuada adipiscing sagittis vel nulla nec.
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center px-6 py-3 mt-8 text-base font-semibold bg-yellow-400 border border-transparent rounded-md shadow text-gray-50 hover:bg-opacity-70"
+                >Schrijf je in</a
+              >
             </div>
           </div>
         </div>

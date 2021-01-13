@@ -1,7 +1,10 @@
 <template>
-  <footer class="bg-cyan-800" aria-labelledby="footerHeading">
+  <footer
+    class="py-24 mx-4 mb-4 bg-gray-700 rounded-2xl bg-gradient-to-br from-gray-600 to-gray-900"
+    aria-labelledby="footerHeading"
+  >
     <h2 id="footerHeading" class="sr-only">Footer</h2>
-    <div class="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:py-16 lg:px-8">
+    <div class="px-4 py-4 mx-auto max-w-7xl sm:px-6">
       <div class="xl:grid xl:grid-cols-3 xl:gap-8">
         <div class="grid grid-cols-2 gap-8 xl:col-span-2">
           <div class="md:grid md:grid-cols-2 md:gap-8">
@@ -113,7 +116,7 @@
             <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
               <button
                 type="submit"
-                class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-light-blue-500"
+                class="flex items-center justify-center w-full px-4 py-2 text-base font-medium text-white bg-gray-600 border border-transparent rounded-md hover:bg-opacity-70 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-light-blue-500"
               >
                 Inschrijven
               </button>

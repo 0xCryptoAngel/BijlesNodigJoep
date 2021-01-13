@@ -1,10 +1,15 @@
 <template>
-  <nuxt />
+  <div class="antialiased text-gray-900">
+    <nuxt />
+    <web-footer />
+  </div>
 </template>
 
 <script>
+import WebFooter from '~/components/webLayout/webFooter'
+
 export default {
-  components: {},
+  components: { WebFooter },
   head: {
     title: 'BijlesNodig',
     meta: [
