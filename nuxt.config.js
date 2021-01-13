@@ -60,10 +60,18 @@ export default {
     '@nuxtjs/pwa',
     // https://i18n.nuxtjs.org/setup
     'nuxt-i18n',
+    '@nuxtjs/prismic',
   ],
+
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     baseURL: 'http://localhost:3000',
+  },
+
+  prismic: {
+    endpoint: 'https://bijlesnodig.prismic.io/api/v2',
+    linkResolver: '@/plugins/link-resolver',
+    htmlSerializer: '@/plugins/html-serializer',
   },
 
   auth: {
@@ -114,6 +122,7 @@ export default {
     locales: ['nl', 'en'],
     defaultLocale: 'nl',
   },
-
-  // https://github.com/nuxt-community/google-fonts-module
+  generate: {
+    fallback: '404.html', // Nuxt will load as an SPA
+  },
 }
