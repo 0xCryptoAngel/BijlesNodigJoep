@@ -1,4 +1,4 @@
-export default async ({ redirect }) => {
+export default ({ redirect }) => {
   window.addEventListener(
     'click',
     (event) => {
