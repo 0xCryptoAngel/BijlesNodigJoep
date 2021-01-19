@@ -475,7 +475,7 @@
                       :disabled="invalid"
                       type="submit"
                       class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
-                      @click.prevent="submitReg"
+                      @click.prevent="registerUser"
                     >
                       Registreren
                     </button>
@@ -561,7 +561,9 @@ export default {
         reader.readAsDataURL(fileObject)
       }
     },
-    registerUser(user) {
+    registerUser() {
+      const user = this.form
+
       this.$axios
         .post('http://notawanker.com/signup', {
           user,
