@@ -249,6 +249,40 @@
                       for="zip"
                       class="block text-sm font-medium text-gray-700"
                     >
+                      Leeftijd
+                    </label>
+                    <div class="mt-1">
+                      <ValidationProvider
+                        v-slot="{ classes, errors }"
+                        name="Age"
+                        rules="required"
+                      >
+                        <input
+                          id="age"
+                          v-model.trim="form.age"
+                          type="number"
+                          :class="classes"
+                          class="text-gray-800"
+                          oninput="validity.valid||(value='');"
+                          maxlength="2"
+                          aria-describedby="age"
+                          min="0"
+                        />
+                        <p
+                          v-show="errors"
+                          id="email-error"
+                          class="mt-2 text-sm text-red-600"
+                        >
+                          {{ errors[0] }}
+                        </p>
+                      </ValidationProvider>
+                    </div>
+                  </div>
+                  <div class="space-y-1">
+                    <label
+                      for="zip"
+                      class="block text-sm font-medium text-gray-700"
+                    >
                       Postcode
                     </label>
                     <div class="mt-1">
