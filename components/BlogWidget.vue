@@ -9,10 +9,10 @@
       <h2 class="mt-10 text-xl font-semibold text-gray-900">
         {{ $prismic.asText(post.data.title) }}
       </h2>
-      <p class="flex space-x-1 text-sm text-gray-500">
+      <p class="flex space-x-1 text-sm text-gray-600">
         <span class="created-at">{{ formattedDate }}</span>
       </p>
-      <p class="mt-3 text-base text-gray-500">{{ getFirstParagraph(post) }}</p>
+      <p class="mt-3 text-base text-gray-800">{{ getFirstParagraph(post) }}</p>
     </div>
   </nuxt-link>
 </template>
@@ -35,7 +35,7 @@ export default {
   },
   created () {
     this.link = LinkResolver(this.post),
-    this.formattedDate = Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(this.post.data.date))
+    this.formattedDate = Intl.DateTimeFormat('nl-NL', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(this.post.data.date))
   },
   methods: {
     // Function to get the first paragraph of text in a blog post and limit the displayed text at 300 characters
