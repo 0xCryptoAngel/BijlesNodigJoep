@@ -15,7 +15,12 @@
     <template v-else>
       <div class="container post-part single">
         <p class="block-img" :class="size">
-          <prismic-image :field="img" />
+          <prismic-image
+            width="1310"
+            height="873"
+            class="w-full rounded-lg"
+            :field="img"
+          />
         </p>
         <template v-if="$prismic.asText(caption) != ''">
           <p>

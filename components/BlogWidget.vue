@@ -9,7 +9,7 @@
       <h2 class="mt-10 text-xl font-semibold text-gray-900">
         {{ $prismic.asText(post.data.title) }}
       </h2>
-      <p class="flex space-x-1 text-sm text-gray-600">
+      <p class="flex space-x-1 text-sm text-gray-500">
         <span class="created-at">{{ formattedDate }}</span>
       </p>
       <p class="mt-3 text-base text-gray-800">{{ getFirstParagraph(post) }}</p>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <section
-      class="pt-8 pb-32 m-4 bg-gradient-to-br from-orange-200 via-light-blue-300 to-orange-200 rounded-2xl"
+      class="pt-8 pb-24 m-4 bg-gradient-to-br from-orange-200 via-light-blue-300 to-orange-200 rounded-2xl"
     >
       <div class="px-16 mx-auto my-0 max-w-7xl">
         <header class="bg-white rounded-lg shadow-lg">
@@ -53,7 +53,7 @@
                 </li>
                 <li class="flex items-center">
                   <a
-                    href="/prijzen"
+                    href="/blog"
                     class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
                   >
                     Blog
@@ -104,7 +104,7 @@
     </section>
     <section class="home">
       <article>
-        <section class="pb-16 m-4 bg-gray-200 rounded-2xl">
+        <section class="pb-16 m-4 bg-gray-100 rounded-2xl">
           <div class="px-16 mx-auto my-0 max-w-7xl">
             <div class="max-w-6xl px-0 pt-20 pb-6 mx-auto my-0">
               <!-- Check blog posts exist -->
@@ -132,17 +132,20 @@
         </section>
       </article>
     </section>
+    <web-footer></web-footer>
   </div>
 </template>
 
 <script>
 // Importing blog posts widget
 import BlogWidget from '~/components/BlogWidget.vue'
+import WebFooter from '~/components/webLayout/webFooter.vue'
 
 export default {
   name: 'Home',
   components: {
     BlogWidget,
+    WebFooter,
   },
   async asyncData({ $prismic, error }) {
     try {
