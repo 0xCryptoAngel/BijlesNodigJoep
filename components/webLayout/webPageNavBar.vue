@@ -83,11 +83,6 @@
       <div
         class="flex flex-col items-center max-w-6xl pt-24 mx-auto my-0 text-center"
       >
-        <div
-          class="blog-avatar"
-          :style="{ backgroundImage: 'url(' + image + ')' }"
-        ></div>
-        <img :src="image" alt="" />
         <h1
           class="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-5xl"
         >

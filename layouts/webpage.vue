@@ -1,6 +1,6 @@
 <template>
   <div>
-    <webNavBar />
+    <web-page-nav-bar :title="title" />
     <nuxt />
     <web-footer />
   </div>
@@ -8,10 +8,15 @@
 
 <script>
 import WebFooter from '~/components/webLayout/webFooter.vue'
-import webNavBar from '~/components/webLayout/webNavBar'
+import WebPageNavBar from '~/components/webLayout/webPageNavBar.vue'
 
 export default {
-  components: { webNavBar, WebFooter },
+  components: { WebFooter, WebPageNavBar },
+  data() {
+    return {
+      title: 'test',
+    }
+  },
   head: {
     title: 'BijlesNodig',
     meta: [
