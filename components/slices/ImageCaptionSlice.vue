@@ -13,21 +13,19 @@
       </div>
     </template>
     <template v-else>
-      <div class="container post-part single">
-        <p class="block-img" :class="size">
-          <prismic-image
-            width="1310"
-            height="873"
-            class="w-full rounded-lg"
-            :field="img"
-          />
-        </p>
-        <template v-if="$prismic.asText(caption) != ''">
-          <p>
-            <span class="image-label">{{ $prismic.asText(caption) }}</span>
-          </p>
-        </template>
-      </div>
+      <p class="block-img" :class="size">
+        <prismic-image
+          width="1310"
+          height="873"
+          class="w-full m-0 rounded-lg"
+          :field="img"
+        />
+      </p>
+      <template v-if="$prismic.asText(caption) != ''">
+        <figcaption class="mt-1 text-base prose prose-lg text-gray-500">
+          {{ $prismic.asText(caption) }}
+        </figcaption>
+      </template>
     </template>
   </div>
 </template>

@@ -1,10 +1,5 @@
 <template>
-  <div class="container post-part single">
-    <prismic-rich-text
-      class="mt-8 text-xl leading-8 text-gray-500"
-      :field="slice.primary.text"
-    />
-  </div>
+  <prismic-rich-text :field="slice.primary.text" />
 </template>
 
 <script>
@@ -13,3 +8,5 @@ export default {
   props: ['slice'],
 }
 </script>
+
+<style></style>
