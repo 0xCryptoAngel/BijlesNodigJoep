@@ -4,11 +4,6 @@
   >
     <div class="w-full max-w-md">
       <div>
-        <img
-          class="w-auto h-12 mx-auto"
-          src="https://tailwindui.com/img/logos/v1/workflow-mark-on-white.svg"
-          alt="Workflow"
-        />
         <h2
           class="mt-6 text-3xl font-extrabold leading-9 text-center text-gray-900"
         >

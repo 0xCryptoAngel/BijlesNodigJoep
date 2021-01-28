@@ -66,7 +66,7 @@ configure({
 extend('regex', {
   ...regex,
   message:
-    'Het wachtwoord moet uit minimaal 1 kleine letters, 1 hoofdletter, een cijfer, een speciaal teken en minimaal 8 tekens lang zijn',
+    'Het wachtwoord moet uit minimaal 1 kleine letter, 1 hoofdletter, een cijfer en een speciaal teken bestaan en minimaal 8 tekens lang zijn',
 })
 
 extend('max', max)
