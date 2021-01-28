@@ -27,20 +27,12 @@
                       href="/prijzen"
                       class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
                     >
-                      Features
-                    </a>
-                  </li>
-                  <li class="flex items-center">
-                    <a
-                      href="/prijzen"
-                      class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
-                    >
                       Prijzen
                     </a>
                   </li>
                   <li class="flex items-center">
                     <a
-                      href="/prijzen"
+                      href="/hoe-werkt-het"
                       class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
                     >
                       FAQ
@@ -48,7 +40,7 @@
                   </li>
                   <li class="flex items-center">
                     <a
-                      href="/prijzen"
+                      href="/over-ons"
                       class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
                     >
                       Over ons
@@ -73,7 +65,7 @@
                   </li>
                   <li class="flex items-center">
                     <a
-                      href="/login"
+                      href="/register"
                       class="flex items-center justify-center flex-shrink-0 h-8 px-4 m-0 font-medium text-gray-100 transition-colors bg-gray-900 rounded-md hover:bg-gray-800"
                       >Registreren</a
                     >

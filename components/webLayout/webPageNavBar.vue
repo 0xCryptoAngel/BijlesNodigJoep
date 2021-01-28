@@ -20,14 +20,6 @@
             <div class="flex justify-center flex-grow">
               <li class="flex items-center">
                 <a
-                  href="/functies"
-                  class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
-                >
-                  Features
-                </a>
-              </li>
-              <li class="flex items-center">
-                <a
                   href="/prijzen"
                   class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
                 >
