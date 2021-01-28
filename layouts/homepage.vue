@@ -11,7 +11,6 @@ import WebFooter from '~/components/webLayout/webFooter'
 export default {
   components: { WebFooter },
   head: {
-    title: 'BijlesNodig',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

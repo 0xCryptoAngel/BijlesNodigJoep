@@ -1,6 +1,9 @@
 <template>
   <div>
-    <web-page-nav-bar></web-page-nav-bar>
+    <web-page-nav-bar
+      :title="title"
+      :beschrijving="beschrijving"
+    ></web-page-nav-bar>
     <section class="home">
       <article>
         <section class="pb-16 m-4 bg-gray-100 rounded-2xl">
@@ -70,9 +73,15 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
+  data() {
+    return {
+      title: 'Bijlesnodig.nl Nieuws',
+      beschrijving: 'Het laatste nieuws en tips om je te helpen met leren',
+    }
+  },
   head() {
     return {
-      title: 'BijlesNodig Blog',
+      titleTemplate: '%s | Nieuws en artikelen',
     }
   },
 }

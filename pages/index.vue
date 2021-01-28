@@ -427,14 +427,15 @@
 </template>
 
 <script>
-// import homeNavBar from '~/components/webLayout/homeNavBar'
-// import WebFooter from '~/components/webLayout/webFooter'
-
 export default {
   name: 'Home',
-  // components: { homeNavBar, WebFooter },
   layout: 'homepage',
   middleware: 'auth',
   auth: 'guest',
+  head() {
+    return {
+      titleTemplate: '%s | Vind iemand bij jou in de buurt',
+    }
+  },
 }
 </script>

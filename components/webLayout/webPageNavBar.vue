@@ -36,7 +36,7 @@
               </li>
               <li class="flex items-center">
                 <a
-                  href="/veelgestelde-vragen"
+                  href="/hoe-werkt-het"
                   class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
                 >
                   FAQ
@@ -86,12 +86,12 @@
         <h1
           class="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-5xl"
         >
-          Voorbeeld Text
+          {{ title }}
         </h1>
         <p
           class="mt-3 mb-8 text-base font-light text-gray-800 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 lg:mx-0"
         >
-          Voorbeeld beschrijving
+          {{ beschrijving }}
         </p>
       </div>
     </div>
@@ -99,7 +99,9 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: ['title', 'beschrijving'],
+}
 </script>
 
 <style></style>

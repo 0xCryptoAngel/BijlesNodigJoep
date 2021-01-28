@@ -1,5 +1,9 @@
 <template>
   <section>
+    <web-page-nav-bar
+      :title="title"
+      :beschrijving="beschrijving"
+    ></web-page-nav-bar>
     <div class="relative py-16 bg-white sm:py-24">
       <div
         class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
@@ -54,7 +58,7 @@
             >
               <img
                 class="absolute inset-0 object-cover w-full h-full"
-                src="https://images.unsplash.com/photo-1521510895919-46920266ddb3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&fp-x=0.5&fp-y=0.6&fp-z=3&width=1440&height=1440&sat=-100"
+                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80"
                 alt=""
               />
               <div
@@ -66,7 +70,7 @@
               ></div>
               <div class="relative px-8">
                 <div>
-                  <h2>Bijlesnodig.nl</h2>
+                  <h2>Logo Bijlesnodig.nl</h2>
                 </div>
                 <blockquote class="mt-8">
                   <div
@@ -83,9 +87,8 @@
                       />
                     </svg>
                     <p class="relative">
-                      Tincidunt integer commodo, cursus etiam aliquam neque, et.
-                      Consectetur pretium in volutpat, diam. Montes, magna
-                      cursus nulla feugiat dignissim id lobortis amet.
+                      Uit eigen ervaring weet ik dat bijles krijgen een wereld
+                      van verschil kan maken op je schoolresultaten.
                     </p>
                   </div>
 
@@ -128,60 +131,6 @@
                 maken als er wordt gekeken naar de cijfers voor én na de
                 bijles.” -Joep Schaafsma, oprichter van Bijlesnodig.nl
               </p>
-              <p class="text-base leading-7">
-                Rhoncus nisl, libero egestas diam fermentum dui. At quis
-                tincidunt vel ultricies. Vulputate aliquet velit faucibus
-                semper. Pellentesque in venenatis vestibulum consectetur nibh
-                id. In id ut tempus egestas. Enim sit aliquam nec, a. Morbi enim
-                fermentum lacus in. Viverra.
-              </p>
-            </div>
-          </div>
-
-          <!-- Stats section -->
-          <div class="mt-10">
-            <dl class="grid grid-cols-2 gap-x-4 gap-y-8">
-              <div class="pt-6 border-t-2 border-gray-100">
-                <dt class="text-base font-medium text-gray-500">Founded</dt>
-                <dd
-                  class="text-3xl font-extrabold tracking-tight text-gray-900"
-                >
-                  2021
-                </dd>
-              </div>
-
-              <div class="pt-6 border-t-2 border-gray-100">
-                <dt class="text-base font-medium text-gray-500">Employees</dt>
-                <dd
-                  class="text-3xl font-extrabold tracking-tight text-gray-900"
-                >
-                  5
-                </dd>
-              </div>
-
-              <div class="pt-6 border-t-2 border-gray-100">
-                <dt class="text-base font-medium text-gray-500">Beta Users</dt>
-                <dd
-                  class="text-3xl font-extrabold tracking-tight text-gray-900"
-                >
-                  521
-                </dd>
-              </div>
-
-              <div class="pt-6 border-t-2 border-gray-100">
-                <dt class="text-base font-medium text-gray-500">Raised</dt>
-                <dd
-                  class="text-3xl font-extrabold tracking-tight text-gray-900"
-                >
-                  $25M
-                </dd>
-              </div>
-            </dl>
-            <div class="mt-10">
-              <a href="#" class="text-base font-medium text-indigo-600">
-                Learn more about how we're changing the world
-                <span aria-hidden="true">&rarr;</span>
-              </a>
             </div>
           </div>
         </div>
@@ -191,8 +140,28 @@
 </template>
 
 <script>
+import webPageNavBar from '~/components/webLayout/webPageNavBar.vue'
+
 export default {
-  name: 'Prijzen',
+  components: { webPageNavBar },
+  data() {
+    return {
+      title: 'Over Bijlesnodig.nl',
+      beschrijving: 'Voorbeeld paginabeschrijving',
+    }
+  },
+  head() {
+    return {
+      titleTemplate: '%s | Over Bijlesnodig.nl',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Over Bijlesnodig.nl en waarom we dit zijn begonnen',
+        },
+      ],
+    }
+  },
   layout: 'webpage',
   middleware: 'auth',
   auth: 'guest',
