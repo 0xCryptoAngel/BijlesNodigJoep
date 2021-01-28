@@ -24,7 +24,7 @@
                 <div class="flex justify-center flex-grow">
                   <li class="flex items-center">
                     <a
-                      href="/prijzen"
+                      href="#"
                       class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
                     >
                       Prijzen
@@ -110,7 +110,7 @@
           </div>
         </div>
         <div class="relative">
-          <div class="relative mx-auto max-w-7xl">
+          <div class="relative mx-auto sm:max-w-2xl lg:max-w-6xl">
             <div class="absolute w-full pb-perc">
               <img
                 src="~/assets/Screenshot 2021-01-08 at 13.54.03.png"
