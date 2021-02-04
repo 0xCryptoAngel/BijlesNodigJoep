@@ -13,7 +13,7 @@
                   aria-label="Home"
                   class="flex items-center h-full pl-5 -ml-5"
                 >
-                  <span class="mr-20 text-2xl font-bold">Bijlesnodig</span>
+                  <span class="mr-20 text-2xl font-bold">Bijlesnodig.nl</span>
                 </a>
               </div>
               <ul

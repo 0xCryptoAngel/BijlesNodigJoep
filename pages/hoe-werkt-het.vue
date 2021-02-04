@@ -150,7 +150,7 @@ export default {
   components: { webPageNavBar },
   data() {
     return {
-      title: 'Hoe werkt Bijlesnodig.nl',
+      title: 'Hoe werkt .nl',
       beschrijving:
         'Uitleg over hoe alles werkt voor de student en bijlesgever',
     }
