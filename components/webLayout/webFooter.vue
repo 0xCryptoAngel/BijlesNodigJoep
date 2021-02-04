@@ -42,7 +42,10 @@
                 </li>
 
                 <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
+                  <a
+                    href="/blog"
+                    class="text-base text-gray-300 hover:text-white"
+                  >
                     Blog
                   </a>
                 </li>
