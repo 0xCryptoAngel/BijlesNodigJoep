@@ -389,17 +389,19 @@
             class="flex flex-col items-center justify-center px-6 pt-10 pb-12 text-center sm:pt-16 sm:px-16 lg:py-16 lg:pr-0 xl:py-20 xl:px-20"
           >
             <div class="lg:self-center">
-              <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+              <h2 class="text-3xl font-extrabold text-gray-50 sm:text-4xl">
                 <span class="block">Klaar om te beginnen?</span>
-                <span class="block">Start een gratis proefperiode</span>
+                <span class="block text-cyan-900"
+                  >Start een gratis proefperiode</span
+                >
               </h2>
-              <p class="mt-4 text-lg leading-6 text-gray-800">
+              <p class="mt-4 text-lg leading-6 text-cyan-100">
                 Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
                 Malesuada adipiscing sagittis vel nulla nec.
               </p>
               <a
                 href="#"
-                class="inline-flex items-center px-6 py-3 mt-8 text-base font-semibold bg-yellow-400 border border-transparent rounded-md shadow text-gray-50 hover:bg-opacity-70"
+                class="inline-flex items-center justify-center w-full px-5 py-3 mt-8 text-base font-medium border border-transparent rounded-md bg-cyan-50 text-cyan-700 hover:bg-cyan-100 sm:w-auto"
                 >Schrijf je in</a
               >
             </div>
