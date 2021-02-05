@@ -4,7 +4,7 @@
     <WebFooter /> -->
     <main class="bg-white">
       <section
-        class="pt-8 m-4 bg-gradient-to-br from-orange-200 via-light-blue-300 to-orange-200 pb-96 rounded-2xl"
+        class="pt-8 m-4 bg-gradient-to-br from-cyan-600 via-cyan-300 to-green-400 pb-96 rounded-2xl"
       >
         <div class="px-16 mx-auto my-0 max-w-7xl">
           <header class="bg-white rounded-lg shadow-lg">
@@ -157,7 +157,7 @@
         </div>
       </section>
       <section
-        class="py-24 mx-4 mb-4 rounded-2xl bg-gray-50 bg-gradient-to-bl from-orange-100 to-light-blue-200"
+        class="py-24 mx-4 mb-4 rounded-2xl bg-gray-50 bg-gradient-to-bl from-cyan-300 via-cyan-100 to-green-200"
       >
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="">
@@ -382,7 +382,7 @@
         </div>
       </section>
       <section
-        class="py-24 mx-4 mb-4 rounded-2xl bg-gray-50 bg-gradient-to-tl from-orange-100 to-light-blue-200"
+        class="py-24 mx-4 mb-4 rounded-2xl bg-gradient-to-r from-cyan-600 to-green-400"
       >
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div
