@@ -2,7 +2,7 @@
   <div>
     <div class="outer-container">
       <section
-        class="pt-8 pb-24 m-4 bg-gradient-to-br from-orange-200 via-light-blue-300 to-orange-200 rounded-2xl"
+        class="pt-8 pb-24 m-4 bg-gradient-to-br from-cyan-600 to-green-400 rounded-2xl"
       >
         <div class="px-16 mx-auto my-0 max-w-7xl">
           <header class="bg-white rounded-lg shadow-lg">

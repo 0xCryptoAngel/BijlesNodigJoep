@@ -1,6 +1,6 @@
 <template>
   <section
-    class="pt-8 pb-24 m-4 bg-gradient-to-br from-orange-200 via-light-blue-300 to-orange-200 rounded-2xl"
+    class="pt-8 pb-24 m-4 bg-gradient-to-br from-cyan-600 to-green-400 rounded-2xl"
   >
     <div class="px-16 mx-auto my-0 max-w-7xl">
       <header class="bg-white rounded-lg shadow-lg">
@@ -68,12 +68,12 @@
         class="flex flex-col items-center max-w-6xl pt-24 mx-auto my-0 text-center"
       >
         <h1
-          class="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-900 sm:text-5xl"
+          class="block mt-2 text-3xl font-extrabold leading-8 tracking-tight text-center text-gray-50 sm:text-5xl"
         >
           {{ title }}
         </h1>
         <p
-          class="mt-3 mb-8 text-base font-light text-gray-800 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 lg:mx-0"
+          class="mt-3 mb-8 text-lg font-medium text-cyan-900 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 lg:mx-0"
         >
           {{ beschrijving }}
         </p>
