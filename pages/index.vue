@@ -4,11 +4,11 @@
     <WebFooter /> -->
     <main class="bg-white">
       <section
-        class="pt-8 m-4 bg-gradient-to-tr from-sky-blue-700 via-light-blue-300 to-orange-200 pb-80 rounded-2xl"
+        class="pt-8 m-4 pb-28 bg-gradient-to-tr from-sky-blue-700 via-light-blue-300 to-orange-200 lg:pb-80 rounded-2xl"
       >
         <div class="px-16 mx-auto my-0 max-w-7xl">
           <header class="bg-white rounded-lg shadow-lg">
-            <nav class="flex flex-row items-center px-5">
+            <nav class="items-center hidden px-5 lg:flex lg:flex-row">
               <div class="w-auto h-16 px-0">
                 <a
                   href="/"
@@ -102,7 +102,7 @@
                 >Registreren</a
               ><a
                 href="/hoe-werkt-het"
-                class="inline-flex items-center justify-center h-10 px-5 ml-6 text-base font-medium transition-colors rounded-lg text-sky-blue-900 bg-sky-blue-50 bg-opacity-90 hover:bg-opacity-70 hover:text-sky-blue-800"
+                class="inline-flex items-center justify-center h-10 px-5 ml-6 text-sm font-medium transition-colors rounded-lg lg:text-base text-sky-blue-900 bg-sky-blue-50 bg-opacity-90 hover:bg-opacity-70 hover:text-sky-blue-800"
                 >Veelgestelde vragen</a
               >
             </div>
@@ -132,12 +132,14 @@
           </div>
         </div>
       </section>
-      <section class="pb-16 m-4 bg-gray-200 pt-72 rounded-2xl">
+      <section
+        class="pb-4 m-4 bg-gray-200 pt-14 lg:pb-16 md:pt-44 lg:pt-72 rounded-2xl"
+      >
         <div class="px-16 mx-auto my-0 max-w-7xl">
           <div
-            class="flex flex-wrap items-center justify-around max-w-6xl px-0 pt-20 pb-6 mx-auto my-0"
+            class="flex flex-wrap items-center justify-center max-w-6xl px-0 pt-24 pb-6 mx-auto my-0 lg:justify-around"
           >
-            <h2 class="px-0 mb-0 text-base text-right text-black">
+            <h2 class="px-0 mb-4 text-base text-right text-gray-900 lg:mb-0">
               Bekend van:
             </h2>
             <a href=""
@@ -163,7 +165,9 @@
           </div>
         </div>
       </section>
-      <section class="py-24 mx-4 mb-4 rounded-2xl bg-sky-blue-200">
+      <section
+        class="py-24 mx-4 mb-4 border-t-8 border-sky-blue-700 rounded-2xl bg-sky-blue-200"
+      >
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="">
             <h2
@@ -331,7 +335,7 @@
               class="h-56 bg-light-blue-300 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2"
             >
               <img
-                class="object-cover w-full h-full rounded-l-2xl"
+                class="object-cover w-full h-full rounded-t-2xl sm:rounded-l-2xl"
                 src="https://images.unsplash.com/photo-1562564055-71e051d33c19?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80&blend=efefef&sat=-100&blend-mode=multiply"
                 alt=""
               />
