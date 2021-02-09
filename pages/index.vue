@@ -4,7 +4,7 @@
     <WebFooter /> -->
     <main class="bg-white">
       <section
-        class="pt-8 m-4 bg-gradient-to-br from-cyan-600 via-cyan-300 to-green-400 pb-96 rounded-2xl"
+        class="pt-8 m-4 bg-gradient-to-tr from-sky-blue-700 via-light-blue-300 to-orange-200 pb-80 rounded-2xl"
       >
         <div class="px-16 mx-auto my-0 max-w-7xl">
           <header class="bg-white rounded-lg shadow-lg">
@@ -58,7 +58,7 @@
                   <li class="flex items-center">
                     <a
                       href="/register"
-                      class="flex items-center justify-center flex-shrink-0 h-8 px-4 m-0 font-medium text-gray-100 transition-colors bg-gray-900 rounded-md hover:bg-gray-800"
+                      class="flex items-center justify-center flex-shrink-0 h-8 px-4 m-0 font-medium transition-colors rounded-md text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900"
                       >Registreren</a
                     >
                   </li>
@@ -69,33 +69,32 @@
         </div>
         <div class="px-16 mx-auto my-0 max-w-7xl">
           <div
-            class="flex flex-col items-center max-w-6xl pt-24 mx-auto my-0 text-center pb-28"
+            class="flex flex-col items-center max-w-6xl pt-16 pb-16 mx-auto my-0 text-center text-white"
           >
             <p
-              class="mt-3 text-base font-light text-gray-800 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0"
+              class="mt-3 text-sm font-bold text-white uppercase sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-sm lg:mx-0"
             >
               Start met lesgeven
             </p>
             <h1
-              class="text-4xl font-extrabold leading-10 tracking-tight text-gray-800 sm:text-5xl sm:leading-none md:text-6xl"
+              class="text-4xl font-extrabold leading-10 tracking-tight text-sky-blue-900 sm:text-5xl sm:leading-none md:text-6xl"
             >
-              BijlesNodig.
+              BijlesNodig.nl
             </h1>
             <p
-              class="mt-3 mb-8 text-base font-light text-gray-800 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 lg:mx-0"
+              class="mt-3 mb-8 text-base font-light leading-6 text-white sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 lg:mx-0"
             >
-              Bij BijlesNodig vind je de juiste personen voor vakken waar jij
-              hulp bij nodig hebt. Vind iemand bij jou in de buurt, leg contact
-              en maak een afspraak.
+              Vind een bijlesgever bij jou in de buurt, neem contact met ze op &
+              maak een afspraak.
             </p>
             <div class="flex">
               <a
                 href="/register"
-                class="inline-flex items-center justify-center h-10 px-5 text-base font-medium text-white transition-colors bg-gray-900 rounded-lg hover:bg-gray-800"
+                class="inline-flex items-center justify-center h-10 px-5 text-base font-medium transition-colors rounded-lg text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900"
                 >Registreren</a
               ><a
                 href="/hoe-werkt-het"
-                class="inline-flex items-center justify-center h-10 px-5 ml-6 text-base font-medium text-gray-900 transition-colors bg-black rounded-lg bg-opacity-10 hover:bg-opacity-20 hover:text-gray-800"
+                class="inline-flex items-center justify-center h-10 px-5 ml-6 text-base font-medium transition-colors rounded-lg text-sky-blue-900 bg-sky-blue-50 bg-opacity-90 hover:bg-opacity-70 hover:text-sky-blue-800"
                 >Veelgestelde vragen</a
               >
             </div>
