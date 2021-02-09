@@ -43,7 +43,15 @@
                       href="/over-ons"
                       class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
                     >
-                      Over ons
+                      Over Bijlesnodig.nl
+                    </a>
+                  </li>
+                  <li class="flex items-center">
+                    <a
+                      href="/faq"
+                      class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
+                    >
+                      Veelgestelde vragen
                     </a>
                   </li>
                 </div>
@@ -156,7 +164,7 @@
         </div>
       </section>
       <section
-        class="py-24 mx-4 mb-4 rounded-2xl bg-gray-50 bg-gradient-to-bl from-cyan-300 via-cyan-100 to-green-200"
+        class="py-24 mx-4 mb-4 rounded-2xl bg-gray-50 bg-gradient-to-bl from-sky-blue-400 via-cyan-sky-blue-200 to-orange-200"
       >
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="">
@@ -165,7 +173,7 @@
             >
               Lorem ipsum dolor sit amet
             </h2>
-            <p class="max-w-2xl mt-4 text-xl text-gray-500">
+            <p class="max-w-2xl mt-4 text-xl text-gray-50">
               Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
               magnam voluptatum cupiditate veritatis in accusamus quisquam.
             </p>
@@ -178,7 +186,7 @@
               <div class="flex">
                 <div class="flex-shrink-0">
                   <div
-                    class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-light-blue-700"
+                    class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-sky-blue-700"
                   >
                     <!-- Heroicon name: globe-alt -->
                     <svg
@@ -202,7 +210,7 @@
                   <dt class="text-lg font-medium leading-6 text-gray-900">
                     Platform voor leraar en student
                   </dt>
-                  <dd class="mt-2 text-base text-gray-500">
+                  <dd class="mt-2 text-base text-gray-50">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Maiores impedit perferendis suscipit eaque, iste dolor
                     cupiditate blanditiis ratione.
@@ -213,7 +221,7 @@
               <div class="flex">
                 <div class="flex-shrink-0">
                   <div
-                    class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-light-blue-700"
+                    class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-sky-blue-700"
                   >
                     <!-- Heroicon name: scale -->
                     <svg
@@ -237,7 +245,7 @@
                   <dt class="text-lg font-medium leading-6 text-gray-900">
                     Geen verborgen kosten
                   </dt>
-                  <dd class="mt-2 text-base text-gray-500">
+                  <dd class="mt-2 text-base text-gray-50">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Maiores impedit perferendis suscipit eaque, iste dolor
                     cupiditate blanditiis ratione.
@@ -248,7 +256,7 @@
               <div class="flex">
                 <div class="flex-shrink-0">
                   <div
-                    class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-light-blue-700"
+                    class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-sky-blue-700"
                   >
                     <!-- Heroicon name: lightning-bolt -->
                     <svg
@@ -272,7 +280,7 @@
                   <dt class="text-lg font-medium leading-6 text-gray-900">
                     Vind gemakkelijk iemand bij je in de buurt
                   </dt>
-                  <dd class="mt-2 text-base text-gray-500">
+                  <dd class="mt-2 text-base text-gray-50">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Maiores impedit perferendis suscipit eaque, iste dolor
                     cupiditate blanditiis ratione.
@@ -283,7 +291,7 @@
               <div class="flex">
                 <div class="flex-shrink-0">
                   <div
-                    class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-light-blue-700"
+                    class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-sky-blue-700"
                   >
                     <!-- Heroicon name: annotation -->
                     <svg
@@ -307,7 +315,7 @@
                   <dt class="text-lg font-medium leading-6 text-gray-900">
                     Stuur berichten via de app
                   </dt>
-                  <dd class="mt-2 text-base text-gray-500">
+                  <dd class="mt-2 text-base text-gray-50">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Maiores impedit perferendis suscipit eaque, iste dolor
                     cupiditate blanditiis ratione.
@@ -381,7 +389,7 @@
         </div>
       </section>
       <section
-        class="py-24 mx-4 mb-4 rounded-2xl bg-gradient-to-r from-cyan-600 to-green-400"
+        class="py-24 mx-4 mb-4 rounded-2xl bg-gradient-to-bl from-sky-blue-700 via-light-blue-400 to-orange-300"
       >
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div
