@@ -138,7 +138,7 @@
             class="flex flex-wrap items-center justify-around max-w-6xl px-0 pt-20 pb-6 mx-auto my-0"
           >
             <h2 class="px-0 mb-0 text-base text-right text-black">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit totam
+              Bekend van:
             </h2>
             <a href=""
               ><img
@@ -163,19 +163,18 @@
           </div>
         </div>
       </section>
-      <section
-        class="py-24 mx-4 mb-4 rounded-2xl bg-gray-50 bg-gradient-to-bl from-sky-blue-400 via-cyan-sky-blue-200 to-orange-200"
-      >
+      <section class="py-24 mx-4 mb-4 rounded-2xl bg-sky-blue-200">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="">
             <h2
               class="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl"
             >
-              Lorem ipsum dolor sit amet
+              Bijlesnodig.nl in het kort
             </h2>
-            <p class="max-w-2xl mt-4 text-xl text-gray-50">
-              Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
-              magnam voluptatum cupiditate veritatis in accusamus quisquam.
+            <p class="max-w-2xl mt-4 text-xl text-gray-700">
+              Bijlesnodig.nl is er voor de jongeren die behoefte hebben aan meer
+              begeleiding met bepaalde vakken om zo de lesstof optimaal te
+              beheersen.
             </p>
           </div>
 
@@ -207,13 +206,12 @@
                   </div>
                 </div>
                 <div class="ml-4">
-                  <dt class="text-lg font-medium leading-6 text-gray-900">
-                    Platform voor leraar en student
+                  <dt class="text-lg font-semibold leading-6 text-gray-900">
+                    Platform voor scholier en bijlesgever
                   </dt>
-                  <dd class="mt-2 text-base text-gray-50">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
+                  <dd class="mt-2 text-base text-gray-800">
+                    Maak eenvoudig een account aan op de website en vind de
+                    geschikte persoon bij jou in de buurt.
                   </dd>
                 </div>
               </div>
@@ -223,32 +221,29 @@
                   <div
                     class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-sky-blue-700"
                   >
-                    <!-- Heroicon name: scale -->
                     <svg
                       class="w-6 h-6"
-                      xmlns="http://www.w3.org/2000/svg"
                       fill="none"
-                      viewBox="0 0 24 24"
                       stroke="currentColor"
-                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="2"
-                        d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
-                      />
+                        d="M14.121 15.536c-1.171 1.952-3.07 1.952-4.242 0-1.172-1.953-1.172-5.119 0-7.072 1.171-1.952 3.07-1.952 4.242 0M8 10.5h4m-4 3h4m9-1.5a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
                     </svg>
                   </div>
                 </div>
                 <div class="ml-4">
-                  <dt class="text-lg font-medium leading-6 text-gray-900">
+                  <dt class="text-lg font-semibold leading-6 text-gray-900">
                     Geen verborgen kosten
                   </dt>
-                  <dd class="mt-2 text-base text-gray-50">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
+                  <dd class="mt-2 text-base text-gray-800">
+                    Een vast maandelijks bedrag voor het vinden en in contact
+                    komen met bijlesgevers en bijles zoekende scholieren.
                   </dd>
                 </div>
               </div>
@@ -258,32 +253,36 @@
                   <div
                     class="flex items-center justify-center w-12 h-12 text-white rounded-md bg-sky-blue-700"
                   >
-                    <!-- Heroicon name: lightning-bolt -->
                     <svg
                       class="w-6 h-6"
-                      xmlns="http://www.w3.org/2000/svg"
                       fill="none"
-                      viewBox="0 0 24 24"
                       stroke="currentColor"
-                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
                       <path
                         stroke-linecap="round"
                         stroke-linejoin="round"
                         stroke-width="2"
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      />
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      ></path>
                     </svg>
                   </div>
                 </div>
                 <div class="ml-4">
-                  <dt class="text-lg font-medium leading-6 text-gray-900">
+                  <dt class="text-lg font-semibold leading-6 text-gray-900">
                     Vind gemakkelijk iemand bij je in de buurt
                   </dt>
-                  <dd class="mt-2 text-base text-gray-50">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
+                  <dd class="mt-2 text-base text-gray-800">
+                    Doordat je je gevonden bijlesgevers kunt filteren op
+                    postcode en beschikbaarheid vind je snel en gemakkelijk
+                    iemand bij jou in de buurt.
                   </dd>
                 </div>
               </div>
@@ -312,13 +311,12 @@
                   </div>
                 </div>
                 <div class="ml-4">
-                  <dt class="text-lg font-medium leading-6 text-gray-900">
+                  <dt class="text-lg font-semibold leading-6 text-gray-900">
                     Stuur berichten via de app
                   </dt>
-                  <dd class="mt-2 text-base text-gray-50">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Maiores impedit perferendis suscipit eaque, iste dolor
-                    cupiditate blanditiis ratione.
+                  <dd class="mt-2 text-base text-gray-800">
+                    Iemand gevonden?! Geen gedoe met Whatsapp of email maar maak
+                    stuur direct een bericht via Bijlesnodig.nl
                   </dd>
                 </div>
               </div>
@@ -389,7 +387,7 @@
         </div>
       </section>
       <section
-        class="py-24 mx-4 mb-4 rounded-2xl bg-gradient-to-bl from-sky-blue-700 via-light-blue-400 to-orange-300"
+        class="py-24 mx-4 mb-4 rounded-2xl bg-gradient-to-bl from-sky-blue-700 via-light-blue-400 to-sky-blue-900"
       >
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div
@@ -398,7 +396,7 @@
             <div class="lg:self-center">
               <h2 class="text-3xl font-extrabold text-gray-50 sm:text-4xl">
                 <span class="block">Klaar om te beginnen?</span>
-                <span class="block text-cyan-900"
+                <span class="block text-sky-blue-900"
                   >Start een gratis proefperiode</span
                 >
               </h2>
