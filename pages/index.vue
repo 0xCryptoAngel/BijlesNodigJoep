@@ -4,9 +4,9 @@
     <WebFooter /> -->
     <main class="bg-white">
       <section
-        class="pt-8 m-4 pb-28 bg-gradient-to-tr from-sky-blue-700 via-light-blue-300 to-orange-200 lg:pb-80 rounded-2xl"
+        class="pt-8 pb-2 m-2 sm:pb-6 sm:m-4 md:pb-8 lg:pb-8 bg-gradient-to-tr from-sky-blue-700 via-light-blue-300 to-orange-200 xl:pb-80 rounded-2xl"
       >
-        <div class="px-16 mx-auto my-0 max-w-7xl">
+        <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 max-w-7xl">
           <header class="bg-white rounded-lg shadow-lg">
             <nav class="items-center hidden px-5 lg:flex lg:flex-row">
               <div class="w-auto h-16 px-0">
@@ -43,7 +43,7 @@
                       href="/over-ons"
                       class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
                     >
-                      Over Bijlesnodig.nl
+                      Over Ons
                     </a>
                   </li>
                   <li class="flex items-center">
@@ -51,7 +51,7 @@
                       href="/faq"
                       class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
                     >
-                      Veelgestelde vragen
+                      FAQ
                     </a>
                   </li>
                 </div>
@@ -75,7 +75,7 @@
             </nav>
           </header>
         </div>
-        <div class="px-16 mx-auto my-0 max-w-7xl">
+        <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 max-w-7xl">
           <div
             class="flex flex-col items-center max-w-6xl pt-16 pb-16 mx-auto my-0 text-center text-white"
           >
@@ -107,54 +107,57 @@
               >
             </div>
           </div>
-        </div>
-        <div class="relative">
-          <div class="relative mx-auto sm:max-w-2xl lg:max-w-6xl">
-            <div class="absolute w-full pb-perc">
-              <img
-                src="~/assets/Screenshot 2021-01-08 at 13.54.03.png"
-                alt="App screenshot"
-                style="
-                  position: absolute;
-                  top: 0px;
-                  left: 0px;
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                  object-position: center center;
-                  opacity: 1;
-                  transition: opacity 500ms ease 0s;
-                  max-width: 1151px 100vw;
-                "
-                class="rounded-lg shadow-2xl"
-              />
+          <div class="relative">
+            <div
+              class="relative w-full mx-auto overflow-hidden border-8 border-gray-300 rounded-lg shadow-lg border-opacity-30 sm:border-none"
+            >
+              <div class="w-full pb-perc">
+                <img
+                  src="~/assets/Screenshot 2021-01-08 at 13.54.03.png"
+                  alt="App screenshot"
+                  style="
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center center;
+                    opacity: 1;
+                    transition: opacity 500ms ease 0s;
+                    max-width: 1151px 100vw;
+                  "
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
       <section
-        class="pb-4 m-4 bg-gray-200 pt-14 lg:pb-16 md:pt-44 lg:pt-72 rounded-2xl"
+        class="pb-2 m-2 bg-gray-200 sm:pb-4 sm:m-4 lg:pb-16 lg:pt-72 rounded-2xl"
       >
-        <div class="px-16 mx-auto my-0 max-w-7xl">
+        <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 max-w-7xl">
           <div
-            class="flex flex-wrap items-center justify-center max-w-6xl px-0 pt-24 pb-6 mx-auto my-0 lg:justify-around"
+            class="flex flex-wrap items-center justify-start max-w-6xl px-4 pt-12 pb-6 mx-auto my-0 md:pt-24 md:pb-6 lg:justify-around"
           >
-            <h2 class="px-0 mb-4 text-base text-right text-gray-900 lg:mb-0">
-              Bekend van:
+            <h2
+              class="w-full px-8 mb-4 font-semibold text-center text-gray-900"
+            >
+              At vero eos et accusamus et iusto odio dignissimos
             </h2>
-            <a href=""
+            <a href="" class="flex items-center justify-center w-1/3 my-5"
               ><img
                 class="h-12"
                 src="https://tailwindui.com/img/logos/workcation-logo-gray-500.svg"
                 alt="Workcation"
             /></a>
-            <a href=""
+            <a href="" class="flex items-center justify-center w-1/3 my-5"
               ><img
                 class="h-12"
                 src="https://tailwindui.com/img/logos/tuple-logo-gray-500.svg"
                 alt="Workcation"
             /></a>
-            <a href=""
+            <a href="" class="flex items-center justify-center w-1/3 my-5"
               ><img
                 class="h-12"
                 src="https://tailwindui.com/img/logos/level-logo-gray-500.svg"
@@ -166,12 +169,12 @@
         </div>
       </section>
       <section
-        class="py-24 mx-4 mb-4 border-t-8 border-sky-blue-700 rounded-2xl bg-sky-blue-200"
+        class="py-12 mx-2 mb-2 border-t-8 sm:py-24 sm:mx-4 sm:mb-4 border-sky-blue-700 rounded-2xl bg-sky-blue-200"
       >
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div class="">
+          <div class="mb-10">
             <h2
-              class="mt-2 text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl"
+              class="text-3xl font-extrabold leading-8 tracking-tight text-gray-900 sm:text-4xl"
             >
               Bijlesnodig.nl in het kort
             </h2>
@@ -328,7 +331,7 @@
           </div>
         </div>
       </section>
-      <section class="mx-4 mb-4 bg-gray-200 rounded-2xl">
+      <section class="mx-2 mb-2 bg-gray-200 sm:mx-4 sm:mb-4 rounded-2xl">
         <div class="mx-auto my-0">
           <div class="relative bg-gray-200 rounded-2xl">
             <div
@@ -391,7 +394,7 @@
         </div>
       </section>
       <section
-        class="py-24 mx-4 mb-4 rounded-2xl bg-gradient-to-bl from-sky-blue-700 via-light-blue-400 to-sky-blue-900"
+        class="py-24 mx-2 mb-2 sm:mx-4 sm:mb-4 rounded-2xl bg-gradient-to-bl from-sky-blue-700 via-light-blue-400 to-sky-blue-900"
       >
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div

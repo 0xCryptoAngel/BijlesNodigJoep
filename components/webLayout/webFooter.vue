@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="py-24 mx-4 mb-4 bg-gray-700 rounded-2xl bg-gradient-to-br from-gray-600 to-gray-900"
+    class="py-24 mx-2 mb-2 bg-gray-700 sm:mx-4 sm:mb-4 rounded-2xl bg-gradient-to-br from-gray-600 to-gray-900"
     aria-labelledby="footerHeading"
   >
     <h2 id="footerHeading" class="sr-only">Footer</h2>
