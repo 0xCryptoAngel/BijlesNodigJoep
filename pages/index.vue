@@ -8,8 +8,10 @@
       >
         <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 xl:px-16 max-w-7xl">
           <header class="bg-white rounded-lg shadow-lg">
-            <nav class="items-center hidden px-5 lg:flex lg:flex-row">
-              <div class="w-auto h-16 px-0">
+            <nav class="flex flex-row items-center justify-between px-5">
+              <div
+                class="flex items-center justify-between w-full h-16 px-0 lg:w-auto"
+              >
                 <a
                   href="/"
                   aria-label="Home"
@@ -17,9 +19,36 @@
                 >
                   <span class="mr-20 text-2xl font-bold">Bijlesnodig</span>
                 </a>
+                <div class="flex items-center -mr-2 lg:hidden">
+                  <button
+                    id="main-menu"
+                    type="button"
+                    class="inline-flex items-center justify-center p-2 text-gray-800 rounded-md focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white"
+                    aria-haspopup="true"
+                    @click="isMobileMenuOpen = !isMobileMenuOpen"
+                  >
+                    <span class="sr-only">Open main menu</span>
+                    <!-- Heroicon name: outline/menu -->
+                    <svg
+                      class="w-6 h-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
               <ul
-                class="static flex flex-row justify-between flex-grow h-full py-0 text-sm bg-transparant"
+                class="static flex-row justify-between flex-grow hidden h-full py-0 text-sm lg:flex bg-transparant"
               >
                 <div class="flex justify-center flex-grow">
                   <li class="flex items-center">
@@ -73,6 +102,20 @@
                 </div>
               </ul>
             </nav>
+            <!--
+        Mobile menu, show/hide based on menu open state.
+
+        Entering: "duration-150 ease-out"
+          From: "opacity-0 scale-95"
+          To: "opacity-100 scale-100"
+        Leaving: "duration-100 ease-in"
+          From: "opacity-100 scale-100"
+          To: "opacity-0 scale-95"
+      -->
+            <siteSlideMobileMenu
+              :show="isMobileMenuOpen"
+              @close="isMobileMenuOpen = false"
+            />
           </header>
         </div>
         <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 xl:px-16 max-w-7xl">
@@ -138,10 +181,10 @@
       >
         <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 xl:px-16 max-w-7xl">
           <div
-            class="flex flex-wrap items-center justify-start max-w-6xl px-4 pt-12 pb-6 mx-auto my-0 lg:px-0 lg:justify-around md:pt-24 lg:pt-12 md:pb-6"
+            class="flex flex-wrap items-center justify-start max-w-6xl px-4 pt-6 pb-6 mx-auto my-0 lg:px-0 lg:justify-around md:pt-24 lg:pt-20 md:pb-6"
           >
             <h2
-              class="w-full px-8 mb-4 font-semibold text-center text-gray-900 lg:w-1/6"
+              class="w-full px-8 mb-4 font-semibold text-center text-gray-900 lg:w-1/4"
             >
               At vero eos et accusamus et iusto odio dignissimos
             </h2>
@@ -431,8 +474,16 @@
 </template>
 
 <script>
+import siteSlideMobileMenu from '~/components/UI/siteSlideMobileMenu'
+
 export default {
   name: 'Home',
+  components: { siteSlideMobileMenu },
+  data() {
+    return {
+      isMobileMenuOpen: false,
+    }
+  },
   layout: 'homepage',
   middleware: 'auth',
   auth: 'guest',
