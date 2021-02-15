@@ -4,9 +4,9 @@
     <WebFooter /> -->
     <main class="bg-white">
       <section
-        class="pt-8 pb-2 m-2 sm:pb-6 sm:m-4 md:pb-8 lg:pb-8 bg-gradient-to-tr from-sky-blue-700 via-light-blue-300 to-orange-200 xl:pb-80 rounded-2xl"
+        class="pt-8 pb-2 m-2 sm:pb-6 sm:m-4 md:pb-8 bg-gradient-to-tr from-sky-blue-700 via-light-blue-300 to-orange-200 lg:pb-80 rounded-2xl"
       >
-        <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 max-w-7xl">
+        <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 xl:px-16 max-w-7xl">
           <header class="bg-white rounded-lg shadow-lg">
             <nav class="items-center hidden px-5 lg:flex lg:flex-row">
               <div class="w-auto h-16 px-0">
@@ -75,7 +75,7 @@
             </nav>
           </header>
         </div>
-        <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 max-w-7xl">
+        <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 xl:px-16 max-w-7xl">
           <div
             class="flex flex-col items-center max-w-6xl pt-16 pb-16 mx-auto my-0 text-center text-white"
           >
@@ -109,7 +109,7 @@
           </div>
           <div class="relative">
             <div
-              class="relative w-full mx-auto overflow-hidden border-8 border-gray-300 rounded-lg shadow-lg border-opacity-30 sm:border-none"
+              class="relative w-full mx-auto overflow-hidden border-8 border-gray-300 rounded-lg shadow-lg lg:absolute border-opacity-30 sm:border-none"
             >
               <div class="w-full pb-perc">
                 <img
@@ -134,30 +134,36 @@
         </div>
       </section>
       <section
-        class="pb-2 m-2 bg-gray-200 sm:pb-4 sm:m-4 lg:pb-16 lg:pt-72 rounded-2xl"
+        class="pb-2 m-2 bg-gray-200 sm:pb-4 sm:m-4 lg:pb-16 lg:pt-64 rounded-2xl"
       >
-        <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 max-w-7xl">
+        <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 xl:px-16 max-w-7xl">
           <div
-            class="flex flex-wrap items-center justify-start max-w-6xl px-4 pt-12 pb-6 mx-auto my-0 md:pt-24 md:pb-6 lg:justify-around"
+            class="flex flex-wrap items-center justify-start max-w-6xl px-4 pt-12 pb-6 mx-auto my-0 lg:px-0 lg:justify-around md:pt-24 lg:pt-12 md:pb-6"
           >
             <h2
-              class="w-full px-8 mb-4 font-semibold text-center text-gray-900"
+              class="w-full px-8 mb-4 font-semibold text-center text-gray-900 lg:w-1/6"
             >
               At vero eos et accusamus et iusto odio dignissimos
             </h2>
-            <a href="" class="flex items-center justify-center w-1/3 my-5"
+            <a
+              href=""
+              class="flex items-center justify-center w-1/3 my-5 lg:w-1/6"
               ><img
                 class="h-12"
                 src="https://tailwindui.com/img/logos/workcation-logo-gray-500.svg"
                 alt="Workcation"
             /></a>
-            <a href="" class="flex items-center justify-center w-1/3 my-5"
+            <a
+              href=""
+              class="flex items-center justify-center w-1/3 my-5 lg:w-1/6"
               ><img
                 class="h-12"
                 src="https://tailwindui.com/img/logos/tuple-logo-gray-500.svg"
                 alt="Workcation"
             /></a>
-            <a href="" class="flex items-center justify-center w-1/3 my-5"
+            <a
+              href=""
+              class="flex items-center justify-center w-1/3 my-5 lg:w-1/6"
               ><img
                 class="h-12"
                 src="https://tailwindui.com/img/logos/level-logo-gray-500.svg"
