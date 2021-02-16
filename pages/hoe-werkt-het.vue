@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white">
+    <web-header :title="title" :beschrijving="beschrijving" />
     <main>
-      <web-header :title="title" :beschrijving="beschrijving" />
       <section
         class="relative py-16 m-4 bg-gray-200 rounded-2xl lg:overflow-hidden"
       >
