@@ -1,9 +1,6 @@
 <template>
   <div>
-    <web-page-nav-bar
-      :title="title"
-      :beschrijving="beschrijving"
-    ></web-page-nav-bar>
+    <web-header :title="title" :beschrijving="beschrijving"></web-header>
     <section class="home">
       <article>
         <section class="pb-16 m-4 bg-gray-100 rounded-2xl">
@@ -42,14 +39,14 @@
 // Importing blog posts widget
 import BlogWidget from '~/components/BlogWidget.vue'
 import WebFooter from '~/components/webLayout/webFooter.vue'
-import WebPageNavBar from '~/components/webLayout/webPageNavBar.vue'
+import webHeader from '~/components/webLayout/webHeader.vue'
 
 export default {
   name: 'Home',
   components: {
     BlogWidget,
     WebFooter,
-    WebPageNavBar,
+    webHeader,
   },
   async asyncData({ $prismic, error }) {
     try {

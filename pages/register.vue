@@ -1,9 +1,6 @@
 <template>
   <div>
-    <web-page-nav-bar
-      :title="title"
-      :beschrijving="beschrijving"
-    ></web-page-nav-bar>
+    <web-header :title="title" :beschrijving="beschrijving"></web-header>
     <div class="bg-white">
       <div class="px-16 mx-auto my-0 max-w-7xl">
         <div
@@ -538,14 +535,14 @@
 
 <script>
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
-import WebPageNavBar from '~/components/webLayout/webPageNavBar.vue'
+import webHeader from '~/components/webLayout/webHeader.vue'
 
 export default {
   name: 'RegistrationPage',
   layout: 'webpage',
   middleware: 'auth',
   auth: 'guest',
-  components: { ValidationProvider, ValidationObserver, WebPageNavBar },
+  components: { ValidationProvider, ValidationObserver, webHeader },
   mixins: {},
   data() {
     return {

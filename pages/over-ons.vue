@@ -1,9 +1,6 @@
 <template>
   <section>
-    <web-page-nav-bar
-      :title="title"
-      :beschrijving="beschrijving"
-    ></web-page-nav-bar>
+    <web-header :title="title" :beschrijving="beschrijving" />
     <div class="relative py-16 bg-white sm:py-24">
       <div
         class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
@@ -140,10 +137,10 @@
 </template>
 
 <script>
-import webPageNavBar from '~/components/webLayout/webPageNavBar.vue'
+import WebHeader from '~/components/webLayout/webHeader.vue'
 
 export default {
-  components: { webPageNavBar },
+  components: { WebHeader },
   data() {
     return {
       title: 'Over Bijlesnodig.nl',

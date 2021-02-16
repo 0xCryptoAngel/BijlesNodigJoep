@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="antialiased text-gray-900">
     <nuxt />
     <web-footer />
   </div>
