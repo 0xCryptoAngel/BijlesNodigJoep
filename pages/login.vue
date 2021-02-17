@@ -1,17 +1,30 @@
 <template>
-  <div><LoginForm :loginsubmit="loginUser" /></div>
+  <section>
+    <web-header :title="title" :beschrijving="beschrijving" />
+    <main>
+      <div><LoginForm :loginsubmit="loginUser" /></div>
+    </main>
+  </section>
 </template>
 
 <script>
 import LoginForm from '~/components/loginregistration/LoginForm'
+import webHeader from '~/components/webLayout/webHeader'
 
 export default {
   name: 'Login',
-
+  layout: 'webpage',
   middleware: 'auth',
   auth: 'guest',
   components: {
     LoginForm,
+    webHeader,
+  },
+  data() {
+    return {
+      title: 'Log in op je account',
+      beschrijving: 'Lorem ipsum',
+    }
   },
   methods: {
     loginUser(user) {

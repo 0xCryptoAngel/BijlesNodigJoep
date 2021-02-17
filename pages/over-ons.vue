@@ -139,7 +139,7 @@
 </template>
 
 <script>
-import WebHeader from '~/components/webLayout/webHeader.vue'
+import WebHeader from '~/components/webLayout/webHeader'
 
 export default {
   components: { WebHeader },

@@ -1,24 +1,8 @@
 <template>
   <div
-    class="flex items-center justify-center min-h-screen px-4 py-12 bg-gray-50 sm:px-6 lg:px-8"
+    class="flex items-center justify-center py-24 mx-2 mb-2 bg-gray-100 sm:mx-4 sm:mb-4 rounded-2xl"
   >
     <div class="w-full max-w-md">
-      <div>
-        <h2
-          class="mt-6 text-3xl font-extrabold leading-9 text-center text-gray-900"
-        >
-          Log in op je account
-        </h2>
-        <p class="mt-2 text-sm leading-5 text-center text-gray-600">
-          Of
-          <a
-            href="/register"
-            class="font-medium transition duration-150 ease-in-out text-light-blue-600 hover:text-light-blue-500 focus:outline-none focus:underline"
-          >
-            maak hier een nieuw account aan
-          </a>
-        </p>
-      </div>
       <form class="mt-8" @submit.prevent="handleSubmit">
         <input type="hidden" name="remember" value="true" />
         <div class="rounded-md shadow-sm">
@@ -31,7 +15,7 @@
               type="email"
               required
               class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-t-md focus:outline-none focus:ring-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-              placeholder="Email address"
+              placeholder="E-mailadres"
             />
           </div>
           <div class="-mt-px">
@@ -43,7 +27,7 @@
               type="password"
               required
               class="relative block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-none appearance-none rounded-b-md focus:outline-none focus:ring-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5"
-              placeholder="Password"
+              placeholder="Wachtwoord"
             />
           </div>
         </div>

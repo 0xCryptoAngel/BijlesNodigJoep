@@ -2,13 +2,13 @@
   <header class="bg-white rounded-lg shadow-lg">
     <nav class="flex flex-row items-center justify-between px-5">
       <div class="flex items-center justify-between w-full h-16 px-0 lg:w-auto">
-        <a
-          href="/"
+        <NuxtLink
+          to="/"
           aria-label="Home"
           class="flex items-center h-full pl-5 -ml-5"
         >
           <span class="mr-20 text-2xl font-bold">Bijlesnodig</span>
-        </a>
+        </NuxtLink>
         <div class="flex items-center -mr-2 lg:hidden">
           <button
             id="main-menu"
@@ -42,51 +42,51 @@
       >
         <div class="flex justify-center flex-grow">
           <li class="flex items-center">
-            <a
-              href="/prijzen"
+            <NuxtLink
+              to="/prijzen"
               class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
             >
               Prijzen
-            </a>
+            </NuxtLink>
           </li>
           <li class="flex items-center">
-            <a
-              href="/hoe-werkt-het"
+            <NuxtLink
+              to="/hoe-werkt-het"
               class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
             >
               Hoe werkt Bijlesnodig.nl?
-            </a>
+            </NuxtLink>
           </li>
           <li class="flex items-center">
-            <a
-              href="/over-ons"
+            <NuxtLink
+              to="/over-ons"
               class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
             >
               Over Ons
-            </a>
+            </NuxtLink>
           </li>
           <li class="flex items-center">
-            <a
-              href="/faq"
+            <NuxtLink
+              to="/faq"
               class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
             >
               FAQ
-            </a>
+            </NuxtLink>
           </li>
         </div>
         <div class="flex">
           <li class="flex items-center">
-            <a
-              href="/login"
+            <NuxtLink
+              to="/login"
               class="flex items-center justify-center flex-shrink-0 h-8 px-4 my-0 ml-0 mr-4 font-medium text-gray-800 transition-colors bg-gray-200 rounded-md hover:bg-gray-300"
-              >Login</a
+              >Login</NuxtLink
             >
           </li>
           <li class="flex items-center">
-            <a
-              href="/register"
+            <NuxtLink
+              to="/register"
               class="flex items-center justify-center flex-shrink-0 h-8 px-4 m-0 font-medium transition-colors rounded-md text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900"
-              >Registreren</a
+              >Registreren</NuxtLink
             >
           </li>
         </div>
