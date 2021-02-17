@@ -17,6 +17,10 @@ export default {
     throttle: 0,
   },
 
+  router: {
+    linkExactActiveClass: 'mobile-active-link',
+  },
+
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [],
 

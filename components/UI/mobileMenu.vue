@@ -55,32 +55,9 @@
         <div class="flex-1 h-0 mt-5 overflow-y-auto">
           <nav class="flex flex-col h-full">
             <div class="space-y-1">
-              <a
-                href="/"
-                class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out border-l-4 border-sky-blue-700 group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
-              >
-                <!-- Heroicon name: home -->
-                <svg
-                  class="w-6 h-6 mr-4 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                  />
-                </svg>
-                Home
-              </a>
-
-              <a
-                href="/prijzen"
-                class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
+              <NuxtLink
+                to="/prijzen"
+                class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out border-sky-blue-700 group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <svg
                   class="w-6 h-6 mr-4 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500"
@@ -97,10 +74,10 @@
                   ></path>
                 </svg>
                 Prijzen
-              </a>
+              </NuxtLink>
 
-              <a
-                href="/hoe-werkt-het"
+              <NuxtLink
+                to="/hoe-werkt-het"
                 class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <!-- Heroicon name: document-search -->
@@ -120,10 +97,10 @@
                   />
                 </svg>
                 Hoe werkt Bijlesnodig.nl?
-              </a>
+              </NuxtLink>
 
-              <a
-                href="/over-ons"
+              <NuxtLink
+                to="/over-ons"
                 class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <!-- Heroicon name: chat -->
@@ -143,9 +120,9 @@
                   />
                 </svg>
                 Over ons
-              </a>
-              <a
-                href="/faq"
+              </NuxtLink>
+              <NuxtLink
+                to="/faq"
                 class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <!-- Heroicon name: chat -->
@@ -165,11 +142,11 @@
                   />
                 </svg>
                 FAQ
-              </a>
+              </NuxtLink>
             </div>
             <div class="pt-10 mt-auto space-y-1">
-              <a
-                href="/register"
+              <NuxtLink
+                to="/register"
                 class="flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-600 transition duration-150 ease-in-out group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
               >
                 <!-- Heroicon name: question-mark-circle -->
@@ -188,10 +165,10 @@
                   />
                 </svg>
                 Registreren
-              </a>
+              </NuxtLink>
 
-              <a
-                href="/login"
+              <NuxtLink
+                to="/login"
                 class="flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-600 transition duration-150 ease-in-out group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
               >
                 <!-- Heroicon name: cog -->
@@ -216,7 +193,7 @@
                   />
                 </svg>
                 Login
-              </a>
+              </NuxtLink>
             </div>
           </nav>
         </div>
@@ -239,4 +216,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style scoped>
+.mobile-active-link {
+  @apply border-l-4 border-sky-blue-700;
+}
+</style>
