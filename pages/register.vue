@@ -455,7 +455,7 @@
                                     rules="required|image"
                                   >
                                     <input
-                                      ref="image_file"
+                                      ref="file"
                                       type="file"
                                       accept="image/*"
                                       style="display: none"
@@ -463,15 +463,16 @@
                                       data-vv-as="image"
                                       @change="selectImage"
                                     />
-                                    <button
-                                      type="button"
-                                      class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
-                                      @click="launchFilePicker()"
-                                    >
-                                      Uploaden
-                                    </button>
+
                                     <span>{{ errors[0] }}</span>
                                   </ValidationProvider>
+                                  <button
+                                    type="button"
+                                    class="px-3 py-2 ml-5 text-sm font-medium leading-4 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                                    @click="launchFilePicker()"
+                                  >
+                                    Uploaden
+                                  </button>
                                 </div>
                               </div>
                             </div>
