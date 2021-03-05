@@ -50,7 +50,7 @@
                   <div class="mt-6">
                     <a
                       href="/register"
-                      class="inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700"
+                      class="inline-flex px-4 py-2 text-base font-medium border border-transparent rounded-md shadow-sm text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900"
                     >
                       Schrijf je in
                     </a>
@@ -120,7 +120,7 @@
                   <div class="mt-6">
                     <a
                       href="/register"
-                      class="inline-flex px-4 py-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700"
+                      class="inline-flex px-4 py-2 text-base font-medium border border-transparent rounded-md shadow-sm text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900"
                     >
                       Schrijf je in
                     </a>
@@ -156,7 +156,7 @@ export default {
     return {
       title: 'Hoe werkt bijlesnodig.nl',
       beschrijving:
-        'Uitleg over hoe alles werkt voor de student en bijlesgever',
+        'Stappenplan hoe het werkt voor zowel de student als de bijlesgever',
     }
   },
   layout: 'webpage',

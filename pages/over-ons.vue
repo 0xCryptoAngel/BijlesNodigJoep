@@ -146,7 +146,7 @@ export default {
   data() {
     return {
       title: 'Over Bijlesnodig.nl',
-      beschrijving: 'Voorbeeld paginabeschrijving',
+      beschrijving: 'Het idee achter ons platform en het ontstaan hiervan',
     }
   },
   head() {
@@ -156,7 +156,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Over Bijlesnodig.nl en waarom we dit zijn begonnen',
+          content: 'Het idee achter ons platform en het ontstaan hiervan',
         },
       ],
     }

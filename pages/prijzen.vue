@@ -3,7 +3,7 @@
     <web-header :title="title" :beschrijving="beschrijving" />
     <main>
       <!-- Split brand panel -->
-      <section class="py-24 mx-2 mb-2 sm:mx-4 sm:mb-4 rounded-2xl">
+      <section class="mx-2 my-2 sm:mx-4 sm:mb-4 rounded-2xl">
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="relative bg-gray-100 rounded-l-2xl">
             <div class="absolute inset-0" aria-hidden="true">
@@ -497,13 +497,9 @@
                   >Start een gratis proefperiode</span
                 >
               </h2>
-              <p class="mt-4 text-lg leading-6 text-sky-blue-100">
-                Ac euismod vel sit maecenas id pellentesque eu sed consectetur.
-                Malesuada adipiscing sagittis vel nulla nec.
-              </p>
               <a
                 href="#"
-                class="inline-flex items-center justify-center w-full px-5 py-3 mt-8 text-base font-medium border border-transparent rounded-md bg-sky-blue-50 text-sky-blue-700 hover:bg-sky-blue-100 sm:w-auto"
+                class="inline-flex items-center justify-center w-full px-5 py-3 mt-8 text-base font-medium border border-transparent rounded-md bg-gray-50 text-sky-blue-700 hover:bg-gray-100 sm:w-auto"
                 >Schrijf je in</a
               >
             </div>
@@ -524,7 +520,7 @@ export default {
     return {
       title: 'Wat kost Bijlesnodig.nl',
       beschrijving:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Krijg door een abonnement af te sluiten toegang tot alle functies, vind jouw ideale bijlesgever of meld je aan om bijles te geven',
     }
   },
   layout: 'webpage',
