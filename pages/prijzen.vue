@@ -356,7 +356,7 @@
                     href="#"
                     class="block text-base font-medium text-center text-sky-blue-100 hover:text-white"
                   >
-                    Probeer BijlesNodig voor 7 dagen
+                    Probeer Bijlesnodig voor 7 dagen
                   </a>
                 </div>
               </div>
@@ -372,7 +372,7 @@
             <h2
               class="max-w-md mx-auto text-3xl font-extrabold text-center text-sky-blue-900 lg:max-w-xl lg:text-left"
             >
-              Deze scholen hebben zich aangesloten bij BijlesNodig
+              Deze scholen hebben zich aangesloten bij Bijlesnodig
             </h2>
             <div class="self-center flow-root mt-8 lg:mt-0">
               <div class="flex flex-wrap justify-between -mt-4 -ml-8 lg:-ml-4">

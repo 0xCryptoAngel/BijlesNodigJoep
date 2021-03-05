@@ -466,7 +466,7 @@ export default {
     student: {
       imageUrl:
         'https://r9b7u4m2.stackpathcdn.com/prod/sites/eXfkOOiYH-uoddxClSi52viuasTF1mJ8olZ0u-tOtfFqK66gZCc90Ly_Uoc0VmR1eULwQ0uGf2JhPt4yPTts8A/themes/base/assets/images/avatar-1.png',
-      imageAlt: 'Profielfoto BijlesNodig',
+      imageAlt: 'Profielfoto Bijlesnodig',
       availability: {
         Monday: true,
         Dinsdag: true,

@@ -43,14 +43,6 @@
         <div class="flex justify-center flex-grow">
           <li class="flex items-center">
             <NuxtLink
-              to="/prijzen"
-              class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
-            >
-              Prijzen
-            </NuxtLink>
-          </li>
-          <li class="flex items-center">
-            <NuxtLink
               to="/hoe-werkt-het"
               class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
             >
@@ -63,6 +55,14 @@
               class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
             >
               Over Ons
+            </NuxtLink>
+          </li>
+          <li class="flex items-center">
+            <NuxtLink
+              to="/prijzen"
+              class="flex items-center justify-center flex-shrink-0 h-8 pl-4 m-0 mx-1 text-base font-medium text-gray-600 rounded-md hover:text-gray-900"
+            >
+              Prijzen
             </NuxtLink>
           </li>
           <li class="flex items-center">

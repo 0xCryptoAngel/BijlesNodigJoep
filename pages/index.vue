@@ -19,7 +19,7 @@
             <h1
               class="text-4xl font-extrabold leading-10 tracking-tight text-sky-blue-900 sm:text-5xl sm:leading-none md:text-6xl"
             >
-              BijlesNodig.nl
+              Bijlesnodig.nl
             </h1>
             <p
               class="mt-3 mb-8 text-base font-light leading-6 text-white sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 lg:mx-0"

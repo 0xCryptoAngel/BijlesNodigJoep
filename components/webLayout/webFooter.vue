@@ -32,7 +32,7 @@
               <h3
                 class="text-sm font-semibold tracking-wider text-gray-300 uppercase"
               >
-                BijlesNodig.nl
+                Bijlesnodig.nl
               </h3>
               <ul class="mt-4 space-y-4">
                 <li>
@@ -178,7 +178,7 @@
           </a>
         </div>
         <p class="mt-8 text-base text-gray-300 md:mt-0 md:order-1">
-          &copy; 2021 BijlesNodig.nl. All rights reserved.
+          &copy; 2021 Bijlesnodig.nl. All rights reserved.
         </p>
       </div>
     </div>

@@ -13,7 +13,7 @@ import appNavBar from '~/components/appLayout/appNavBar'
 export default {
   components: { appNavBar },
   head: {
-    title: 'BijlesNodig.nl',
+    title: 'Bijlesnodig.nl',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

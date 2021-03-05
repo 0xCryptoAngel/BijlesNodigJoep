@@ -1,4 +1,4 @@
-# BijlesNodig
+# Bijlesnodig
 
 ## Build Setup
 
