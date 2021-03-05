@@ -522,7 +522,7 @@ export default {
   components: { WebHeader },
   data() {
     return {
-      title: 'Krijg vandaag nog bijles.',
+      title: 'Wat kost Bijlesnodig.nl',
       beschrijving:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua.',
     }

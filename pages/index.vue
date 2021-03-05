@@ -14,7 +14,7 @@
             <p
               class="mt-3 text-sm font-bold text-white uppercase sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-sm lg:mx-0"
             >
-              Start met lesgeven
+              Start met bijles
             </p>
             <h1
               class="text-4xl font-extrabold leading-10 tracking-tight text-sky-blue-900 sm:text-5xl sm:leading-none md:text-6xl"
@@ -34,8 +34,8 @@
                 >Registreren</a
               ><a
                 href="/hoe-werkt-het"
-                class="inline-flex items-center justify-center h-10 px-5 ml-6 text-sm font-medium transition-colors rounded-lg lg:text-base text-sky-blue-900 bg-sky-blue-50 bg-opacity-90 hover:bg-opacity-70 hover:text-sky-blue-800"
-                >Veelgestelde vragen</a
+                class="inline-flex items-center justify-center h-10 px-5 ml-6 text-sm font-medium text-gray-800 transition-colors bg-gray-200 rounded-lg lg:text-base hover:bg-gray-300"
+                >Hoe werkt Bijlesnodig.nl</a
               >
             </div>
           </div>
@@ -288,26 +288,27 @@
                 <h2
                   class="text-base font-semibold tracking-wider text-gray-800 uppercase"
                 >
-                  Lorem ipsum dolor
+                  Noodzaak bijles in de pandemie
                 </h2>
-                <p
-                  class="mt-2 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
-                >
-                  Quam a scelerisque amet
-                </p>
+
                 <p class="mt-3 text-lg text-gray-700">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et,
-                  egestas tempus tellus etiam sed. Quam a scelerisque amet
-                  ullamcorper eu enim et fermentum, augue. Aliquet amet volutpat
-                  quisque ut interdum tincidunt duis.
+                  Door het uitbreken van het coronavirus zijn veel leerlingen
+                  genoodzaakt om volledig of gedeeltelijk online les te krijgen.
+                  Dit zorgt er voor dat de kwaliteit van het onderwijs enorm
+                  achteruit is gegaan en veel leerlingen krijgen hierdoor te
+                  maken met achterstanden voor verschillende vakken. Bijles kan
+                  de ideale oplossing zijn om eventuele achterstanden in te
+                  halen en er voor te zorgen dat leerlingen geen onnodige
+                  studievertraging oplopen.
                 </p>
+
                 <div class="mt-8">
                   <div class="inline-flex rounded-md shadow">
                     <a
                       href="#"
                       class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-gray-900 bg-white border border-transparent rounded-md hover:bg-gray-50"
                     >
-                      Quam a scelerisque amet
+                      Tips voor veilige bijles
                       <!-- Heroicon name: external-link -->
                       <svg
                         class="w-5 h-5 ml-3 -mr-1 text-gray-400"

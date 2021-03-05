@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="py-24 mx-2 mb-2 bg-gray-700 sm:mx-4 sm:mb-4 rounded-2xl bg-gradient-to-br from-gray-600 to-gray-900"
+    class="py-6 mx-2 mb-2 bg-gray-700 sm:mx-4 sm:mb-4 rounded-2xl bg-gradient-to-br from-gray-600 to-gray-900"
     aria-labelledby="footerHeading"
   >
     <h2 id="footerHeading" class="sr-only">Footer</h2>
@@ -14,7 +14,7 @@
               >
                 Support
               </h3>
-              <ul class="mt-4 space-y-4">
+              <ul class="mt-4 space-y-2">
                 <li>
                   <a href="#" class="text-base text-gray-300 hover:text-white">
                     Prijzen
@@ -34,7 +34,7 @@
               >
                 Bijlesnodig.nl
               </h3>
-              <ul class="mt-4 space-y-4">
+              <ul class="mt-4 space-y-2">
                 <li>
                   <a href="#" class="text-base text-gray-300 hover:text-white">
                     Over ons
@@ -46,7 +46,7 @@
                     href="/blog"
                     class="text-base text-gray-300 hover:text-white"
                   >
-                    Blog
+                    Succesverhalen
                   </a>
                 </li>
 
@@ -61,12 +61,6 @@
                     Pers
                   </a>
                 </li>
-
-                <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Partners
-                  </a>
-                </li>
               </ul>
             </div>
           </div>
@@ -77,7 +71,7 @@
               >
                 Legal
               </h3>
-              <ul class="mt-4 space-y-4">
+              <ul class="mt-4 space-y-2">
                 <li></li>
 
                 <li>
@@ -102,8 +96,7 @@
             Schrijf je in voor het laatste nieuws
           </h3>
           <p class="mt-4 text-base text-gray-300">
-            Het laatste nieuws, artikelen en bronnen, wekelijks naar uw inbox
-            gestuurd.
+            Het laatste nieuws, artikelen en bronnen.
           </p>
           <form class="mt-4 sm:flex sm:max-w-md">
             <label for="emailAddress" class="sr-only">E-mailadres</label>
@@ -178,7 +171,7 @@
           </a>
         </div>
         <p class="mt-8 text-base text-gray-300 md:mt-0 md:order-1">
-          &copy; 2021 Bijlesnodig.nl. All rights reserved.
+          &copy; 2021 Bijlesnodig.nl All rights reserved.
         </p>
       </div>
     </div>
