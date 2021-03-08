@@ -28,14 +28,14 @@
               maak een afspraak.
             </p>
             <div class="flex">
-              <a
-                href="/register"
+              <NuxtLink
+                to="/register"
                 class="inline-flex items-center justify-center h-10 px-5 text-base font-medium transition-colors rounded-lg text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900"
-                >Registreren</a
-              ><a
-                href="/hoe-werkt-het"
+                >Registreren</NuxtLink
+              ><NuxtLink
+                to="/hoe-werkt-het"
                 class="inline-flex items-center justify-center h-10 px-5 ml-6 text-sm font-medium text-gray-800 transition-colors bg-gray-200 rounded-lg lg:text-base hover:bg-gray-300"
-                >Hoe werkt Bijlesnodig.nl</a
+                >Hoe werkt Bijlesnodig.nl</NuxtLink
               >
             </div>
           </div>
