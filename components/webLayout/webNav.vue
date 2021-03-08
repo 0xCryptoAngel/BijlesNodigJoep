@@ -110,8 +110,8 @@
                           Bijles geven?
                         </p>
                         <p class="mt-1 text-sm text-gray-500">
-                          Kom meer te weten over hoe jij snel en eenvoudig
-                          bijles kunt gaan geven.
+                          Jezelf registreren als bijlesgever gaat snel en
+                          gemakkelijk.
                         </p>
                       </NuxtLink>
                     </div>
