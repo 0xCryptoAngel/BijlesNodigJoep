@@ -2,7 +2,9 @@
   <section>
     <web-header :title="title" :beschrijving="beschrijving" />
     <main>
-      <div class="relative py-10 bg-white sm:py-24">
+      <div
+        class="relative py-16 m-4 bg-gray-200 rounded-2xl lg:overflow-hidden"
+      >
         <div
           class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"
         >
@@ -12,7 +14,7 @@
               class="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen"
             >
               <div
-                class="absolute inset-y-0 w-full right-1/2 bg-gray-50 rounded-r-3xl lg:right-72"
+                class="absolute inset-y-0 w-full bg-gray-200 rounded-r-3xl lg:right-72"
               ></div>
               <svg
                 class="absolute -ml-3 top-8 left-1/2 lg:-right-8 lg:left-auto lg:top-12"
@@ -35,7 +37,7 @@
                       y="0"
                       width="4"
                       height="4"
-                      class="text-gray-200"
+                      class="text-sky-blue-800"
                       fill="currentColor"
                     />
                   </pattern>
