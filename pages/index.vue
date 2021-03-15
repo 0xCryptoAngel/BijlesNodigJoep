@@ -276,7 +276,7 @@
               class="h-56 bg-light-blue-300 sm:h-72 md:absolute md:left-0 md:h-full md:w-1/2"
             >
               <img
-                class="object-cover w-full h-full rounded-t-2xl sm:rounded-l-2xl"
+                class="object-cover w-full h-full rounded-t-2xl md:rounded-l-2xl md:rounded-r-none"
                 src="https://images.unsplash.com/photo-1562564055-71e051d33c19?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80&blend=efefef&sat=-100&blend-mode=multiply"
                 alt=""
               />
