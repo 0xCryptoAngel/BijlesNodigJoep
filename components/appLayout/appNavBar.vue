@@ -1,18 +1,14 @@
 <template>
   <div class="sticky top-0 z-30">
-    <div class="relative pb-16 bg-light-blue-800">
+    <div class="relative pb-16 bg-sky-blue-700">
       <nav class="relative z-20">
         <div class="px-2 mx-auto max-w-8xl sm:px-4 lg:px-8">
           <div
-            class="relative flex items-center justify-between h-16 border-b border-light-blue-900"
+            class="relative flex items-center justify-between h-16 border-b border-sky-blue-900"
           >
             <div class="flex items-center px-2 lg:px-0">
               <div class="flex-shrink-0">
-                <img
-                  class="block w-auto h-8"
-                  src="https://tailwindui.com/img/logos/v1/workflow-mark-teal-400.svg"
-                  alt="Workflow"
-                />
+                <h1 class="text-2xl text-white">Bijlesnodig.nl</h1>
               </div>
               <div class="hidden lg:block lg:ml-6 lg:space-x-4">
                 <div class="flex">
@@ -20,7 +16,7 @@
                     to="/dashboard"
                     exact-active-class="bg-black bg-opacity-25"
                     exact
-                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-700 focus:outline-none focus:bg-light-blue-700"
+                    class="px-3 py-2 mr-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-sky-blue-900 focus:outline-none focus:bg-sky-blue-900"
                     aria-current="page"
                     >Dashboard</NuxtLink
                   >
@@ -29,7 +25,7 @@
                     to="/tutors"
                     exact-active-class="bg-black bg-opacity-25"
                     exact
-                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-700 focus:outline-none focus:bg-light-blue-700"
+                    class="px-3 py-2 mr-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-sky-blue-900 focus:outline-none focus:bg-sky-blue-900"
                     >Zoeken</NuxtLink
                   >
 
@@ -37,7 +33,7 @@
                     to="/berichten"
                     exact-active-class="bg-black bg-opacity-25"
                     exact
-                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-700 focus:outline-none focus:bg-light-blue-700"
+                    class="px-3 py-2 mr-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-sky-blue-900 focus:outline-none focus:bg-sky-blue-900"
                     >Berichten</NuxtLink
                   >
 
@@ -45,7 +41,7 @@
                     to="/favorieten"
                     exact-active-class="bg-black bg-opacity-25"
                     exact
-                    class="px-3 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-light-blue-700 focus:outline-none focus:bg-light-blue-700"
+                    class="px-3 py-2 mr-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-sky-blue-900 focus:outline-none focus:bg-sky-blue-900"
                     >Favorieten</NuxtLink
                   >
                 </div>
@@ -55,10 +51,10 @@
               <div class="w-full max-w-lg lg:max-w-xs">
                 <label for="search" class="sr-only">Zoeken</label>
                 <div
-                  class="relative text-light-blue-100 focus-within:text-gray-400"
+                  class="relative text-sky-blue-100 focus-within:text-gray-400"
                 >
                   <div
-                    class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                    class="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-800 pointer-events-none"
                   >
                     <!-- Heroicon name: search -->
                     <svg
@@ -76,9 +72,10 @@
                   </div>
                   <input
                     id="search"
-                    class="block w-full py-2 pl-10 pr-3 leading-5 transition duration-150 ease-in-out bg-opacity-50 border border-transparent rounded-md bg-light-blue-700 placeholder-light-blue-100 focus:outline-none focus:bg-white focus:placeholder-gray-500 focus:text-gray-900 sm:text-sm"
+                    class="block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-800 transition duration-150 ease-in-out bg-white border border-transparent rounded-md focus:outline-none focus:bg-white focus:placeholder-gray-500 focus:text-gray-900 sm:text-sm"
                     placeholder="Zoeken op postcode"
                     type="search"
+                    autocomplete="off"
                   />
                 </div>
               </div>
@@ -86,7 +83,7 @@
             <div class="flex lg:hidden">
               <!-- Mobile menu button -->
               <button
-                class="inline-flex items-center justify-center p-2 transition duration-150 ease-in-out rounded-md text-light-blue-200 hover:text-white hover:bg-light-blue-800 focus:outline-none focus:bg-light-blue-800 focus:text-white"
+                class="inline-flex items-center justify-center p-2 transition duration-150 ease-in-out rounded-md text-sky-blue-200 hover:text-white hover:bg-sky-blue-800 focus:outline-none focus:bg-sky-blue-800 focus:text-white"
                 aria-expanded="false"
                 @click="isMobileMenuOpen = !isMobileMenuOpen"
               >
@@ -138,7 +135,7 @@
             <div class="hidden lg:block lg:ml-4">
               <div class="flex items-center">
                 <button
-                  class="flex-shrink-0 p-1 transition duration-150 ease-in-out border-2 border-transparent rounded-full text-light-blue-200 hover:bg-light-blue-800 hover:text-white focus:outline-none focus:text-white focus:bg-light-blue-800"
+                  class="flex-shrink-0 p-1 transition duration-150 ease-in-out border-2 border-transparent rounded-full text-sky-blue-200 hover:bg-sky-blue-800 hover:text-white focus:outline-none focus:text-white focus:bg-sky-blue-800"
                 >
                   <span class="sr-only">View notifications</span>
                   <!-- Heroicon name: bell -->

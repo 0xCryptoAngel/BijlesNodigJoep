@@ -48,17 +48,15 @@
           </button>
         </div>
         <div class="flex items-center flex-shrink-0 px-4">
-          <img
-            class="w-auto h-8"
-            src="https://tailwindui.com/img/logos/v1/workflow-mark-teal-400.svg"
-            alt="Workflow"
-          />
+          <h1 class="text-2xl font-semibold text-sky-blue-800">
+            Bijlesnodig.nl
+          </h1>
         </div>
         <div class="flex-1 h-0 mt-5 overflow-y-auto">
           <nav class="flex flex-col h-full">
             <div class="space-y-1">
-              <a
-                href="#"
+              <NuxtLink
+                to="/"
                 class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <!-- Heroicon name: home -->
@@ -78,10 +76,10 @@
                   />
                 </svg>
                 Dashboard
-              </a>
+              </NuxtLink>
 
-              <a
-                href="#"
+              <NuxtLink
+                to="/tutors"
                 class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <!-- Heroicon name: briefcase -->
@@ -101,10 +99,10 @@
                   />
                 </svg>
                 Zoeken
-              </a>
+              </NuxtLink>
 
-              <a
-                href="#"
+              <NuxtLink
+                to="/berichten"
                 class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <!-- Heroicon name: document-search -->
@@ -124,10 +122,10 @@
                   />
                 </svg>
                 Berichten
-              </a>
+              </NuxtLink>
 
-              <a
-                href="#"
+              <NuxtLink
+                to="/favorieten"
                 class="flex items-center px-4 py-2 text-base font-medium leading-6 text-gray-600 transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-100"
               >
                 <!-- Heroicon name: chat -->
@@ -147,40 +145,11 @@
                   />
                 </svg>
                 Favorieten
-              </a>
-
-              <a
-                href="#"
-                class="flex items-center px-3 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out border-l-4 border-light-blue-700 group bg-light-blue-50 focus:outline-none focus:bg-light-blue-100"
-              >
-                <!-- Heroicon name: cog -->
-                <svg
-                  class="w-6 h-6 mr-3 transition duration-150 ease-in-out text-light-blue-700"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                Instellingen
-              </a>
+              </NuxtLink>
             </div>
             <div class="pt-10 mt-auto space-y-1">
-              <a
-                href="/profile"
+              <NuxtLink
+                to="/profile"
                 class="flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-600 transition duration-150 ease-in-out rounded-md group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"
               >
                 <!-- Heroicon name: question-mark-circle -->
@@ -199,7 +168,7 @@
                   />
                 </svg>
                 Jouw profiel
-              </a>
+              </NuxtLink>
 
               <a
                 class="flex items-center px-4 py-2 text-sm font-medium leading-5 text-gray-600 transition duration-150 ease-in-out rounded-md cursor-pointer group hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50"

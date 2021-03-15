@@ -50,6 +50,7 @@
                           name="postcode_search"
                           class="block w-full pl-10 border-gray-300 rounded-none focus:ring-light-blue-500 focus:border-light-blue-500 rounded-l-md sm:text-sm"
                           placeholder="Jouw postcode"
+                          autocomplete="off"
                         />
                       </div>
                       <button
@@ -692,7 +693,6 @@ export default {
     },
   },
   layout: 'app',
-  middleware: 'auth',
 }
 </script>
 

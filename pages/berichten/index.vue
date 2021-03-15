@@ -67,7 +67,6 @@ import { mapGetters } from 'vuex'
 import MessageItem from '~/components/berichten/MessageItem'
 
 export default {
-  middleware: 'auth',
   layout: 'app',
   components: { MessageItem },
   computed: {

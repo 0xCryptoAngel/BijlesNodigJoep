@@ -103,7 +103,7 @@
                       </NuxtLink>
 
                       <NuxtLink
-                        to="/hoe-werkt-het"
+                        to="/hoe-werkt-het#bijlesgevers"
                         class="block p-3 -m-3 transition duration-150 ease-in-out rounded-md hover:bg-gray-50"
                       >
                         <p class="text-base font-medium text-gray-900">

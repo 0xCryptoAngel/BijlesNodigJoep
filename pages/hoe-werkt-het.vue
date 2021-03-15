@@ -73,6 +73,7 @@
         </div>
       </section>
       <section
+        id="bijlesgevers"
         class="relative py-16 m-4 bg-gray-50 bg-gradient-to-bl from-orange-100 to-light-blue-200 rounded-2xl lg:overflow-hidden"
       >
         <div
