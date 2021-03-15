@@ -3,7 +3,7 @@
     <web-header :title="title" :beschrijving="beschrijving" />
     <main>
       <div
-        class="relative py-16 m-4 bg-gray-200 rounded-2xl lg:overflow-hidden"
+        class="relative m-4 bg-gray-200 lg:py-16 rounded-2xl lg:overflow-hidden"
       >
         <div
           class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-start"

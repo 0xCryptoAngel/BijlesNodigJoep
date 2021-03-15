@@ -3,17 +3,17 @@
     <web-header :title="title" :beschrijving="beschrijving" />
     <main>
       <!-- Split brand panel -->
-      <section class="mx-2 my-2 sm:mx-4 sm:mb-4 rounded-2xl">
-        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <div class="relative bg-gray-100 rounded-l-2xl">
+      <section class="m-4 bg-gray-200 xl:py-4 rounded-2xl lg:overflow-hidden">
+        <div class="mx-auto max-w-7xl">
+          <div class="relative bg-gray-200 rounded-2xl">
             <div class="absolute inset-0" aria-hidden="true">
               <div
-                class="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-r from-sky-blue-600 to-light-blue-400 rounded-r-2xl"
+                class="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-r from-sky-blue-600 to-light-blue-400 rounded-2xl"
               ></div>
             </div>
             <div class="relative mx-auto lg:grid lg:grid-cols-2 lg:px-8">
               <div
-                class="px-4 py-16 bg-gray-100 sm:py-24 sm:px-6 lg:px-0 lg:pr-8 rounded-t-2xl"
+                class="px-4 py-16 bg-gray-200 sm:py-24 sm:px-6 lg:px-0 lg:pr-8 rounded-t-2xl"
               >
                 <div class="max-w-lg mx-auto lg:mx-0">
                   <h2
@@ -366,7 +366,9 @@
       </section>
 
       <!-- Logo cloud -->
-      <div class="bg-opacity-25 bg-sky-blue-100">
+      <div
+        class="relative m-4 bg-opacity-25 bg-sky-blue-200 rounded-2xl lg:overflow-hidden"
+      >
         <div class="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
           <div class="lg:grid lg:grid-cols-2 lg:gap-8">
             <h2
@@ -409,79 +411,81 @@
         </div>
       </div>
 
-      <!-- FAQs -->
-      <div class="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-extrabold text-center text-gray-900">
-          Veelgestelde vragen
-        </h2>
-        <div class="mt-12">
-          <dl
-            class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3"
-          >
-            <div>
-              <dt class="text-lg font-medium leading-6 text-gray-900">
-                Wat is het beste aan Zwitserland?
-              </dt>
-              <dd class="mt-2 text-base text-gray-500">
-                Ik weet het niet, maar de vlag is een groot pluspunt. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Quas
-                cupiditate laboriosam fugiat.
-              </dd>
-            </div>
+      <div class="m-4 bg-gray-100 xl:py-4 rounded-2xl lg:overflow-hidden">
+        <!-- FAQs -->
+        <div class="px-4 py-16 mx-auto max-w-7xl sm:py-24 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-extrabold text-center text-gray-900">
+            Veelgestelde vragen
+          </h2>
+          <div class="mt-12">
+            <dl
+              class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:grid-rows-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3"
+            >
+              <div>
+                <dt class="text-lg font-medium leading-6 text-gray-900">
+                  Wat is het beste aan Zwitserland?
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  Ik weet het niet, maar de vlag is een groot pluspunt. Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Quas
+                  cupiditate laboriosam fugiat.
+                </dd>
+              </div>
 
-            <div>
-              <dt class="text-lg font-medium leading-6 text-gray-900">
-                Waarom zie je nooit olifanten verstoppen in bomen?
-              </dt>
-              <dd class="mt-2 text-base text-gray-500">
-                Omdat ze er zo goed in zijn. Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.
-              </dd>
-            </div>
+              <div>
+                <dt class="text-lg font-medium leading-6 text-gray-900">
+                  Waarom zie je nooit olifanten verstoppen in bomen?
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  Omdat ze er zo goed in zijn. Lorem ipsum dolor sit amet
+                  consectetur adipisicing elit. Quas cupiditate laboriosam
+                  fugiat.
+                </dd>
+              </div>
 
-            <div>
-              <dt class="text-lg font-medium leading-6 text-gray-900">
-                Lorem ipsum dolor sit amet, consectetur adipiscing.
-              </dt>
-              <dd class="mt-2 text-base text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                cupiditate laboriosam fugiat.
-              </dd>
-            </div>
+              <div>
+                <dt class="text-lg font-medium leading-6 text-gray-900">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing.
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+                  cupiditate laboriosam fugiat.
+                </dd>
+              </div>
 
-            <div>
-              <dt class="text-lg font-medium leading-6 text-gray-900">
-                Lorem ipsum dolor sit amet, consectetur adipiscing.
-              </dt>
-              <dd class="mt-2 text-base text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                cupiditate laboriosam fugiat.
-              </dd>
-            </div>
+              <div>
+                <dt class="text-lg font-medium leading-6 text-gray-900">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing.
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+                  cupiditate laboriosam fugiat.
+                </dd>
+              </div>
 
-            <div>
-              <dt class="text-lg font-medium leading-6 text-gray-900">
-                Lorem ipsum dolor sit amet, consectetur adipiscing.
-              </dt>
-              <dd class="mt-2 text-base text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                cupiditate laboriosam fugiat.
-              </dd>
-            </div>
+              <div>
+                <dt class="text-lg font-medium leading-6 text-gray-900">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing.
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+                  cupiditate laboriosam fugiat.
+                </dd>
+              </div>
 
-            <div>
-              <dt class="text-lg font-medium leading-6 text-gray-900">
-                Lorem ipsum dolor sit amet, consectetur adipiscing.
-              </dt>
-              <dd class="mt-2 text-base text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-                cupiditate laboriosam fugiat.
-              </dd>
-            </div>
-          </dl>
+              <div>
+                <dt class="text-lg font-medium leading-6 text-gray-900">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing.
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
+                  cupiditate laboriosam fugiat.
+                </dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </div>
-
       <!-- CTA section -->
       <section
         class="py-24 mx-2 mb-2 sm:mx-4 sm:mb-4 rounded-2xl bg-gradient-to-bl from-sky-blue-700 via-light-blue-400 to-sky-blue-900"
