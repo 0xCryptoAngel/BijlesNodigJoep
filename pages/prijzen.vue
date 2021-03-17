@@ -164,7 +164,7 @@
                 </div>
               </div>
               <div
-                class="px-4 py-16 bg-gradient-to-r from-sky-blue-600 to-light-blue-400 sm:py-24 sm:px-6 lg:bg-none lg:flex lg:items-center lg:justify-end lg:px-0 lg:pl-8 rounded-b-2xl"
+                class="px-4 py-16 bg-gradient-to-r from-sky-blue-600 to-light-blue-400 sm:py-24 sm:px-6 lg:bg-none lg:flex lg:items-center lg:justify-end lg:px-8 rounded-b-2xl"
               >
                 <div class="w-full max-w-lg mx-auto space-y-8 lg:mx-0">
                   <div>
