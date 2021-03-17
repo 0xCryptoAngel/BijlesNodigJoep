@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="antialiased">
     <web-header :title="title" :beschrijving="beschrijving"></web-header>
     <div class="relative py-16 m-4 bg-gray-100 rounded-2xl lg:overflow-hidden">
       <div class="px-4 mx-auto my-0 md:px-5 lg:px-8 xl:px-16 max-w-7xl">
@@ -8,9 +8,9 @@
         >
           <div class="w-full max-w-sm mx-auto lg:w-96">
             <div v-if="steps == 1">
-              <p class="text-sm font-semibold text-gray-700">
-                Schrijf je in als
-              </p>
+              <h2 class="text-xl font-semibold text-center text-gray-700">
+                Ik wil een account aanmaken als
+              </h2>
             </div>
 
             <div v-if="steps == 2">
@@ -54,7 +54,7 @@
                         v-if="steps != totalSteps"
                         :disabled="invalid"
                         type="submit"
-                        class="flex justify-center w-full px-4 py-2 mt-6 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                        class="flex justify-center w-full px-4 py-2 mt-6 text-sm font-medium border border-transparent rounded-md shadow-sm text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
                         @click.prevent="nextStep"
                       >
                         Volgende stap
@@ -168,7 +168,7 @@
                           <button
                             v-if="steps != 1"
                             type="submit"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                            class="flex justify-center w-full px-4 py-2 mt-6 text-sm font-medium border border-transparent rounded-md shadow-sm text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
                             @click.prevent="previousStep"
                           >
                             Vorige stap
@@ -177,7 +177,7 @@
                             v-if="steps != totalSteps"
                             :disabled="invalid"
                             type="submit"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                            class="flex justify-center w-full px-4 py-2 mt-6 text-sm font-medium border border-transparent rounded-md shadow-sm text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
                             @click.prevent="nextStep"
                           >
                             Volgende stap
@@ -394,7 +394,7 @@
                           <button
                             v-if="steps != 1"
                             type="submit"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                            class="flex justify-center w-full px-4 py-2 mt-6 text-sm font-medium border border-transparent rounded-md shadow-sm text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
                             @click.prevent="previousStep"
                           >
                             Vorige stap
@@ -403,7 +403,7 @@
                             v-if="steps != totalSteps"
                             :disabled="invalid"
                             type="submit"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                            class="flex justify-center w-full px-4 py-2 mt-6 text-sm font-medium border border-transparent rounded-md shadow-sm text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
                             @click.prevent="nextStep"
                           >
                             Volgende stap
@@ -579,7 +579,7 @@
                           <button
                             v-if="steps != 1"
                             type="submit"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                            class="flex justify-center w-full px-4 py-2 mt-6 text-sm font-medium border border-transparent rounded-md shadow-sm text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
                             @click.prevent="previousStep"
                           >
                             Vorige stap
@@ -588,7 +588,7 @@
                             v-if="steps == 4"
                             :disabled="invalid"
                             type="submit"
-                            class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                            class="flex justify-center w-full px-4 py-2 mt-6 text-sm font-medium border border-transparent rounded-md shadow-sm text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
                             @click.prevent="registerUser"
                           >
                             Registreren

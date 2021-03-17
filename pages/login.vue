@@ -2,7 +2,7 @@
   <section>
     <web-header :title="title" :beschrijving="beschrijving" />
     <main>
-      <div><LoginForm :loginsubmit="loginUser" /></div>
+      <LoginForm :loginsubmit="loginUser" />
     </main>
   </section>
 </template>
