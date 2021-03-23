@@ -1,3 +1,5 @@
+const path = require('path')
+
 export default {
   target: 'static',
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -22,13 +24,14 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: ['~assets/css/tailwind.css'],
 
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
     configPath: 'tailwind.config.js',
     exposeConfig: true,
     config: {},
+    jit: true,
   },
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -144,6 +147,20 @@ export default {
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+    postcss: {
+      plugins: {
+        'postcss-import': {},
+        tailwindcss: path.resolve(__dirname, './tailwind.config.js'),
+        'postcss-nested': {},
+      },
+    },
+    preset: {
+      stage: 1,
+      autoprefixer: {
+        grid: true,
+        flexbox: true,
+      },
+    },
     transpile: ['vee-validate/dist/rules', '/^vue2-google-maps($|/)/'],
   },
   // Basic Usage i18n (https://i18n.nuxtjs.org/basic-usage)

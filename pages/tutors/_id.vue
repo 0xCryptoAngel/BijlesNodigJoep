@@ -222,8 +222,8 @@
             <!-- Calender Feed -->
             <div class="mt-6">
               <ul class="-mb-8">
-                <table class="min-w-full pb-10 divide-y divide-gray-200">
-                  <thead class="bg-gray-50">
+                <table class="min-w-full pb-10 divide-y divide-sky-blue-200">
+                  <thead class="bg-sky-blue-50">
                     <tr>
                       <th
                         scope="col"
@@ -252,7 +252,7 @@
                         Ja
                       </td>
                     </tr>
-                    <tr class="bg-gray-50">
+                    <tr class="bg-sky-blue-50">
                       <td
                         class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
                       >
@@ -276,7 +276,7 @@
                         Nee
                       </td>
                     </tr>
-                    <tr class="bg-gray-50">
+                    <tr class="bg-sky-blue-50">
                       <td
                         class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
                       >
@@ -300,7 +300,7 @@
                         Ja
                       </td>
                     </tr>
-                    <tr class="bg-gray-50">
+                    <tr class="bg-sky-blue-50">
                       <td
                         class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
                       >
@@ -453,9 +453,14 @@ export default {
       this.isFavouriteTutor = !this.isFavouriteTutor
 
       if (this.isFavouriteTutor === true) {
-        this.$toast.global.test('test')
+        this.$toast.success('Toegevoegd aan favorieten', {
+          iconPack: 'fontawesome',
+          icon: 'check',
+          position: 'top-right',
+          duration: 3000,
+        })
       } else {
-        this.$toasted.success('Verwijderd uit jouw favorieten', {
+        this.$toast.success('Verwijderd uit jouw favorieten', {
           iconPack: 'fontawesome',
           icon: 'check',
           position: 'top-right',
