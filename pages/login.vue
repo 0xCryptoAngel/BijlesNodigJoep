@@ -27,30 +27,43 @@ export default {
     }
   },
   methods: {
-    loginUser(user) {
-      this.$axios
-        .post('http://notawanker.com/login', {
-          user,
+    async loginUser(user) {
+      try {
+        this.$toast.show('Inloggen...', {
+          position: 'top-right',
+          duration: 1000,
         })
-        .then((resp) => {
-          this.$auth.setToken('local', 'Bearer ' + resp.data.user.token)
-          this.$auth.setRefreshToken('local', resp.data.refresh_token)
-          this.$axios.setHeader(
-            'Authorization',
-            'Bearer ' + resp.data.user.token
-          )
-          this.$axios.setHeader('Accept', 'application/json, text/plain')
-          this.$auth.ctx.app.$axios.setHeader(
-            'Authorization',
-            'Bearer ' + resp.data.user.token
-          )
-          this.$axios
-            .get('http://notawanker.com/users/current')
-            .then((resp) => {
-              this.$auth.setUser(resp.data)
-              this.$router.push('/profile')
-            })
+        await this.$axios
+          .post('http://notawanker.com/login', {
+            user,
+          })
+          .then((resp) => {
+            this.$auth.setToken('local', 'Bearer ' + resp.data.user.token)
+            this.$auth.setRefreshToken('local', resp.data.refresh_token)
+            this.$axios.setHeader(
+              'Authorization',
+              'Bearer ' + resp.data.user.token
+            )
+            this.$axios.setHeader('Accept', 'application/json, text/plain')
+            this.$auth.ctx.app.$axios.setHeader(
+              'Authorization',
+              'Bearer ' + resp.data.user.token
+            )
+            this.$axios
+              .get('http://notawanker.com/users/current')
+              .then((resp) => {
+                this.$auth.setUser(resp.data)
+                this.$router.push('/profile')
+              })
+          })
+        this.$toast.success('Succesvol ingelogd', {
+          position: 'top-right',
+          duration: 3000,
         })
+      } catch (e) {
+        this.$toast.global.my_error() // Using custom toast
+        this.$toast.error('Error while authenticating')
+      }
     },
   },
 }

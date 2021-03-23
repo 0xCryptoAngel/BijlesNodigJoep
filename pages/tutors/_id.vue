@@ -45,7 +45,11 @@
           </button>
           <button
             type="button"
-            class="inline-flex items-center p-2 text-white border border-red-700 rounded-full shadow-sm bg-transparant hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+            class="inline-flex items-center p-2 text-white border rounded-full shadow-sm bg-transparant hover:bg-red-700 focus:outline-none"
+            :class="
+              isFavouriteTutor ? 'border-red-700 bg-red-700' : 'border-red-700'
+            "
+            @click="toggleFav"
           >
             <!-- Heroicon name: heart -->
             <svg
@@ -126,6 +130,7 @@
                   >
                     Berichten
                   </h2>
+                  <p><i class="fas fa-check check"></i></p>
                 </div>
                 <div class="px-4 py-6 sm:px-6">
                   <ul class="space-y-8">
@@ -339,23 +344,12 @@ export default {
   components: { BreadcrumbsApp },
   /* eslint-disable vue/require-prop-types */
   layout: 'app',
-  props: ['profileImage'],
   middleware: 'auth',
   data() {
     return {
       selectedTutor: [],
       id: null,
-      tutor: {
-        hourlyRate: 10,
-        rating: `4,78`,
-        description:
-          'The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps. Bawds jog, flick quartz, vex nymphs. Waltz, bad nymph, for quick jigs vex! Fox nymphs grab quick-jived waltz. Brick quiz whangs jumpy veldt fox. Bright vixens jump; dozy fowl quack. Quick wafting zephyrs vex bold Jim. Quick zephyrs blow, vexing daft Jim. Sex-charged fop blew my junk TV quiz. How quickly daft jumping zebras vex. Two driven jocks help fax my big quiz. Quick, Baz, get my woven flax jodhpurs! "Now fax quiz Jack!" my brave ghost pled. Five quacking zephyrs jolt my wax bed. Flummoxed by job, kvetching W. zaps Iraq. Cozy sphinx waves quart jug of bad milk. A very bad quack might jinx zippy fowls. Few quips galvanized the mock jury box. Quick brown dogs jump over the lazy fox. The jay, pig, fox, zebra, and my wolves quack! Blowzy red vixens fight for a quick jump. Joaquin Phoenix was gazed by MTV for luck. A wizard’s job is to vex chumps quickly in fog. Watch "Jeopardy!", Alex Trebeks fun TV quiz game. Woven silk pyjamas exchanged for blue quartz. Brawny gods just',
-        subject: 'Wiskunde',
-        age: 19,
-        profileImage:
-          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80',
-        imageAlt: 'Profielfoto Bijlesnodig',
-      },
+      isFavouriteTutor: false,
       message: '',
       formIsValid: true,
     }
@@ -454,6 +448,20 @@ export default {
     },
     selectTextField() {
       this.$refs.input.select()
+    },
+    toggleFav() {
+      this.isFavouriteTutor = !this.isFavouriteTutor
+
+      if (this.isFavouriteTutor === true) {
+        this.$toast.global.test('test')
+      } else {
+        this.$toasted.success('Verwijderd uit jouw favorieten', {
+          iconPack: 'fontawesome',
+          icon: 'check',
+          position: 'top-right',
+          duration: 3000,
+        })
+      }
     },
   },
 }

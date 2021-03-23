@@ -90,6 +90,7 @@
                             class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
                             aria-haspopup="true"
                             aria-expanded="false"
+                            @click="openRangeSlider"
                           >
                             <!-- Heroicon name: location-marker -->
                             <svg
@@ -128,6 +129,16 @@
                               />
                             </svg>
                           </button>
+                          <div
+                            class="absolute left-0 z-40 p-2 mt-1 rounded-md shadow-lg w-60"
+                          >
+                            <VueSimpleRangeSlider
+                              v-model="number"
+                              style="width: 225px"
+                              :min="5"
+                              :max="50"
+                            />
+                          </div>
                         </div>
                         <div class="pr-4">
                           <button
@@ -384,14 +395,21 @@
 <script>
 import { mapGetters, mapState } from 'vuex'
 // import { gmapApi } from 'gmap-vue'
+import { mixin as clickaway } from 'vue-clickaway'
+import VueSimpleRangeSlider from 'vue-simple-range-slider'
+import 'vue-simple-range-slider/dist/vueSimpleRangeSlider.css'
+
 import tutorItem from '~/components/tutors/tutorItem.vue'
 import BreadcrumbsApp from '~/components/UI/BreadcrumbsApp.vue'
 
 export default {
   name: 'Zoeken',
-  components: { tutorItem, BreadcrumbsApp },
+  components: { tutorItem, BreadcrumbsApp, VueSimpleRangeSlider },
+  mixins: [clickaway],
   middleware: 'auth',
   data: () => ({
+    range: [20, 1000],
+    number: 10,
     center: { lat: 52.379189, lng: 4.899431 },
     searchLoading: false,
     afterLoading: false,
@@ -452,6 +470,7 @@ export default {
 
     infoWindowPos: null,
     infoWinOpen: false,
+    isRangeOpen: false,
     currentMidx: null,
 
     infoOptions: {
@@ -691,6 +710,13 @@ export default {
         this.infoWinOpen = true
         this.currentMidx = idx
       }
+    },
+
+    openRangeSlider() {
+      this.isRangeOpen = !this.isRangeOpen
+    },
+    close() {
+      this.isRangeOpen = false
     },
   },
   layout: 'app',

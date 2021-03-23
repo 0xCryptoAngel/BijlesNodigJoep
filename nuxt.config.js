@@ -44,15 +44,20 @@ export default {
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@nuxtjs/dotenv',
-
     ['@nuxtjs/google-fonts'],
+    [
+      '@nuxtjs/fontawesome',
+      {
+        component: 'fa',
+        suffix: false,
+      },
+    ],
   ],
   googleFonts: {
     families: {
       Inter: true,
     },
   },
-
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     // https://go.nuxtjs.dev/axios
@@ -66,7 +71,26 @@ export default {
     // https://i18n.nuxtjs.org/setup
     'nuxt-i18n',
     '@nuxtjs/prismic',
+    '@nuxtjs/toast',
   ],
+
+  toast: {
+    position: 'top-right',
+    iconPack: 'fontawesome',
+    register: [
+      // Register custom toasts
+      {
+        name: 'test',
+        message: 'Oops...Something went wrong',
+        options: {
+          type: 'error',
+          iconPack: 'fontawesome',
+          icon: 'circle',
+          after: true,
+        },
+      },
+    ],
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {

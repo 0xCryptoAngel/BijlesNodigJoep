@@ -894,6 +894,37 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fortawesome/fontawesome-common-types@^0.2.35":
+  version "0.2.35"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-common-types/-/fontawesome-common-types-0.2.35.tgz#01dd3d054da07a00b764d78748df20daf2b317e9"
+  integrity sha512-IHUfxSEDS9dDGqYwIW7wTN6tn/O8E0n5PcAHz9cAaBoZw6UpG20IG/YM3NNLaGPwPqgjBAFjIURzqoQs3rrtuw==
+
+"@fortawesome/fontawesome-svg-core@^1.2.27":
+  version "1.2.35"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-svg-core/-/fontawesome-svg-core-1.2.35.tgz#85aea8c25645fcec88d35f2eb1045c38d3e65cff"
+  integrity sha512-uLEXifXIL7hnh2sNZQrIJWNol7cTVIzwI+4qcBIq9QWaZqUblm0IDrtSqbNg+3SQf8SMGHkiSigD++rHmCHjBg==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.35"
+
+"@fortawesome/free-brands-svg-icons@^5.15.3":
+  version "5.15.3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-brands-svg-icons/-/free-brands-svg-icons-5.15.3.tgz#bec2821d23b9c667be1d192a6c5bfb2667e588eb"
+  integrity sha512-1hirPcbjj72ZJtFvdnXGPbAbpn3Ox6mH3g5STbANFp3vGSiE5u5ingAKV06mK6ZVqNYxUPlh4DlTnaIvLtF2kw==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.35"
+
+"@fortawesome/free-solid-svg-icons@^5.15.3":
+  version "5.15.3"
+  resolved "https://registry.yarnpkg.com/@fortawesome/free-solid-svg-icons/-/free-solid-svg-icons-5.15.3.tgz#52eebe354f60dc77e0bde934ffc5c75ffd04f9d8"
+  integrity sha512-XPeeu1IlGYqz4VWGRAT5ukNMd4VHUEEJ7ysZ7pSSgaEtNvSo+FLurybGJVmiqkQdK50OkSja2bfZXOeyMGRD8Q==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.35"
+
+"@fortawesome/vue-fontawesome@^0.1.9":
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.1.10.tgz#eeeec1e4e8850bed0468f938292b06cda793bf34"
+  integrity sha512-b2+SLF31h32LSepVcXe+BQ63yvbq5qmTCy4KfFogCYm2bn68H5sDWUnX+U7MBqnM2aeEk9M7xSoqGnu+wSdY6w==
+
 "@fullhuman/postcss-purgecss@^2.1.2":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@fullhuman/postcss-purgecss/-/postcss-purgecss-2.3.0.tgz#50a954757ec78696615d3e118e3fee2d9291882e"
@@ -1523,6 +1554,14 @@
     consola "^2.11.3"
     eslint-loader "^4.0.2"
 
+"@nuxtjs/fontawesome@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/fontawesome/-/fontawesome-1.1.2.tgz#0add6519095b392bdffb6e3ad40f3026d20f5c44"
+  integrity sha512-QAfo7hdc6hiCOohdR861oNQ+riKW/kD22bYyvaC++xXiiC1hBQcrRQ6xXd5gln+6SKCwT09+C4kGjzTgrwtr7w==
+  dependencies:
+    "@fortawesome/fontawesome-svg-core" "^1.2.27"
+    "@fortawesome/vue-fontawesome" "^0.1.9"
+
 "@nuxtjs/google-fonts@^1.1.3":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@nuxtjs/google-fonts/-/google-fonts-1.2.0.tgz#b226683f2ccfdb1caab02729ff1c513062b9e868"
@@ -1576,6 +1615,13 @@
     fs-extra "^9.0.1"
     tailwind-config-viewer "^1.4.0"
     tailwindcss "^1.9.6"
+
+"@nuxtjs/toast@^3.3.1":
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/toast/-/toast-3.3.1.tgz#ae489f4990b5da9f7ab90ea2dbfcf47900cb3ca2"
+  integrity sha512-b9JpyjSw5ZOyjskBvNc4NEebe0qxB6LivBlO84gHOnsaF23rLkJoBfVNDcXwGNDl7vm09yM4WqBGTkm/OQ0ZCQ==
+  dependencies:
+    vue-toasted "^1.1.28"
 
 "@nuxtjs/youch@^4.2.3":
   version "4.2.3"
@@ -7378,6 +7424,11 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
+material-design-icons@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/material-design-icons/-/material-design-icons-3.0.1.tgz#9a71c48747218ebca51e51a66da682038cdcb7bf"
+  integrity sha1-mnHEh0chjrylHlGmbaaCA4zct78=
+
 md5.js@^1.3.4:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/md5.js/-/md5.js-1.3.5.tgz#b5d07b8e3216e3e27cd728d72f70d1e6a342005f"
@@ -11403,6 +11454,11 @@ vue-server-renderer@^2.6.12:
     serialize-javascript "^3.1.0"
     source-map "0.5.6"
 
+vue-simple-range-slider@^0.1.10:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/vue-simple-range-slider/-/vue-simple-range-slider-0.1.10.tgz#eb25d29d886e26b11b1b513a1e06e66682411527"
+  integrity sha512-epbO0Nd2/vbvZ06iVAIX7Y2N0u83C6/8K0qgMeZpzwJs5lL0ka0LAdXz7VI8sZ7aafxVLn08uDmu0gX9AIsDfQ==
+
 vue-style-loader@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"
@@ -11423,6 +11479,11 @@ vue-template-es2015-compiler@^1.6.0, vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
+
+vue-toasted@^1.1.28:
+  version "1.1.28"
+  resolved "https://registry.yarnpkg.com/vue-toasted/-/vue-toasted-1.1.28.tgz#dbabb83acc89f7a9e8765815e491d79f0dc65c26"
+  integrity sha512-UUzr5LX51UbbiROSGZ49GOgSzFxaMHK6L00JV8fir/CYNJCpIIvNZ5YmS4Qc8Y2+Z/4VVYRpeQL2UO0G800Raw==
 
 vue@^2.6.10, vue@^2.6.12:
   version "2.6.12"
