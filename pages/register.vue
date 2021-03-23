@@ -207,7 +207,7 @@
                             >
                               <input
                                 id="firstName"
-                                v-model="form.firstName"
+                                v-model="form.first_name"
                                 type="text"
                                 autocomplete="off"
                                 :class="classes"
@@ -239,7 +239,7 @@
                             >
                               <input
                                 id="lastName"
-                                v-model="form.lastName"
+                                v-model="form.last_name"
                                 type="text"
                                 required
                                 :class="classes"
@@ -339,14 +339,14 @@
                             >
                               <input
                                 id="zipcode"
-                                v-model.trim="form.zip"
+                                v-model.trim="form.postcode"
                                 type="text"
                                 :class="classes"
                                 class="text-gray-800"
                                 oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                                 maxlength="6"
                                 @input="
-                                  form.zip = $event.target.value.toUpperCase()
+                                  form.postcode = $event.target.value.toUpperCase()
                                 "
                               />
                               <p
@@ -630,11 +630,11 @@ export default {
         email: 'ty@12.com',
         password: 'qwQW12!!',
         password_confirmation: 'qwQW12!!',
-        firstName: 'Dennis',
-        lastName: 'Kraaijeveld',
+        first_name: 'Dennis',
+        last_name: 'Kraaijeveld',
         sex: 'Man',
         age: 29,
-        zip: '7425NR',
+        postcode: '7425NR',
         city: 'Deventer',
         subject: null,
         hourly_rate: null,

@@ -6,7 +6,7 @@
           <div class="w-1/3">
             <img
               class="flex-shrink-0 object-cover w-full h-64 mx-auto bg-gray-200"
-              :src="profileImage"
+              :src="image"
               :alt="imageAlt"
             />
           </div>
@@ -18,7 +18,7 @@
             </div>
             <NuxtLink :to="'/tutors/' + id">
               <h4 class="text-lg font-semibold leading-5 tracking-wide">
-                {{ name }}
+                {{ fullName }}
               </h4>
             </NuxtLink>
 
@@ -121,6 +121,9 @@ export default {
     },
     tutorsDetailsLink() {
       return this.$route.path + '/' + this.id
+    },
+    image() {
+      return 'http://notawanker.com' + this.profileImage
     },
   },
   methods: {},

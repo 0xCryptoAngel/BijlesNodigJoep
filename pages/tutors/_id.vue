@@ -10,11 +10,7 @@
         <div class="flex items-center space-x-5">
           <div class="flex-shrink-0">
             <div class="relative">
-              <img
-                class="w-16 h-16 rounded-full"
-                src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
-                alt=""
-              />
+              <img class="w-16 h-16 rounded-full" :src="image" alt="" />
               <span
                 class="absolute inset-0 rounded-full shadow-inner"
                 aria-hidden="true"
@@ -22,11 +18,11 @@
             </div>
           </div>
           <div>
-            <h1 class="text-2xl font-bold text-gray-900">{ fullName }</h1>
+            <h1 class="text-2xl font-bold text-gray-900">{{ fullName }}</h1>
             <p class="text-sm font-medium text-gray-500">
               Laatst online gezien op
               <span class="text-gray-900"
-                ><time datetime="2020-08-25">{ lastSeen }</time></span
+                ><time datetime="2020-08-25">{{ lastSeen }}</time></span
               >
             </p>
           </div>
@@ -43,6 +39,7 @@
           <button
             type="button"
             class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-light-blue-500"
+            @click="selectTextField"
           >
             Stuur een bericht
           </button>
@@ -81,7 +78,7 @@
                   id="applicant-information-title"
                   class="text-lg font-medium leading-6 text-gray-900"
                 >
-                  Profiel van { fullName }
+                  Profiel van {{ fullName }}
                 </h2>
                 <p class="max-w-2xl mt-1 text-sm text-gray-500">
                   Persoonlijke details en beschikbaarheid
@@ -97,11 +94,11 @@
                   </div>
                   <div class="sm:col-span-1">
                     <dt class="text-sm font-medium text-gray-500">Leeftijd</dt>
-                    <dd class="mt-1 text-sm text-gray-900">{age}</dd>
+                    <dd class="mt-1 text-sm text-gray-900">{{ age }}</dd>
                   </div>
                   <div class="sm:col-span-1">
                     <dt class="text-sm font-medium text-gray-500">Tarief</dt>
-                    <dd class="mt-1 text-sm text-gray-900">{hourlyRate}</dd>
+                    <dd class="mt-1 text-sm text-gray-900">{{ rate }}</dd>
                   </div>
                   <div class="sm:col-span-1">
                     <dt class="text-sm font-medium text-gray-500">Rating</dt>
@@ -109,16 +106,11 @@
                   </div>
                   <div class="sm:col-span-2">
                     <dt class="text-sm font-medium text-gray-500">Over mij</dt>
-                    <dd class="mt-1 text-sm text-gray-900">{Description}</dd>
+                    <dd class="mt-1 text-sm text-gray-900">
+                      {{ description }}
+                    </dd>
                   </div>
                 </dl>
-              </div>
-              <div>
-                <a
-                  href="#"
-                  class="block px-4 py-4 text-sm font-medium text-center text-gray-500 bg-gray-50 hover:text-gray-700 sm:rounded-b-lg"
-                  >Lees volledig profiel</a
-                >
               </div>
             </div>
           </section>
@@ -170,6 +162,7 @@
                             <button
                               type="button"
                               class="font-medium text-gray-900"
+                              @click="selectTextField"
                             >
                               Beantwoorden
                             </button>
@@ -183,11 +176,7 @@
               <div class="px-4 py-6 bg-gray-50 sm:px-6">
                 <div class="flex space-x-3">
                   <div class="flex-shrink-0">
-                    <img
-                      class="w-10 h-10 rounded-full"
-                      src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
-                      alt=""
-                    />
+                    <img class="w-10 h-10 rounded-full" :src="image" alt="" />
                   </div>
                   <div class="flex-1 min-w-0">
                     <form action="#">
@@ -195,6 +184,7 @@
                         <label for="message" class="sr-only">About</label>
                         <textarea
                           id="message"
+                          ref="input"
                           v-model.trim="message"
                           name="message"
                           rows="3"
@@ -202,27 +192,7 @@
                           placeholder="Schrijf een bericht"
                         ></textarea>
                       </div>
-                      <div class="flex items-center justify-between mt-3">
-                        <a
-                          href="#"
-                          class="inline-flex items-start space-x-2 text-sm text-gray-500 group hover:text-gray-900"
-                        >
-                          <!-- Heroicon name: question-mark-circle -->
-                          <svg
-                            class="flex-shrink-0 w-5 h-5 text-gray-400 group-hover:text-gray-500"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                          <span> Some HTML is okay. </span>
-                        </a>
+                      <div class="flex items-center justify-end mt-3">
                         <button
                           type="submit"
                           class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
@@ -239,19 +209,118 @@
           </section>
         </div>
 
-        <section
-          aria-labelledby="calender-title"
-          class="lg:col-start-3 lg:col-span-1"
-        >
-          <div class="px-4 py-5 bg-white shadow sm:rounded-lg sm:px-6">
+        <section aria-labelledby="calender-title">
+          <div class="px-4 pt-5 bg-white shadow sm:rounded-lg sm:px-6">
             <h2 id="timeline-title" class="text-lg font-medium text-gray-900">
-              Beschikbaar op
+              Beschikbaarheid
             </h2>
-
             <!-- Calender Feed -->
-            <div class="flow-root mt-6">
+            <div class="mt-6">
               <ul class="-mb-8">
-                {calenderAvailability}
+                <table class="min-w-full pb-10 divide-y divide-gray-200">
+                  <thead class="bg-gray-50">
+                    <tr>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        Dag
+                      </th>
+                      <th
+                        scope="col"
+                        class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"
+                      >
+                        Beschikbaar
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="bg-white">
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Maandag
+                      </td>
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Ja
+                      </td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Dinsdag
+                      </td>
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Nee
+                      </td>
+                    </tr>
+                    <tr class="bg-white">
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Woensdag
+                      </td>
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Nee
+                      </td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Donderdag
+                      </td>
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Ja
+                      </td>
+                    </tr>
+                    <tr class="bg-white">
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Vrijdag
+                      </td>
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Ja
+                      </td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Zaterdag
+                      </td>
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Nee
+                      </td>
+                    </tr>
+                    <tr class="bg-white">
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Zondag
+                      </td>
+                      <td
+                        class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        Nee
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </ul>
             </div>
           </div>
@@ -294,22 +363,65 @@ export default {
   computed: {
     ...mapState(['tutors']),
     fullName() {
-      return this.selectedTutor.attributes.name
+      const fullname =
+        this.selectedTutor.attributes.first_name +
+        ' ' +
+        this.selectedTutor.attributes.last_name
+      return fullname
+    },
+    lastSeen() {
+      const year = []
+
+      const date = this.selectedTutor.attributes.last_seen
+      year.push(date.slice(0, 4))
+
+      const month = []
+
+      month.push(date.slice(5, 7))
+
+      // const allMonths = {
+      //   '01': 'Januari',
+      //   '02': 'Januari',
+      //   '03': 'Januari',
+      //   '04': 'Januari',
+      //   '05': 'Januari',
+      //   '06': 'Januari',
+      //   '07': 'Januari',
+      //   '08': 'Januari',
+      //   '09': 'Januari',
+      //   10: 'Januari',
+      //   11: 'Januari',
+      //   12: 'Januari',
+      // }
+
+      const day = []
+
+      day.push(date.slice(8, 10))
+
+      return day + '-' + month + '-' + year
     },
     rate() {
-      return this.tutor.hourlyRate
+      const HourlyRate = this.selectedTutor.attributes.hourly_rate
+
+      return '€ ' + HourlyRate + '0' + ' per uur'
     },
     description() {
-      return this.tutor.description
+      return this.selectedTutor.attributes.biography
     },
     subject() {
       return this.tutor.subject
     },
     age() {
-      return this.tutor.age
+      return this.selectedTutor.attributes.age
     },
     rating() {
       return this.tutor.rating
+    },
+    image() {
+      return (
+        'http://notawanker.com' +
+        this.selectedTutor.attributes.profile_image_path
+      )
     },
   },
   created() {
@@ -339,6 +451,9 @@ export default {
         coachId: 39,
       })
       this.$router.push('/berichten')
+    },
+    selectTextField() {
+      this.$refs.input.select()
     },
   },
 }

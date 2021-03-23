@@ -305,11 +305,12 @@
                           v-for="tutor in tutors"
                           :id="tutor.id"
                           :key="tutor.id"
-                          :name="tutor.attributes.name"
+                          :first-name="tutor.attributes.first_name"
+                          :last-name="tutor.attributes.last_name"
                           :rate="student.hourlyRate"
                           :subject="student.subject"
                           :description="student.biography"
-                          :profile-image="student.imageUrl"
+                          :profile-image="tutor.attributes.profile_image_path"
                           :image-alt="student.imageAlt"
                           :age="student.age"
                           :rating="student.rating"
@@ -389,7 +390,7 @@ import BreadcrumbsApp from '~/components/UI/BreadcrumbsApp.vue'
 export default {
   name: 'Zoeken',
   components: { tutorItem, BreadcrumbsApp },
-
+  middleware: 'auth',
   data: () => ({
     center: { lat: 52.379189, lng: 4.899431 },
     searchLoading: false,
