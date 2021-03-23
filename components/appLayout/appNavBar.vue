@@ -1,6 +1,6 @@
 <template>
   <div class="sticky top-0 z-30">
-    <div class="relative pb-16 bg-red-700">
+    <div class="relative pb-16 bg-sky-blue-700">
       <nav class="relative z-20">
         <div class="px-2 mx-auto max-w-8xl sm:px-4 lg:px-8">
           <div
