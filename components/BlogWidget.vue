@@ -26,7 +26,12 @@ import LinkResolver from '~/plugins/link-resolver.js'
 
 export default {
   name: 'BlogWidget',
-  props: ['post'],
+  props: {
+    post: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
     return {
       link: '',

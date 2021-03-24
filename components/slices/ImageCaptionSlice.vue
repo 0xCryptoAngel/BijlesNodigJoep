@@ -33,7 +33,12 @@
 <script>
 export default {
   name: 'ImageCaptionSlice',
-  props: ['slice'],
+  props: {
+    slice: {
+      type: Object,
+      default: null,
+    },
+  },
   data() {
     return {
       img: '',

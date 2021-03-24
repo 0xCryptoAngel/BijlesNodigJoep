@@ -13,7 +13,12 @@
 
 <script>
 export default {
-  props: ['error'],
+  props: {
+    error: {
+      type: Object,
+      default: null,
+    },
+  },
   head() {
     return {
       title: 'Blog',

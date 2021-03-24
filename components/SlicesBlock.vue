@@ -33,6 +33,11 @@ export default {
     TextSlice,
     ImageCaptionSlice,
   },
-  props: ['slices'],
+  props: {
+    slices: {
+      type: Object,
+      default: null,
+    },
+  },
 }
 </script>

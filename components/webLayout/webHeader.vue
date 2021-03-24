@@ -28,7 +28,16 @@
 import webNav from './webNav.vue'
 export default {
   components: { webNav },
-  props: ['title', 'beschrijving'],
+  props: {
+    title: {
+      type: String,
+      default: null,
+    },
+    beschrijving: {
+      type: String,
+      default: null,
+    },
+  },
 }
 </script>
 

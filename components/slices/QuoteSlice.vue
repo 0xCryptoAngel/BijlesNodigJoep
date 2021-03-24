@@ -9,6 +9,11 @@
 <script>
 export default {
   name: 'QuoteSlice',
-  props: ['slice'],
+  props: {
+    slice: {
+      type: Object,
+      default: null,
+    },
+  },
 }
 </script>
