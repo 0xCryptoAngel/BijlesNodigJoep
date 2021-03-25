@@ -129,7 +129,9 @@
                               />
                             </svg>
                           </button>
-                          <div
+
+                          <!-- RANGE SLIDER  -->
+                          <!-- <div
                             class="absolute left-0 z-40 p-2 mt-1 rounded-md shadow-lg w-60"
                           >
                             <VueSimpleRangeSlider
@@ -138,7 +140,7 @@
                               :min="5"
                               :max="50"
                             />
-                          </div>
+                          </div> -->
                         </div>
                         <div class="pr-4">
                           <button
@@ -227,35 +229,6 @@
                 </div>
               </div>
             </div>
-            <!-- <div
-            class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5"
-          >
-            <div
-              class="py-1"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="sort-menu"
-            >
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                role="menuitem"
-                >Name</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                role="menuitem"
-                >Date modified</a
-              >
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                role="menuitem"
-                >Date created</a
-              >
-            </div>
-          </div> -->
           </div>
           <div class="relative mx-auto px-14">
             <div class="pt-20">
@@ -263,7 +236,7 @@
                 <div>
                   <h1
                     v-if="tutors.length > 0"
-                    class="text-3xl font-medium leading-5 text-orange-500 whitespace-nowrap overflow-ellipsis"
+                    class="text-3xl font-medium leading-5 text-sky-blue-800 whitespace-nowrap overflow-ellipsis"
                   >
                     <b class="text-black">{{ tutorCount }}</b> Bijlesgevers
                     <span class="text-black outline-none">op postcode</span>
@@ -318,13 +291,12 @@
                           :key="tutor.id"
                           :first-name="tutor.attributes.first_name"
                           :last-name="tutor.attributes.last_name"
-                          :rate="student.hourlyRate"
-                          :subject="student.subject"
-                          :description="student.biography"
+                          :rate="tutor.attributes.hourly_rate"
+                          :subject="tutor.attributes.subject"
+                          :description="tutor.attributes.biography"
                           :profile-image="tutor.attributes.profile_image_path"
-                          :image-alt="student.imageAlt"
-                          :age="student.age"
-                          :rating="student.rating"
+                          :age="tutor.attributes.age"
+                          :star-rating="tutor.attributes.rating"
                           :total-reviews="student.reviewCount"
                           class="inline-block w-full whitespace-normal align-top"
                         >
@@ -396,15 +368,15 @@
 import { mapGetters, mapState } from 'vuex'
 // import { gmapApi } from 'gmap-vue'
 import { mixin as clickaway } from 'vue-clickaway'
-import VueSimpleRangeSlider from 'vue-simple-range-slider'
-import 'vue-simple-range-slider/dist/vueSimpleRangeSlider.css'
+// import VueSimpleRangeSlider from 'vue-simple-range-slider'
+// import 'vue-simple-range-slider/dist/vueSimpleRangeSlider.css'
 
 import tutorItem from '~/components/tutors/tutorItem.vue'
 import BreadcrumbsApp from '~/components/UI/BreadcrumbsApp.vue'
 
 export default {
   name: 'Zoeken',
-  components: { tutorItem, BreadcrumbsApp, VueSimpleRangeSlider },
+  components: { tutorItem, BreadcrumbsApp },
   mixins: [clickaway],
   middleware: 'auth',
   data: () => ({

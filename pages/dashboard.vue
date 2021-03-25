@@ -30,7 +30,7 @@
                             <h1
                               class="ml-3 text-2xl font-bold leading-7 text-cool-gray-900 sm:leading-9 sm:truncate"
                             >
-                              Goedemorgen, {{ loggedInUser.user.name }}
+                              Goedemorgen, {{ loggedInUser.user.first_name }}
                             </h1>
                           </div>
                           <dl
@@ -53,7 +53,7 @@
                                   clip-rule="evenodd"
                                 />
                               </svg>
-                              Kaatsheuvel
+                              {{ city }}
                             </dd>
                             <dt class="sr-only">Account status</dt>
                             <dd
@@ -187,7 +187,7 @@
                 <h2
                   class="max-w-6xl px-4 mx-auto mt-8 text-lg font-medium leading-6 text-cool-gray-900 sm:px-6 lg:px-8"
                 >
-                  Laatste activiteit
+                  Laatste berichten
                 </h2>
 
                 <!-- Activity list (smallest breakopoint only) -->
@@ -408,6 +408,13 @@ export default {
   name: 'App',
   middleware: 'auth',
   layout: 'app',
-  computed: { ...mapGetters(['isAuthenticated', 'loggedInUser']) },
+  computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    city() {
+      return this.loggedInUser.user.city
+        ? this.loggedInUser.user.city
+        : 'Foutmelding: Geen woonplaats beschikbaar'
+    },
+  },
 }
 </script>

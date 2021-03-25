@@ -7,14 +7,14 @@
             <img
               class="flex-shrink-0 object-cover w-full h-64 mx-auto bg-gray-200"
               :src="image"
-              :alt="imageAlt"
+              alt="Profielafbeelding bijlesnodig.nl"
             />
           </div>
           <div class="w-2/3 p-6">
             <div
               class="text-xs font-semibold leading-snug tracking-wide text-gray-500 uppercase"
             >
-              {{ subject }} &bull; {{ age }} jaar
+              {{ tutorSubject }} &bull; {{ tutorAge }} jaar
             </div>
             <NuxtLink :to="'/tutors/' + id">
               <h4 class="text-lg font-semibold leading-5 tracking-wide">
@@ -22,33 +22,13 @@
               </h4>
             </NuxtLink>
 
-            <div class="mt-2">{{ description | truncate(150) }}</div>
-
-            <!-- <div>
-              <div class="mt-4 text-sm font-semibold text-gray-600">
-                <span>MA</span>
-                <span
-                  class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
-                  >DI</span
-                >
-                <span>WO</span>
-                <span
-                  class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
-                  >DO</span
-                >
-                <span
-                  class="inline-block leading-7 text-center text-gray-100 bg-orange-400 bg-opacity-50 w-7 h-7 rounded-xl"
-                  >VR</span
-                >
-                <span>ZA</span>
-                <span>ZO</span>
-              </div>
-            </div> -->
+            <div class="mt-2">{{ biography | truncate(150) }}</div>
 
             <div class="flex items-end flex-grow mt-2">
               <div class="mr-4">
                 <span class="flex items-center">
                   <svg
+                    v-show="tutorRating == !undefined"
                     class="w-4 h-4 text-yellow-400"
                     fill="currentColor"
                     stroke="currentColor"
@@ -64,15 +44,12 @@
                   </svg>
 
                   <span class="text-sm font-semibold text-light-blue-800">{{
-                    rating
+                    tutorRating
                   }}</span>
-                  <span class="text-sm text-gray-600">
-                    ({{ totalReviews }})
-                  </span>
                 </span>
               </div>
               <div class="ml-auto text-xl font-semibold">
-                {{ rate }}€
+                {{ hourlyRate }}€
 
                 <span class="text-xl font-medium text-gray-600">per uur</span>
               </div>
@@ -95,7 +72,7 @@ export default {
   components: {},
   filters: {
     truncate(string, value) {
-      return (string || '').substring(0, value) + '…'
+      return (string || '').substring(0, value)
     },
   },
   props: [
@@ -106,18 +83,19 @@ export default {
     'rate',
     'subject',
     'age',
-    'rating',
+    'starRating',
     'totalReviews',
     'description',
     'profileImage',
-    'imageAlt',
   ],
   data() {
     return {}
   },
   computed: {
     fullName() {
-      return this.firstName + ' ' + this.lastName
+      return this.firstName && this.lastName
+        ? this.firstName + ' ' + this.lastName
+        : 'Foutmelding: Geen naam beschikbaar'
     },
     tutorsDetailsLink() {
       return this.$route.path + '/' + this.id
@@ -126,6 +104,23 @@ export default {
       return this.profileImage
         ? 'http://notawanker.com' + this.profileImage
         : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
+    },
+    hourlyRate() {
+      return this.rate ? this.rate.slice(0, this.rate.length - 2) : '0'
+    },
+    biography() {
+      return this.description
+        ? this.description
+        : 'Geen beschrijving beschikbaar'
+    },
+    tutorAge() {
+      return this.age ? this.age : 'Foutmelding: Geen leeftijd beschikbaar'
+    },
+    tutorSubject() {
+      return this.subject ? this.subject : 'Vak onbekend'
+    },
+    tutorRating() {
+      return this.starRating ? this.starRating : 'Geen beoordeling beschikbaar'
     },
   },
   methods: {},

@@ -135,7 +135,7 @@
                 <div class="px-4 py-6 sm:px-6">
                   <ul v-if="hasRequests">
                     <message-item
-                      v-for="req in receivedRequest"
+                      v-for="req in requestHistory"
                       :key="req.id"
                       :email="req.userEmail"
                       :message="req.message"
@@ -335,6 +335,9 @@ export default {
     hasRequests() {
       return this.$store.getters.hasRequest
     },
+    requestHistory() {
+      return this.$store.getters.requestHistory
+    },
     fullName() {
       return this.selectedTutor.attributes.first_name &&
         this.selectedTutor.attributes.last_name
@@ -448,7 +451,7 @@ export default {
 
       this.$store.dispatch('contactTutor', {
         message: this.message,
-        coachId: 39,
+        coachId: this.selectedTutor.id,
       })
     },
     selectTextField() {
