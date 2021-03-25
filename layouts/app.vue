@@ -8,10 +8,15 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex'
 import appNavBar from '~/components/appLayout/appNavBar'
 
 export default {
   components: { appNavBar },
+  computed: {
+    ...mapState(['tutors']),
+    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+  },
   head: {
     title: 'Bijlesnodig.nl',
     meta: [

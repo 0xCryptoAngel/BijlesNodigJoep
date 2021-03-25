@@ -94,7 +94,7 @@
                     <dt class="text-sm font-medium text-gray-500">
                       Geeft les in
                     </dt>
-                    <dd class="mt-1 text-sm text-gray-900">{Subject}</dd>
+                    <dd class="mt-1 text-sm text-gray-900">{{ subject }}</dd>
                   </div>
                   <div class="sm:col-span-1">
                     <dt class="text-sm font-medium text-gray-500">Leeftijd</dt>
@@ -106,7 +106,7 @@
                   </div>
                   <div class="sm:col-span-1">
                     <dt class="text-sm font-medium text-gray-500">Rating</dt>
-                    <dd class="mt-1 text-sm text-gray-900">{rating}</dd>
+                    <dd class="mt-1 text-sm text-gray-900">{{ rating }}</dd>
                   </div>
                   <div class="sm:col-span-2">
                     <dt class="text-sm font-medium text-gray-500">Over mij</dt>
@@ -133,55 +133,25 @@
                   <p><i class="fas fa-check check"></i></p>
                 </div>
                 <div class="px-4 py-6 sm:px-6">
-                  <ul class="space-y-8">
-                    <li>
-                      <div class="flex space-x-3">
-                        <div class="flex-shrink-0">
-                          <img
-                            class="w-10 h-10 rounded-full"
-                            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                            alt=""
-                          />
-                        </div>
-                        <div>
-                          <div class="text-sm">
-                            <a href="#" class="font-medium text-gray-900"
-                              >Dries Vincent</a
-                            >
-                          </div>
-                          <div class="mt-1 text-sm text-gray-700">
-                            <p>
-                              Expedita consequatur sit ea voluptas quo ipsam
-                              recusandae. Ab sint et voluptatem repudiandae
-                              voluptatem et eveniet. Nihil quas consequatur
-                              autem. Perferendis rerum et.
-                            </p>
-                          </div>
-                          <div class="mt-2 space-x-2 text-sm">
-                            <span class="font-medium text-gray-500"
-                              >4d geleden</span
-                            >
-                            <span class="font-medium text-gray-500"
-                              >&middot;</span
-                            >
-                            <button
-                              type="button"
-                              class="font-medium text-gray-900"
-                              @click="selectTextField"
-                            >
-                              Beantwoorden
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
+                  <ul v-if="hasRequests">
+                    <message-item
+                      v-for="req in receivedRequest"
+                      :key="req.id"
+                      :email="req.userEmail"
+                      :message="req.message"
+                    ></message-item>
                   </ul>
+                  <h3 v-else>Er zij geen nieuwe berichten gevonden.</h3>
                 </div>
               </div>
               <div class="px-4 py-6 bg-gray-50 sm:px-6">
                 <div class="flex space-x-3">
                   <div class="flex-shrink-0">
-                    <img class="w-10 h-10 rounded-full" :src="image" alt="" />
+                    <img
+                      class="w-10 h-10 rounded-full"
+                      :src="loggedInUserImage"
+                      alt=""
+                    />
                   </div>
                   <div class="flex-1 min-w-0">
                     <form action="#">
@@ -336,12 +306,14 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import BreadcrumbsApp from '~/components/UI/BreadcrumbsApp.vue'
+
+import MessageItem from '~/components/berichten/MessageItem'
 
 export default {
   name: 'TutorPage',
-  components: { BreadcrumbsApp },
+  components: { BreadcrumbsApp, MessageItem },
   /* eslint-disable vue/require-prop-types */
   layout: 'app',
   middleware: 'auth',
@@ -356,66 +328,100 @@ export default {
   },
   computed: {
     ...mapState(['tutors']),
+    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    receivedRequest() {
+      return this.$store.getters.request
+    },
+    hasRequests() {
+      return this.$store.getters.hasRequest
+    },
     fullName() {
-      const fullname =
-        this.selectedTutor.attributes.first_name +
-        ' ' +
+      return this.selectedTutor.attributes.first_name &&
         this.selectedTutor.attributes.last_name
-      return fullname
+        ? this.selectedTutor.attributes.first_name +
+            ' ' +
+            this.selectedTutor.attributes.last_name
+        : 'Foutmelding: Geen naam ingevoerd'
     },
     lastSeen() {
+      const day = []
+      const month = []
       const year = []
 
       const date = this.selectedTutor.attributes.last_seen
+
       year.push(date.slice(0, 4))
-
-      const month = []
-
       month.push(date.slice(5, 7))
-
-      // const allMonths = {
-      //   '01': 'Januari',
-      //   '02': 'Januari',
-      //   '03': 'Januari',
-      //   '04': 'Januari',
-      //   '05': 'Januari',
-      //   '06': 'Januari',
-      //   '07': 'Januari',
-      //   '08': 'Januari',
-      //   '09': 'Januari',
-      //   10: 'Januari',
-      //   11: 'Januari',
-      //   12: 'Januari',
-      // }
-
-      const day = []
-
       day.push(date.slice(8, 10))
 
-      return day + '-' + month + '-' + year
+      return this.selectedTutor.attributes.last_seen
+        ? day + '-' + month + '-' + year
+        : 'Geen online status beschikbaar'
+      // const year = []
+
+      // const date = this.selectedTutor.attributes.last_seen
+      // year.push(date.slice(0, 4))
+
+      // const month = []
+
+      // month.push(date.slice(5, 7))
+
+      // // const allMonths = {
+      // //   '01': 'Januari',
+      // //   '02': 'Januari',
+      // //   '03': 'Januari',
+      // //   '04': 'Januari',
+      // //   '05': 'Januari',
+      // //   '06': 'Januari',
+      // //   '07': 'Januari',
+      // //   '08': 'Januari',
+      // //   '09': 'Januari',
+      // //   10: 'Januari',
+      // //   11: 'Januari',
+      // //   12: 'Januari',
+      // // }
+
+      // const day = []
+
+      // day.push(date.slice(8, 10))
     },
     rate() {
       const HourlyRate = this.selectedTutor.attributes.hourly_rate
 
-      return '€ ' + HourlyRate + '0' + ' per uur'
+      return this.selectedTutor.attributes.hourly_rate
+        ? '€' + HourlyRate + '0' + ' per uur'
+        : 'Foutmelding: Geen tarief beschikbaar'
     },
     description() {
       return this.selectedTutor.attributes.biography
+        ? this.selectedTutor.attributes.biography
+        : 'Foutmelding: Geen beschrijving beschrikbaar'
     },
     subject() {
-      return this.tutor.subject
+      return this.selectedTutor.attributes.subject
+        ? this.selectedTutor.attributes.subject
+        : 'Foutmelding: Geen vak beschikbaar'
     },
     age() {
       return this.selectedTutor.attributes.age
+        ? this.selectedTutor.attributes.age
+        : 'Foutmelding: Geen leeftijd beschikbaar'
     },
     rating() {
-      return this.tutor.rating
+      return this.selectedTutor.attributes.rating
+        ? this.selectedTutor.attributes.rating
+        : 'Foutmelding: Geen beoordeling beschikbaar'
     },
     image() {
-      return (
-        'http://notawanker.com' +
-        this.selectedTutor.attributes.profile_image_path
-      )
+      return this.selectedTutor.attributes.profile_image_path
+        ? 'http://notawanker.com' +
+            this.selectedTutor.attributes.profile_image_path
+        : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
+    },
+    loggedInUserImage() {
+      return this.loggedInUser.user.profile_image_path
+        ? 'http://notawanker.com' + this.loggedInUser.user.profile_image_path
+        : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
     },
   },
   created() {
@@ -444,7 +450,6 @@ export default {
         message: this.message,
         coachId: 39,
       })
-      this.$router.push('/berichten')
     },
     selectTextField() {
       this.$refs.input.select()

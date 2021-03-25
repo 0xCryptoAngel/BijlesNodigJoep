@@ -77,6 +77,19 @@ export default {
     hasRequests() {
       return this.$store.getters.hasRequest
     },
+    loggedInUserImage() {
+      return this.loggedInUser.user.profile_image_path
+        ? 'http://notawanker.com' + this.loggedInUser.user.profile_image_path
+        : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
+    },
+    fullName() {
+      return this.loggedInUser.user.first_name &&
+        this.loggedInUser.user.last_name
+        ? this.loggedInUser.user.first_name +
+            ' ' +
+            this.loggedInUser.user.last_name
+        : 'Foutmelding: Geen naam ingevoerd'
+    },
   },
 }
 </script>

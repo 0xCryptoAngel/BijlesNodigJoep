@@ -9,11 +9,7 @@
         aria-haspopup="true"
         @click="openMenu"
       >
-        <img
-          class="w-8 h-8 rounded-full"
-          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
-          alt=""
-        />
+        <img class="w-8 h-8 rounded-full" :src="image" alt="" />
       </button>
     </div>
     <transition
@@ -54,6 +50,7 @@
 
 <script>
 import { mixin as clickaway } from 'vue-clickaway'
+import { mapGetters } from 'vuex'
 
 export default {
   mixins: [clickaway],
@@ -61,6 +58,14 @@ export default {
     return {
       isProfileOpen: false,
     }
+  },
+  computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    image() {
+      return this.loggedInUser.user.profile_image_path
+        ? 'http://notawanker.com' + this.loggedInUser.user.profile_image_path
+        : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
+    },
   },
   methods: {
     async logout() {

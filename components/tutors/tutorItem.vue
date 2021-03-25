@@ -123,7 +123,9 @@ export default {
       return this.$route.path + '/' + this.id
     },
     image() {
-      return 'http://notawanker.com' + this.profileImage
+      return this.profileImage
+        ? 'http://notawanker.com' + this.profileImage
+        : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
     },
   },
   methods: {},

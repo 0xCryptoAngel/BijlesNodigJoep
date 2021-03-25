@@ -174,6 +174,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import SlideMobileMenu from '~/components/UI/SlideMobileMenu'
 import ProfileDropdown from '~/components/UI/ProfileDropdown'
 
@@ -184,6 +185,9 @@ export default {
       isMobileMenuOpen: false,
       isUserMenuOpen: false,
     }
+  },
+  computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser']),
   },
 }
 </script>
