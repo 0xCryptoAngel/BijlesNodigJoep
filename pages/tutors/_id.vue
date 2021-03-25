@@ -1,7 +1,6 @@
 <template>
   <div>
     <breadcrumbs-app></breadcrumbs-app>
-
     <main class="py-10">
       <!-- Page header -->
       <div
@@ -30,12 +29,6 @@
         <div
           class="flex flex-col-reverse mt-6 space-y-4 space-y-reverse justify-stretch sm:flex-row-reverse sm:justify-end sm:space-x-reverse sm:space-y-0 sm:space-x-3 md:mt-0 md:flex-row md:space-x-3"
         >
-          <!-- <button
-            type="button"
-            class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-blue-500"
-          >
-            Disqualify
-          </button> -->
           <button
             type="button"
             class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm bg-light-blue-600 hover:bg-light-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-light-blue-500"
@@ -135,7 +128,7 @@
                 <div class="px-4 py-6 sm:px-6">
                   <ul v-if="hasRequests">
                     <message-item
-                      v-for="req in requestHistory"
+                      v-for="req in receivedRequest"
                       :key="req.id"
                       :email="req.userEmail"
                       :message="req.message"
@@ -335,9 +328,6 @@ export default {
     hasRequests() {
       return this.$store.getters.hasRequest
     },
-    requestHistory() {
-      return this.$store.getters.requestHistory
-    },
     fullName() {
       return this.selectedTutor.attributes.first_name &&
         this.selectedTutor.attributes.last_name
@@ -353,40 +343,13 @@ export default {
 
       const date = this.selectedTutor.attributes.last_seen
 
-      year.push(date.slice(0, 4))
-      month.push(date.slice(5, 7))
-      day.push(date.slice(8, 10))
-
       return this.selectedTutor.attributes.last_seen
-        ? day + '-' + month + '-' + year
+        ? day.push(date.slice(8, 10)) +
+            '-' +
+            month.push(date.slice(5, 7)) +
+            '-' +
+            year.push(date.slice(0, 4))
         : 'Geen online status beschikbaar'
-      // const year = []
-
-      // const date = this.selectedTutor.attributes.last_seen
-      // year.push(date.slice(0, 4))
-
-      // const month = []
-
-      // month.push(date.slice(5, 7))
-
-      // // const allMonths = {
-      // //   '01': 'Januari',
-      // //   '02': 'Januari',
-      // //   '03': 'Januari',
-      // //   '04': 'Januari',
-      // //   '05': 'Januari',
-      // //   '06': 'Januari',
-      // //   '07': 'Januari',
-      // //   '08': 'Januari',
-      // //   '09': 'Januari',
-      // //   10: 'Januari',
-      // //   11: 'Januari',
-      // //   12: 'Januari',
-      // // }
-
-      // const day = []
-
-      // day.push(date.slice(8, 10))
     },
     rate() {
       const HourlyRate = this.selectedTutor.attributes.hourly_rate

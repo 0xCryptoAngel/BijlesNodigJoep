@@ -26,23 +26,23 @@
                     exact-active-class="bg-black bg-opacity-25"
                     exact
                     class="px-3 py-2 mr-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-sky-blue-900 focus:outline-none focus:bg-sky-blue-900"
-                    >Zoeken</NuxtLink
+                    >Search</NuxtLink
                   >
 
                   <NuxtLink
-                    to="/berichten"
+                    to="/messages"
                     exact-active-class="bg-black bg-opacity-25"
                     exact
                     class="px-3 py-2 mr-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-sky-blue-900 focus:outline-none focus:bg-sky-blue-900"
-                    >Berichten</NuxtLink
+                    >Messages</NuxtLink
                   >
 
                   <NuxtLink
-                    to="/favorieten"
+                    to="/favorites"
                     exact-active-class="bg-black bg-opacity-25"
                     exact
                     class="px-3 py-2 mr-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-sky-blue-900 focus:outline-none focus:bg-sky-blue-900"
-                    >Favorieten</NuxtLink
+                    >Favorites</NuxtLink
                   >
                 </div>
               </div>

@@ -13,9 +13,6 @@ export const getters = {
   hasRequest(_, getters) {
     return getters.request && getters.request.length > 0
   },
-  requestHistory(_, getters) {
-    return getters.request && getters.request.coachId === 77
-  },
 }
 
 export const state = () => ({

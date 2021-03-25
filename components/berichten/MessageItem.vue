@@ -33,7 +33,6 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-/* eslint-disable vue/require-prop-types */
 
 export default {
   filters: {
@@ -41,7 +40,16 @@ export default {
       return string.substring(0, value) + '...'
     },
   },
-  props: ['email', 'message'],
+  props: {
+    email: {
+      type: String,
+      default: null,
+    },
+    message: {
+      type: String,
+      default: null,
+    },
+  },
   computed: {
     ...mapState(['tutors']),
     ...mapGetters(['isAuthenticated', 'loggedInUser']),
