@@ -1,8 +1,5 @@
 <template>
-  <div class="outer-container">
-    <div class="back">
-      <nuxt-link to="/blog">back to list</nuxt-link>
-    </div>
+  <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
     <h1 v-if="error.statusCode === 404">Page not found</h1>
     <h1 v-else>An error occurred</h1>
     <nuxt-link to="/" style="text-decoration: underline"
@@ -13,6 +10,7 @@
 
 <script>
 export default {
+  layout: 'app',
   props: {
     error: {
       type: Object,
@@ -21,7 +19,7 @@ export default {
   },
   head() {
     return {
-      title: 'Blog',
+      title: '404',
     }
   },
 }
