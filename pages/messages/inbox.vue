@@ -61,7 +61,7 @@
             <div class="px-4 py-6 space-y-6 sm:p-6 lg:pb-8">
               <div>
                 <h2 class="text-lg font-medium leading-6 text-gray-900">
-                  Nieuwe berichten
+                  Berichten inbox
                 </h2>
               </div>
 
@@ -77,7 +77,7 @@
                       :message="req.message"
                     ></message-item>
                   </ul>
-                  <h3 v-else>Je hebt geen ongelezen berichten</h3>
+                  <h3 v-else>Je hebt geen berichten</h3>
                 </div>
               </div>
             </div>

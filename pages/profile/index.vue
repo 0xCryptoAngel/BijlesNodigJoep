@@ -308,13 +308,13 @@
                       aria-checked="true"
                       aria-labelledby="privacy-option-label-1"
                       aria-describedby="privacy-option-description-1"
-                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring"
+                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out border-2 border-transparent rounded-full cursor-pointer bg-sky-blue-700 w-11 focus:outline-none focus:ring"
                       @click="isActive"
                     >
                       <!-- On: "translate-x-5", Off: "translate-x-0" -->
                       <span
                         aria-hidden="true"
-                        class="inline-block w-5 h-5 transition duration-200 ease-in-out transform translate-x-0 bg-white rounded-full shadow"
+                        class="inline-block w-5 h-5 transition duration-200 ease-in-out transform translate-x-5 bg-white rounded-full shadow"
                       ></span>
                     </span>
                   </li>
