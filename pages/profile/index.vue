@@ -7,9 +7,9 @@
         >
           <aside class="py-6 lg:col-span-3">
             <nav>
-              <a
-                href="#"
-                class="flex items-center px-3 py-2 text-sm font-medium leading-5 text-teal-700 transition duration-150 ease-in-out border-l-4 border-teal-500 group bg-teal-50 hover:bg-teal-50 hover:text-teal-700 focus:outline-none focus:bg-teal-100 focus:text-teal-700"
+              <NuxtLink
+                to="/profile"
+                class="flex items-center px-3 py-2 text-sm font-medium leading-5 text-gray-900 transition duration-150 ease-in-out border-l-4 border-transparent group hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:bg-gray-50 focus:text-gray-900"
                 aria-current="page"
               >
                 <!-- Heroicon name: user-circle -->
@@ -29,39 +29,10 @@
                   />
                 </svg>
                 <span class="truncate"> Profile </span>
-              </a>
+              </NuxtLink>
 
-              <a
-                href="#"
-                class="flex items-center px-3 py-2 mt-1 text-sm font-medium leading-5 text-gray-900 transition duration-150 ease-in-out border-l-4 border-transparent group hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:bg-gray-50 focus:text-gray-900"
-              >
-                <!-- Heroicon name: cog -->
-                <svg
-                  class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-gray-400 transition duration-150 ease-in-out group-hover:text-gray-500 group-focus:text-gray-500"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                  />
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-                <span class="truncate"> Account </span>
-              </a>
-
-              <a
-                href="#"
+              <NuxtLink
+                to="/profile/password"
                 class="flex items-center px-3 py-2 mt-1 text-sm font-medium leading-5 text-gray-900 transition duration-150 ease-in-out border-l-4 border-transparent group hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:bg-gray-50 focus:text-gray-900"
               >
                 <!-- Heroicon name: key -->
@@ -81,10 +52,10 @@
                   />
                 </svg>
                 <span class="truncate"> Wachtwoord </span>
-              </a>
+              </NuxtLink>
 
-              <a
-                href="#"
+              <NuxtLink
+                to="/profile/notifications"
                 class="flex items-center px-3 py-2 mt-1 text-sm font-medium leading-5 text-gray-900 transition duration-150 ease-in-out border-l-4 border-transparent group hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:bg-gray-50 focus:text-gray-900"
               >
                 <!-- Heroicon name: bell -->
@@ -104,10 +75,10 @@
                   />
                 </svg>
                 <span class="truncate"> Notificaties </span>
-              </a>
+              </NuxtLink>
 
-              <a
-                href="#"
+              <NuxtLink
+                to="/profile/billing"
                 class="flex items-center px-3 py-2 mt-1 text-sm font-medium leading-5 text-gray-900 transition duration-150 ease-in-out border-l-4 border-transparent group hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:bg-gray-50 focus:text-gray-900"
               >
                 <!-- Heroicon name: credit-card -->
@@ -127,7 +98,7 @@
                   />
                 </svg>
                 <span class="truncate"> Facturering </span>
-              </a>
+              </NuxtLink>
             </nav>
           </aside>
 
@@ -203,7 +174,7 @@
                       >
                         <img
                           class="w-full h-full rounded-full"
-                          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
+                          :src="image"
                           alt=""
                         />
                       </div>
@@ -233,7 +204,7 @@
                   >
                     <img
                       class="relative w-40 h-40 rounded-full"
-                      src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.6&w=256&h=256&q=80"
+                      :src="image"
                       alt=""
                     />
                     <label
@@ -259,6 +230,7 @@
                   >
                   <input
                     id="first_name"
+                    :placeholder="loggedInUser.user.first_name"
                     class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                   />
                 </div>
@@ -271,6 +243,31 @@
                   >
                   <input
                     id="last_name"
+                    :placeholder="loggedInUser.user.last_name"
+                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                  />
+                </div>
+                <div class="col-span-12 sm:col-span-6">
+                  <label
+                    for="city"
+                    class="block text-sm font-medium leading-5 text-gray-700"
+                    >Woonplaats</label
+                  >
+                  <input
+                    id="city"
+                    placeholder="Kerk-Avezaath"
+                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                  />
+                </div>
+                <div class="col-span-12 sm:col-span-6">
+                  <label
+                    for="age"
+                    class="block text-sm font-medium leading-5 text-gray-700"
+                    >Leeftijd</label
+                  >
+                  <input
+                    id="age"
+                    placeholder="29"
                     class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                   />
                 </div>
@@ -282,10 +279,10 @@
               <div class="px-4 space-y-2 sm:px-6">
                 <div>
                   <h2 class="text-lg font-medium leading-6 text-gray-900">
-                    Privacy
+                    Account
                   </h2>
                   <p class="mt-1 text-sm leading-5 text-gray-500">
-                    Ornare eu a volutpat eget vulputate. Fringilla commodo amet.
+                    Algemene instellingen
                   </p>
                 </div>
                 <ul class="divide-y divide-gray-200">
@@ -295,14 +292,13 @@
                         id="privacy-option-label-1"
                         class="text-sm font-medium leading-5 text-gray-900"
                       >
-                        Available to hire
+                        Kan online gevonden worden
                       </p>
                       <p
                         id="privacy-option-description-1"
                         class="text-sm leading-5 text-gray-500"
                       >
-                        Nulla amet tempus sit accumsan. Aliquet turpis sed sit
-                        lacinia.
+                        Even niet beschikbaar? Verberg je account.
                       </p>
                     </div>
                     <!-- On: "bg-teal-500", Off: "bg-gray-200" -->
@@ -313,38 +309,7 @@
                       aria-labelledby="privacy-option-label-1"
                       aria-describedby="privacy-option-description-1"
                       class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring"
-                    >
-                      <!-- On: "translate-x-5", Off: "translate-x-0" -->
-                      <span
-                        aria-hidden="true"
-                        class="inline-block w-5 h-5 transition duration-200 ease-in-out transform translate-x-0 bg-white rounded-full shadow"
-                      ></span>
-                    </span>
-                  </li>
-                  <li class="flex items-center justify-between py-4 space-x-4">
-                    <div class="flex flex-col">
-                      <p
-                        id="privacy-option-label-2"
-                        class="text-sm font-medium leading-5 text-gray-900"
-                      >
-                        Make account private
-                      </p>
-                      <p
-                        id="privacy-option-description-2"
-                        class="text-sm leading-5 text-gray-500"
-                      >
-                        Pharetra morbi dui mi mattis tellus sollicitudin cursus
-                        pharetra.
-                      </p>
-                    </div>
-                    <!-- On: "bg-teal-500", Off: "bg-gray-200" -->
-                    <span
-                      role="checkbox"
-                      tabindex="0"
-                      aria-checked="false"
-                      aria-labelledby="privacy-option-label-2"
-                      aria-describedby="privacy-option-description-2"
-                      class="relative inline-flex flex-shrink-0 h-6 transition-colors duration-200 ease-in-out bg-gray-200 border-2 border-transparent rounded-full cursor-pointer w-11 focus:outline-none focus:ring"
+                      @click="isActive"
                     >
                       <!-- On: "translate-x-5", Off: "translate-x-0" -->
                       <span
@@ -387,6 +352,23 @@ import { mapGetters } from 'vuex'
 export default {
   middleware: 'auth',
   layout: 'app',
-  computed: { ...mapGetters(['isAuthenticated', 'loggedInUser']) },
+  date() {
+    return {}
+  },
+  computed: {
+    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    image() {
+      return this.loggedInUser.user.profile_image_path
+        ? 'http://notawanker.com' + this.loggedInUser.user.profile_image_path
+        : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
+    },
+  },
+  methods: {},
 }
 </script>
+
+<style scoped>
+.mobile-active-link {
+  @apply border-l-4 border-sky-blue-700;
+}
+</style>

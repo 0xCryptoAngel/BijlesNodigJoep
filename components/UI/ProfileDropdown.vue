@@ -25,16 +25,10 @@
         class="absolute right-0 z-40 w-48 mt-2 origin-top-right rounded-md shadow-lg"
       >
         <div class="py-1 bg-white rounded-md ring-1 ring-black ring-opacity-5">
-          <a
-            href="/profile"
+          <NuxtLink
+            to="/profile"
             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            >Jouw Profiel</a
-          >
-
-          <a
-            href="#"
-            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-            >Instellingen</a
+            >Jouw Profiel</NuxtLink
           >
 
           <a
