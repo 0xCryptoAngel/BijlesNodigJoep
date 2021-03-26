@@ -97,7 +97,7 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'http://notawanker.com',
+    baseURL: 'https://notawanker.com',
   },
   proxy: {
     '/login': 'http://notawanker.com/login',
