@@ -97,9 +97,11 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'http://localhost:3000',
+    baseURL: 'http://notawanker.com',
   },
-
+  proxy: {
+    '/login': 'http://notawanker.com/login',
+  },
   prismic: {
     endpoint: 'https://bijlesnodig.prismic.io/api/v2',
     linkResolver: '@/plugins/link-resolver',

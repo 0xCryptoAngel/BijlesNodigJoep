@@ -34,7 +34,7 @@ export default {
           duration: 1000,
         })
         await this.$axios
-          .post('http://notawanker.com/login', {
+          .post('/login', {
             user,
           })
           .then((resp) => {
