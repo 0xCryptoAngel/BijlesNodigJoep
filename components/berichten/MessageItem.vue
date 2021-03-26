@@ -15,7 +15,7 @@
             </p>
           </div>
           <div class="mt-2 space-x-2 text-sm">
-            <span class="font-medium text-gray-500">4d geleden</span>
+            <span class="font-medium text-gray-500">Now</span>
             <span class="font-medium text-gray-500">&middot;</span>
             <button
               type="button"

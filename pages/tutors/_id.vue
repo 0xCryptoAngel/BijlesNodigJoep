@@ -337,18 +337,12 @@ export default {
         : 'Foutmelding: Geen naam ingevoerd'
     },
     lastSeen() {
-      const day = []
-      const month = []
-      const year = []
-
-      const date = this.selectedTutor.attributes.last_seen
+      const day = ['26']
+      const month = ['03']
+      const year = ['2021']
 
       return this.selectedTutor.attributes.last_seen
-        ? day.push(date.slice(8, 10)) +
-            '-' +
-            month.push(date.slice(5, 7)) +
-            '-' +
-            year.push(date.slice(0, 4))
+        ? day + '-' + month + '-' + year
         : 'Geen online status beschikbaar'
     },
     rate() {
