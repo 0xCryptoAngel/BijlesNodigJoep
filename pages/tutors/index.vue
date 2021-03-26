@@ -3,26 +3,96 @@
     <div>
       <breadcrumbs-app></breadcrumbs-app>
     </div>
-
     <div class="relative min-h-calc">
-      <div>
-        <div class="relative z-20 w-left">
-          <div class="pt-10">
-            <!-- search form -->
-            <div class="flex items-center mx-12 my-0">
-              <div class="flex flex-grow flex-shrink w-full">
-                <div class="w-full">
-                  <form @submit.prevent="fetchTutors">
-                    <div class="flex mt-1 rounded-md shadow-sm">
+      <div class="relative z-20 w-left">
+        <div class="pt-10">
+          <!-- search form -->
+          <div class="flex items-center mx-12 my-0">
+            <div class="flex flex-grow flex-shrink w-full">
+              <div class="w-full">
+                <form @submit.prevent="fetchTutors">
+                  <div class="flex mt-1 rounded-md shadow-sm">
+                    <div
+                      class="relative flex items-stretch flex-grow focus-within:z-10"
+                    >
                       <div
-                        class="relative flex items-stretch flex-grow focus-within:z-10"
+                        class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
                       >
-                        <div
-                          class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                        <!-- Heroicon name: location-marker -->
+                        <svg
+                          class="w-5 h-5 text-gray-500"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                          ></path>
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                          ></path>
+                        </svg>
+                      </div>
+
+                      <input
+                        id="search_field"
+                        v-model="postcode"
+                        type="search"
+                        name="postcode_search"
+                        class="block w-full pl-10 border-gray-300 rounded-none focus:ring-light-blue-500 focus:border-light-blue-500 rounded-l-md sm:text-sm"
+                        placeholder="Jouw postcode"
+                        autocomplete="off"
+                      />
+                    </div>
+                    <button
+                      class="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium text-gray-700 border border-light-blue-700 rounded-r-md bg-light-blue-700 hover:bg-light-blue-800 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-light-blue-500"
+                    >
+                      <!-- Heroicon name: sort-ascending -->
+                      <svg
+                        class="w-5 h-5 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center mx-12 my-0">
+            <div class="flex flex-grow flex-shrink w-full">
+              <div
+                class="relative z-10 flex items-center w-full h-16 py-0 pr-0 border-b-0"
+              >
+                <div class="flex justify-between w-full">
+                  <div class="flex items-center">
+                    <client-only>
+                      <div class="pr-4">
+                        <button
+                          id="sort-menu"
+                          type="button"
+                          class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                          @click="openRangeSlider"
                         >
                           <!-- Heroicon name: location-marker -->
                           <svg
-                            class="w-5 h-5 text-gray-500"
+                            class="w-5 h-5 mr-3 text-gray-400"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -41,97 +111,25 @@
                               d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                             ></path>
                           </svg>
-                        </div>
-
-                        <input
-                          id="search_field"
-                          v-model="postcode"
-                          type="search"
-                          name="postcode_search"
-                          class="block w-full pl-10 border-gray-300 rounded-none focus:ring-light-blue-500 focus:border-light-blue-500 rounded-l-md sm:text-sm"
-                          placeholder="Jouw postcode"
-                          autocomplete="off"
-                        />
-                      </div>
-                      <button
-                        class="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium text-gray-700 border border-light-blue-700 rounded-r-md bg-light-blue-700 hover:bg-light-blue-800 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-light-blue-500"
-                      >
-                        <!-- Heroicon name: sort-ascending -->
-                        <svg
-                          class="w-5 h-5 text-white"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                          />
-                        </svg>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-
-            <div class="flex items-center mx-12 my-0">
-              <div class="flex flex-grow flex-shrink w-full">
-                <div
-                  class="relative z-10 flex items-center w-full h-16 py-0 pr-0 border-b-0"
-                >
-                  <div class="flex justify-between w-full">
-                    <div class="flex items-center">
-                      <client-only>
-                        <div class="pr-4">
-                          <button
-                            id="sort-menu"
-                            type="button"
-                            class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                            @click="openRangeSlider"
+                          Afstand
+                          <!-- Heroicon name: chevron-down -->
+                          <svg
+                            class="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
                           >
-                            <!-- Heroicon name: location-marker -->
-                            <svg
-                              class="w-5 h-5 mr-3 text-gray-400"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                              ></path>
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                              ></path>
-                            </svg>
-                            Afstand
-                            <!-- Heroicon name: chevron-down -->
-                            <svg
-                              class="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                              aria-hidden="true"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-                          </button>
+                            <path
+                              fill-rule="evenodd"
+                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </button>
 
-                          <!-- RANGE SLIDER  -->
-                          <!-- <div
+                        <!-- RANGE SLIDER  -->
+                        <!-- <div
                             class="absolute left-0 z-40 p-2 mt-1 rounded-md shadow-lg w-60"
                           >
                             <VueSimpleRangeSlider
@@ -141,169 +139,164 @@
                               :max="50"
                             />
                           </div> -->
-                        </div>
-                        <div class="pr-4">
-                          <button
-                            id="sort-menu"
-                            type="button"
-                            class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
-                            aria-haspopup="true"
-                            aria-expanded="false"
+                      </div>
+                      <div class="pr-4">
+                        <button
+                          id="sort-menu"
+                          type="button"
+                          class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <!-- Heroicon name: book-open -->
+                          <svg
+                            class="w-5 h-5 mr-3 text-gray-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <!-- Heroicon name: book-open -->
-                            <svg
-                              class="w-5 h-5 mr-3 text-gray-400"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                              ></path>
-                            </svg>
-                            Vak
-                            <!-- Heroicon name: chevron-down -->
-                            <svg
-                              class="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                              aria-hidden="true"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-                          </button>
-                        </div>
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                            ></path>
+                          </svg>
+                          Vak
+                          <!-- Heroicon name: chevron-down -->
+                          <svg
+                            class="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </button>
+                      </div>
 
-                        <div class="pr-4">
-                          <button
-                            id="sort-menu"
-                            type="button"
-                            class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
-                            aria-haspopup="true"
-                            aria-expanded="false"
+                      <div class="pr-4">
+                        <button
+                          id="sort-menu"
+                          type="button"
+                          class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          <!-- Heroicon name: currency-euro -->
+                          <svg
+                            class="w-5 h-5 mr-3 text-gray-400"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <!-- Heroicon name: currency-euro -->
-                            <svg
-                              class="w-5 h-5 mr-3 text-gray-400"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M14.121 15.536c-1.171 1.952-3.07 1.952-4.242 0-1.172-1.953-1.172-5.119 0-7.072 1.171-1.952 3.07-1.952 4.242 0M8 10.5h4m-4 3h4m9-1.5a9 9 0 11-18 0 9 9 0 0118 0z"
-                              ></path>
-                            </svg>
-                            Tarief
-                            <!-- Heroicon name: chevron-down -->
-                            <svg
-                              class="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                              aria-hidden="true"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </client-only>
-                    </div>
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M14.121 15.536c-1.171 1.952-3.07 1.952-4.242 0-1.172-1.953-1.172-5.119 0-7.072 1.171-1.952 3.07-1.952 4.242 0M8 10.5h4m-4 3h4m9-1.5a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+                          Tarief
+                          <!-- Heroicon name: chevron-down -->
+                          <svg
+                            class="ml-2.5 -mr-1.5 h-5 w-5 text-gray-400"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    </client-only>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="relative mx-auto px-14">
-            <div class="pt-20">
-              <section>
-                <div>
-                  <h1
-                    v-if="tutors.length > 0"
-                    class="text-3xl font-medium leading-5 text-sky-blue-800 whitespace-nowrap overflow-ellipsis"
-                  >
-                    <b class="text-black">{{ tutorCount }}</b> Bijlesgevers
-                    <span class="text-black outline-none">op postcode</span>
-                    <span v-if="postcode.length > 0">{{ currentZip }}</span>
-                    <span v-else>****</span>
-                  </h1>
-                  <div v-else class="p-4 rounded-md bg-light-blue-50">
-                    <div class="flex">
-                      <div class="flex-shrink-0">
-                        <!-- Heroicon name: information-circle -->
-                        <svg
-                          class="w-5 h-5 text-light-blue-500"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          aria-hidden="true"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </div>
-                      <div class="flex-1 ml-3 md:flex md:justify-between">
-                        <p class="text-sm text-light-blue-700">
-                          Geen resultaten gevonden. Vul je postcode in.
-                        </p>
-                      </div>
-                    </div>
+        </div>
+        <div class="relative mx-auto px-14">
+          <div class="pt-20">
+            <section>
+              <h1
+                v-if="tutors.length > 0"
+                class="text-3xl font-medium leading-5 text-sky-blue-800 whitespace-nowrap overflow-ellipsis"
+              >
+                <b class="text-black">{{ tutorCount }}</b> Bijlesgevers
+                <span class="text-black outline-none">op postcode</span>
+                <span v-if="postcode.length > 0">{{ currentZip }}</span>
+                <span v-else>****</span>
+              </h1>
+              <div v-else class="p-4 rounded-md bg-light-blue-50">
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <!-- Heroicon name: information-circle -->
+                    <svg
+                      class="w-5 h-5 text-light-blue-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                  <div class="flex-1 ml-3 md:flex md:justify-between">
+                    <p class="text-sm text-light-blue-700">
+                      Geen resultaten gevonden. Vul je postcode in.
+                    </p>
                   </div>
                 </div>
-              </section>
-            </div>
+              </div>
+            </section>
           </div>
-          <div class="min-h-screen overflow-hidden">
-            <div class="overflow-anchor-none">
+        </div>
+        <div class="min-h-screen overflow-hidden">
+          <div class="overflow-anchor-none">
+            <div
+              v-if="tutors.length > 0"
+              class="relative px-10 mx-auto bg-transparant"
+            >
               <div>
-                <div
-                  v-if="tutors.length > 0"
-                  class="relative px-10 mx-auto bg-transparant"
-                >
-                  <div>
-                    <div>
-                      <ul id="tutors" class="p-0 -mx-3">
-                        <div class="mt-4 mb-7">
-                          <div class="border-item"></div>
-                        </div>
-                        <tutor-item
-                          v-for="tutor in tutors"
-                          :id="tutor.id"
-                          :key="tutor.id"
-                          :first-name="tutor.attributes.first_name"
-                          :last-name="tutor.attributes.last_name"
-                          :rate="tutor.attributes.hourly_rate"
-                          :subject="tutor.attributes.subject"
-                          :description="tutor.attributes.biography"
-                          :profile-image="tutor.attributes.profile_image_path"
-                          :age="tutor.attributes.age"
-                          :star-rating="tutor.attributes.rating"
-                          :total-reviews="student.reviewCount"
-                          class="inline-block w-full whitespace-normal align-top"
-                        >
-                        </tutor-item>
-                      </ul>
+                <div>
+                  <ul id="tutors" class="p-0 -mx-3">
+                    <div class="mt-4 mb-7">
+                      <div class="border-item"></div>
                     </div>
-                  </div>
+                    <tutor-item
+                      v-for="tutor in tutors"
+                      :id="tutor.id"
+                      :key="tutor.id"
+                      :first-name="tutor.attributes.first_name"
+                      :last-name="tutor.attributes.last_name"
+                      :rate="tutor.attributes.hourly_rate"
+                      :subject="tutor.attributes.subject"
+                      :description="tutor.attributes.biography"
+                      :profile-image="tutor.attributes.profile_image_path"
+                      :age="tutor.attributes.age"
+                      :star-rating="tutor.attributes.rating"
+                      :total-reviews="student.reviewCount"
+                      class="inline-block w-full whitespace-normal align-top"
+                    >
+                    </tutor-item>
+                  </ul>
                 </div>
               </div>
             </div>

@@ -31,16 +31,14 @@
 
                   <NuxtLink
                     to="/messages"
-                    exact-active-class="bg-black bg-opacity-25"
-                    exact
+                    active-class="bg-black bg-opacity-25"
                     class="px-3 py-2 mr-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-sky-blue-900 focus:outline-none focus:bg-sky-blue-900"
                     >Messages</NuxtLink
                   >
 
                   <NuxtLink
                     to="/favorites"
-                    exact-active-class="bg-black bg-opacity-25"
-                    exact
+                    active-class="bg-black bg-opacity-25"
                     class="px-3 py-2 mr-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out rounded-md hover:bg-sky-blue-900 focus:outline-none focus:bg-sky-blue-900"
                     >Favorites</NuxtLink
                   >

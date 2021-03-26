@@ -1,93 +1,96 @@
 <template>
-  <div>
-    <div>
-      <main>
-        <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-          <!-- Replace with your content -->
-          <div class="sm:px-0">
-            <main class="relative z-0 flex-1 pb-8 overflow-y-auto">
-              <!-- Page header -->
-              <div class="bg-white shadow">
-                <div class="px-4 sm:px-6 lg:max-w-6xl lg:mx-auto lg:px-8">
-                  <div
-                    class="py-6 md:flex md:items-center md:justify-between lg:border-t lg:border-cool-gray-200"
-                  >
-                    <div class="flex-1 min-w-0">
-                      <!-- Profile -->
+  <main>
+    <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <!-- Replace with your content -->
+      <div class="sm:px-0">
+        <main class="relative z-0 flex-1 pb-8 overflow-y-auto">
+          <!-- Page header -->
+          <div class="relative mt-16">
+            <div
+              class="max-w-screen-xl px-4 pb-6 mx-auto sm:px-6 lg:pb-16 lg:px-8"
+            >
+              <div class="overflow-hidden bg-white rounded-lg shadow">
+                <div class="flex-1 min-w-0 p-6">
+                  <!-- Profile -->
+                  <div class="flex items-center">
+                    <img
+                      class="hidden w-12 h-12 rounded-full sm:block"
+                      src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg"
+                      alt=""
+                    />
+                    <div>
                       <div class="flex items-center">
                         <img
-                          class="hidden w-12 h-12 rounded-full sm:block"
+                          class="w-12 h-12 rounded-full sm:hidden"
                           src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg"
                           alt=""
                         />
-                        <div>
-                          <div class="flex items-center">
-                            <img
-                              class="w-12 h-12 rounded-full sm:hidden"
-                              src="https://therminic2018.eu/wp-content/uploads/2018/07/dummy-avatar.jpg"
-                              alt=""
-                            />
-                            <h1
-                              class="ml-3 text-2xl font-bold leading-7 text-cool-gray-900 sm:leading-9 sm:truncate"
-                            >
-                              Goedemorgen, {{ loggedInUser.user.first_name }}
-                            </h1>
-                          </div>
-                          <dl
-                            class="flex flex-col mt-6 sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap"
-                          >
-                            <dt class="sr-only">Company</dt>
-                            <dd
-                              class="flex items-center text-sm font-medium leading-5 capitalize text-cool-gray-500 sm:mr-6"
-                            >
-                              <!-- Heroicon name: office-building -->
-                              <svg
-                                class="flex-shrink-0 mr-1.5 h-5 w-5 text-cool-gray-400"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fill-rule="evenodd"
-                                  d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
-                                  clip-rule="evenodd"
-                                />
-                              </svg>
-                              {{ city }}
-                            </dd>
-                            <dt class="sr-only">Account status</dt>
-                            <dd
-                              class="flex items-center mt-3 text-sm font-medium leading-5 capitalize text-cool-gray-500 sm:mr-6 sm:mt-0"
-                            >
-                              <!-- Heroicon name: check-circle -->
-                              <svg
-                                class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                              >
-                                <path
-                                  fill-rule="evenodd"
-                                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                  clip-rule="evenodd"
-                                />
-                              </svg>
-                              Geverifieerd account
-                            </dd>
-                          </dl>
-                        </div>
+                        <h1
+                          class="ml-3 text-2xl font-bold leading-7 text-cool-gray-900 sm:leading-9 sm:truncate"
+                        >
+                          Goedemorgen, {{ loggedInUser.user.first_name }}
+                        </h1>
                       </div>
+                      <dl
+                        class="flex flex-col mt-6 sm:ml-3 sm:mt-1 sm:flex-row sm:flex-wrap"
+                      >
+                        <dt class="sr-only">Company</dt>
+                        <dd
+                          class="flex items-center text-sm font-medium leading-5 capitalize text-cool-gray-500 sm:mr-6"
+                        >
+                          <svg
+                            class="flex-shrink-0 w-5 h-5 mr-3 -ml-1 text-teal-500 transition duration-150 ease-in-out group-hover:text-teal-500 group-focus:text-teal-600"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                            />
+                          </svg>
+                          {{ city }}
+                        </dd>
+                        <dt class="sr-only">Account status</dt>
+                        <dd
+                          class="flex items-center mt-3 text-sm font-medium leading-5 capitalize text-cool-gray-500 sm:mr-6 sm:mt-0"
+                        >
+                          <!-- Heroicon name: check-circle -->
+                          <svg
+                            class="flex-shrink-0 mr-1.5 h-5 w-5 text-green-400"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          Geverifieerd account
+                        </dd>
+                      </dl>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <div class="mt-8">
-                <div class="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
+          <div class="relative">
+            <div
+              class="max-w-screen-xl px-4 pb-6 mx-auto sm:px-6 lg:pb-16 lg:px-8"
+            >
+              <div class="overflow-hidden bg-white rounded-lg shadow">
+                <div class="flex-1 min-w-0 p-6">
                   <h2 class="text-lg font-medium leading-6 text-cool-gray-900">
                     Overzicht
                   </h2>
-                  <div class="">
+                  <div>
                     <h2
                       class="text-xs font-medium tracking-wide text-gray-500 uppercase"
                     >
@@ -178,238 +181,71 @@
                           </div>
                         </div>
                       </li>
-
-                      <!-- More project cards... -->
                     </ul>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
 
-                <h2
-                  class="max-w-6xl px-4 mx-auto mt-8 text-lg font-medium leading-6 text-cool-gray-900 sm:px-6 lg:px-8"
-                >
-                  Laatste berichten
-                </h2>
-
-                <!-- Activity list (smallest breakopoint only) -->
-                <div class="shadow sm:hidden">
-                  <ul
-                    class="mt-2 overflow-hidden divide-y shadow divide-cool-gray-200 sm:hidden"
-                  >
-                    <li>
-                      <a
-                        href="#"
-                        class="block px-4 py-4 bg-white hover:bg-cool-gray-50"
-                      >
-                        <div class="flex items-center space-x-4">
-                          <div class="flex flex-1 space-x-2 truncate">
-                            <!-- Heroicon name: cash -->
-                            <svg
-                              class="flex-shrink-0 w-5 h-5 text-cool-gray-400"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-                            <div class="text-sm truncate text-cool-gray-500">
-                              <p class="truncate">
-                                Les gehad van Anouk Sanders
-                              </p>
-                              <p>
-                                <span class="font-medium text-cool-gray-900"
-                                  >Geschiedenis</span
-                                >
-                              </p>
-                              <p>11-07-2020</p>
-                            </div>
-                          </div>
-                          <div>
-                            <!-- Heroicon name: chevron-right -->
-                            <svg
-                              class="flex-shrink-0 w-5 h-5 text-cool-gray-400"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 20 20"
-                              fill="currentColor"
-                            >
-                              <path
-                                fill-rule="evenodd"
-                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                clip-rule="evenodd"
-                              />
-                            </svg>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-
-                    <!-- More items... -->
-                  </ul>
-                  <nav
-                    class="flex items-center justify-between px-4 py-3 bg-white border-t border-cool-gray-200"
-                  >
-                    <div class="flex justify-between flex-1">
-                      <a
-                        href="#"
-                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:ring-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
-                      >
-                        Vorige
-                      </a>
-                      <a
-                        href="#"
-                        class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:ring-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
-                      >
-                        Volgende
-                      </a>
-                    </div>
-                  </nav>
-                </div>
-
-                <!-- Activity table (small breakopoint and up) -->
-                <div class="hidden sm:block">
-                  <div class="max-w-6xl px-4 mx-auto sm:px-6 lg:px-8">
-                    <div class="flex flex-col mt-2">
-                      <div
-                        class="min-w-full overflow-hidden overflow-x-auto align-middle shadow sm:rounded-lg"
-                      >
-                        <table class="min-w-full divide-y divide-cool-gray-200">
-                          <thead>
-                            <tr>
-                              <th
-                                class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left uppercase bg-cool-gray-50 text-cool-gray-500"
-                              >
-                                Vorige lessen
-                              </th>
-                              <th
-                                class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right uppercase bg-cool-gray-50 text-cool-gray-500"
-                              >
-                                Les
-                              </th>
-                              <th
-                                class="hidden px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left uppercase bg-cool-gray-50 text-cool-gray-500 md:block"
-                              >
-                                Status
-                              </th>
-                              <th
-                                class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-right uppercase bg-cool-gray-50 text-cool-gray-500"
-                              >
-                                Datum
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody class="bg-white divide-y divide-cool-gray-200">
-                            <tr class="bg-white">
-                              <td
-                                class="w-full px-6 py-4 text-sm leading-5 whitespace-nowrap max-w-0 text-cool-gray-900"
-                              >
-                                <div class="flex">
-                                  <a
-                                    href="#"
-                                    class="inline-flex space-x-2 text-sm leading-5 truncate group"
-                                  >
-                                    <!-- Heroicon name: cash -->
-                                    <svg
-                                      class="flex-shrink-0 w-5 h-5 transition duration-150 ease-in-out text-cool-gray-400 group-hover:text-cool-gray-500"
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 20 20"
-                                      fill="currentColor"
-                                    >
-                                      <path
-                                        fill-rule="evenodd"
-                                        d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
-                                        clip-rule="evenodd"
-                                      />
-                                    </svg>
-                                    <p
-                                      class="truncate transition duration-150 ease-in-out text-cool-gray-500 group-hover:text-cool-gray-900"
-                                    >
-                                      Les gehad van Anouk Sanders
-                                    </p>
-                                  </a>
-                                </div>
-                              </td>
-                              <td
-                                class="px-6 py-4 text-sm leading-5 text-right whitespace-nowrap text-cool-gray-500"
-                              >
-                                Geschiedenis
-                              </td>
-                              <td
-                                class="hidden px-6 py-4 text-sm leading-5 whitespace-nowrap text-cool-gray-500 md:block"
-                              >
-                                <span
-                                  class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium leading-4 bg-green-100 text-green-800 capitalize"
-                                >
-                                  Afgerond
-                                </span>
-                              </td>
-                              <td
-                                class="px-6 py-4 text-sm leading-5 text-right whitespace-nowrap text-cool-gray-500"
-                              >
-                                11-07-2020
-                              </td>
-                            </tr>
-
-                            <!-- More rows... -->
-                          </tbody>
-                        </table>
-                        <!-- Pagination -->
-                        <nav
-                          class="flex items-center justify-between px-4 py-3 bg-white border-t border-cool-gray-200 sm:px-6"
-                        >
-                          <div class="hidden sm:block">
-                            <p class="text-sm leading-5 text-cool-gray-700">
-                              Weergeeft
-                              <span class="font-medium">1</span>
-                              tot
-                              <span class="font-medium">10</span>
-                              van de
-                              <span class="font-medium">20</span>
-                              resultaten
-                            </p>
-                          </div>
-                          <div
-                            class="flex justify-between flex-1 sm:justify-end"
-                          >
-                            <a
-                              href="#"
-                              class="relative inline-flex items-center px-4 py-2 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:ring-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
-                            >
-                              Vorige
-                            </a>
-                            <a
-                              href="#"
-                              class="relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium leading-5 transition duration-150 ease-in-out bg-white border rounded-md border-cool-gray-300 text-cool-gray-700 hover:text-cool-gray-500 focus:outline-none focus:ring-blue focus:border-blue-300 active:bg-cool-gray-100 active:text-cool-gray-700"
-                            >
-                              Volgende
-                            </a>
-                          </div>
-                        </nav>
+          <div class="relative">
+            <div
+              class="max-w-screen-xl px-4 pb-6 mx-auto sm:px-6 lg:pb-16 lg:px-8"
+            >
+              <div class="overflow-hidden bg-white rounded-lg shadow">
+                <div class="flex-1 min-w-0 p-6">
+                  <h2 class="text-lg font-medium leading-6 text-cool-gray-900">
+                    Laatste berichten
+                  </h2>
+                  <div>
+                    <h2
+                      class="text-xs font-medium tracking-wide text-gray-500 uppercase"
+                    >
+                      Onbeantwoorde berichten
+                    </h2>
+                    <div
+                      class="flex flex-col mt-3 space-y-6 lg:flex-row lg:space-y-0 lg:space-x-6"
+                    >
+                      <div class="flex-grow space-y-6">
+                        <ul v-if="hasRequests">
+                          <message-item
+                            v-for="req in receivedRequest"
+                            :key="req.id"
+                            :email="req.userEmail"
+                            :message="req.message"
+                          ></message-item>
+                        </ul>
+                        <h3 v-else>Je hebt geen ongelezen berichten</h3>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </main>
+            </div>
           </div>
-          <!-- /End replace -->
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import MessageItem from '~/components/berichten/MessageItem'
 
 export default {
   name: 'App',
   middleware: 'auth',
   layout: 'app',
+  components: { MessageItem },
   computed: {
     ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    receivedRequest() {
+      return this.$store.getters.request
+    },
+    hasRequests() {
+      return this.$store.getters.hasRequest
+    },
     city() {
       return this.loggedInUser.user.city
         ? this.loggedInUser.user.city

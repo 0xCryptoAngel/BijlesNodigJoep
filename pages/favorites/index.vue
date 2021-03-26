@@ -69,15 +69,8 @@
                 class="flex flex-col space-y-6 lg:flex-row lg:space-y-0 lg:space-x-6"
               >
                 <div class="flex-grow space-y-6">
-                  <ul v-if="hasRequests">
-                    <message-item
-                      v-for="req in receivedRequest"
-                      :key="req.id"
-                      :email="req.userEmail"
-                      :message="req.message"
-                    ></message-item>
-                  </ul>
-                  <h3 v-else>Geen recente bezochte profielen beschikbaar</h3>
+                  <ul></ul>
+                  <h3>Geen recente bezochte profielen beschikbaar</h3>
                 </div>
               </div>
             </div>
@@ -90,11 +83,10 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import MessageItem from '~/components/berichten/MessageItem'
 
 export default {
   layout: 'app',
-  components: { MessageItem },
+  components: {},
   computed: {
     ...mapGetters(['isAuthenticated', 'loggedInUser']),
     receivedRequest() {
