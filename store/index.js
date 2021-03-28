@@ -13,11 +13,15 @@ export const getters = {
   hasRequest(_, getters) {
     return getters.request && getters.request.length > 0
   },
+  selectedTutor(state) {
+    return state.selectedTutor
+  },
 }
 
 export const state = () => ({
-  tutors: '',
+  tutors: [],
   requests: [],
+  selectedTutor: {},
 })
 
 export const mutations = {
@@ -31,6 +35,23 @@ export const mutations = {
   },
   addRequest(state, payload) {
     state.requests.push(payload)
+    this.$cookies.set('requests', state.requests)
+  },
+  setSelectedTutor(state, selectedTutorId) {
+    let selectedTutor
+    if (selectedTutorId) {
+      selectedTutor = state.tutors.find(x => x.id === selectedTutorId);
+      if (selectedTutor) {
+        state.selectedTutor = selectedTutor
+        this.$cookies.set('selectedTutor', state.selectedTutor)
+      }
+    }
+  },
+  initSelectedTutor(state, initSelectedTutor) {
+    state.selectedTutor = initSelectedTutor
+  },
+  initRequests(state, initRequests) {
+    state.requests = initRequests
   },
 }
 
@@ -57,5 +78,21 @@ export const actions = {
       message: payload.message,
     }
     context.commit('addRequest', newRequest)
+  },
+  setSelectedTutor({ commit }, tutorId) {
+    commit('setSelectedTutor', tutorId)
+  },
+  nuxtServerInit({ commit, dispatch }, { req }) {
+    // Parse cookies with cookie-universal-nuxt
+    const SelectedTutor = this.$cookies.get('selectedTutor')
+    const Requests = this.$cookies.get('requests')
+    // Check if Cookie selectedTutor exists to set them in 'cookies'
+    if (SelectedTutor) {
+      commit('initSelectedTutor', SelectedTutor)
+    }
+    // Check if Cookie requests exists to set them in 'cookies'
+    if (Requests) {
+      commit('initRequests', Requests)
+    }
   },
 }

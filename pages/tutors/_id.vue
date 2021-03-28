@@ -310,9 +310,16 @@ export default {
   /* eslint-disable vue/require-prop-types */
   layout: 'app',
   middleware: 'auth',
+  asyncData({ app, params, store }) {
+    if(!process.client) return;
+    const tutors = JSON.parse(localStorage.getItem('vuex') || "{}");
+    if(tutors){
+        store.dispatch('nuxtServerInit', tutors)
+    }
+  },
   data() {
     return {
-      selectedTutor: [],
+      // selectedTutor: [],
       id: null,
       isFavouriteTutor: false,
       message: '',
@@ -322,6 +329,9 @@ export default {
   computed: {
     ...mapState(['tutors']),
     ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    ...mapGetters({
+      selectedTutor: 'selectedTutor'
+    }),
     receivedRequest() {
       return this.$store.getters.request
     },
@@ -385,18 +395,16 @@ export default {
     },
   },
   created() {
-    this.getUserData()
+    this.setSelectedId()
   },
   methods: {
-    getUserData() {
+    setSelectedId() {
       // Getting the tutor id and converting it to a number
       const idString = this.$route.params.id
       const idNum = parseInt(idString)
       this.id = idNum
       // Look trough the state for the id and set the correct tutor
-      this.selectedTutor = this.$store.state.tutors.find(
-        (tutor) => tutor.id === this.id
-      )
+      this.$store.dispatch('setSelectedTutor', idNum)
     },
     submitForm() {
       this.formisValid = true
@@ -410,6 +418,7 @@ export default {
         message: this.message,
         coachId: this.selectedTutor.id,
       })
+      this.message = ''
     },
     selectTextField() {
       this.$refs.input.select()
