@@ -28,6 +28,7 @@
     "@tailwindcss/typography": "^0.3.1",
     "@tailwindcss/ui": "^0.7.2",
     "ap-style-title-case": "^1.1.2",
+    "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.6.5",
     "dotenv": "^8.2.0",
     "gmap-vue": "^1.5.0",
@@ -42,7 +43,7 @@
     "vue-clickaway": "^2.2.2",
     "vue-meta": "^2.4.0",
     "vue-simple-range-slider": "^0.1.10",
-    "vuex-persistedstate": "^4.0.0-beta.1"
+    "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.15.3",

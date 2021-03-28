@@ -75,6 +75,7 @@ export default {
     'nuxt-i18n',
     '@nuxtjs/prismic',
     '@nuxtjs/toast',
+    'cookie-universal-nuxt',
   ],
 
   toast: {
@@ -139,6 +140,7 @@ export default {
       '~/plugins/vee-validate',
       { src: '~/plugins/auth.js', mode: 'client' },
       { src: '~/plugins/google-maps', ssr: true },
+      { src: '~/plugins/persistedState.js', ssr: false },
     ],
     redirect: {
       login: '/login',
