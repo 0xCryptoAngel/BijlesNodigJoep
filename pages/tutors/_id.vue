@@ -311,10 +311,10 @@ export default {
   layout: 'app',
   middleware: 'auth',
   asyncData({ app, params, store }) {
-    if(!process.client) return;
-    const tutors = JSON.parse(localStorage.getItem('vuex') || "{}");
-    if(tutors){
-        store.dispatch('nuxtServerInit', tutors)
+    if (!process.client) return
+    const tutors = JSON.parse(localStorage.getItem('vuex') || '{}')
+    if (tutors) {
+      store.dispatch('nuxtServerInit', tutors)
     }
   },
   data() {
@@ -330,7 +330,7 @@ export default {
     ...mapState(['tutors']),
     ...mapGetters(['isAuthenticated', 'loggedInUser']),
     ...mapGetters({
-      selectedTutor: 'selectedTutor'
+      selectedTutor: 'selectedTutor',
     }),
     receivedRequest() {
       return this.$store.getters.request

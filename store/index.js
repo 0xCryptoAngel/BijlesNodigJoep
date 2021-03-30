@@ -40,7 +40,7 @@ export const mutations = {
   setSelectedTutor(state, selectedTutorId) {
     let selectedTutor
     if (selectedTutorId) {
-      selectedTutor = state.tutors.find(x => x.id === selectedTutorId);
+      selectedTutor = state.tutors.find((x) => x.id === selectedTutorId)
       if (selectedTutor) {
         state.selectedTutor = selectedTutor
         this.$cookies.set('selectedTutor', state.selectedTutor)
