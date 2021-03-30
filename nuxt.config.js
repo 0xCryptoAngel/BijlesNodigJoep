@@ -100,9 +100,7 @@ export default {
   axios: {
     baseURL: 'http://notawanker.com',
   },
-  proxy: {
-    '/login': 'https://notawanker.com/login',
-  },
+  proxy: {},
   prismic: {
     endpoint: 'https://bijlesnodig.prismic.io/api/v2',
     linkResolver: '@/plugins/link-resolver',
@@ -144,8 +142,9 @@ export default {
     ],
     redirect: {
       login: '/login',
-      logout: '/',
-      home: '/dashboard',
+      logout: '/login',
+      callback: false,
+      home: false,
     },
   },
 

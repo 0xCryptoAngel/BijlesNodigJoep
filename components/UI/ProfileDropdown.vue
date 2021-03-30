@@ -64,6 +64,12 @@ export default {
   methods: {
     async logout() {
       await this.$auth.logout()
+
+      this.$axios.setHeader('Authorization', false)
+      this.$toast.success('Succesvol uitgelogd', {
+        position: 'top-right',
+        duration: 3000,
+      })
     },
     openMenu() {
       this.isProfileOpen = !this.isProfileOpen

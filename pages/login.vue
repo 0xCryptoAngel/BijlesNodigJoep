@@ -53,7 +53,7 @@ export default {
               .get('http://notawanker.com/users/current')
               .then((resp) => {
                 this.$auth.setUser(resp.data)
-                this.$router.push('/profile')
+                this.$router.push('/dashboard')
               })
           })
         this.$toast.success('Succesvol ingelogd', {

@@ -13,6 +13,7 @@ import appNavBar from '~/components/appLayout/appNavBar'
 
 export default {
   components: { appNavBar },
+  middleware: 'auth',
   computed: {
     ...mapState(['tutors']),
     ...mapGetters(['isAuthenticated', 'loggedInUser']),
