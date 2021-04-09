@@ -107,7 +107,7 @@
             action="#"
             method="POST"
           >
-            <!-- Profile section -->
+            <!-- Password section -->
             <div class="px-4 py-6 space-y-6 sm:p-6 lg:pb-8">
               <div>
                 <h2 class="text-lg font-medium leading-6 text-gray-900">
@@ -116,6 +116,93 @@
                 <p class="mt-1 text-sm leading-5 text-gray-500">
                   Wijzig je wachtwoord
                 </p>
+                <p class="mt-3 text-sm leading-5 text-gray-500">
+                  Om je wachtwoord <strong>veilig te houden</strong>, moet je
+                  wachtwoord aan het volgende voldoen:
+                </p>
+                <ul
+                  class="px-4 py-6 text-sm leading-5 text-gray-500 list-disc sm:p-6 lg:pb-8"
+                >
+                  <li>Langer dan 8 tekens</li>
+                  <li>
+                    Maak gebruik van minimaal 1 hoofdletter, een cijfer en een
+                    speciaal teken
+                  </li>
+                  <li>Is niet hetzelfde als je vorige wachtwoord</li>
+                </ul>
+              </div>
+              <div class="grid grid-cols-12 gap-6">
+                <div class="col-span-12 sm:col-span-6">
+                  <label
+                    for="current_password"
+                    class="block text-sm font-medium leading-5 text-gray-700"
+                    >Huidige wachtwoord</label
+                  >
+                  <input
+                    id="current_password"
+                    type="password"
+                    autocomplete="chrome-off"
+                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                  />
+                </div>
+
+                <div class="col-span-12 sm:col-span-6">
+                  <label
+                    for="confirm_old_password"
+                    class="block text-sm font-medium leading-5 text-gray-700"
+                    >Bevestig huidig wachtwoord</label
+                  >
+                  <input
+                    id="confirm_old_password"
+                    type="password"
+                    autocomplete="off"
+                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                  />
+                </div>
+                <div class="col-span-12 sm:col-span-6">
+                  <label
+                    for="new_password"
+                    class="block text-sm font-medium leading-5 text-gray-700"
+                    >Nieuw wachtwoord</label
+                  >
+                  <input
+                    id="new_password"
+                    type="password"
+                    autocomplete="off"
+                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                  />
+                </div>
+                <div class="col-span-12 sm:col-span-6">
+                  <label
+                    for="confirm_new_password"
+                    class="block text-sm font-medium leading-5 text-gray-700"
+                    >Bevestig nieuw wachtwoord</label
+                  >
+                  <input
+                    id="confirm_new_password"
+                    type="password"
+                    autocomplete="off"
+                    class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
+                  />
+                </div>
+              </div>
+              <div class="flex justify-end px-4 py-4 space-x-5 sm:px-6">
+                <div class="inline-flex rounded-md shadow-sm">
+                  <button
+                    type="button"
+                    class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-gray-700 transition duration-150 ease-in-out bg-white border border-gray-300 rounded-md hover:text-gray-500 focus:outline-none focus:border-light-blue-300 focus:ring-blue active:bg-gray-50 active:text-gray-800"
+                  >
+                    Cancel
+                  </button>
+                </div>
+                <div class="inline-flex rounded-md shadow-sm">
+                  <button
+                    type="submit"
+                    class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-light-blue-700 hover:bg-light-blue-600 focus:outline-none focus:border-light-blue-800 focus:ring-blue active:bg-light-blue-800"
+                  >
+                    Save
+                  </button>
+                </div>
               </div>
             </div>
           </form>
