@@ -1,12 +1,29 @@
 <template>
   <li class="pt-6">
     <div
-      class="text-lg font-medium text-gray-800 cursor-pointer accordion__trigger"
+      class="flex justify-between text-lg font-semibold text-gray-800 cursor-pointer accordion__trigger"
       :class="{ accordion__trigger_active: visible }"
       @click="open"
     >
       <!-- This slot will handle the title/header of the accordion and is the part you click on -->
       <slot name="accordion-trigger"></slot>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        :class="[
+          openIcon ? '-rotate-180' : 'rotate-0',
+          'w-6 h-6 transform text-gray-800',
+        ]"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"
+        />
+      </svg>
     </div>
 
     <transition
@@ -33,6 +50,7 @@ export default {
   data() {
     return {
       index: null,
+      openIcon: false,
     }
   },
   computed: {
@@ -46,8 +64,10 @@ export default {
   methods: {
     open() {
       if (this.visible) {
+        this.openIcon = false
         this.Accordion.active = null
       } else {
+        this.openIcon = true
         this.Accordion.active = this.index
       }
     },

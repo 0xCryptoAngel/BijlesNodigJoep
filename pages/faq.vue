@@ -3,12 +3,12 @@
     <main>
       <web-header :title="title" :beschrijving="beschrijving"></web-header>
       <div
-        class="relative m-4 bg-gray-200 lg:py-16 rounded-2xl lg:overflow-hidden"
+        class="relative m-4 bg-gray-50 lg:py-16 rounded-2xl lg:overflow-hidden"
       >
         <div
           class="px-4 py-12 mx-auto max-w-7xl sm:py-16 lg:py-0 sm:px-6 lg:px-8"
         >
-          <div class="max-w-3xl mx-auto divide-y-2 divide-gray-400">
+          <div class="max-w-3xl mx-auto divide-y-2 divide-gray-200">
             <accordion>
               <accordion-item>
                 <template slot="accordion-trigger">
