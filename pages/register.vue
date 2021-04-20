@@ -71,7 +71,9 @@
                 />
               </div>
             </section>
-            <section v-if="form.type == 'Tutor'"><TutorReg /></section>
+            <section v-if="form.type == 'Tutor'">
+              <TutorReg :type="form.type" />
+            </section>
             <section v-if="form.type == 'Student'"><StudentReg /></section>
           </div>
         </div>

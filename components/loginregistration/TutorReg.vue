@@ -578,10 +578,10 @@
               </div>
               <div>
                 <button
-                  v-if="steps != 1"
+                  v-if="type == 'Tutor'"
                   type="submit"
                   class="flex justify-center w-full px-4 py-2 mt-6 text-sm font-medium border border-transparent rounded-md shadow-sm text-gray-50 bg-sky-blue-800 hover:bg-sky-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-blue-500"
-                  @click.prevent="previousStep"
+                  @click.prevent="type = 'Student'"
                 >
                   Vorige stap
                 </button>
@@ -617,6 +617,7 @@ export default {
     ValidationObserver,
     SwitchToggle,
   },
+  props: ['type'],
   data() {
     return {
       title: 'Schrijf je in',
