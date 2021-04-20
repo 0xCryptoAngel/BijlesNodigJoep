@@ -17,6 +17,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@heroicons/vue": "^1.0.1",
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/prismic": "^1.2.4",
