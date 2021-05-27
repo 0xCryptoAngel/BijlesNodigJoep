@@ -7,7 +7,7 @@ export const getters = {
     return state.auth.user
   },
   request(state) {
-    const coachId = state.auth.user.user.id
+    const coachId = 88
     return state.requests.filter((req) => req.coachId === coachId)
   },
   hasRequest(_, getters) {
@@ -40,7 +40,7 @@ export const mutations = {
   setSelectedTutor(state, selectedTutorId) {
     let selectedTutor
     if (selectedTutorId) {
-      selectedTutor = state.tutors.find((x) => x.id === selectedTutorId)
+      selectedTutor = state.tutors.find((x) => x.data.id === selectedTutorId)
       if (selectedTutor) {
         state.selectedTutor = selectedTutor
         this.$cookies.set('selectedTutor', state.selectedTutor)
