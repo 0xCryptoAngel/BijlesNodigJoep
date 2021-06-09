@@ -34,7 +34,7 @@ export default {
           duration: 1000,
         })
         await this.$axios
-          .post('/login', {
+          .post('https://notawanker.com/login', {
             user,
           })
           .then((resp) => {
@@ -50,7 +50,7 @@ export default {
               'Bearer ' + resp.data.user.token
             )
             this.$axios
-              .get('http://notawanker.com/users/current')
+              .get('https://notawanker.com/users/current')
               .then((resp) => {
                 this.$auth.setUser(resp.data)
                 this.$router.push('/dashboard')
