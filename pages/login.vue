@@ -34,7 +34,7 @@ export default {
           duration: 1000,
         })
         await this.$axios
-          .post('https://notawanker.com/login', {
+          .post('/login', {
             user,
           })
           .then((resp) => {
@@ -49,12 +49,10 @@ export default {
               'Authorization',
               'Bearer ' + resp.data.user.token
             )
-            this.$axios
-              .get('https://notawanker.com/users/current')
-              .then((resp) => {
-                this.$auth.setUser(resp.data)
-                this.$router.push('/dashboard')
-              })
+            this.$axios.get('/users/current').then((resp) => {
+              this.$auth.setUser(resp.data)
+              this.$router.push('/dashboard')
+            })
           })
         this.$toast.success('Succesvol ingelogd', {
           position: 'top-right',
