@@ -98,7 +98,7 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'http://notawanker.com',
+    baseURL: 'https://notawanker.com',
   },
   proxy: {},
   prismic: {
@@ -118,13 +118,13 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: 'http://notawanker.com/login',
+            url: 'https://notawanker.com/login',
             method: 'post',
             propertyName: false,
           },
-          logout: { url: 'http://notawanker.com/logout', method: 'delete' },
+          logout: { url: 'https://notawanker.com/logout', method: 'delete' },
           user: {
-            url: 'http://notawanker.com/users/current',
+            url: 'https://notawanker.com/users/current',
             method: 'get',
             propertyName: false,
             headers: { Accept: 'application/json, text/plain' },
