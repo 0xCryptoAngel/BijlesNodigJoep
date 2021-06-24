@@ -58,7 +58,7 @@ export const mutations = {
 export const actions = {
   loadAllTutors({ commit }, postcode) {
     this.$axios
-      .post('http://notawanker.com/tutors/search', {
+      .post('https://notawanker.com/tutors/search', {
         postcode,
       })
 
