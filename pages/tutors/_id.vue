@@ -126,13 +126,9 @@
                   <p><i class="fas fa-check check"></i></p>
                 </div>
                 <div class="px-4 py-6 sm:px-6">
-                  <ul v-if="hasRequests">
-                    <message-item
-                      v-for="req in receivedRequest"
-                      :key="req.id"
-                      :email="req.userEmail"
-                      :message="req.message"
-                    ></message-item>
+                  <ul v-if="allMessages">
+                    <message-item> inbox </message-item>
+                    <pre>{{ allMessages }}</pre>
                   </ul>
                   <h3 v-else>Er zij geen nieuwe berichten gevonden.</h3>
                 </div>
@@ -328,6 +324,7 @@ export default {
       messageForm: {
         content: '',
       },
+      allMessages: null,
     }
   },
   computed: {
@@ -342,6 +339,7 @@ export default {
     hasRequests() {
       return this.$store.getters.hasRequest
     },
+
     fullName() {
       return this.selectedTutor.data.attributes.first_name &&
         this.selectedTutor.data.attributes.last_name
@@ -398,6 +396,11 @@ export default {
         : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
     },
   },
+  mounted() {
+    this.$axios
+      .get('/messages')
+      .then((response) => (this.allMessages = response))
+  },
   created() {
     this.setSelectedId()
   },
@@ -419,13 +422,14 @@ export default {
 
       const message = {
         content: this.messageForm.content,
-        messagee_id: this.id,
+        messagee_id: 77,
       }
       this.$store.dispatch('contactTutor', message)
       this.messageForm = {
         content: '',
       }
     },
+
     selectTextField() {
       this.$refs.input.select()
     },

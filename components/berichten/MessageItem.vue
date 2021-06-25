@@ -41,10 +41,6 @@ export default {
     },
   },
   props: {
-    email: {
-      type: String,
-      default: null,
-    },
     message: {
       type: String,
       default: null,
