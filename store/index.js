@@ -57,6 +57,7 @@ export const mutations = {
 
 export const actions = {
   loadAllTutors({ commit }, postcode) {
+    console.log(postcode)
     this.$axios
       .post('https://notawanker.com/tutors/search', {
         postcode,
@@ -71,13 +72,20 @@ export const actions = {
       // eslint-disable-next-line no-console
       .catch((error) => console.log(error))
   },
-  contactTutor(context, payload) {
-    const newRequest = {
-      id: new Date().toISOString(),
-      coachId: payload.coachId,
-      message: payload.message,
-    }
-    context.commit('addRequest', newRequest)
+  // eslint-disable-next-line camelcase
+  contactTutor({ commit }, message) {
+    this.$axios
+      .post('https://notawanker.com/messages', {
+        message,
+      })
+      .then(({ data }) =>
+        commit(
+          'addRequest',
+          data.map((item) => item)
+        )
+      )
+      // eslint-disable-next-line no-console
+      .catch((error) => console.log(error))
   },
   setSelectedTutor({ commit }, tutorId) {
     commit('setSelectedTutor', tutorId)

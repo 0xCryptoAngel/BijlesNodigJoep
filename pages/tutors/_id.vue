@@ -153,12 +153,15 @@
                         <textarea
                           id="message"
                           ref="input"
-                          v-model.trim="message"
+                          v-model.trim="messageForm.content"
                           name="message"
                           rows="3"
                           class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-light-blue-500 focus:border-light-blue-500 sm:text-sm"
                           placeholder="Schrijf een bericht"
                         ></textarea>
+                        <p v-if="!formIsValid">
+                          Oeps, je bericht is leeg. Vul alstublieft wat in
+                        </p>
                       </div>
                       <div class="flex items-center justify-end mt-3">
                         <button
@@ -319,11 +322,12 @@ export default {
   },
   data() {
     return {
-      // selectedTutor: [],
       id: null,
       isFavouriteTutor: false,
-      message: '',
       formIsValid: true,
+      messageForm: {
+        content: '',
+      },
     }
   },
   computed: {
@@ -407,18 +411,20 @@ export default {
       this.$store.dispatch('setSelectedTutor', idNum)
     },
     submitForm() {
-      this.formisValid = true
-
-      if (this.message === '') {
+      this.formIsValid = true
+      if (this.messageForm.content === '') {
         this.formIsValid = false
         return
       }
 
-      this.$store.dispatch('contactTutor', {
-        message: this.message,
-        coachId: this.selectedTutor.data.id,
-      })
-      this.message = ''
+      const message = {
+        content: this.messageForm.content,
+        messagee_id: this.id,
+      }
+      this.$store.dispatch('contactTutor', message)
+      this.messageForm = {
+        content: '',
+      }
     },
     selectTextField() {
       this.$refs.input.select()
