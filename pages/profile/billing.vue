@@ -295,6 +295,7 @@
                                   class="w-4 h-4 border-gray-300 text-sky-blue-700 focus:ring-gray-900"
                                   aria-labelledby="pricing-plans-0-label"
                                   aria-describedby="pricing-plans-0-description-0 pricing-plans-0-description-1"
+                                  checked
                                 />
                                 <span
                                   id="pricing-plans-0-label"
@@ -454,7 +455,7 @@
                                   <td
                                     class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
                                   >
-                                    <time datetime="2020-01-01">1/1/2020</time>
+                                    <time datetime="2020-01-01">1/1/2021</time>
                                   </td>
                                   <td
                                     class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"
@@ -464,17 +465,11 @@
                                   <td
                                     class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"
                                   >
-                                    €80
+                                    €0
                                   </td>
                                   <td
                                     class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
-                                  >
-                                    <a
-                                      href="#"
-                                      class="text-orange-600 hover:text-orange-900"
-                                      >Bekijk factuur</a
-                                    >
-                                  </td>
+                                  ></td>
                                 </tr>
 
                                 <!-- More items... -->
