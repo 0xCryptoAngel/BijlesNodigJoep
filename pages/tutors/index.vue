@@ -307,10 +307,12 @@
       <div class="absolute top-0 left-auto block w-right inset-map">
         <aside class="sticky top-0 w-full h-screen pt-32 -mt-32">
           <div class="relative w-full h-full">
-            <div class="relative w-full h-full overflow-hidden bg-black">
-              <div class="top-0 left-0 w-full h-full overflow-hidden bg-black">
+            <div class="relative w-full h-full overflow-hidden bg-white">
+              <div
+                class="top-0 left-0 w-full h-full overflow-hidden bg-gray-900"
+              >
                 <div class="top-0 z-0 w-full h-full p-0 m-0 border-0 l-0">
-                  <GmapMap
+                  <!-- <GmapMap
                     ref="mapRef"
                     :center="center"
                     :zoom="11"
@@ -346,7 +348,13 @@
                       :opened="infoWinOpen"
                     >
                     </gmap-info-window>
-                  </GmapMap>
+                  </GmapMap> -->
+
+                  <img
+                    className="absolute inset-0 h-full w-full object-cover "
+                    src="https://images.unsplash.com/photo-1585166169032-551d4ea843fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                    alt=""
+                  />
                 </div>
               </div>
             </div>

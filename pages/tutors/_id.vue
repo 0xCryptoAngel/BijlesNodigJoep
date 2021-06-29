@@ -147,7 +147,7 @@
                       <div>
                         <label for="message" class="sr-only">About</label>
                         <textarea
-                          id="message"
+                          id="messageMe"
                           ref="input"
                           v-model.trim="messageForm.content"
                           name="message"
@@ -431,6 +431,8 @@ export default {
     },
 
     selectTextField() {
+      const element = document.getElementById('messageMe')
+      element.scrollIntoView({ behavior: 'smooth' })
       this.$refs.input.select()
     },
     toggleFav() {
