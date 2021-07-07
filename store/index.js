@@ -16,12 +16,16 @@ export const getters = {
   selectedTutor(state) {
     return state.selectedTutor
   },
+  allMessages(state) {
+    return state.messages
+  },
 }
 
 export const state = () => ({
   tutors: [],
   requests: [],
   selectedTutor: {},
+  messages: [],
 })
 
 export const mutations = {
@@ -53,6 +57,9 @@ export const mutations = {
   initRequests(state, initRequests) {
     state.requests = initRequests
   },
+  setMessages(state, messages) {
+    state.messages = messages
+  },
 }
 
 export const actions = {
@@ -71,6 +78,19 @@ export const actions = {
       })
       // eslint-disable-next-line no-console
       .catch((error) => console.log(error))
+  },
+  async fetchMesages({ commit }) {
+    await this.$axios
+      .get('https://notawanker.com/messages')
+
+      .then(({ data }) => {
+        commit('setMessages', data)
+      })
+      .catch((error) => {
+        this.$toast.error('Messages not found', { duration: 3000 })
+        commit('setMessages', '')
+        console.log(error)
+      })
   },
   // eslint-disable-next-line camelcase
   contactTutor({ commit }, message) {
