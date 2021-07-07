@@ -80,6 +80,7 @@
                   <h3 v-else>Je hebt geen berichten</h3>
                 </div>
               </div>
+              <Msg></Msg>
             </div>
           </form>
         </div>
@@ -90,11 +91,13 @@
 
 <script>
 import { mapGetters } from 'vuex'
+/* import moment from 'moment' */
 import MessageItem from '~/components/berichten/MessageItem'
+import Msg from '~/components/berichten/Messages'
 
 export default {
   layout: 'app',
-  components: { MessageItem },
+  components: { MessageItem, Msg },
   computed: {
     ...mapGetters(['isAuthenticated', 'loggedInUser']),
     receivedRequest() {
@@ -117,6 +120,9 @@ export default {
         : 'Foutmelding: Geen naam ingevoerd'
     },
   },
+  mounted() {},
+  created() {},
+  methods: {},
 }
 </script>
 

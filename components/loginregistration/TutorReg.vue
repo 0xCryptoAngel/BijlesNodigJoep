@@ -617,7 +617,12 @@ export default {
     ValidationObserver,
     SwitchToggle,
   },
-  props: ['type'],
+  props: {
+    type: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
       title: 'Schrijf je in',
