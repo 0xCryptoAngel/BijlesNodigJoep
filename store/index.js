@@ -81,10 +81,11 @@ export const actions = {
   },
   async fetchMesages({ commit }) {
     await this.$axios
-      .get('https://notawanker.com/messages')
+      .post('https://notawanker.com/messages/search')
 
       .then(({ data }) => {
         commit('setMessages', data)
+        console.log(data)
       })
       .catch((error) => {
         this.$toast.error('Messages not found', { duration: 3000 })
