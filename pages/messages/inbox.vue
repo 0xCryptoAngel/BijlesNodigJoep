@@ -64,21 +64,55 @@
                   Berichten inbox
                 </h2>
               </div>
-
-              <div
-                class="flex flex-col space-y-6 lg:flex-row lg:space-y-0 lg:space-x-6"
-              >
-                <div class="flex-grow space-y-6">
-                  <ul v-if="hasRequests">
-                    <message-item
-                      v-for="req in receivedRequest"
-                      :key="req.id"
-                      :email="req.userEmail"
-                      :message="req.message"
-                    ></message-item>
-                  </ul>
-                  <h3 v-else>Je hebt geen berichten</h3>
-                </div>
+              <div class="overflow-hidden bg-white shadow sm:rounded-md">
+                <ul class="divide-y divide-gray-200">
+                  <li>
+                    <a href="#" class="block hover:bg-gray-50">
+                      <div class="flex items-center px-4 py-4 sm:px-6">
+                        <div class="flex items-center flex-1 min-w-0">
+                          <div class="flex-shrink-0">
+                            <img
+                              class="w-12 h-12 rounded-full"
+                              src="/"
+                              alt=""
+                            />
+                          </div>
+                          <div
+                            class="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4"
+                          >
+                            <div>
+                              <p
+                                class="text-sm font-medium truncate text-sky-blue-800"
+                              >
+                                Dennis Kraaijeveld
+                              </p>
+                              <p
+                                class="flex items-center mt-2 text-sm text-gray-500"
+                              >
+                                <span class="truncate">
+                                  dfmkraaijeveld@gmail.com
+                                </span>
+                              </p>
+                            </div>
+                            <div class="hidden md:block">
+                              <div>
+                                <p class="text-sm text-gray-900">
+                                  Send 2 days ago
+                                </p>
+                                <p
+                                  class="flex items-center mt-2 text-sm text-gray-500"
+                                >
+                                  ?
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div>></div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
               </div>
               <Msg></Msg>
             </div>
@@ -92,12 +126,11 @@
 <script>
 import { mapGetters } from 'vuex'
 /* import moment from 'moment' */
-import MessageItem from '~/components/berichten/MessageItem'
 import Msg from '~/components/berichten/Messages'
 
 export default {
   layout: 'app',
-  components: { MessageItem, Msg },
+  components: { Msg },
   computed: {
     ...mapGetters(['isAuthenticated', 'loggedInUser']),
     receivedRequest() {

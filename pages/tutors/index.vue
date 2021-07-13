@@ -281,17 +281,19 @@
                       <div class="border-item"></div>
                     </div>
                     <tutor-item
-                      v-for="tutor in tutors"
-                      :id="tutor.data.id"
-                      :key="tutor.data.id"
-                      :first-name="tutor.data.attributes.first_name"
-                      :last-name="tutor.data.attributes.last_name"
-                      :rate="tutor.data.attributes.hourly_rate"
-                      :subject="tutor.data.attributes.subject"
-                      :description="tutor.data.attributes.biography"
-                      :profile-image="tutor.data.attributes.profile_image_path"
-                      :age="tutor.data.attributes.age"
-                      :star-rating="tutor.data.attributes.rating"
+                      v-for="(tutor, index) in tutors"
+                      :id="tutor.data[`${index}`].id"
+                      :key="tutor.data[`${index}`].id"
+                      :first-name="tutor.data[`${index}`].attributes.first_name"
+                      :last-name="tutor.data[`${index}`].attributes.last_name"
+                      :rate="tutor.data[`${index}`].attributes.hourly_rate"
+                      :subject="tutor.data[`${index}`].attributes.subject"
+                      :description="tutor.data[`${index}`].attributes.biography"
+                      :profile-image="
+                        tutor.data[`${index}`].attributes.profile_image_path
+                      "
+                      :age="tutor.data[`${index}`].attributes.age"
+                      :star-rating="tutor.data[`${index}`].attributes.rating"
                       :total-reviews="student.reviewCount"
                       class="inline-block w-full whitespace-normal align-top"
                     >
