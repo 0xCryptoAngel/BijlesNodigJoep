@@ -77,7 +77,6 @@ export const actions = {
       })
 
       .then(({ data }) => {
-        console.log(data)
         commit(
           'SET_TUTORS',
           data.map((item) => item)
@@ -98,10 +97,7 @@ export const actions = {
       .post('https://notawanker.com/messages/search', data)
 
       .then(({ data }) => {
-        console.log(data, 'first api')
-        // commit('setMessages', data.data)
         commit('setUserList', data.included)
-        console.log(data)
       })
       .catch((error) => {
         this.$toast.error('Messages not found', { duration: 3000 })
@@ -110,29 +106,6 @@ export const actions = {
       })
   },
   async fetchMesages({ commit }, messageeid) {
-    console.log(messageeid)
-    /* const messageData = JSON.stringify({
-      messagee_id: messageeid,
-      page_size: 1,
-      page_number: 0,
-    })
-
-    const config = {
-      method: 'post',
-      url: 'https://notawanker.com/messages/search',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      messageData,
-    }
-
-    await this.$axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data))
-      })
-      .catch(function (error) {
-        console.log(error)
-      }) */
     commit('setMessages', [])
     const data = JSON.stringify({
       messagee_id: parseInt(messageeid),
@@ -150,7 +123,6 @@ export const actions = {
 
     await this.$axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data))
         commit('setMessages', response.data.data)
       })
       .catch(function (error) {

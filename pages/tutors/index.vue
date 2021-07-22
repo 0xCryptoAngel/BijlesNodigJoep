@@ -280,8 +280,12 @@
                     <div class="mt-4 mb-7">
                       <div class="border-item"></div>
                     </div>
+                    <!-- <tutor-item></tutor-item>
+                    {{
+                      tutors
+                    }} -->
                     <tutor-item
-                      v-for="(tutor, index) in tutors"
+                      v-for="(tutor, index) in tutors.data"
                       :id="tutor.data[`${index}`].id"
                       :key="tutor.data[`${index}`].id"
                       :first-name="tutor.data[`${index}`].attributes.first_name"

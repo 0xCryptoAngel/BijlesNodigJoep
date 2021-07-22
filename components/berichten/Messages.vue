@@ -24,6 +24,7 @@
               "
             >
               <div
+                v-if="message.attributes.first_name"
                 class="discussion"
                 :class="{ message_active: active_el == message.id }"
               >
@@ -160,32 +161,6 @@ export default {
     cdate(datass) {
       if (!datass) return ''
       return moment(datass).fromNow()
-      // datass = datass.toString()
-      /* const theDate = new Date(datass)
-      let hour = theDate.getHours()
-      let minute = theDate.getMinutes()
-      let second = theDate.getSeconds()
-      let ap = 'AM'
-      if (hour > 11) {
-        ap = 'PM'
-      }
-      if (hour > 12) {
-        hour = hour - 12
-      }
-      if (hour === 0) {
-        hour = 12
-      }
-      if (hour < 10) {
-        hour = '0' + hour
-      }
-      if (minute < 10) {
-        minute = '0' + minute
-      }
-      if (second < 10) {
-        second = '0' + second
-      }
-      const timeString = hour + ':' + minute + ' ' + ap */
-      // return timeString
     },
   },
   data() {
@@ -200,25 +175,6 @@ export default {
   },
   computed: {
     ...mapGetters(['allMessages', 'allUserList', 'loggedInUser']),
-    filteredData() {
-      let searchAray = this.data
-      let searchString = this.searchString
-
-      if (!searchString) {
-        return searchAray
-      }
-
-      searchString = searchString.trim().toLowerCase()
-
-      searchAray = searchAray.filter((item) => {
-        if (item.name.toLowerCase().includes(searchString)) {
-          return item
-        }
-      })
-
-      // Return an array with the filtered data.
-      return searchAray
-    },
     allUserList() {
       let searchArray
       searchArray = this.$store.state.userList
@@ -231,11 +187,13 @@ export default {
       searchString = searchString.trim().toLowerCase()
 
       searchArray = searchArray.filter((item) => {
-        if (
-          item.attributes.first_name.toLowerCase().includes(searchString) ||
-          item.attributes.last_name.toLowerCase().includes(searchString)
-        ) {
-          return item
+        if (item.attributes.first_name) {
+          if (
+            item.attributes.first_name.toLowerCase().includes(searchString) ||
+            item.attributes.last_name.toLowerCase().includes(searchString)
+          ) {
+            return item
+          }
         }
       })
       return searchArray
@@ -255,18 +213,19 @@ export default {
   },
   mounted() {},
   created() {
-    // this.getMessageUserList(this.loggedInUser.user.id)
+    this.getMessageUserList(this.loggedInUser.user.id)
   },
   methods: {
     ...mapActions(['getMessageUserList', 'fetchMesages']),
     moment() {
       return moment()
     },
-    getUserWiseMessage(id, name) {
+    async getUserWiseMessage(id, name) {
+      this.newMesage = []
+      await this.fetchMesages(id)
       this.newMesage = this.$store.state.messages
       this.active_el = id
       this.user_name = name
-      this.fetchMesages(id)
     },
     /* SearchUser(search) {
       console.log(search)
