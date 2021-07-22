@@ -22,9 +22,12 @@
                 </li>
 
                 <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
+                  <NuxtLink
+                    to="/faq"
+                    class="text-base text-gray-300 hover:text-white"
+                  >
                     FAQ
-                  </a>
+                  </NuxtLink>
                 </li>
               </ul>
             </div>
@@ -36,24 +39,21 @@
               </h3>
               <ul class="mt-4 space-y-2">
                 <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
+                  <NuxtLink
+                    to="/over-ons"
+                    class="text-base text-gray-300 hover:text-white"
+                  >
                     Over ons
-                  </a>
+                  </NuxtLink>
                 </li>
 
                 <li>
-                  <a
-                    href="/blog"
+                  <NuxtLink
+                    to="/blog"
                     class="text-base text-gray-300 hover:text-white"
                   >
                     Succesverhalen
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
-                    Vacatures
-                  </a>
+                  </NuxtLink>
                 </li>
 
                 <li>
@@ -75,15 +75,21 @@
                 <li></li>
 
                 <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
+                  <NuxtLink
+                    to="/privacy-policy"
+                    class="text-base text-gray-300 hover:text-white"
+                  >
                     Privacy
-                  </a>
+                  </NuxtLink>
                 </li>
 
                 <li>
-                  <a href="#" class="text-base text-gray-300 hover:text-white">
+                  <NuxtLink
+                    to="/algemene-voorwaarden"
+                    class="text-base text-gray-300 hover:text-white"
+                  >
                     Algemene voorwaarden
-                  </a>
+                  </NuxtLink>
                 </li>
               </ul>
             </div>

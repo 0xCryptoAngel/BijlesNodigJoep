@@ -71,13 +71,13 @@ export const mutations = {
 
 export const actions = {
   loadAllTutors({ commit }, postcode) {
-    console.log(postcode)
     this.$axios
       .post('https://notawanker.com/tutors/search', {
         postcode,
       })
 
       .then(({ data }) => {
+        console.log(data)
         commit(
           'SET_TUTORS',
           data.map((item) => item)

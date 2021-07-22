@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="relative overflow-hidden mb-8">
+    <div class="relative mb-8 overflow-hidden">
       <div class="grid grid-cols-2 gap-0">
         <div class="col-auto discussions">
           <div class="discussion search">
@@ -123,7 +123,7 @@
     </div>
     <!-- <div
       id="journal-scroll"
-      class="overflow-auto px-1 py-1"
+      class="px-1 py-1 overflow-auto"
       style="height: 19rem"
     >
       <div v-if="allMessages">
@@ -141,9 +141,9 @@
   </div>
   <!-- <div class="flex justify-end pt-2 pl-10">
     <span
-        class="bg-green-900 h-auto text-gray-200 text-xs font-normal rounded-sm px-1 p-1 items-end flex justify-end"
+        class="flex items-end justify-end h-auto p-1 px-1 text-xs font-normal text-gray-200 bg-green-900 rounded-sm"
         >Lets jump on a video call.
-        <span class="text-gray-400 pl-1" style="font-size: 8px"
+        <span class="pl-1 text-gray-400" style="font-size: 8px"
         >02.30am</span
         ></span
     >
