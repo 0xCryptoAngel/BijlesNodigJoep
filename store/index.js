@@ -19,6 +19,9 @@ export const getters = {
   allMessages(state) {
     return state.messages
   },
+  allUserList(state) {
+    return state.userList
+  },
 }
 
 export const state = () => ({
@@ -26,6 +29,7 @@ export const state = () => ({
   requests: [],
   selectedTutor: {},
   messages: [],
+  userList: [],
 })
 
 export const mutations = {
@@ -57,6 +61,9 @@ export const mutations = {
   initRequests(state, initRequests) {
     state.requests = initRequests
   },
+  setUserList(state, userList) {
+    state.userList = userList
+  },
   setMessages(state, messages) {
     state.messages = messages
   },
@@ -79,17 +86,74 @@ export const actions = {
       // eslint-disable-next-line no-console
       .catch((error) => console.log(error))
   },
-  async fetchMesages({ commit }) {
+  async getMessageUserList({ commit }, messageeid) {
+    const data = JSON.stringify({
+      messagee_id: messageeid,
+      page_size: 1,
+      page_number: 0,
+    })
+    /* const formData = new FormData()
+    formData.append('messagee_id', messageeid) */
     await this.$axios
-      .post('https://notawanker.com/messages/search')
+      .post('https://notawanker.com/messages/search', data)
 
       .then(({ data }) => {
-        commit('setMessages', data)
+        console.log(data, 'first api')
+        // commit('setMessages', data.data)
+        commit('setUserList', data.included)
         console.log(data)
       })
       .catch((error) => {
         this.$toast.error('Messages not found', { duration: 3000 })
         commit('setMessages', '')
+        console.log(error)
+      })
+  },
+  async fetchMesages({ commit }, messageeid) {
+    console.log(messageeid)
+    /* const messageData = JSON.stringify({
+      messagee_id: messageeid,
+      page_size: 1,
+      page_number: 0,
+    })
+
+    const config = {
+      method: 'post',
+      url: 'https://notawanker.com/messages/search',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      messageData,
+    }
+
+    await this.$axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data))
+      })
+      .catch(function (error) {
+        console.log(error)
+      }) */
+    commit('setMessages', [])
+    const data = JSON.stringify({
+      messagee_id: parseInt(messageeid),
+      page_size: 1,
+      page_number: 0,
+    })
+    const config = {
+      method: 'post',
+      url: 'https://notawanker.com/messages/search',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data,
+    }
+
+    await this.$axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data))
+        commit('setMessages', response.data.data)
+      })
+      .catch(function (error) {
         console.log(error)
       })
   },

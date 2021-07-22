@@ -99,6 +99,9 @@ export default {
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
     baseURL: 'https://notawanker.com',
+    /* common: {
+      Accept: 'application/json',
+    }, */
   },
   proxy: {},
   prismic: {

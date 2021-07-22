@@ -6,131 +6,118 @@
           <div class="discussion search">
             <div class="searchbar">
               <i class="fa fa-search" aria-hidden="true"></i>
-              <input type="text" placeholder="Search..." />
+              <input
+                v-model="searchString"
+                type="text"
+                placeholder="Search..."
+              />
             </div>
           </div>
-          <div
-            v-for="message in allMessages.included"
-            :id="message.id"
-            :key="message.id"
-            class="discussion"
-          >
+          <div v-if="allUserList.length > 0">
             <div
-              class="photo"
-              style="
-                background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);
+              v-for="message in allUserList"
+              :id="message.id"
+              :key="message.id"
+              class=""
+              @click="
+                getUserWiseMessage(message.id, message.attributes.first_name)
               "
             >
-              <div class="online"></div>
+              <div
+                class="discussion"
+                :class="{ message_active: active_el == message.id }"
+              >
+                <div
+                  class="photo"
+                  style="
+                    background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);
+                  "
+                >
+                  <div class="online"></div>
+                </div>
+                <div class="desc-contact">
+                  <p class="name">
+                    {{ message.attributes.first_name }}
+                    {{ message.attributes.last_name }}
+                  </p>
+                  <!-- <p class="message">9 pm at the bar if possible 😳</p> -->
+                </div>
+                <div class="timer">
+                  {{ message.attributes.last_seen | cdate }}
+                </div>
+              </div>
             </div>
-            <div class="desc-contact">
-              <p class="name">
-                {{ message.attributes.first_name }}
-                {{ message.attributes.last_name }}
-              </p>
-              <!-- <p class="message">9 pm at the bar if possible 😳</p> -->
-            </div>
-            <div class="timer">{{ message.attributes.last_seen | cdate }}</div>
           </div>
-          <!-- <div class="discussion message-active">
-            <div
-              class="photo"
-              style="
-                background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);
-              "
-            >
-              <div class="online"></div>
+          <div v-else>
+            <div class="discussion animate-pulse">
+              <div class="photo">
+                <div class="online"></div>
+              </div>
+              <div class="desc-contact">
+                <p class="name"></p>
+                <!-- <p class="message">9 pm at the bar if possible 😳</p> -->
+              </div>
+              <div class="timer"></div>
             </div>
-            <div class="desc-contact">
-              <p class="name">Megan Leib</p>
-              <p class="message">9 pm at the bar if possible 😳</p>
-            </div>
-            <div class="timer">12 sec</div>
-          </div> -->
-
-          <!-- <div class="discussion">
-            <div
-              class="photo"
-              style="
-                background-image: url(http://e0.365dm.com/16/08/16-9/20/theirry-henry-sky-sports-pundit_3766131.jpg?20161212144602);
-              "
-            >
-              <div class="online"></div>
-            </div>
-            <div class="desc-contact">
-              <p class="name">Dave Corlew</p>
-              <p class="message">
-                Let's meet for a coffee or something today ?
-              </p>
-            </div>
-            <div class="timer">3 min</div>
-          </div> -->
+          </div>
         </div>
         <div class="col-auto chat overflow-auto">
-          <div class="header-chat">
-            <i class="icon fa fa-user-o" aria-hidden="true"></i>
-            <p class="name">User name</p>
-          </div>
-          <div class="messages-chat overflow-auto">
-            <!-- <div class="message">
+          <div v-if="newMesage.length > 0">
+            <div class="header-chat">
+              <i class="icon fa fa-user-o" aria-hidden="true"></i>
+              <p class="name">{{ user_name }}</p>
+            </div>
+            <div class="messages-chat overflow-auto">
               <div
-                class="photo"
-                style="
-                  background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);
-                "
+                v-for="chat in newMesage"
+                :id="chat.id"
+                :key="chat.id"
+                class="message text-only"
               >
-                <div class="online"></div>
-              </div>
-              <p class="text">Hi, how are you ?</p>
-            </div>
-            <div class="message text-only">
-              <p class="text">
-                What are you doing tonight ? Want to go take a drink ?
-              </p>
-            </div>
-            <p class="time">14h58</p> -->
-            <div
-              v-for="chat in allMessages.data"
-              :id="chat.id"
-              :key="chat.id"
-              class="message text-only"
-            >
-              <div class="response">
-                <p class="text">{{ chat.attributes.content }}</p>
-                <p class="response-time time">
-                  {{ chat.attributes.created_at | cdate }}
-                </p>
+                <div class="response">
+                  <p class="text">
+                    {{ chat.attributes.content }}
+                  </p>
+                  <p class="response-time time">
+                    {{ chat.attributes.created_at | cdate }}
+                  </p>
+                </div>
               </div>
             </div>
-            <!-- <div class="message">
-              <div
-                class="photo"
-                style="
-                  background-image: url(https://image.noelshack.com/fichiers/2017/38/2/1505775062-1505606859-portrait-1961529-960-720.jpg);
-                "
-              >
-                <div class="online"></div>
-              </div>
-              <p class="text">9 pm at the bar if possible 😳</p>
+            <div class="footer-chat">
+              <i
+                class="icon fa fa-smile-o clickable"
+                style="font-size: 25pt"
+                aria-hidden="true"
+              ></i>
+              <input
+                type="text"
+                class="write-message"
+                placeholder="Type your message here"
+              />
+              <i
+                class="icon send fa fa-paper-plane-o clickable"
+                aria-hidden="true"
+              ></i>
             </div>
-            <p class="time">15h09</p> -->
           </div>
-          <div class="footer-chat">
-            <i
-              class="icon fa fa-smile-o clickable"
-              style="font-size: 25pt"
-              aria-hidden="true"
-            ></i>
-            <input
-              type="text"
-              class="write-message"
-              placeholder="Type your message here"
-            />
-            <i
-              class="icon send fa fa-paper-plane-o clickable"
-              aria-hidden="true"
-            ></i>
+          <div v-else class="text-center my-48">
+            <h1>Welcome {{ fullName }}</h1>
           </div>
+          <!-- <div
+            class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto"
+          >
+            <div class="animate-pulse flex space-x-4">
+              <div class="rounded-full bg-blue-400 h-12 w-12"></div>
+              <div class="flex-1 space-y-4 py-1">
+                <div class="h-4 bg-blue-400 rounded w-3/4"></div>
+                <div class="space-y-2">
+                  <div class="h-4 bg-blue-400 rounded"></div>
+                  <div class="h-4 bg-blue-400 rounded w-5/6"></div>
+                </div>
+              </div>
+            </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -164,8 +151,9 @@
 </template>
 
 <script>
-import { mapGetters, mapActions, mapState } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import moment from 'moment'
+// import Msg from '~/components/berichten/Messages'
 /* import 'moment/locale/pt-br' */
 export default {
   filters: {
@@ -200,19 +188,89 @@ export default {
       // return timeString
     },
   },
+  data() {
+    return {
+      newMesage: [],
+      active_el: 0,
+      user_name: '',
+      allUserName: this.$store.state.userList,
+      search: '',
+      searchString: '',
+    }
+  },
   computed: {
-    ...mapGetters(['allMessages']),
-    ...mapState(['messages']),
+    ...mapGetters(['allMessages', 'allUserList', 'loggedInUser']),
+    filteredData() {
+      let searchAray = this.data
+      let searchString = this.searchString
+
+      if (!searchString) {
+        return searchAray
+      }
+
+      searchString = searchString.trim().toLowerCase()
+
+      searchAray = searchAray.filter((item) => {
+        if (item.name.toLowerCase().includes(searchString)) {
+          return item
+        }
+      })
+
+      // Return an array with the filtered data.
+      return searchAray
+    },
+    allUserList() {
+      let searchArray
+      searchArray = this.$store.state.userList
+      let searchString
+      searchString = this.searchString
+      if (!searchString) {
+        return searchArray
+      }
+
+      searchString = searchString.trim().toLowerCase()
+
+      searchArray = searchArray.filter((item) => {
+        if (
+          item.attributes.first_name.toLowerCase().includes(searchString) ||
+          item.attributes.last_name.toLowerCase().includes(searchString)
+        ) {
+          return item
+        }
+      })
+      return searchArray
+    },
+    fullName() {
+      return this.loggedInUser.user.first_name &&
+        this.loggedInUser.user.last_name
+        ? this.loggedInUser.user.first_name +
+            ' ' +
+            this.loggedInUser.user.last_name
+        : 'Foutmelding: Geen naam ingevoerd'
+    },
+
+    /* myMessage() {
+      return this.$store.state.messages
+    }, */
   },
   mounted() {},
   created() {
-    this.fetchMesages()
+    // this.getMessageUserList(this.loggedInUser.user.id)
   },
   methods: {
-    ...mapActions(['fetchMesages']),
+    ...mapActions(['getMessageUserList', 'fetchMesages']),
     moment() {
       return moment()
     },
+    getUserWiseMessage(id, name) {
+      this.newMesage = this.$store.state.messages
+      this.active_el = id
+      this.user_name = name
+      this.fetchMesages(id)
+    },
+    /* SearchUser(search) {
+      console.log(search)
+    }, */
   },
 }
 </script>
@@ -278,7 +336,7 @@ export default {
   color: #e0e0e0;
 }
 
-.discussions .message-active {
+.discussions .message_active {
   width: 98.5%;
   height: 90px;
   background-color: #fff;
