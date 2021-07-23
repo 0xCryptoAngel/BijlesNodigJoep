@@ -271,7 +271,9 @@
         <div class="min-h-screen overflow-hidden">
           <div class="overflow-anchor-none">
             <div
-              v-if="tutors.length > 0"
+              v-if="
+                typeof tutors.data !== 'undefined' && tutors.data.length > 0
+              "
               class="relative px-10 mx-auto bg-transparant"
             >
               <div>
@@ -280,11 +282,26 @@
                     <div class="mt-4 mb-7">
                       <div class="border-item"></div>
                     </div>
-                    <!-- <tutor-item></tutor-item>
-                    {{
-                      tutors
-                    }} -->
-                    <tutor-item
+                    <div v-for="tutor in tutors.data" :key="tutor.id">
+                      <tutor-item
+                        :id="tutor.id"
+                        :key="tutor.id"
+                        :first-name="tutor.attributes.first_name"
+                        :last-name="tutor.attributes.last_name"
+                        :rate="tutor.attributes.hourly_rate"
+                        subject="subject"
+                        :description="tutor.attributes.biography"
+                        :profile-image="tutor.attributes.profile_image_path"
+                        :age="tutor.attributes.age"
+                        star-rating="Rating"
+                        total-reviews="ReviewCount"
+                        class="inline-block w-full whitespace-normal align-top"
+                      >
+                      </tutor-item>
+                    </div>
+                    <!-- <div v-for="(tutor, index) in tutors.data" :key="index">
+                    </div> -->
+                    <!-- <tutor-item
                       v-for="(tutor, index) in tutors.data"
                       :id="tutor.data[`${index}`].id"
                       :key="tutor.data[`${index}`].id"
@@ -301,7 +318,7 @@
                       :total-reviews="student.reviewCount"
                       class="inline-block w-full whitespace-normal align-top"
                     >
-                    </tutor-item>
+                    </tutor-item> -->
                   </ul>
                 </div>
               </div>

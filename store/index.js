@@ -47,11 +47,15 @@ export const mutations = {
   },
   setSelectedTutor(state, selectedTutorId) {
     let selectedTutor
-    if (selectedTutorId) {
-      selectedTutor = state.tutors.find((x) => x.data.id === selectedTutorId)
-      if (selectedTutor) {
-        state.selectedTutor = selectedTutor
-        this.$cookies.set('selectedTutor', state.selectedTutor)
+    if (typeof state.tutors.data !== 'undefined') {
+      if (selectedTutorId) {
+        selectedTutor = state.tutors.data.find(
+          (x) => parseInt(x.id) === parseInt(selectedTutorId)
+        )
+        if (selectedTutor) {
+          state.selectedTutor = selectedTutor
+          this.$cookies.set('selectedTutor', state.selectedTutor)
+        }
       }
     }
   },
@@ -77,10 +81,8 @@ export const actions = {
       })
 
       .then(({ data }) => {
-        commit(
-          'SET_TUTORS',
-          data.map((item) => item)
-        )
+        console.log(data, 'tutor')
+        commit('SET_TUTORS', data)
       })
       // eslint-disable-next-line no-console
       .catch((error) => console.log(error))

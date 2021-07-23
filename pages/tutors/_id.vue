@@ -341,11 +341,12 @@ export default {
     },
 
     fullName() {
-      return this.selectedTutor.data.attributes.first_name &&
-        this.selectedTutor.data.attributes.last_name
-        ? this.selectedTutor.data.attributes.first_name +
+      console.log(this.selectedTutor, 'this.selectedTutor')
+      return this.selectedTutor.attributes.first_name &&
+        this.selectedTutor.attributes.last_name
+        ? this.selectedTutor.attributes.first_name +
             ' ' +
-            this.selectedTutor.data.attributes.last_name
+            this.selectedTutor.attributes.last_name
         : 'Foutmelding: Geen naam ingevoerd'
     },
     lastSeen() {
@@ -353,47 +354,51 @@ export default {
       const month = ['03']
       const year = ['2021']
 
-      return this.selectedTutor.data.attributes.last_seen
+      return this.selectedTutor.attributes.last_seen
         ? day + '-' + month + '-' + year
         : 'Geen online status beschikbaar'
     },
     rate() {
-      const HourlyRate = this.selectedTutor.data.attributes.hourly_rate
+      const HourlyRate = this.selectedTutor.attributes.hourly_rate
 
-      return this.selectedTutor.data.attributes.hourly_rate
+      return this.selectedTutor.attributes.hourly_rate
         ? '€' + HourlyRate + '0' + ' per uur'
         : 'Foutmelding: Geen tarief beschikbaar'
     },
     description() {
-      return this.selectedTutor.data.attributes.biography
+      return 'description'
+      /* return this.selectedTutor.data.attributes.biography
         ? this.selectedTutor.data.attributes.biography
-        : 'Foutmelding: Geen beschrijving beschrikbaar'
+        : 'Foutmelding: Geen beschrijving beschrikbaar' */
     },
     subject() {
-      return this.selectedTutor.data.attributes.subject
+      return 'subject'
+      /* return this.selectedTutor.data.attributes.subject
         ? this.selectedTutor.data.attributes.subject
-        : 'Foutmelding: Geen vak beschikbaar'
+        : 'Foutmelding: Geen vak beschikbaar' */
     },
     age() {
-      return this.selectedTutor.data.attributes.age
-        ? this.selectedTutor.data.attributes.age
+      return this.selectedTutor.attributes.age
+        ? this.selectedTutor.attributes.age
         : 'Foutmelding: Geen leeftijd beschikbaar'
     },
     rating() {
-      return this.selectedTutor.data.attributes.rating
+      return 'Rating'
+      /* return this.selectedTutor.data.attributes.rating
         ? this.selectedTutor.data.attributes.rating
-        : 'Foutmelding: Geen beoordeling beschikbaar'
+        : 'Foutmelding: Geen beoordeling beschikbaar' */
     },
     image() {
-      return this.selectedTutor.data.attributes.profile_image_path
+      return this.selectedTutor.attributes.profile_image_path
         ? 'http://notawanker.com' +
-            this.selectedTutor.data.attributes.profile_image_path
+            this.selectedTutor.attributes.profile_image_path
         : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
     },
     loggedInUserImage() {
-      return this.loggedInUser.user.profile_image_path
+      return 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
+      /* return this.loggedInUser.user.profile_image_path
         ? 'http://notawanker.com' + this.loggedInUser.user.profile_image_path
-        : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
+        : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif' */
     },
   },
   mounted() {
