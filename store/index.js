@@ -111,8 +111,7 @@ export const actions = {
     commit('setMessages', [])
     const data = JSON.stringify({
       messagee_id: parseInt(messageeid),
-      page_size: 1,
-      page_number: 0,
+      page_size: 5,
     })
     const config = {
       method: 'post',

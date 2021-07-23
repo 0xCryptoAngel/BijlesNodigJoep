@@ -62,13 +62,13 @@
             </div>
           </div>
         </div>
-        <div class="col-auto chat overflow-auto">
+        <div class="col-auto overflow-auto chat">
           <div v-if="newMesage.length > 0">
             <div class="header-chat">
               <i class="icon fa fa-user-o" aria-hidden="true"></i>
               <p class="name">{{ user_name }}</p>
             </div>
-            <div class="messages-chat overflow-auto">
+            <div class="overflow-auto messages-chat">
               <div
                 v-for="chat in newMesage"
                 :id="chat.id"
@@ -102,53 +102,13 @@
               ></i>
             </div>
           </div>
-          <div v-else class="text-center my-48">
+          <div v-else class="my-48 text-center">
             <h1>Welcome {{ fullName }}</h1>
           </div>
-          <!-- <div
-            class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto"
-          >
-            <div class="animate-pulse flex space-x-4">
-              <div class="rounded-full bg-blue-400 h-12 w-12"></div>
-              <div class="flex-1 space-y-4 py-1">
-                <div class="h-4 bg-blue-400 rounded w-3/4"></div>
-                <div class="space-y-2">
-                  <div class="h-4 bg-blue-400 rounded"></div>
-                  <div class="h-4 bg-blue-400 rounded w-5/6"></div>
-                </div>
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
     </div>
-    <!-- <div
-      id="journal-scroll"
-      class="px-1 py-1 overflow-auto"
-      style="height: 19rem"
-    >
-      <div v-if="allMessages">
-        <div
-          v-for="message in allMessages"
-          :id="message.id"
-          :key="message.id"
-          class=""
-        >
-          {{ message.attributes }}
-        </div>
-      </div>
-      <div v-else>Data not found</div>
-    </div> -->
   </div>
-  <!-- <div class="flex justify-end pt-2 pl-10">
-    <span
-        class="flex items-end justify-end h-auto p-1 px-1 text-xs font-normal text-gray-200 bg-green-900 rounded-sm"
-        >Lets jump on a video call.
-        <span class="pl-1 text-gray-400" style="font-size: 8px"
-        >02.30am</span
-        ></span
-    >
-    </div> -->
 </template>
 
 <script>

@@ -1,122 +1,153 @@
 <template>
   <main class="relative mt-16">
     <div class="max-w-screen-xl px-4 pb-6 mx-auto sm:px-6 lg:pb-16 lg:px-8">
-      <div class="overflow-hidden bg-white rounded-lg shadow">
+      <div class="flex flex-col flex-1 min-w-0 overflow-hidden">
         <div
-          class="divide-y divide-gray-200 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x"
+          class="relative z-0 flex flex-1 overflow-hidden bg-white rounded-lg shadow"
         >
-          <aside class="py-6 lg:col-span-3">
-            <nav>
-              <NuxtLink
-                to="/messages"
-                class="flex items-center px-3 py-2 text-sm font-medium leading-5 text-gray-900 transition duration-150 ease-in-out border-l-4 border-transparent group hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:bg-gray-50 focus:text-gray-900"
-                aria-current="page"
-              >
-                <svg
-                  class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-teal-500 transition duration-150 ease-in-out group-hover:text-teal-500 group-focus:text-teal-600"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
-                <span class="truncate"> Ongelezen berichten </span>
-              </NuxtLink>
-
-              <NuxtLink
-                to="/messages/inbox"
-                class="flex items-center px-3 py-2 mt-1 text-sm font-medium leading-5 text-gray-900 transition duration-150 ease-in-out border-l-4 border-transparent group hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:bg-gray-50 focus:text-gray-900"
-              >
-                <svg
-                  class="flex-shrink-0 w-6 h-6 mr-3 -ml-1 text-teal-500 transition duration-150 ease-in-out group-hover:text-teal-500 group-focus:text-teal-600"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
-                  />
-                </svg>
-                <span class="truncate"> Inbox </span>
-              </NuxtLink>
-            </nav>
-          </aside>
-
-          <form
-            class="divide-y divide-gray-200 lg:col-span-9"
-            action="#"
-            method="POST"
+          <aside
+            class="flex-shrink-0 hidden border-r border-gray-200 xl:order-first xl:flex xl:flex-col w-96"
           >
-            <!-- Profile section -->
-            <div class="px-4 py-6 space-y-6 sm:p-6 lg:pb-8">
-              <div>
-                <h2 class="text-lg font-medium leading-6 text-gray-900">
-                  Berichten inbox
-                </h2>
-              </div>
-              <div class="overflow-hidden bg-white shadow sm:rounded-md">
-                <ul class="divide-y divide-gray-200">
-                  <li>
-                    <a href="#" class="block hover:bg-gray-50">
-                      <div class="flex items-center px-4 py-4 sm:px-6">
-                        <div class="flex items-center flex-1 min-w-0">
-                          <div class="flex-shrink-0">
-                            <img
-                              class="w-12 h-12 rounded-full"
-                              src="/"
-                              alt=""
-                            />
-                          </div>
+            <div class="px-6 pt-6 pb-4">
+              <h2 class="text-lg font-medium text-gray-900">Inbox</h2>
+              <form class="flex mt-6 space-x-4">
+                <div class="flex-1 min-w-0">
+                  <label for="search" class="sr-only">Search</label>
+                  <div class="relative rounded-md shadow-sm">
+                    <div class="inset-y-0 left-0 flex items-center pl-3">
+                      <input
+                        v-model="searchString"
+                        type="text"
+                        name="search"
+                        class="block w-full pl-10 border-gray-300 rounded-md focus:ring-sky-blue-800 focus:border-sky-blue-800 sm:text-sm"
+                        placeholder="Zoeken.."
+                      />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <nav class="flex-1 min-h-0 overflow-y-auto">
+              <div v-if="allUserList.length > 0">
+                <div class="relative">
+                  <ul class="relative z-0 divide-y divide-gray-200">
+                    <li
+                      v-for="message in allUserList"
+                      :id="message.id"
+                      :key="message.id"
+                      class=""
+                      @click="
+                        getUserWiseMessage(
+                          message.id,
+                          message.attributes.first_name
+                        )
+                      "
+                    >
+                      <div
+                        class="relative flex items-center px-6 py-5 space-x-3 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-pink-500"
+                      >
+                        <div class="flex-shrink-0">
+                          <img
+                            class="w-10 h-10 rounded-full"
+                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=2&amp;w=256&amp;h=256&amp;q=80"
+                            alt=""
+                          />
+                        </div>
+                        <div class="flex-1 min-w-0">
                           <div
-                            class="flex-1 min-w-0 px-4 md:grid md:grid-cols-2 md:gap-4"
+                            v-if="message.attributes.first_name"
+                            class="discussion"
+                            :class="{ message_active: active_el == message.id }"
                           >
-                            <div>
-                              <p
-                                class="text-sm font-medium truncate text-sky-blue-800"
-                              >
-                                Dennis Kraaijeveld
+                            <div class="focus:outline-none">
+                              <span
+                                class="absolute inset-0"
+                                aria-hidden="true"
+                              ></span>
+                              <p class="text-sm font-medium text-gray-900">
+                                {{ message.attributes.first_name }}
+                                {{ message.attributes.last_name }}
                               </p>
-                              <p
-                                class="flex items-center mt-2 text-sm text-gray-500"
-                              >
-                                <span class="truncate">
-                                  dfmkraaijeveld@gmail.com
-                                </span>
-                              </p>
+                              <!-- <p class="message">9 pm at the bar if possible 😳</p> -->
                             </div>
-                            <div class="hidden md:block">
-                              <div>
-                                <p class="text-sm text-gray-900">
-                                  Send 2 days ago
-                                </p>
-                                <p
-                                  class="flex items-center mt-2 text-sm text-gray-500"
-                                >
-                                  ?
-                                </p>
-                              </div>
+                            <div class="text-sm text-gray-500 truncate">
+                              {{ message.attributes.last_seen | cdate }}
                             </div>
                           </div>
                         </div>
-                        <div>></div>
                       </div>
-                    </a>
-                  </li>
-                </ul>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <Msg></Msg>
+            </nav>
+          </aside>
+
+          <section
+            class="flex flex-col flex-1 h-full min-w-0 overflow-hidden xl:order-last"
+          >
+            <div v-if="newMesage.length > 0">
+              <div class="pt-5 pb-6 bg-white shadow">
+                <div
+                  class="px-4 sm:flex sm:justify-between sm:items-baseline sm:px-6 lg:px-8"
+                >
+                  <div class="sm:w-0 sm:flex-1">
+                    <i class="icon fa fa-user-o" aria-hidden="true"></i>
+                    <h1 class="text-lg font-medium text-gray-900">
+                      {{ user_name }}
+                    </h1>
+                  </div>
+                </div>
+              </div>
+              <ul class="py-4 space-y-2 sm:px-6 sm:space-y-4 lg:px-8">
+                <li
+                  v-for="chat in newMesage"
+                  :id="chat.id"
+                  :key="chat.id"
+                  class="px-4 py-6 shadow bg-sky-blue-100 sm:rounded-lg sm:px-6"
+                >
+                  <div class="sm:flex sm:justify-between sm:items-baseline">
+                    <h3 class="text-base font-medium">
+                      <span class="text-gray-900">{{ user_name }}</span>
+                      <span class="text-gray-900">wrote</span>
+                    </h3>
+                    <p
+                      class="mt-1 text-sm text-gray-600 whitespace-nowrap sm:mt-0 sm:ml-3"
+                    >
+                      {{ chat.attributes.created_at | cdate }}
+                    </p>
+                  </div>
+                  <div class="mt-4 space-y-6 text-sm text-gray-800">
+                    <p>
+                      {{ chat.attributes.content }}
+                    </p>
+                  </div>
+                </li>
+
+                <div class="footer-chat">
+                  <div class="mt-1">
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows="4"
+                      class="block w-full px-4 py-3 border rounded-md shadow-sm text-warm-gray-900 focus:ring-teal-500 focus:border-teal-500 border-warm-gray-300"
+                    />
+                  </div>
+                </div>
+                <div class="sm:col-span-2 sm:flex sm:justify-end">
+                  <button
+                    type="submit"
+                    class="inline-flex items-center justify-center w-full px-6 py-3 mt-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-sky-blue-800 hover:bg-sky-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-blue-500 sm:w-auto"
+                  >
+                    Verzenden
+                  </button>
+                </div>
+              </ul>
             </div>
-          </form>
+            <div v-else class="my-48 text-center">
+              <h1>Welcome {{ fullName }}</h1>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -124,15 +155,59 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-/* import moment from 'moment' */
-import Msg from '~/components/berichten/Messages'
+import { mapGetters, mapActions } from 'vuex'
+import moment from 'moment'
+// import Msg from '~/components/berichten/Messages'
 
 export default {
   layout: 'app',
-  components: { Msg },
+  // components: { Msg },
+  filters: {
+    cdate(datass) {
+      if (!datass) return ''
+      return moment(datass).fromNow()
+    },
+  },
+  data() {
+    return {
+      newMesage: [],
+      active_el: 0,
+      user_name: '',
+      allUserName: this.$store.state.userList,
+      search: '',
+      searchString: '',
+    }
+  },
   computed: {
-    ...mapGetters(['isAuthenticated', 'loggedInUser']),
+    ...mapGetters([
+      'isAuthenticated',
+      'loggedInUser',
+      'allMessages',
+      'allUserList',
+    ]),
+    allUserList() {
+      let searchArray
+      searchArray = this.$store.state.userList
+      let searchString
+      searchString = this.searchString
+      if (!searchString) {
+        return searchArray
+      }
+
+      searchString = searchString.trim().toLowerCase()
+
+      searchArray = searchArray.filter((item) => {
+        if (item.attributes.first_name) {
+          if (
+            item.attributes.first_name.toLowerCase().includes(searchString) ||
+            item.attributes.last_name.toLowerCase().includes(searchString)
+          ) {
+            return item
+          }
+        }
+      })
+      return searchArray
+    },
     receivedRequest() {
       return this.$store.getters.request
     },
@@ -154,8 +229,25 @@ export default {
     },
   },
   mounted() {},
-  created() {},
-  methods: {},
+  created() {
+    this.getMessageUserList(this.loggedInUser.user.id)
+  },
+  methods: {
+    ...mapActions(['getMessageUserList', 'fetchMesages']),
+    moment() {
+      return moment()
+    },
+    async getUserWiseMessage(id, name) {
+      this.newMesage = []
+      await this.fetchMesages(id)
+      this.newMesage = this.$store.state.messages
+      this.active_el = id
+      this.user_name = name
+    },
+    /* SearchUser(search) {
+      console.log(search)
+    }, */
+  },
 }
 </script>
 
