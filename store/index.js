@@ -6,13 +6,6 @@ export const getters = {
   loggedInUser(state) {
     return state.auth.user
   },
-  request(state) {
-    const coachId = 88
-    return state.requests.filter((req) => req.coachId === coachId)
-  },
-  hasRequest(_, getters) {
-    return getters.request && getters.request.length > 0
-  },
   selectedTutor(state) {
     return state.selectedTutor
   },
@@ -41,10 +34,6 @@ export const mutations = {
       state.tutors = { ...state.tutors, ...update }
     }
   },
-  addRequest(state, payload) {
-    state.requests.push(payload)
-    this.$cookies.set('requests', state.requests)
-  },
   setSelectedTutor(state, selectedTutorId) {
     let selectedTutor
     if (typeof state.tutors.data !== 'undefined') {
@@ -62,9 +51,7 @@ export const mutations = {
   initSelectedTutor(state, initSelectedTutor) {
     state.selectedTutor = initSelectedTutor
   },
-  initRequests(state, initRequests) {
-    state.requests = initRequests
-  },
+
   setUserList(state, userList) {
     state.userList = userList
   },

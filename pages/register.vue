@@ -105,7 +105,7 @@ export default {
       maxCharacter: 350,
       dataToggle: true,
       form: {
-        type: '',
+        type: 'Tutor',
         email: 'ty@12.com',
         password: 'qwQW12!!',
         password_confirmation: 'qwQW12!!',
@@ -136,7 +136,7 @@ export default {
     registerUser() {
       const user = this.form
       this.$axios
-        .post('http://notawanker.com/signup', {
+        .post('https://notawanker.com/signup', {
           user,
         })
         .then(() => {

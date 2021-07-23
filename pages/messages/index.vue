@@ -109,7 +109,7 @@
                   <div class="sm:flex sm:justify-between sm:items-baseline">
                     <h3 class="text-base font-medium">
                       <span class="text-gray-900">{{ user_name }}</span>
-                      <span class="text-gray-900">wrote</span>
+                      <span class="text-gray-900">schreef</span>
                     </h3>
                     <p
                       class="mt-1 text-sm text-gray-600 whitespace-nowrap sm:mt-0 sm:ml-3"
@@ -217,12 +217,6 @@ export default {
       })
       return searchArray
     },
-    receivedRequest() {
-      return this.$store.getters.request
-    },
-    hasRequests() {
-      return this.$store.getters.hasRequest
-    },
     loggedInUserImage() {
       return this.loggedInUser.user.profile_image_path
         ? 'http://notawanker.com' + this.loggedInUser.user.profile_image_path
@@ -264,7 +258,7 @@ export default {
 
       const message = {
         content: this.messageForm.content,
-        messagee_id: this.messageForm.messagee_id,
+        messagee_id: null,
       }
       this.$store.dispatch('contactTutor', message)
       this.messageForm = {
