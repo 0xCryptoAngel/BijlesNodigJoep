@@ -140,7 +140,11 @@
                       <button
                         type="submit"
                         class="inline-flex items-center justify-center w-full px-6 py-3 mt-2 text-base font-medium text-white border border-transparent rounded-md shadow-sm bg-sky-blue-800 hover:bg-sky-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-blue-500 sm:w-auto"
-                        @click.prevent="submitForm"
+                        @click.prevent="
+                          submitForm(
+                            newMesage[0].relationships.messagee.data.id
+                          )
+                        "
                       >
                         Verzenden
                       </button>
@@ -236,7 +240,7 @@ export default {
     this.getMessageUserList(this.loggedInUser.user.id)
   },
   methods: {
-    ...mapActions(['getMessageUserList', 'fetchMesages']),
+    ...mapActions(['getMessageUserList', 'fetchMesages', 'contactTutor']),
     moment() {
       return moment()
     },
@@ -249,7 +253,7 @@ export default {
 
       console.log(this.newMesage)
     },
-    submitForm() {
+    submitForm(senderId) {
       this.formIsValid = true
       if (this.messageForm.content === '') {
         this.formIsValid = false
@@ -258,12 +262,31 @@ export default {
 
       const message = {
         content: this.messageForm.content,
-        messagee_id: null,
+        messagee_id: senderId,
       }
-      this.$store.dispatch('contactTutor', message)
+      // this.$store.dispatch('contactTutor', message)
+      // const messageResponse = this.contactTutor(message)
+      this.$store.dispatch('messageSend', message).then(
+        (response) => {
+          if (response.status === 200) {
+            this.getLatestMessage(senderId)
+            this.$toast.success('Message send successfully', { duration: 3000 })
+          }
+        },
+        (error) => {
+          this.$toast.error('Messages not send', { duration: 3000 })
+          console.log(error)
+        }
+      )
+      // console.log(messageResponse, 'messageResponse')
       this.messageForm = {
         content: '',
       }
+    },
+    async getLatestMessage(id) {
+      await this.fetchMesages(id)
+      this.newMesage = []
+      this.newMesage = this.$store.state.messages
     },
     /* SearchUser(search) {
       console.log(search)

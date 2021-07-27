@@ -86,7 +86,11 @@ export const actions = {
       .post('https://notawanker.com/messages/search', data)
 
       .then(({ data }) => {
-        commit('setUserList', data.included)
+        if (typeof data.included !== 'undefined') {
+          commit('setUserList', data.included)
+        } else {
+          commit('setUserList', [])
+        }
       })
       .catch((error) => {
         this.$toast.error('Messages not found', { duration: 3000 })
@@ -118,19 +122,32 @@ export const actions = {
       })
   },
   // eslint-disable-next-line camelcase
-  contactTutor({ commit }, message) {
-    this.$axios
+  async contactTutor({ commit }, message) {
+    await this.$axios
       .post('https://notawanker.com/messages', {
         message,
       })
-      .then(({ data }) =>
-        commit(
-          'addRequest',
-          data.map((item) => item)
-        )
-      )
+      .then(function (response) {
+        return response
+      })
       // eslint-disable-next-line no-console
       .catch((error) => console.log(error))
+  },
+  messageSend({ commit }, message) {
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .post('https://notawanker.com/messages', {
+          message,
+        })
+        .then(
+          (response) => {
+            resolve(response)
+          },
+          (error) => {
+            reject(error)
+          }
+        )
+    })
   },
   setSelectedTutor({ commit }, tutorId) {
     commit('setSelectedTutor', tutorId)
