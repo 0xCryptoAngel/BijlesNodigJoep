@@ -174,6 +174,25 @@
               </div>
             </div>
           </section>
+          <section aria-labelledby="messages-title">
+            <div class="bg-white shadow sm:rounded-lg sm:overflow-hidden">
+              <div class="divide-y divide-gray-200">
+                <div class="px-4 py-5 sm:px-6">
+                  <h2
+                    id="notes-title"
+                    class="text-lg font-medium text-gray-900"
+                  >
+                    map
+                  </h2>
+                </div>
+                <div class="px-4 py-6 h-96 sm:px-6">
+                  <div id="map" class="map h-80">
+                    <div id="popup"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
 
         <section aria-labelledby="calender-title">
@@ -299,16 +318,20 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import BreadcrumbsApp from '~/components/UI/BreadcrumbsApp.vue'
-
+import 'ol/ol.css'
+import { Circle, Fill, Style } from 'ol/style'
+import { Feature, Map, Overlay, View } from 'ol/index'
+import { OSM, Vector as VectorSource } from 'ol/source'
+import { Point } from 'ol/geom'
+import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer'
+import { useGeographic } from 'ol/proj'
 import MessageItem from '~/components/berichten/MessageItem'
+import BreadcrumbsApp from '~/components/UI/BreadcrumbsApp.vue'
+useGeographic()
 
 export default {
   name: 'TutorPage',
   components: { BreadcrumbsApp, MessageItem },
-  /* eslint-disable vue/require-prop-types */
-  layout: 'app',
-  middleware: 'auth',
   asyncData({ app, params, store }) {
     if (!process.client) return
     const tutors = JSON.parse(localStorage.getItem('vuex') || '{}')
@@ -401,10 +424,17 @@ export default {
         : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif' */
     },
   },
-  mounted() {
+  /* async mounted() {
+    await this.initiateMap()
+  }, */
+  /* eslint-disable vue/require-prop-types */
+  layout: 'app',
+  middleware: 'auth',
+  async mounted() {
     this.$axios
       .get('/messages')
       .then((response) => (this.allMessages = response))
+    await this.initiateMap()
   },
   created() {
     this.setSelectedId()
@@ -434,7 +464,6 @@ export default {
         content: '',
       }
     },
-
     selectTextField() {
       const element = document.getElementById('messageMe')
       element.scrollIntoView({ behavior: 'smooth' })
@@ -459,8 +488,53 @@ export default {
         })
       }
     },
+    initiateMap() {
+      const place = [72.585022, 23.033863]
+      const point = new Point(place)
+
+      const map = new Map({
+        target: 'map',
+        view: new View({
+          center: place,
+          zoom: 8,
+        }),
+        layers: [
+          new TileLayer({
+            source: new OSM(),
+          }),
+          new VectorLayer({
+            source: new VectorSource({
+              features: [new Feature(point)],
+            }),
+            style: new Style({
+              image: new Circle({
+                radius: 9,
+                fill: new Fill({ color: 'green' }),
+              }),
+            }),
+          }),
+        ],
+      })
+      console.log(map, 'map')
+      const element = document.getElementById('popup')
+      const popup = new Overlay({
+        element,
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, 0],
+      })
+      map.addOverlay(popup)
+    },
   },
 }
 </script>
 
-<style></style>
+<style scoped>
+/* #map {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  height: 500px;
+  width: 99%;
+} */
+</style>
