@@ -489,7 +489,7 @@ export default {
       }
     },
     initiateMap() {
-      const place = [72.585022, 23.033863]
+      const place = [52.371353, 5.222124]
       const point = new Point(place)
 
       const map = new Map({
