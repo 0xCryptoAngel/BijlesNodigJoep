@@ -270,11 +270,11 @@ export default {
         (response) => {
           if (response.status === 200) {
             this.getLatestMessage(senderId)
-            this.$toast.success('Message send successfully', { duration: 3000 })
+            this.$toast.success('Bericht verzonden', { duration: 3000 })
           }
         },
         (error) => {
-          this.$toast.error('Messages not send', { duration: 3000 })
+          this.$toast.error('Bericht niet verzonden', { duration: 3000 })
           console.log(error)
         }
       )

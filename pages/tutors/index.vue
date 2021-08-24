@@ -335,49 +335,18 @@
                 class="top-0 left-0 w-full h-full overflow-hidden bg-gray-900"
               >
                 <div class="top-0 z-0 w-full h-full p-0 m-0 border-0 l-0">
-                  <!-- <GmapMap
-                    ref="mapRef"
-                    :center="center"
-                    :zoom="11"
-                    map-type-id="roadmap"
-                    style="width: 100%; height: 100vh"
-                    :options="{
-                      zoomControl: true,
-                      mapTypeControl: false,
-                      scaleControl: false,
-                      streetViewControl: false,
-                      rotateControl: false,
-                      fullscreenControl: true,
-                      disableDefaultUi: false,
-                      zoomControlOptions: { position: 1 },
-                      streetViewControlOptions: { position: 5 },
-                      scrollwheel: true,
-                    }"
-                    @zoom_changed="updateZoom"
-                  >
-                    <GmapMarker
-                      v-for="(m, index) in markers"
-                      :key="index"
-                      :position="m.position"
-                      :clickable="true"
-                      :draggable="false"
-                      :icon="!m.clicked ? markerOptions : markerClicked"
-                      @click="markerInfoWindow(m, index)"
-                    />
-
-                    <gmap-info-window
-                      :options="infoOptions"
-                      :position="infoWindowPos"
-                      :opened="infoWinOpen"
-                    >
-                    </gmap-info-window>
-                  </GmapMap> -->
-
-                  <img
-                    className="absolute inset-0 h-full w-full object-cover "
-                    src="https://images.unsplash.com/photo-1585166169032-551d4ea843fa?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
-                    alt=""
-                  />
+                  <section aria-labelledby="messages-title">
+                    <div class="bg-white shadow sm:overflow-hidden">
+                      <div
+                        id="map"
+                        ref="map-root"
+                        class="w-full map"
+                        style="height: 60rem"
+                      >
+                        <div id="popup"></div>
+                      </div>
+                    </div>
+                  </section>
                 </div>
               </div>
             </div>
@@ -395,8 +364,17 @@ import { mixin as clickaway } from 'vue-clickaway'
 // import VueSimpleRangeSlider from 'vue-simple-range-slider'
 // import 'vue-simple-range-slider/dist/vueSimpleRangeSlider.css'
 
+import 'ol/ol.css'
+import { Circle, Fill, Style } from 'ol/style'
+import { Feature, Map, Overlay, View } from 'ol/index'
+import { OSM, Vector as VectorSource } from 'ol/source'
+import { Point } from 'ol/geom'
+import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer'
+import { useGeographic } from 'ol/proj'
+
 import tutorItem from '~/components/tutors/tutorItem.vue'
 import BreadcrumbsApp from '~/components/UI/BreadcrumbsApp.vue'
+useGeographic()
 
 export default {
   name: 'Zoeken',
@@ -519,10 +497,14 @@ export default {
     },
     // google: gmapApi,
   },
-  mounted() {
+  async mounted() {
     this.current_position.lat = this.center.lat
     this.current_position.lng = this.center.lng
     this.radius = 30 * 1000 // 30 km
+    this.$axios
+      .get('/messages')
+      .then((response) => (this.allMessages = response))
+    await this.initiateMap()
   },
   updated() {},
   methods: {
@@ -530,6 +512,47 @@ export default {
       const postcode = this.postcode
       await this.$store.dispatch('loadAllTutors', postcode)
     },
+
+    initiateMap() {
+      const place = [5.222124, 52.371353]
+      const point = new Point(place)
+      const placeTwo = [5.322124, 52.371353]
+      const pointTwo = new Point(placeTwo)
+
+      const map = new Map({
+        target: this.$refs['map-root'],
+        view: new View({
+          center: place,
+          zoom: 8,
+        }),
+        layers: [
+          new TileLayer({
+            source: new OSM(),
+          }),
+          new VectorLayer({
+            source: new VectorSource({
+              features: [new Feature(point), new Feature(pointTwo)],
+            }),
+            style: new Style({
+              image: new Circle({
+                radius: 9,
+                fill: new Fill({ color: 'green' }),
+              }),
+            }),
+          }),
+        ],
+      })
+      console.log(map, 'map')
+      const element = document.getElementById('popup')
+      const popup = new Overlay({
+        element,
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, 0],
+      })
+      map.addOverlay(popup)
+    },
+
     rad(x) {
       return (x * Math.PI) / 180
     },
@@ -655,8 +678,8 @@ export default {
 
     toggleInfoWindow(marker, idx) {
       const content = `
-      <h6 class="font-weight-bold" style="padding:15px;padding-bottom:7px;"> 
-        ${marker.price} 
+      <h6 class="font-weight-bold" style="padding:15px;padding-bottom:7px;">
+        ${marker.price}
       </h6>`
 
       this.infoWindowPos = marker.position
