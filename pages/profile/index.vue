@@ -107,6 +107,7 @@
             action="#"
             method="POST"
           >
+            <input type="hidden" name="id" :value="loggedInUser.user.id" />
             <!-- Profile section -->
             <div class="px-4 py-6 space-y-6 sm:p-6 lg:pb-8">
               <div>
@@ -147,12 +148,14 @@
                     <div class="rounded-md shadow-sm">
                       <textarea
                         id="about"
+                        name="biography"
+                        v-model="form.biography"
                         rows="3"
                         class="block w-full mt-1 transition duration-150 ease-in-out form-textarea sm:text-sm sm:leading-5"
                       ></textarea>
                     </div>
                     <p class="mt-2 text-sm text-gray-500">
-                      Een korte beschrijving over jezelf
+                      Een korte beschrijving obiologyf
                     </p>
                   </div>
                 </div>
@@ -174,7 +177,7 @@
                       >
                         <img
                           class="w-full h-full rounded-full"
-                          :src="image"
+                          :src="form.profile_image"
                           alt=""
                         />
                       </div>
@@ -193,6 +196,7 @@
                             id="user_photo"
                             type="file"
                             class="absolute w-full h-full opacity-0 cursor-pointer"
+                            @change="selectImage"
                           />
                         </div>
                       </div>
@@ -204,7 +208,7 @@
                   >
                     <img
                       class="relative w-40 h-40 rounded-full"
-                      :src="image"
+                      :src="form.profile_image"
                       alt=""
                     />
                     <label
@@ -215,6 +219,7 @@
                       <input
                         type="file"
                         class="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        @change="selectImage"
                       />
                     </label>
                   </div>
@@ -230,7 +235,9 @@
                   >
                   <input
                     id="first_name"
-                    :placeholder="loggedInUser.user.first_name"
+                    name="first_name"
+                    v-model="form.first_name"
+                    placeholder="first_name"
                     class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                   />
                 </div>
@@ -243,21 +250,26 @@
                   >
                   <input
                     id="last_name"
-                    :placeholder="loggedInUser.user.last_name"
+                    name="last_name"
+                    placeholder="last_name"
+                    v-model="form.last_name"
                     class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                   />
                 </div>
                 <div class="col-span-12 sm:col-span-6">
                   <label
-                    for="city"
+                    for="sex"
                     class="block text-sm font-medium leading-5 text-gray-700"
-                    >Woonplaats</label
+                    >Gender</label
                   >
-                  <input
-                    id="city"
-                    placeholder="Kerk-Avezaath"
+                  <select
+                    id="sex"
+                    v-model="form.sex"
                     class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
-                  />
+                  >
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
                 </div>
                 <div class="col-span-12 sm:col-span-6">
                   <label
@@ -267,6 +279,8 @@
                   >
                   <input
                     id="age"
+                    name="age"
+                    v-model="form.age"
                     placeholder="29"
                     class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                   />
@@ -333,6 +347,7 @@
                   <button
                     type="submit"
                     class="inline-flex justify-center px-4 py-2 text-sm font-medium leading-5 text-white transition duration-150 ease-in-out border border-transparent rounded-md bg-light-blue-700 hover:bg-light-blue-600 focus:outline-none focus:border-light-blue-800 focus:ring-blue active:bg-light-blue-800"
+                    @click.prevent="editUser"
                   >
                     Save
                   </button>
@@ -352,18 +367,88 @@ import { mapGetters } from 'vuex'
 export default {
   middleware: 'auth',
   layout: 'app',
-  date() {
-    return {}
+
+  data() {
+    return {
+      form: {
+        id: 6,
+        first_name: 'first',
+        last_name: 'last',
+        biography: 'bio',
+        age: 'age',
+        sex: 'male',
+        profile_image: null,
+        image_changed: false,
+      },
+    }
   },
   computed: {
     ...mapGetters(['isAuthenticated', 'loggedInUser']),
-    image() {
-      return this.loggedInUser.user.profile_image_path
-        ? 'http://notawanker.com' + this.loggedInUser.user.profile_image_path
-        : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
+  },
+  mounted() {
+    this.form.id = this.loggedInUser.user.id
+    this.form.first_name = this.loggedInUser.user.first_name
+    this.form.last_name = this.loggedInUser.user.last_name
+    this.form.biography = this.loggedInUser.user.biography
+    this.form.age = this.loggedInUser.user.age
+    this.form.sex = this.loggedInUser.user.sex
+      ? this.loggedInUser.user.sex
+      : 'male'
+    const imageUrl = this.loggedInUser.user.profile_image_path
+      ? this.loggedInUser.user.profile_image_path
+      : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
+    this.form.profile_image = imageUrl.includes('http')
+      ? imageUrl
+      : this.$store.state.baseUrl + imageUrl
+  },
+
+  methods: {
+    isActive() {
+      console.log('ttt')
+    },
+
+    selectImage(e) {
+      const selectedImage = e.target.files[0] // get image
+      if (selectedImage instanceof Blob) {
+        this.createBase64Image(selectedImage)
+        this.form.image_changed = true
+      } else {
+        console.log('Choose a image')
+      }
+    },
+
+    createBase64Image(fileObject) {
+      const reader = new FileReader()
+
+      reader.onload = (e) => {
+        this.form.profile_image = e.target.result
+      }
+      reader.onerror = (err) => {
+        alert(err)
+      }
+      if (fileObject) {
+        reader.readAsDataURL(fileObject)
+      }
+    },
+
+    editUser({ commit }) {
+      const user = this.form
+      this.$axios
+        .post(this.$store.state.baseUrl + '/users/edit', {
+          user,
+        })
+        .then((result) => {
+          const updatedUser = result.data[0]
+          // console.log('user', user)
+          // console.log('updatedUser', updatedUser)
+          this.$store.dispatch('setUser', updatedUser)
+          this.$toast.success('Successfully Updated', {
+            position: 'top-right',
+            duration: 3000,
+          })
+        })
     },
   },
-  methods: {},
 }
 </script>
 

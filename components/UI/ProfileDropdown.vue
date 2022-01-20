@@ -56,9 +56,13 @@ export default {
   computed: {
     ...mapGetters(['isAuthenticated', 'loggedInUser']),
     image() {
-      return this.loggedInUser.user.profile_image_path
-        ? 'http://notawanker.com' + this.loggedInUser.user.profile_image_path
+      const imageUrl = this.loggedInUser.user.profile_image_path
+        ? this.loggedInUser.user.profile_image_path
         : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
+
+      return imageUrl.includes('http')
+        ? imageUrl
+        : this.$store.state.baseUrl + imageUrl
     },
   },
   methods: {

@@ -1,5 +1,7 @@
 const path = require('path')
 
+const backendURL = 'http://3.231.214.22:3000'
+
 export default {
   target: 'static',
   // Global page headers (https://go.nuxtjs.dev/config-head)
@@ -98,7 +100,7 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseURL: 'https://notawanker.com',
+    baseURL: backendURL,
     /* common: {
       Accept: 'application/json',
     }, */
@@ -121,13 +123,13 @@ export default {
       local: {
         endpoints: {
           login: {
-            url: 'https://notawanker.com/login',
+            url: backendURL + '/login',
             method: 'post',
             propertyName: false,
           },
-          logout: { url: 'https://notawanker.com/logout', method: 'delete' },
+          logout: { url: backendURL + '/logout', method: 'delete' },
           user: {
-            url: 'https://notawanker.com/users/current',
+            url: backendURL + '/users/current',
             method: 'get',
             propertyName: false,
             headers: { Accept: 'application/json, text/plain' },
