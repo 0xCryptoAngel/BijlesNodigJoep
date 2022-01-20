@@ -141,6 +141,7 @@
                   <input
                     id="current_password"
                     type="password"
+                    v-model="form.oldpass"
                     autocomplete="chrome-off"
                     class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                   />
@@ -168,6 +169,7 @@
                   <input
                     id="new_password"
                     type="password"
+                    v-model="form.newpass"
                     autocomplete="off"
                     class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                   />
@@ -181,6 +183,7 @@
                   <input
                     id="confirm_new_password"
                     type="password"
+                    v-model="form.newpassconf"
                     autocomplete="off"
                     class="block w-full px-3 py-2 mt-1 transition duration-150 ease-in-out border border-gray-300 rounded-md shadow-sm form-input focus:outline-none focus:ring-blue focus:border-blue-300 sm:text-sm sm:leading-5"
                   />
@@ -222,15 +225,15 @@ export default {
     return {
       currentState: false,
       switch1: true,
+      form: {
+        oldpass: '',
+        newpass: '',
+        newpassconf: '',
+      },
     }
   },
   computed: {
     ...mapGetters(['isAuthenticated', 'loggedInUser']),
-    image() {
-      return this.loggedInUser.user.profile_image_path
-        ? 'http://notawanker.com' + this.loggedInUser.user.profile_image_path
-        : 'https://clinicforspecialchildren.org/wp-content/uploads/2016/08/avatar-placeholder-480x480.gif'
-    },
   },
   methods: {
     isActive() {

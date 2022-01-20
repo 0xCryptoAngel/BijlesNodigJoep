@@ -15,6 +15,9 @@ export const getters = {
   allUserList(state) {
     return state.userList
   },
+  baseUrl(state) {
+    return state.baseUrl
+  },
 }
 
 export const state = () => ({
@@ -23,6 +26,7 @@ export const state = () => ({
   selectedTutor: {},
   messages: [],
   userList: [],
+  baseUrl: 'http://3.231.214.22:3000',
 })
 
 export const mutations = {
@@ -51,12 +55,15 @@ export const mutations = {
   initSelectedTutor(state, initSelectedTutor) {
     state.selectedTutor = initSelectedTutor
   },
-
   setUserList(state, userList) {
     state.userList = userList
   },
   setMessages(state, messages) {
     state.messages = messages
+  },
+  setUser(state, user) {
+    state.auth.user.user = user
+    this.$cookies.set('auth', state.auth)
   },
 }
 
@@ -151,6 +158,9 @@ export const actions = {
   },
   setSelectedTutor({ commit }, tutorId) {
     commit('setSelectedTutor', tutorId)
+  },
+  setUser({ commit }, user) {
+    commit('setUser', user)
   },
   nuxtServerInit({ commit, dispatch }, { req }) {
     // Parse cookies with cookie-universal-nuxt
